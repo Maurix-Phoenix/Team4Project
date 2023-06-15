@@ -2,8 +2,9 @@
 DBGA LV2 - Team 4 Project
 
 [ADD TEAM NAME HERE]
+ 
 
-Project name: [ADD PROJECT NAME HERE]
+[ADD PROJECT NAME HERE]
 
 Description:
 
@@ -13,6 +14,17 @@ ___
 
 Credits:
 
-Maurizio Fischetti - [ADD ROLE HERE]
+Designers:
+[NAME] - [ADD ROLE or Tasks]
+[NAME] - [ADD ROLE or Tasks]
+[NAME] - [ADD ROLE or Tasks]
+[NAME] - [ADD ROLE or Tasks]
 
-[NAME] - [ADD ROLE]
+Programmers:
+Maurizio Fischetti - [ADD ROLE or Tasks]
+[NAME] - [ADD ROLE or Tasks]
+[NAME] - [ADD ROLE or Tasks]
+[NAME] - [ADD ROLE or Tasks]
+
+Eventual Third Parties credits:
+[Assets] [Name] [eventual Link]
