@@ -15,10 +15,10 @@ ___
 Credits:
 
 * Designers:
-* * [NAME] [TASKS]
+* * [NAME] [TASKS] - [EVENTUAL LINKS]
 * Programmers:
 * * Maurizio Fischetti - [TASKS] - Github: https://github.com/Maurix-Phoenix
-* * [NAME] [TASKS]
+* * [NAME] [TASKS] -  [EVENTUAL LINKS]
 
 Eventual Third Parties credits:
 
