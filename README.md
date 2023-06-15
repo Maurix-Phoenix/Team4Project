@@ -14,26 +14,11 @@ ___
 
 Credits:
 
-Designers:
-
-[NAME] - [ADD ROLE or Tasks]
-
-[NAME] - [ADD ROLE or Tasks]
-
-[NAME] - [ADD ROLE or Tasks]
-
-[NAME] - [ADD ROLE or Tasks]
-
-Programmers:
-
-Maurizio Fischetti - [ADD ROLE or Tasks]
-
-[NAME] - [ADD ROLE or Tasks]
-
-[NAME] - [ADD ROLE or Tasks]
-
-[NAME] - [ADD ROLE or Tasks]
-
+* Designers:
+* * [NAME] [TASKS]
+* Programmers:
+* * Maurizio Fischetti - [TASKS]
+* * [NAME] [TASKS]
 
 Eventual Third Parties credits:
 
