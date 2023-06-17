@@ -17,6 +17,7 @@ Credits:
 * Designers:
   * Alessandro Giacomini - [TASKS] - GitHub: https://github.com/Chaiko113
   * Stefano Tumminello - [TASKS] - GitHub: https://github.com/StefanoTumminello
+  * Giovanni Lecce - [TASKS] - GitHub: https://github.com/GiovaLc
   * [NAME] [TASKS] - [EVENTUAL LINKS]
 * Programmers:
   * Maurizio Fischetti - [TASKS] - Github: https://github.com/Maurix-Phoenix
