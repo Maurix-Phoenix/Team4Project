@@ -1,8 +1,5 @@
 //DataManager.cs
 //by MAURIZIO FISCHETTI
-
-using System;
-using System.ComponentModel;
 using System.IO;
 using System.Text;
 using UnityEngine;
@@ -42,6 +39,7 @@ public class DataManager : MonoBehaviour
         }
         else
         {
+            Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, _FileFolder));
             Save(GameData);
         }
     }
