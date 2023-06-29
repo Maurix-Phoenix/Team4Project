@@ -4,11 +4,12 @@ DBGA LV2 - Team 4 Project
 ## The Drowned Team
  Presents:
 
-[ADD PROJECT NAME HERE]
+# CURSES!
 
 Description:
 
-[ADD DESCRIPTION HERE]
+Curses! is a 3D horizontal scrolling hyper casual game in which the player is in charge of a ship in a piratical world, and has to travel the seas facing battles against other ships, kill sea monsters and destroy defensive walls in order to reach the ending beach.
+The game is structured in different levels, and the game has a ranking system that evaluates the completion of every level.
 
 ___
 
