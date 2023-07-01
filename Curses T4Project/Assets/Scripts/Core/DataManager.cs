@@ -10,6 +10,10 @@ using static T4P;
 /// </summary>
 public class DataManager : MonoBehaviour
 {
+
+    [SerializeField] private bool _IsEnabled = true;
+    public bool IsEnabled { get { return _IsEnabled; } }
+
     [SerializeField]private string _FileFolder = "Data";
     [SerializeField]private string _FileName = "SaveFile.TDSAVE";
     private string _FullPath = "";
@@ -26,21 +30,24 @@ public class DataManager : MonoBehaviour
 
     private void Initialize()
     {
-        //initialize blank datas
-        GameData = new GameData();
-
-        //generic patch of the system in use (windows, linux, iOs, Android etc...) + folder + filename
-        _FullPath = Path.Combine(Application.persistentDataPath,_FileFolder, _FileName);
-
-        //check if the file exists, if not create a new one, if yes load it.
-        if (File.Exists(_FullPath))
+        if (_IsEnabled)
         {
-            GameData = Load();
-        }
-        else
-        {
-            Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, _FileFolder));
-            Save(GameData);
+            //initialize blank datas
+            GameData = new GameData();
+
+            //generic patch of the system in use (windows, linux, iOs, Android etc...) + folder + filename
+            _FullPath = Path.Combine(Application.persistentDataPath, _FileFolder, _FileName);
+
+            //check if the file exists, if not create a new one, if yes load it.
+            if (File.Exists(_FullPath))
+            {
+                GameData = Load();
+            }
+            else
+            {
+                Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, _FileFolder));
+                Save(GameData);
+            }
         }
     }
 
@@ -51,26 +58,28 @@ public class DataManager : MonoBehaviour
     /// </summary>
     public void Save(GameData gd)
     {
-        T4Debug.Log("[Data Manager] Saving...");
-        T4Debug.Log($"[Data Manager] Saving Path: {_FullPath}");
-        string dataString = JsonUtility.ToJson(gd,true);
-
-        if(_CryptData)
+        if (_IsEnabled)
         {
-           dataString = DeEncrypt(dataString);
+            T4Debug.Log("[Data Manager] Saving...");
+            T4Debug.Log($"[Data Manager] Saving Path: {_FullPath}");
+            string dataString = JsonUtility.ToJson(gd, true);
+
+            if (_CryptData)
+            {
+                dataString = DeEncrypt(dataString);
+            }
+
+            FileStream fs = new FileStream(_FullPath, FileMode.Create, FileAccess.Write);
+
+            if (fs.CanWrite)
+            {
+                byte[] byteString = Encoding.Default.GetBytes(dataString);
+                fs.Write(byteString);
+            }
+
+            fs.Flush(); //clears the buffer (clear the memory used for writing the file)
+            fs.Close();
         }
-
-        FileStream fs = new FileStream(_FullPath, FileMode.Create, FileAccess.Write);
-
-        if(fs.CanWrite)
-        {
-            byte[] byteString = Encoding.Default.GetBytes(dataString);
-            fs.Write(byteString);
-        }
-
-        fs.Flush();
-        fs.Close();
-
     }
 
     /// <summary>
@@ -78,33 +87,37 @@ public class DataManager : MonoBehaviour
     /// </summary>
     public GameData Load()
     {
-        if (File.Exists(_FullPath))
+        if (_IsEnabled)
         {
-            T4Debug.Log("[Data Manager] Loading...");
-            T4Debug.Log($"[Data Manager] Loading Path: {_FullPath}");
-            string dataString = "";
-            GameData loadedData;
-
-            //read from file
-            FileStream fs = new FileStream(_FullPath, FileMode.Open, FileAccess.Read);
-            if (fs.CanRead)
+            if (File.Exists(_FullPath))
             {
-                byte[] byteString = new byte[fs.Length];
-                int readedBytes = fs.Read(byteString);
-                dataString = Encoding.Default.GetString(byteString, 0, readedBytes);
+                T4Debug.Log("[Data Manager] Loading...");
+                T4Debug.Log($"[Data Manager] Loading Path: {_FullPath}");
+                string dataString = "";
+                GameData loadedData;
+
+                //read from file
+                FileStream fs = new FileStream(_FullPath, FileMode.Open, FileAccess.Read);
+                if (fs.CanRead)
+                {
+                    byte[] byteString = new byte[fs.Length];
+                    int readedBytes = fs.Read(byteString);
+                    dataString = Encoding.Default.GetString(byteString, 0, readedBytes);
+                }
+                else { T4Debug.Log($"[DataManager] cannot read '{_FullPath}'"); }
+                fs.Close();
+
+                //decrypt after read from file
+                if (_CryptData)
+                {
+                    dataString = DeEncrypt(dataString);
+                }
+
+                loadedData = JsonUtility.FromJson<GameData>(dataString);
+
+                return loadedData;
             }
-            else { T4Debug.Log($"[DataManager] cannot read '{_FullPath}'"); }
-            fs.Close();
-
-            //decrypt after read from file
-            if (_CryptData)
-            {
-                dataString = DeEncrypt(dataString);
-            }
-
-            loadedData = JsonUtility.FromJson<GameData>(dataString);
-
-            return loadedData;
+            return null;
         }
         return null;
     }

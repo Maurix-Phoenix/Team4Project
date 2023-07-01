@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //Singleton
-        if(_instance != null && _instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
         }
@@ -54,9 +54,9 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case States.None: { T4Debug.Log("Can't Set the game state to 'None'", T4Debug.LogType.Warning); return; }
-            case States.Initializing: { T4Debug.Log("Can't Set the game state to 'Initialize'", T4Debug.LogType.Warning); return;}
+            case States.Initializing: { T4Debug.Log("Can't Set the game state to 'Initialize'", T4Debug.LogType.Warning); return; }
             case States.Starting: { StateStarting(); return; }
-            case States.Playing: { StatePlaying();  return; }
+            case States.Playing: { StatePlaying(); return; }
             case States.Paused: { StatePause(); return; }
             case States.Quitting: { StateQuitting(); return; }
         }
@@ -80,7 +80,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SetState(States.Starting);
-        
     }
 
     #region States Methods
@@ -110,15 +109,16 @@ public class GameManager : MonoBehaviour
         SaveGame();
 
         //raise quit event
-        EventManager.RaiseOnGameQuit(); 
+        EventManager.RaiseOnGameQuit();
 
         //close the Application
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#endif
         Application.Quit();
     }
     #endregion
+
 
     #region Save & Load Game
     private void SaveGame()
