@@ -1,6 +1,6 @@
-using System.Collections;
 //LevelEntity.cs
 //by MAURIZIO FISCHETTI
+
 using UnityEngine;
 
 public class LevelEntity : MonoBehaviour

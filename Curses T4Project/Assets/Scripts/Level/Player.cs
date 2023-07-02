@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+//TMP -MF
+
 using UnityEngine;
 using static T4P;
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     private Level CurrentLevel;
 
@@ -20,15 +20,15 @@ public class Player : MonoBehaviour
 
     }
 
-    public void TakeDamage(GameObject damager)
+    public void TakeDamage(int dmg, GameObject damager)
     {
-        _Health -= 1;
+        _Health -= dmg;
 
         //Damage Effect here
 
         T4Debug.Log($"Player damaged by {damager.name}");
 
-        if( _Health <= 0 )
+        if (_Health <= 0)
         {
             //GameOver here
         }

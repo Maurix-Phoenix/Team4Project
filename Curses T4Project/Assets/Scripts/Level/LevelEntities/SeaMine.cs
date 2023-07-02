@@ -6,21 +6,26 @@ using UnityEngine;
 using static T4P;
 
 
-public class SeaMine : LevelEntity
+public class SeaMine : LevelEntity, IDamageable
 {
+    [Header("Sea Mine")]
+    [SerializeField] private int _Health = 1;
+
     //Custom object vars
+    [Header("Floating")]
     [SerializeField] private float _FloatingSpeed = 1f;
     [SerializeField] private float _Amplitude = 0.5f;
 
     [Header("Explosion Effect")]
     public GameObject ExplosionPrefabVFX;
+    [SerializeField] private bool _PlayerOnlyTrigger = false;
+    [SerializeField] private int _ExplosionDamage = 1;
     [SerializeField] private float _ExplosionRange = 2.0f;
     [SerializeField] private float _WaitToExplode = 0.2f;
     [SerializeField] private bool _ExplodeAtStart = false;
 
     private Vector3 _StartingPos;
-
-    Rigidbody RB;
+    private Rigidbody RB;
 
     private void Awake()
     {
@@ -41,6 +46,7 @@ public class SeaMine : LevelEntity
     // Update is called once per frame
     void Update()
     {
+        //deactivate if reached the deactivation coords
         if (RB.position.x < T4Project.XVisualLimit.x)
         {
             gameObject.SetActive(false);
@@ -58,17 +64,26 @@ public class SeaMine : LevelEntity
         //floating movement
         float newY = _StartingPos.y + _Amplitude * Mathf.Sin(_FloatingSpeed * Time.time);
 
+        //total movement
         RB.MovePosition(RB.position + new Vector3(-1, newY, 0) * speed * Time.fixedDeltaTime);
     }
 
     private void OnCollisionEnter(Collision other)
     {
+        //explode on player contact
         if(other.gameObject.GetComponent<Player>() != null)
         {
-            other.gameObject.GetComponent<Player>().TakeDamage(this.gameObject);
+            StartCoroutine(Explode(_WaitToExplode));
+        }
+        else
+        {
+            //if the player is not the only trigger explode.
+            if (!_PlayerOnlyTrigger)
+            {
+                StartCoroutine(Explode(_WaitToExplode));
+            }
         }
 
-       StartCoroutine(Explode(_WaitToExplode));
     }
 
     /// <summary>
@@ -99,7 +114,7 @@ public class SeaMine : LevelEntity
             if(coll.gameObject.GetComponent<Player>())
             {
                 Player player = coll.gameObject.GetComponent<Player>();
-                player.TakeDamage(this.gameObject);
+                player.TakeDamage(_ExplosionDamage,this.gameObject);
             }
         }
         yield return new WaitForEndOfFrame();
@@ -109,5 +124,23 @@ public class SeaMine : LevelEntity
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, _ExplosionRange);
+    }
+
+    public void TakeDamage(int dmg, GameObject damager)
+    {
+        float timeToExplode = _WaitToExplode;
+
+
+        //If the player shoot the mine, the explosion will be in 0t
+        //the following should be the Player CannonBall
+        //if(damager.GetComponent<Player>() != null) 
+        //{
+        //  timeToExplode = 0;
+        //}
+
+        if(_Health <= 0)
+        {
+            StartCoroutine(Explode(timeToExplode));
+        }
     }
 }
