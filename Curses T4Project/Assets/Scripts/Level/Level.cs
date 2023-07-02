@@ -1,43 +1,59 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static T4P;
 
 public class Level : MonoBehaviour
 {
+    public static Level ThisLevel;
+    public GameObject Content;
+
+    public List<LevelEntity> LevelObjects;
 
     public float LevelSpeed = 1.0f;
-    public int StartingBallCannons = 5;
-    public int MaxPoints;
 
-    public int ObtainedPoints;
+    public int StartingCannonBalls = 5;
 
-    public List<GameObject> LevelEntities = new List<GameObject>();
-    public List<Vector3> EntitiesPosition = new List<Vector3>();
+
+    private void Awake()
+    {
+        ThisLevel = this;
+        //TMP
+        if (Content == null)
+        {
+            Content = gameObject.transform.Find("Content").gameObject;
+            foreach (var levelEntity in Content.GetComponentsInChildren<LevelEntity>())
+            {
+                LevelObjects.Add(levelEntity);
+            }
+            if (Content == null)
+            {
+                T4Debug.Log("[Level]: 'Content' child object missing!", T4Debug.LogType.Warning);
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        if(LevelObjects.Count > 0)
+        {
+            StartLevel();
+        }
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void Loadlevel()
-    {
-
     }
 
     private void PopulateLevel()
     {
-        
+        //this will populate the level taking a Level file (need level editor)
     }
 
-    private void ExecuteLevel()
+    public void StartLevel()
     {
+        //raise LevelStarted event
+    }
 
+    public void EndLevel()
+    {
+        //Raise LevelEnded event
     }
 }

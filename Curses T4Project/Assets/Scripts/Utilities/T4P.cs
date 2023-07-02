@@ -34,4 +34,15 @@ public static class T4P
             #endif
         }
     }
+
+    public static class T4Project
+    {
+        public static Vector2 XVisualLimit = new Vector2(-15f, 15f);
+        public enum PickupsType
+        {
+            None = -1,
+            CannonBall,
+            Doubloon,
+        }
+    }
 }
