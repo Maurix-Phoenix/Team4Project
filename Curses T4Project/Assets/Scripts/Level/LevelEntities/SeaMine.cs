@@ -11,11 +11,6 @@ public class SeaMine : LevelEntity, IDamageable
     [Header("Sea Mine")]
     [SerializeField] private int _Health = 1;
 
-    //Custom object vars
-    [Header("Floating")]
-    [SerializeField] private float _FloatingSpeed = 1f;
-    [SerializeField] private float _Amplitude = 0.5f;
-
     [Header("Explosion Effect")]
     public GameObject ExplosionPrefabVFX;
     [SerializeField] private bool _PlayerOnlyTrigger = false;
@@ -24,48 +19,15 @@ public class SeaMine : LevelEntity, IDamageable
     [SerializeField] private float _WaitToExplode = 0.2f;
     [SerializeField] private bool _ExplodeAtStart = false;
 
-    private Vector3 _StartingPos;
-    private Rigidbody RB;
-
-    private void Awake()
-    {
-        RB = GetComponent<Rigidbody>();
-    }
-
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        _StartingPos = transform.position;
+
         if(_ExplodeAtStart )
         {
             StartCoroutine(Explode(_WaitToExplode));
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //deactivate if reached the deactivation coords
-        if (RB.position.x < T4Project.XVisualLimit.x)
-        {
-            gameObject.SetActive(false);
-        }
-        
-    }
-
-    private void FixedUpdate()
-    {
-        MoveWithLevel(Level.ThisLevel.LevelSpeed);
-    }
-
-    public void MoveWithLevel(float speed)
-    {
-        //floating movement
-        float newY = _StartingPos.y + _Amplitude * Mathf.Sin(_FloatingSpeed * Time.time);
-
-        //total movement
-        RB.MovePosition(RB.position + new Vector3(-1, newY, 0) * speed * Time.fixedDeltaTime);
     }
 
     private void OnCollisionEnter(Collision other)

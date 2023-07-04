@@ -45,6 +45,11 @@ public class Level : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+
+    }
+
     private void PopulateLevel()
     {
         //this will populate the level taking a Level file (need level editor)

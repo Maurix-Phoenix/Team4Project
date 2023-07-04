@@ -7,7 +7,14 @@ public class Player : MonoBehaviour, IDamageable
     private Level CurrentLevel;
 
     private int _Health = 3;
+    private Vector3 _Direction = Vector3.zero;
+    private float _MoveSpeed = 3.0f;
+    private Rigidbody RB;
 
+    private void Awake()
+    {
+        RB = GetComponent<Rigidbody>();
+    }
 
     void Start()
     {
@@ -17,7 +24,36 @@ public class Player : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+        GetInput();
+       
+    }
 
+    private void FixedUpdate()
+    {
+        RB.MovePosition(transform.position + _Direction * _MoveSpeed * Time.fixedDeltaTime);
+        _Direction = Vector3.zero;
+    }
+
+    private void GetInput()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            _Direction.y = 1;
+        }
+        if(Input.GetKey(KeyCode.S))
+        {
+            _Direction.y = -1;
+        }
+
+        //TMP
+        if(Input.GetKey(KeyCode.D))
+        {
+            _Direction.x = 1;
+        }
+        if(Input.GetKey(KeyCode.A)) 
+        {
+            _Direction.x = -1;
+        }
     }
 
     public void TakeDamage(int dmg, GameObject damager)
