@@ -4,6 +4,7 @@ using UnityEngine;
 using static T4P;
 public class Player : MonoBehaviour, IDamageable
 {
+    public static Player Instance;
     private Level CurrentLevel;
 
     private int _Health = 3;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Awake()
     {
+        Instance = this;
         RB = GetComponent<Rigidbody>();
     }
 

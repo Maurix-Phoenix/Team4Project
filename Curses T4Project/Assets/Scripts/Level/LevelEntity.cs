@@ -3,7 +3,9 @@
 
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LevelEntity : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class LevelEntity : MonoBehaviour
     [SerializeField] public float FloatingAmplitude = 0.3f;
     [SerializeField] public float FloatingFrequency = 1.0f;
     [SerializeField] public float MoveSpeed;
+    [SerializeField] public bool MoveToPlayer = false;
+    private Vector3 Direction;
 
     protected virtual void Start()
     {
@@ -27,9 +31,10 @@ public class LevelEntity : MonoBehaviour
         MoveSpeed = Level.ThisLevel.LevelSpeed;
 
         RB = gameObject.GetComponent<Rigidbody>();
+        Direction = Vector3.zero;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if(RB == null)
         {
@@ -52,24 +57,30 @@ public class LevelEntity : MonoBehaviour
 
     private void Move()
     {
-        Vector3 TotalMovement = Vector3.zero;
-        TotalMovement.x = -1 * MoveSpeed;
-
-        if (Floating)
+        Direction.x = -1;
+        if (!MoveToPlayer)
         {
-            TotalMovement.y = Position.y + FloatingAmplitude * Mathf.Sin(FloatingFrequency * Time.time);
+            if (Floating)
+            {
+                Direction.y = Position.y + FloatingAmplitude * Mathf.Sin(FloatingFrequency * Time.time);
+            }
+        }
+        else
+        {
+            Direction.x = Player.Instance.transform.position.x - transform.position.x;
+            Direction.y = Player.Instance.transform.position.y - transform.position.y;
         }
 
         //move with physics
         if(RB != null)
         {
-            RB.MovePosition(RB.position + TotalMovement * Time.fixedDeltaTime);
+            RB.MovePosition(RB.position + Direction.normalized * MoveSpeed * Time.fixedDeltaTime);
         }
 
         //move without physics
         if(RB == null)
         {
-            transform.position += TotalMovement * Time.deltaTime;
+            transform.position += Direction.normalized * MoveSpeed * Time.deltaTime;
         }
     }
 }

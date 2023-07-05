@@ -28,8 +28,9 @@ public class SeaMonster : LevelEntity, IDamageable
         }
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         //if near x = 0 (playerpos) gets the aggro
 
         RaycastHit hit = new RaycastHit();
@@ -45,7 +46,7 @@ public class SeaMonster : LevelEntity, IDamageable
         //if in aggro multiply the speed
         if(_Aggroed)
         {
-            MoveSpeed = Level.ThisLevel.LevelSpeed * _AggroSpeedMultiplier;
+            MoveSpeed = Level.ThisLevel.LevelSpeed * _AggroSpeedMultiplier;   
         }
     }
 

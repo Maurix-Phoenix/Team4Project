@@ -10,13 +10,7 @@ public class Pickup : LevelEntity
     [SerializeField] private T4Project.PickupsType _PickupType; //TODO
     [SerializeField] private int _Value = 1;
     [SerializeField] private float _AttractionDistance = 3;
-    [SerializeField] private float _AttractionSpeed = 5.0f;
-
-    [Header("Floating")]
-    [SerializeField] private float _FloatingSpeed = 1f;
-    [SerializeField] private float _Amplitude = 0.2f;
-
-    private Rigidbody RB;
+    [SerializeField] private float _AttractionSpeed = 10.0f;
 
 
     private void Awake()
@@ -32,39 +26,32 @@ public class Pickup : LevelEntity
             //if pt is not null it will pass its values on the private current instance ones.
             _Value = PT.Value;
             _AttractionDistance = PT.AttractionDistance;
+            _PickupType = PT.Type;
         }
     }
 
-    private void FixedUpdate()
+    protected override void Update()
     {
-        Move(Level.ThisLevel.LevelSpeed);
+
+        base.Update();
+        if (!MoveToPlayer && Vector3.Distance(Player.Instance.transform.position, transform.position) < _AttractionDistance)
+        {
+            MoveToPlayer = true;
+            MoveSpeed = _AttractionSpeed;
+        }
+
     }
 
-    public void Move(float speed)
-    {
-        //floating movement
-        float newY = transform.position.y + _Amplitude * Mathf.Sin(_FloatingSpeed * Time.time);
-
-        //total movement
-        RB.MovePosition(RB.position + new Vector3(-1, newY, 0) * speed * Time.fixedDeltaTime);
-
-        //TODO: ignores the level movement if the player is inside the area of attraction
-        MoveToPlayer();
-    }
-
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.GetComponent<Player>() != null)
         {
-            //add resources (to player or level?)
             gameObject.SetActive(false);
+            T4Debug.Log($"{gameObject.name} Collected.");
         }
     }
 
-    public void MoveToPlayer()
-    {
-        //TODO
-    }
+
 
     private void OnDrawGizmos()
     {

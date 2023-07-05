@@ -43,6 +43,7 @@ public static class T4P
             None = -1,
             CannonBall,
             Doubloon,
+            ALL = 2,
         }
     }
 }
