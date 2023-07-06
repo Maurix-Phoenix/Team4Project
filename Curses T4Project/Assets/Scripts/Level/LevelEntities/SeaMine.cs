@@ -24,26 +24,26 @@ public class SeaMine : LevelEntity, IDamageable
     {
         base.Start();
 
-        if(_ExplodeAtStart )
+        if (_ExplodeAtStart)
         {
             StartCoroutine(Explode(_WaitToExplode));
         }
+        
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        //explode on player contact
-        if(other.gameObject.GetComponent<Player>() != null)
+
+        if(_PlayerOnlyTrigger)
         {
-            StartCoroutine(Explode(_WaitToExplode));
+            if(other.gameObject.GetComponent<Player>()!= null)
+            {
+                TakeDamage(1, other.gameObject);
+            }
         }
         else
         {
-            //if the player is not the only trigger explode.
-            if (!_PlayerOnlyTrigger)
-            {
-                StartCoroutine(Explode(_WaitToExplode));
-            }
+            TakeDamage(1, other.gameObject );
         }
 
     }
@@ -55,31 +55,25 @@ public class SeaMine : LevelEntity, IDamageable
     /// <returns></returns>
     public IEnumerator Explode(float t)
     {
+
         yield return new WaitForSeconds(t);
 
         gameObject.SetActive(false);
 
         //TODO: need to set the explosion particle system with the range of the explosion.
-        Instantiate(ExplosionPrefabVFX, transform.position, Quaternion.identity);
+        Instantiate(ExplosionPrefabVFX, transform.position, Quaternion.identity, Level.ThisLevel.Content.transform);
 
         Collider[] others = Physics.OverlapSphere(transform.position, _ExplosionRange);
 
-        foreach(Collider coll in others)
+        foreach (Collider coll in others)
         {
-
-            if(coll.gameObject.GetComponent<SeaMine>() != null)
+            if (coll.TryGetComponent(out IDamageable damageable))
             {
-                SeaMine sm = coll.gameObject.GetComponent<SeaMine>();
-                sm.StartCoroutine(sm.Explode(sm._WaitToExplode));
-            }
-
-            if(coll.gameObject.GetComponent<Player>())
-            {
-                Player player = coll.gameObject.GetComponent<Player>();
-                player.TakeDamage(_ExplosionDamage,this.gameObject);
+                damageable.TakeDamage(_ExplosionDamage, this.gameObject);
             }
         }
-        yield return new WaitForEndOfFrame();
+        
+         yield return new WaitForEndOfFrame();
     }
 
     private void OnDrawGizmos()
@@ -90,15 +84,8 @@ public class SeaMine : LevelEntity, IDamageable
 
     public void TakeDamage(int dmg, GameObject damager)
     {
+        _Health -= dmg;
         float timeToExplode = _WaitToExplode;
-
-
-        //If the player shoot the mine, the explosion will be in 0t
-        //the following should be the Player CannonBall
-        //if(damager.GetComponent<Player>() != null) 
-        //{
-        //  timeToExplode = 0;
-        //}
 
         if(_Health <= 0)
         {

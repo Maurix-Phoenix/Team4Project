@@ -122,9 +122,16 @@ MonoBehaviour:
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
-  _FloatingSpeed: 1
-  _Amplitude: 0.3
+  RB: {fileID: 0}
+  Floating: 0
+  FloatingAmplitude: 0.3
+  FloatingFrequency: 1
+  MoveSpeed: 0
+  MoveToPlayer: 0
+  _Health: 1
   ExplosionPrefabVFX: {fileID: 1321841788029400320, guid: d476a7f41b2368c48a862b7b83329f59, type: 3}
+  _PlayerOnlyTrigger: 0
+  _ExplosionDamage: 1
   _ExplosionRange: 2
   _WaitToExplode: 0.5
   _ExplodeAtStart: 0

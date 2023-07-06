@@ -1,6 +1,7 @@
 //GameManager.cs
-//by MAURIZIO FISCHETTI
+//by MAURIZIO FISCHETTI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static T4P;
 
 /// <summary>
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     /// <param name="newState">the new State</param>
     public void SetState(States newState)
     {
+        GameState = newState;
         switch (newState)
         {
             case States.None: { T4Debug.Log("Can't Set the game state to 'None'", T4Debug.LogType.Warning); return; }
@@ -77,6 +79,11 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
     private void Start()
     {
         SetState(States.Starting);
@@ -93,13 +100,18 @@ public class GameManager : MonoBehaviour
     }
     private void StatePlaying()
     {
+        Time.timeScale = 1;
         //operations to do after game state switch to playing
+        UIManager.HideUICanvas("PauseMenuUI");
 
         //raise unpause events
         EventManager.RaiseOnGameUnpause();
     }
     private void StatePause()
     {
+        Time.timeScale = 0;
+        UIManager.ShowUICanvas("PauseMenuUI");
+
         //raise pause events
         EventManager.RaiseOnGamePause();
     }
@@ -130,4 +142,50 @@ public class GameManager : MonoBehaviour
         DataManager.Load();
     }
     #endregion
+
+    #region Scene Management
+    /// <summary>
+    /// Load the scene with the given name.
+    /// </summary>
+    /// <param name="sceneToLoad">name of the scene</param>
+    public void LoadScene(string sceneToLoad)
+    {
+        SceneManager.LoadScene(sceneToLoad);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        T4Debug.Log($"[GameManager] Scene '{scene.name}' loaded.");
+
+        //diabling all the canvas
+        UIManager.HideAllUICanvas();
+        string sceneCanvasName = scene.name + "UI";
+        //enabling the canvas ui of the current scene (based on the name)
+        foreach(Canvas c in UIManager.UICanvasList)
+        {
+            if (c.name == sceneCanvasName)
+            {
+                T4Debug.Log("TEST");
+                UIManager.ShowUICanvas(sceneCanvasName);
+            }
+        }
+
+    }
+    #endregion
+
+    /// <summary>
+    /// Set the state in pause if the game is in playing state
+    /// or viceversa.
+    /// </summary>
+    public void PauseUnpauseGame()
+    {
+        if(GameState == States.Paused)
+        {
+            SetState(States.Playing);
+        }
+        else
+        {
+            SetState(States.Paused);
+        }
+    }
 }

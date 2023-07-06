@@ -35,19 +35,20 @@ public class SeaMonster : LevelEntity, IDamageable
 
         RaycastHit hit = new RaycastHit();
         Ray ray = new Ray(transform.position, Vector3.left);
-        if(Physics.Raycast(ray, out hit, _AggroRange))
+        if (Physics.Raycast(ray, out hit, _AggroRange))
         {
-            if(hit.collider != null && hit.collider.GetComponent<Player>()!=null)
+            if (hit.collider != null && hit.collider.GetComponent<Player>() != null)
             {
                 _Aggroed = true;
             }
         }
 
         //if in aggro multiply the speed
-        if(_Aggroed)
+        if (_Aggroed)
         {
-            MoveSpeed = Level.ThisLevel.LevelSpeed * _AggroSpeedMultiplier;   
+            MoveSpeed = Level.ThisLevel.LevelSpeed * _AggroSpeedMultiplier;
         }
+        
     }
 
     private void OnCollisionEnter(Collision other)

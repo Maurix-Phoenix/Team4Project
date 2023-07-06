@@ -32,9 +32,9 @@ public class UIManager : MonoBehaviour
     private void InitializeList()
     {
         //Initialize the UICanvas List with the canvases child of the UIContainer
-        foreach(Canvas c in UIContainer.GetComponentsInChildren<Canvas>())
+        foreach(Canvas c in UIContainer.GetComponentsInChildren<Canvas>(includeInactive: true))
         { 
-            if(c != null && !UICanvasList.Contains(c))
+            if(c != null && !UICanvasList.Contains(c) && c != UIContainer.GetComponent<Canvas>())
             {
                 UICanvasList.Add(c);
             }
@@ -79,8 +79,19 @@ public class UIManager : MonoBehaviour
         GameObject uiC = GetUICanvas(canvasName);
         if (uiC != null)
         {
-            uiC.SetActive(false);
+            uiC.SetActive(true);
         }
         else { T4Debug.Log($"[UI Manager] {canvasName} cannot show.", T4Debug.LogType.Error); }
+    }
+
+    /// <summary>
+    /// Deactivates all the ui elements in the list
+    /// </summary>
+    public void HideAllUICanvas()
+    {
+        foreach(Canvas obj in UICanvasList)
+        {
+            HideUICanvas(obj.name);
+        }
     }
 }

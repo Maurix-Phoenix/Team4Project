@@ -36,20 +36,21 @@ public class LevelEntity : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(RB == null)
+        if (RB == null)
         {
             Move();
         }
 
-        if(transform.position.x <= T4P.T4Project.XVisualLimit.x)
+        if (transform.position.x <= T4P.T4Project.XVisualLimit.x)
         {
             gameObject.SetActive(false);
         }
+        
     }
 
     private void FixedUpdate()
     {
-        if(RB != null)
+        if (RB != null)
         {
             Move();
         }

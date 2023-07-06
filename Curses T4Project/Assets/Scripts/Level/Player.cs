@@ -5,7 +5,6 @@ using static T4P;
 public class Player : MonoBehaviour, IDamageable
 {
     public static Player Instance;
-    private Level CurrentLevel;
 
     private int _Health = 3;
     private Vector3 _Direction = Vector3.zero;
@@ -16,11 +15,6 @@ public class Player : MonoBehaviour, IDamageable
     {
         Instance = this;
         RB = GetComponent<Rigidbody>();
-    }
-
-    void Start()
-    {
-        CurrentLevel = Level.ThisLevel;
     }
 
     // Update is called once per frame
@@ -38,6 +32,12 @@ public class Player : MonoBehaviour, IDamageable
 
     private void GetInput()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.Instance.PauseUnpauseGame();
+        }
+
+
         if (Input.GetKey(KeyCode.W))
         {
             _Direction.y = 1;

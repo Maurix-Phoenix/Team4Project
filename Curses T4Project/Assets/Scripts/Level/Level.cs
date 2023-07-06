@@ -10,7 +10,8 @@ public class Level : MonoBehaviour
     public static Level ThisLevel;
     public GameObject Content;
 
-    public List<LevelEntity> LevelObjects;
+    public List<LevelEntity> LevelObjects; //level designed objects
+    public List<LevelEntityTemporary> TemporaryObjects; //temporary objecs as projectiles TMP (TODO: Super class called LevelEntityTemporary)
 
     public float LevelSpeed = 1.0f;
 
@@ -24,6 +25,7 @@ public class Level : MonoBehaviour
         if (Content == null)
         {
             Content = gameObject.transform.Find("Content").gameObject;
+
             foreach (var levelEntity in Content.GetComponentsInChildren<LevelEntity>())
             {
                 LevelObjects.Add(levelEntity);
@@ -43,11 +45,6 @@ public class Level : MonoBehaviour
             StartLevel();
         }
         
-    }
-
-    private void Update()
-    {
-
     }
 
     private void PopulateLevel()
