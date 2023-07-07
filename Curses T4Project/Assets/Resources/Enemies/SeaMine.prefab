@@ -123,9 +123,9 @@ MonoBehaviour:
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
   RB: {fileID: 0}
-  Floating: 0
-  FloatingAmplitude: 0.3
-  FloatingFrequency: 1
+  Floating: 1
+  FloatingAmplitude: 0.1
+  FloatingFrequency: 2
   MoveSpeed: 0
   MoveToPlayer: 0
   _Health: 1

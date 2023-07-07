@@ -63,7 +63,7 @@ public class LevelEntity : MonoBehaviour
         {
             if (Floating)
             {
-                Direction.y = Position.y + FloatingAmplitude * Mathf.Sin(FloatingFrequency * Time.time);
+                Direction.y = FloatingAmplitude * Mathf.Sin(FloatingFrequency * Time.time);
             }
         }
         else

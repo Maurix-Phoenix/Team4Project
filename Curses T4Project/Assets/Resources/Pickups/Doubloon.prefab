@@ -130,7 +130,7 @@ MonoBehaviour:
   MoveSpeed: 0
   MoveToPlayer: 0
   PT: {fileID: 0}
-  _PickupType: 0
+  _PickupType: 1
   _Value: 1
   _AttractionDistance: 3
   _AttractionSpeed: 5
