@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class LevelEntityTemporary : MonoBehaviour
 {
-    public bool IsPaused { get ; set; }
 
     private void Start()
     {
