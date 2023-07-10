@@ -79,12 +79,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if(!_IsChangingLayer && !_IsInAnimation && _MovementRecharge < _MovementCD)
+        if(!_IsChangingLayer && !_IsInAnimation && _MovementRecharge < _MovementCD )
         {
             _MovementRecharge += Time.deltaTime;
             if (_MovementRecharge >= _MovementCD)
             {
-                Debug.Log("CanMove");
+                T4P.T4Debug.Log("CanMove");
                _CanMove = true;
             }
         }
@@ -105,6 +105,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnMovementInput()
     {
+        T4P.T4Debug.Log("INPUT");
+        
         // To use the input the ship need to be in idle animation and not changing layer
         if (!_IsChangingLayer && !_IsInAnimation && _CanMove && Level.ThisLevel.NOfLayersUnderWater > 0)
         {
@@ -190,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Movement()
     {
-        //Check if the ship is changing layer or is in idel animation
+        //Check if the ship is changing layer or is in idle animation
         //if the ship is in idle animation
         if (!_IsChangingLayer)
         {
@@ -252,7 +254,7 @@ public class PlayerMovement : MonoBehaviour
             if (_Direction.y < 0)
             {
                 //Check some position for setting the ship
-                if (_ActualPosition.y < _NextPosition.y)
+                if (_ActualPosition.y <= _NextPosition.y)
                 {
                     //Interrupt the changing layer animatin
                     _IsChangingLayer = false;
@@ -263,7 +265,7 @@ public class PlayerMovement : MonoBehaviour
                     //Start the timer for be able to move again
                     _MovementRecharge = 0f;
 
-                    //Update dhe actual layer
+                    //Update the actual layer
                     Level.ThisLevel.SetLayer((int)_Direction.y);
 
                     //reset the direction
@@ -275,7 +277,7 @@ public class PlayerMovement : MonoBehaviour
             else if (_Direction.y > 0)
             {
                 //Check some position for setting the ship
-                if (_ActualPosition.y > _NextPosition.y)
+                if (_ActualPosition.y >= _NextPosition.y)
                 {
                     //Interrupt the changing layer animatin
                     _IsChangingLayer = false;
@@ -300,6 +302,7 @@ public class PlayerMovement : MonoBehaviour
                 _Rb.MovePosition(gameObject.transform.position + _Direction * speed * Time.fixedDeltaTime);
             }
         }
+
     }
     private IEnumerator RotateAnimation(float inputDirection)
     {

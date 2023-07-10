@@ -19,6 +19,8 @@ public class SeaMine : LevelEntity, IDamageable
     [SerializeField] private float _WaitToExplode = 0.2f;
     [SerializeField] private bool _ExplodeAtStart = false;
 
+    private bool _IsExploding = false;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -55,25 +57,33 @@ public class SeaMine : LevelEntity, IDamageable
     /// <returns></returns>
     public IEnumerator Explode(float t)
     {
-
-        yield return new WaitForSeconds(t);
-
-        gameObject.SetActive(false);
-
-        //TODO: need to set the explosion particle system with the range of the explosion.
-        Instantiate(ExplosionPrefabVFX, transform.position, Quaternion.identity, Level.ThisLevel.Content.transform);
-
-        Collider[] others = Physics.OverlapSphere(transform.position, _ExplosionRange);
-
-        foreach (Collider coll in others)
+        if (!_IsExploding)
         {
-            if (coll.TryGetComponent(out IDamageable damageable))
+
+            _IsExploding = true;
+            yield return new WaitForSeconds(t);
+
+            gameObject.SetActive(false);
+
+            //TODO: need to set the explosion particle system with the range of the explosion.
+            Instantiate(ExplosionPrefabVFX, transform.position, Quaternion.identity, Level.ThisLevel.Content.transform);
+
+            Collider[] others = Physics.OverlapSphere(transform.position, _ExplosionRange);
+
+            foreach (Collider coll in others)
             {
-                damageable.TakeDamage(_ExplosionDamage, this.gameObject);
+                if (coll.TryGetComponent(out IDamageable damageable))
+                {
+                    damageable.TakeDamage(_ExplosionDamage, this.gameObject);
+                }
             }
+
+            yield return new WaitForEndOfFrame();
         }
-        
-         yield return new WaitForEndOfFrame();
+        else
+        {
+           yield return null;
+        }
     }
 
     private void OnDrawGizmos()

@@ -33,12 +33,13 @@ public class SeaMonster : LevelEntity, IDamageable
         base.Update();
         //if near x = 0 (playerpos) gets the aggro
 
-        RaycastHit hit = new RaycastHit();
         Ray ray = new Ray(transform.position, Vector3.left);
-        if (Physics.Raycast(ray, out hit, _AggroRange))
+        if (Physics.Raycast(ray, out RaycastHit hit, _AggroRange))
         {
-            if (hit.collider != null && hit.collider.GetComponent<Player>() != null)
+            if (hit.collider != null && hit.rigidbody.gameObject.GetComponent<Player>() != null)
             {
+                T4Debug.Log($"{hit.rigidbody.gameObject.name} PLAYER FOUND!");
+
                 _Aggroed = true;
             }
         }

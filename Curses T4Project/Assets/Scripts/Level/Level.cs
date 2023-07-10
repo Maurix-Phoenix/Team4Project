@@ -49,7 +49,7 @@ public class Level : MonoBehaviour
 #if UNITY_EDITOR
         if (UnitSpaceBetweenLayer == 0)
         {
-            Debug.LogError("Unit Space Between Layer of PlayerMovement.cs can't be 0.");
+            T4Debug.Log("Unit Space Between Layer of PlayerMovement.cs can't be 0.", T4Debug.LogType.Error);
         }
 #endif
 
