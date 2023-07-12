@@ -34,7 +34,7 @@ public class Pickup : LevelEntity
     {
 
         base.Update();
-        if (!MoveToPlayer && Vector3.Distance(Player.Instance.transform.position, transform.position) < _AttractionDistance)
+        if (!MoveToPlayer && Vector3.Distance(Player.ThisPlayer.transform.position, transform.position) < _AttractionDistance)
         {
             MoveToPlayer = true;
             MoveSpeed = _AttractionSpeed;
@@ -44,7 +44,7 @@ public class Pickup : LevelEntity
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<Player>() != null)
+        if(other.transform.parent != null && other.transform.parent.name == "Player")
         {
             gameObject.SetActive(false);
             T4Debug.Log($"{gameObject.name} Collected.");

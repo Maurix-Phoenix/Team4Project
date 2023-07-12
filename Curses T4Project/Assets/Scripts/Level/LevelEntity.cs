@@ -22,6 +22,8 @@ public class LevelEntity : MonoBehaviour
     [SerializeField] public bool MoveToPlayer = false;
     private Vector3 Direction;
 
+    public bool IsStopped = false;
+
     protected virtual void Start()
     {
         Position = transform.localPosition;
@@ -29,6 +31,7 @@ public class LevelEntity : MonoBehaviour
         Scale = transform.localScale;
 
         MoveSpeed = Level.ThisLevel.LevelSpeed;
+        Level.ThisLevel.LevelObjects.Add(this);
 
         RB = gameObject.GetComponent<Rigidbody>();
         Direction = Vector3.zero;
@@ -45,10 +48,15 @@ public class LevelEntity : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        if(transform.position.y <= T4P.T4Project.YVisualLimit.x || transform.position.y >= T4P.T4Project.YVisualLimit.y)
+        {
+            gameObject.SetActive(false);
+        }
         
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (RB != null)
         {
@@ -58,30 +66,33 @@ public class LevelEntity : MonoBehaviour
 
     private void Move()
     {
-        Direction.x = -1;
-        if (!MoveToPlayer)
+        if (!IsStopped)
         {
-            if (Floating)
+            Direction.x = -1;
+            if (!MoveToPlayer)
             {
-                Direction.y = FloatingAmplitude * Mathf.Sin(FloatingFrequency * Time.time);
+                if (Floating)
+                {
+                    Direction.y = FloatingAmplitude * Mathf.Sin(FloatingFrequency * Time.time);
+                }
             }
-        }
-        else
-        {
-            Direction.x = Player.Instance.transform.position.x - transform.position.x;
-            Direction.y = Player.Instance.transform.position.y - transform.position.y;
-        }
+            else
+            {
+                Direction.x = Player.ThisPlayer.transform.position.x - transform.position.x;
+                Direction.y = Player.ThisPlayer.transform.position.y - transform.position.y;
+            }
 
-        //move with physics
-        if(RB != null)
-        {
-            RB.MovePosition(RB.position + Direction.normalized * MoveSpeed * Time.fixedDeltaTime);
-        }
+            //move with physics
+            if (RB != null)
+            {
+                RB.MovePosition(RB.position + Direction.normalized * MoveSpeed * Time.fixedDeltaTime);
+            }
 
-        //move without physics
-        if(RB == null)
-        {
-            transform.position += Direction.normalized * MoveSpeed * Time.deltaTime;
+            //move without physics
+            if (RB == null)
+            {
+                transform.position += Direction.normalized * MoveSpeed * Time.deltaTime;
+            }
         }
     }
 }

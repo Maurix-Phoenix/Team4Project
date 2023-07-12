@@ -15,11 +15,14 @@ public class LevelEntityTemporary : MonoBehaviour
     private void OnDestroy()
     {
         Level level = Level.ThisLevel;
-        for (int i = level.TemporaryObjects.Count - 1; i >= 0; i--)
+        if (level.TemporaryObjects.Count > 0)
         {
-            if (level.TemporaryObjects[i] == this)
+            for (int i = level.TemporaryObjects.Count - 1; i >= 0; i--)
             {
-                level.TemporaryObjects.Remove(this);
+                if (level.TemporaryObjects[i] == this)
+                {
+                    level.TemporaryObjects.Remove(this);
+                }
             }
         }
     }

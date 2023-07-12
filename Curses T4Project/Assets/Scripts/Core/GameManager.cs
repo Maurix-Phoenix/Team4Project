@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
     /// <param name="sceneToLoad">name of the scene</param>
     public void LoadScene(string sceneToLoad)
     {
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadSceneAsync(sceneToLoad);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -165,7 +165,6 @@ public class GameManager : MonoBehaviour
         {
             if (c.name == sceneCanvasName)
             {
-                T4Debug.Log("TEST");
                 UIManager.ShowUICanvas(sceneCanvasName);
             }
         }

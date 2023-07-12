@@ -9,13 +9,14 @@ using UnityEngine;
 /// <summary>
 /// Cannonball.cs manages the behaviour of the cannonball
 /// </summary>
-public class Cannonball : LevelEntityTemporary
+public class Cannonball : MonoBehaviour
 {
     private int _CannonballDamage = 1;
     private float _MaxDistance = 0f;
     private float _TrajectoryX = 0f;
     private float _TrajectoryY = 0f;
     private Vector3 _Trajectory = Vector3.zero;
+    private Vector3 _StartingShootLocation= Vector3.zero;
 
     private Rigidbody _Rb;
 
@@ -27,14 +28,26 @@ public class Cannonball : LevelEntityTemporary
         _Rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
         _Rb.interpolation = RigidbodyInterpolation.Interpolate;
         _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+        _StartingShootLocation = gameObject.transform.position;
     }
 
     private void FixedUpdate()
     {
         //destroy cannonball after reaching the max distance
-        if (gameObject.transform.position.x > _MaxDistance)
+        if (_Rb.velocity.x > 0)
         {
-            Destroy(gameObject);
+            if (gameObject.transform.position.x > _StartingShootLocation.x + _MaxDistance)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (_Rb.velocity.x < 0)
+        {
+            if (gameObject.transform.position.x < _StartingShootLocation.x - _MaxDistance)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -63,7 +76,7 @@ public class Cannonball : LevelEntityTemporary
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
         collision.gameObject.GetComponent<IDamageable>().TakeDamage(_CannonballDamage, gameObject);
+        Destroy(gameObject);
     }
 }

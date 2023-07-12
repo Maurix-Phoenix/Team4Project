@@ -31,17 +31,18 @@ public class SeaMonster : LevelEntity, IDamageable
     protected override void Update()
     {
         base.Update();
-        //if near x = 0 (playerpos) gets the aggro
 
-        Ray ray = new Ray(transform.position, Vector3.left);
-        if (Physics.Raycast(ray, out RaycastHit hit, _AggroRange))
+        //if the ray hit the player then aggro
+        if (Physics.Raycast(new Ray(transform.position, Vector3.left), out RaycastHit hit, _AggroRange))
         {
-            if (hit.collider != null && hit.rigidbody.gameObject.GetComponent<Player>() != null)
+            if (hit.collider != null)
             {
-                T4Debug.Log($"{hit.rigidbody.gameObject.name} PLAYER FOUND!");
-
-                _Aggroed = true;
+                if (hit.collider.attachedRigidbody.gameObject.name == "Player")
+                {
+                    _Aggroed = true;
+                }
             }
+
         }
 
         //if in aggro multiply the speed
@@ -70,8 +71,12 @@ public class SeaMonster : LevelEntity, IDamageable
 
     public void TakeDamage(int dmg, GameObject damager)
     {
+        _Health -= dmg;
+
         if(_Health <= 0)
         {
+            //TMP
+            gameObject.SetActive(false);
             //death animation (routine) here, after deactivate the object
         }
     }

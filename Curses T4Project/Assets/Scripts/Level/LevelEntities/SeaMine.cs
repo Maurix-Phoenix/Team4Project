@@ -2,6 +2,7 @@
 //by MAURIZIO FISCHETTI
 
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using static T4P;
 
@@ -38,10 +39,11 @@ public class SeaMine : LevelEntity, IDamageable
 
         if(_PlayerOnlyTrigger)
         {
-            if(other.gameObject.GetComponent<Player>()!= null)
+            if (other.gameObject.GetComponent<Player>() != null)
             {
                 TakeDamage(1, other.gameObject);
             }
+            else return;
         }
         else
         {
@@ -63,7 +65,7 @@ public class SeaMine : LevelEntity, IDamageable
             _IsExploding = true;
             yield return new WaitForSeconds(t);
 
-            gameObject.SetActive(false);
+            
 
             //TODO: need to set the explosion particle system with the range of the explosion.
             Instantiate(ExplosionPrefabVFX, transform.position, Quaternion.identity, Level.ThisLevel.Content.transform);
@@ -72,11 +74,17 @@ public class SeaMine : LevelEntity, IDamageable
 
             foreach (Collider coll in others)
             {
-                if (coll.TryGetComponent(out IDamageable damageable))
+                IDamageable damageable = null;
+                if (coll.TryGetComponent<IDamageable>(out damageable))
                 {
-                    damageable.TakeDamage(_ExplosionDamage, this.gameObject);
+                    damageable.TakeDamage(_ExplosionDamage, gameObject);
                 }
+                else if (coll.transform.parent != null && coll.transform.parent.TryGetComponent<IDamageable>(out damageable))
+                {
+                    damageable.TakeDamage(_ExplosionDamage, gameObject );
+                }               
             }
+            gameObject.SetActive(false);
 
             yield return new WaitForEndOfFrame();
         }

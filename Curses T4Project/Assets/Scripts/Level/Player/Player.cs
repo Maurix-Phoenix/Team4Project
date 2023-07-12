@@ -3,27 +3,55 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static T4P;
+
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerShoot))]
+[RequireComponent(typeof(PlayerMovement))]
+
+/// <summary>
+/// Player.cs manages the behaviour of the player and the variables and conditions.
+/// </summary>
+
 public class Player : MonoBehaviour, IDamageable
 {
-    public static Player Instance;
-    private Level CurrentLevel;
+    public static Player ThisPlayer;
 
     [Header("Player Variables")]
-    [SerializeField] private int _InitialHealth = 3;
-    public int Cannonballs;
+    public int InitialHealth = 3;
+    public int NOfCannonball;
 
-   
+    [Header("Shoot Condition")]
+    public bool IsShooting = false;
+    public bool CanShoot = false;
+
+    [Header("Movement Condition")]
+    public bool IsChangingLayer = false;
+    public bool CanMove = false;
+    public bool IsInStartAnimation = true;
+    public bool LastDistancePicked = false;
+
+    private Rigidbody _Rb;
 
     private void Awake()
     {
-        Instance = this;
+        ThisPlayer = this;
+
+        //Initialize the Rigidbody component
+        _Rb = GetComponent<Rigidbody>();
+        _Rb.useGravity = false;
+        _Rb.isKinematic = true;
+        _Rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        _Rb.interpolation = RigidbodyInterpolation.Interpolate;
+        _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
     }
 
     void Start()
     {
-        CurrentLevel = Level.ThisLevel;
-        Cannonballs = CurrentLevel.StartingCannonBalls;
+        NOfCannonball = Level.ThisLevel.StartingCannonBalls;
     }
 
     // Update is called once per frame
@@ -34,15 +62,22 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(int dmg, GameObject damager)
     {
-        _InitialHealth -= dmg;
+        InitialHealth -= dmg;
 
         //Damage Effect here
 
         T4Debug.Log($"Player damaged by {damager.name}");
 
-        if (_InitialHealth <= 0)
+        if (InitialHealth <= 0)
         {
+
+            //player death animation?
+            //gameObject.SetActive(false);
+
             //GameOver here
+            //MAU - call endlevel (gameover)
+            Level.ThisLevel.EndLevel(Level.EndLevelType.GameOver);
+
         }
     }
 }

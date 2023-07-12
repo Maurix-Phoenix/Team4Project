@@ -38,10 +38,11 @@ public static class T4P
     public static class T4Project
     {
         public static Vector2 XVisualLimit = new Vector2(-15f, 15f);
+        public static Vector2 YVisualLimit = new Vector2(-13f, 13f);
         public enum PickupsType
         {
             None = -1,
-            CannonBall,
+            Cannonball,
             Doubloon,
             ALL = 2,
         }

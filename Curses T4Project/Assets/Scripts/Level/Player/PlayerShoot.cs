@@ -6,9 +6,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerMovement))]
-
 /// <summary>
 /// PlayerShoot.cs manages the ability of the ship to shoot a cannonball
 /// </summary>
@@ -22,18 +19,16 @@ public class PlayerShoot : MonoBehaviour
 
     [Header("Cannonball Variables")]
     [SerializeField] private int _CannonballDamage = 1;
-    [SerializeField] private float _CannonballSpeed = 10f;
-    [SerializeField] private float _MaxDistance = 10f;
-    [SerializeField][Range(0, 90)] private float _TrajectoryAngle = 20f;
+    [Tooltip("Base Value 10")][SerializeField] private float _CannonballSpeed = 10f;
 
     [Header("Shoot Variables")]
-    [SerializeField] private int _NOfCannonball;
-    [SerializeField] private bool _CanShoot = true;
+    [Tooltip("Base Value 10")][SerializeField] private float _MaxDistance = 10f;
+    [Tooltip("Base Value 20")][Range(0, 90)][SerializeField] private float _TrajectoryAngle = 20f;
     [SerializeField] private float _ShootCD = 1f;
+    [SerializeField] private float _ShootAtBossCD = 0.2f;
     private float _ShootingRecharge = 0f;
 
     private PlayerMovement _PlayerMovement;
-    private bool _IsShooting;
 
     private void Awake()
     {
@@ -42,40 +37,52 @@ public class PlayerShoot : MonoBehaviour
 
     private void Start()
     {
-        _NOfCannonball = Level.ThisLevel.StartingCannonBalls;
     }
 
     private void FixedUpdate()
     {
-        if (_IsShooting)
+        if (Player.ThisPlayer.IsShooting)
         {
-            _IsShooting = false;
-            _CanShoot = false;
+            Player.ThisPlayer.IsShooting = false;
+            Player.ThisPlayer.CanShoot = false;
             _ShootingRecharge = 0f;
-            _NOfCannonball--;
-            GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab);
-            _LaunchedCannondBall.transform.position = gameObject.transform.position + _CannonLocation.localPosition;
+            Player.ThisPlayer.NOfCannonball--;
+            GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab, gameObject.transform.position + _CannonLocation.localPosition, Quaternion.identity);
+            _LaunchedCannondBall.GetComponent<Cannonball>().ShootCannonball(_TrajectoryAngle, _CannonballSpeed, _MaxDistance, _CannonballDamage);
+        }
+
+        if (gameObject.transform.position.x >= Level.ThisLevel.XIntermediatePosition && Player.ThisPlayer.NOfCannonball > 0 && Player.ThisPlayer.CanShoot)
+        {
+            Player.ThisPlayer.CanShoot = false;
+            _ShootingRecharge = 0f;
+            Player.ThisPlayer.NOfCannonball--;
+            GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab, gameObject.transform.position + _CannonLocation.localPosition, Quaternion.identity);
             _LaunchedCannondBall.GetComponent<Cannonball>().ShootCannonball(_TrajectoryAngle, _CannonballSpeed, _MaxDistance, _CannonballDamage);
         }
     }
 
     private void Update()
     {
-        if (!_CanShoot)
+        if (Level.ThisLevel.IsInBossBattle)
+        {
+            _ShootCD = _ShootAtBossCD;
+        }
+
+        if (!Player.ThisPlayer.CanShoot && !Player.ThisPlayer.IsInStartAnimation)
         {
             _ShootingRecharge += Time.deltaTime;
             if (_ShootingRecharge > _ShootCD)
             {
-                _CanShoot = true;
+                Player.ThisPlayer.CanShoot = true;
             }
         }
     }
 
     private void OnShootInput()
     {
-        if (!_PlayerMovement.IsChangingLayer && !_PlayerMovement.IsInAnimation && _NOfCannonball > 0 && _CanShoot)
+        if (!Player.ThisPlayer.IsChangingLayer && !Player.ThisPlayer.IsInStartAnimation && Player.ThisPlayer.NOfCannonball > 0 && Player.ThisPlayer.CanShoot && !Level.ThisLevel.IsInBossBattle)
         {
-            _IsShooting = true;
+            Player.ThisPlayer.IsShooting = true;
         }
     }
 }
