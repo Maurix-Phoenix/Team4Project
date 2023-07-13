@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject _Ship;
 
     [Header("Movement Variables")]
+    [SerializeField] private bool _BackToSurfaceInBossBattle = false;
     [SerializeField] private float _ChangingLayerSpeed = 2f;
     [SerializeField] private float _ImmersionRotationSpeed = 30f;
     [SerializeField] private Vector3 _DefaultShipRotation = new Vector3(0f, 0f, 90f);
@@ -106,16 +107,16 @@ public class PlayerMovement : MonoBehaviour
     private void OnMovementInput()
     {
         // To use the input the ship need to be in idle animation and not changing layer
-        if (!Player.ThisPlayer.IsChangingLayer && !Player.ThisPlayer.IsInStartAnimation && Player.ThisPlayer.CanMove && Level.ThisLevel.NOfLayersUnderWater > 0 && !Level.ThisLevel.IsInBossBattle)
+        if (!Player.ThisPlayer.IsChangingLayer &&
+            !Player.ThisPlayer.IsInStartAnimation &&
+            Player.ThisPlayer.CanMove &&
+            Level.ThisLevel.NOfLayersUnderWater > 0 &&
+            !Level.ThisLevel.IsInBossBattle)
         {
             if (_InputMovementReference.action.ReadValue<float>() == 0)
             {
                 return;
             }
-
-            //start the movement animation and the CD before move again
-            Player.ThisPlayer.IsChangingLayer = true;
-            Player.ThisPlayer.CanMove = false;
 
             //set the direction of the movement
             _Direction.y = _InputMovementReference.action.ReadValue<float>();
@@ -130,21 +131,32 @@ public class PlayerMovement : MonoBehaviour
             //set a travel distance based on the idle animation positition and the next position
             PickDistance(_NextPosition.y);
 
-            // based on the input value and the layer where the ship is, the ship will change its layer -
+            // based on the direction value and the layer where the ship is, the ship will change its layer
             // Go Down
-            if (_InputMovementReference.action.ReadValue<float>() < 0 &&
+            if (_Direction.y < 0 &&
                 Level.ThisLevel.ActualLayer > -Level.ThisLevel.NOfLayersUnderWater)
             {
+                //start the movement animation and the CD before move again
+                Player.ThisPlayer.IsChangingLayer = true;
+                Player.ThisPlayer.CanMove = false;
+
                 //start the immersion animation
                 StartCoroutine(RotateAnimation(_Direction.y));
             }
-
             //Go Up
-            else if (_InputMovementReference.action.ReadValue<float>() > 0 &&
+            else if (_Direction.y > 0 &&
                      Level.ThisLevel.ActualLayer < 0)
             {
+                //start the movement animation and the CD before move again
+                Player.ThisPlayer.IsChangingLayer = true;
+                Player.ThisPlayer.CanMove = false;
+
                 //start the immersion animation
                 StartCoroutine(RotateAnimation(_Direction.y));
+            }
+            else
+            {
+                return;
             }
         }
     }
@@ -339,7 +351,7 @@ public class PlayerMovement : MonoBehaviour
         Player.ThisPlayer.CanMove = false;
         _Rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
-        if (!Player.ThisPlayer.LastDistancePicked)
+        if (!Player.ThisPlayer.LastDistancePicked && _BackToSurfaceInBossBattle)
         {
             Player.ThisPlayer.LastDistancePicked = true;
             _TimeForChangingLayer = 0f;
@@ -348,7 +360,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Move the ship to the Final layer
-        if (Level.ThisLevel.ActualLayer != Level.ThisLevel.FinalLayer)
+        if (Level.ThisLevel.ActualLayer != Level.ThisLevel.FinalLayer && _BackToSurfaceInBossBattle)
         {
             _ActualPosition = gameObject.transform.position;
             _TimeForChangingLayer += Time.deltaTime;
@@ -384,7 +396,6 @@ public class PlayerMovement : MonoBehaviour
             }
             _Rb.MovePosition(_Rb.position + Vector3.up * speed * Time.fixedDeltaTime);
         }
-
         //Move the ship to the Intermediate and End X Position
         else
         {

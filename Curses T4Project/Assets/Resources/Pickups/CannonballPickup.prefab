@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8652508559854303504}
   - component: {fileID: 4854901878502541346}
   - component: {fileID: 3157200580574974867}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CannonballPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,6 +127,7 @@ MonoBehaviour:
   FloatingFrequency: 1
   MoveSpeed: 0
   MoveToPlayer: 0
+  IsStopped: 0
   PT: {fileID: 0}
   _PickupType: 0
   _Value: 1

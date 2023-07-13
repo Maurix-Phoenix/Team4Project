@@ -19,6 +19,9 @@ public class Player : MonoBehaviour, IDamageable
 {
     public static Player ThisPlayer;
 
+    [Header("References")]
+    [SerializeField] private InputActionReference _InputPauseReference;
+
     [Header("Player Variables")]
     public int InitialHealth = 3;
     public int NOfCannonball;
@@ -59,6 +62,10 @@ public class Player : MonoBehaviour, IDamageable
     {
     }
 
+    private void OnPauseGameInput()
+    {
+        GameManager.Instance.PauseUnpauseGame();
+    }
 
     public void TakeDamage(int dmg, GameObject damager)
     {
@@ -77,7 +84,6 @@ public class Player : MonoBehaviour, IDamageable
             //GameOver here
             //MAU - call endlevel (gameover)
             Level.ThisLevel.EndLevel(Level.EndLevelType.GameOver);
-
         }
     }
 }

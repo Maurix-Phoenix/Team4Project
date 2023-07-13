@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8570220314020556567}
   - component: {fileID: -1284490371472458329}
   - component: {fileID: 6832541835159222980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ MonoBehaviour:
   IsStopped: 0
   _Health: 1
   _CollisionDamage: 1
-  ProjectilePrefab: {fileID: 4457566165532286096, guid: 574ee7ff6d2ac4f4888edd8ca3a4181f, type: 3}
+  ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
   _AlwaysShoot: 0
   _ShootRange: 10
   _ShootTime: 2
@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3810351808300626356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

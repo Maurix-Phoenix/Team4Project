@@ -1,6 +1,7 @@
 //CannonBall.cs
 //by ANTHONY FEDELI
 
+using System.Threading;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -12,13 +13,18 @@ using UnityEngine;
 public class Cannonball : MonoBehaviour
 {
     private int _CannonballDamage = 1;
+    private float _CannonballSpeed = 1f;
     private float _MaxDistance = 0f;
     private float _TrajectoryX = 0f;
     private float _TrajectoryY = 0f;
     private Vector3 _Trajectory = Vector3.zero;
-    private Vector3 _StartingShootLocation= Vector3.zero;
+    private Vector3 _StartLocation= Vector3.zero;
+
+    private Vector3 _TargetLocation;
 
     private Rigidbody _Rb;
+    private Vector3 _Player;
+    private Vector3 _EndWall;
 
     private void Awake()
     {
@@ -29,28 +35,54 @@ public class Cannonball : MonoBehaviour
         _Rb.interpolation = RigidbodyInterpolation.Interpolate;
         _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
-        _StartingShootLocation = gameObject.transform.position;
+        _Player = FindObjectOfType<Player>().gameObject.transform.position;
+        _EndWall = FindObjectOfType<EndWall>().CannonActiveToShoot.transform.position;
+
+        _StartLocation = gameObject.transform.position;
+    }
+
+    private void Start()
+    {
+        if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball"))
+        {
+            _TargetLocation = (_Player - _StartLocation).normalized;
+            Debug.Log("EnemyCannonball " + _TargetLocation);
+        }
+        else if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
+        {
+            _TargetLocation = (_EndWall - _StartLocation).normalized;
+            Debug.Log("PlayerCannonball " + _TargetLocation);
+        }
     }
 
     private void FixedUpdate()
     {
         //destroy cannonball after reaching the max distance
-        if (_Rb.velocity.x > 0)
+        if (Level.ThisLevel.IsInBossBattle)
         {
-            if (gameObject.transform.position.x > _StartingShootLocation.x + _MaxDistance)
-            {
-                Destroy(gameObject);
-            }
+            _Rb.useGravity = false;
+            _StartLocation = gameObject.transform.position;
+            _Rb.MovePosition(_StartLocation + _TargetLocation * _CannonballSpeed * Time.fixedDeltaTime);
         }
-        else if (_Rb.velocity.x < 0)
+        else
         {
-            if (gameObject.transform.position.x < _StartingShootLocation.x - _MaxDistance)
+            _Rb.useGravity = true;
+            if (_Rb.velocity.x > 0)
             {
-                Destroy(gameObject);
+                if (gameObject.transform.position.x > _StartLocation.x + _MaxDistance)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            else if (_Rb.velocity.x < 0)
+            {
+                if (gameObject.transform.position.x < _StartLocation.x - _MaxDistance)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
-
 
     /// <summary>
     /// Set the value needed before the shooting
@@ -63,16 +95,25 @@ public class Cannonball : MonoBehaviour
 
     public void ShootCannonball(float TrajectoryAngle, float CannonballSpeed, float MaxDistance, int CannonballDamage)
     {
-        //set the variable needed for the cannonbal behaviour
-        _MaxDistance = MaxDistance;
-        _CannonballDamage = CannonballDamage;
-        _TrajectoryX = Mathf.Cos(TrajectoryAngle * Mathf.Deg2Rad);
-        _TrajectoryY = Mathf.Sin(TrajectoryAngle * Mathf.Deg2Rad);
-        _Trajectory = (new Vector3 (_TrajectoryX, _TrajectoryY, 0f)) * CannonballSpeed;
+        if (Level.ThisLevel.IsInBossBattle)
+        {
+            _CannonballSpeed = CannonballSpeed;
+            _CannonballDamage = CannonballDamage;
+        }
+        else
+        {
+            //set the variable needed for the cannonbal behaviour
+            _MaxDistance = MaxDistance;
+            _CannonballDamage = CannonballDamage;
+            _TrajectoryX = Mathf.Cos(TrajectoryAngle * Mathf.Deg2Rad);
+            _TrajectoryY = Mathf.Sin(TrajectoryAngle * Mathf.Deg2Rad);
+            _Trajectory = (new Vector3 (_TrajectoryX, _TrajectoryY, 0f)) * CannonballSpeed;
 
-        //shoot the cannonball
-        _Rb.AddForce(_Trajectory, ForceMode.Impulse);
+            //shoot the cannonball
+            _Rb.AddForce(_Trajectory, ForceMode.VelocityChange);
+        }
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {

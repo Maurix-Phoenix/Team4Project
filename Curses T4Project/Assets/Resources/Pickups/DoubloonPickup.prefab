@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3776741779810355550}
   - component: {fileID: 1931380134139110679}
   - component: {fileID: 3058377545330371570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoubloonPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,6 +129,7 @@ MonoBehaviour:
   FloatingFrequency: 1
   MoveSpeed: 0
   MoveToPlayer: 0
+  IsStopped: 0
   PT: {fileID: 0}
   _PickupType: 1
   _Value: 1

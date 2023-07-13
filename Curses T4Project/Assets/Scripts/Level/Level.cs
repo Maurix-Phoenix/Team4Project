@@ -73,7 +73,14 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
+        InitializePosition();
         StopLevel();
+    }
+
+    private void InitializePosition()
+    {
+        XEndingPosition = T4Project.XVisualLimit.x;
+        XStartingPosition = T4Project.XVisualLimit.y;
     }
 
     private void Update()

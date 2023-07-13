@@ -15,13 +15,21 @@ using UnityEngine;
 public class EndWall : LevelEntity, IDamageable
 {
     [Header("References")]
-    [SerializeField] private Transform _CannonLocation;
     [SerializeField] private GameObject _CannonballPrefab;
+    [SerializeField] private GameObject _CannonPrefab;
     [SerializeField] private GameObject _TriggerMovement;
 
     [Header("EndWall Variables")]
     [SerializeField] private int _Health = 10;
     [SerializeField] private int _NOfCannonball = 3;
+
+    [Header("Cannons Variables")]
+    [SerializeField] private bool _CanShoot = false;
+    [SerializeField] private float _CannonHeight = 1.5f;
+    [SerializeField] private List<GameObject> _Cannons = new List<GameObject>();
+    private GameObject _CannonActiveToShoot;
+    public GameObject CannonActiveToShoot { get { return _CannonActiveToShoot; } }
+    private Vector3 _CannonSpot;
 
     [Header("Cannonball Variables")]
     [SerializeField] private int _CannonballDamage = 1;
@@ -30,18 +38,21 @@ public class EndWall : LevelEntity, IDamageable
     [Tooltip("Base Value 10")][SerializeField] private float _MaxDistance = 10f;
     [Tooltip("Base Value 10")][SerializeField] private float _ShootSpeed = 10f;
     [Tooltip("Base Value 17")][Range(0, 90)][SerializeField] private float _TrajectoryAngle = 20f;
-    [SerializeField] private bool _CanShoot = false;
     [Tooltip("Base Value 0.2")][SerializeField] private float _ShootCD = 0.2f;
     [Tooltip("Base Value 2")][SerializeField] private float _TimerBeforeFirstShoot = 2f;
     private float _ShootRecharge = 0f;
     private float _FirstShootCharge = 0f;
 
     [Header("Animation Variables")]
-    //[Tooltip("Base Value 30-0-0")][SerializeField] private Vector3 _StartPosition = new Vector3(30f, 0f, 0f);
-    //[Tooltip("Base Value 20-0-0")][SerializeField] private Vector3 _PlayPosition = new Vector3(20f, 0f, 0f);
     [Tooltip("Base Value 1")][SerializeField] private float _DespawnTimer = 1f;
 
     private Rigidbody _Rb;
+
+    protected override void Start()
+    {
+        base.Start();
+        SetCannons();
+    }
 
     private void Awake()
     {
@@ -96,18 +107,28 @@ public class EndWall : LevelEntity, IDamageable
     {
         if (other.attachedRigidbody.gameObject.GetComponent<Player>())
         {
+            _CannonActiveToShoot = _Cannons[-Level.ThisLevel.ActualLayer];
             Level.ThisLevel.IsInBossBattle = true;
             IsStopped = true;
         }
     }
 
+    private void SetCannons()
+    {
+        for (int i = 0; i < Level.ThisLevel.NOfLayersUnderWater; i++)
+        {
+            _CannonSpot = new Vector3(gameObject.transform.position.x, (Level.ThisLevel.UnitSpaceBetweenLayer * (-i)) + _CannonHeight, 0f);
+            GameObject Cannon = Instantiate(_CannonPrefab, _CannonSpot, Quaternion.Euler(0f, 0f, 100f), gameObject.transform);
+            _Cannons.Add(Cannon);
+        }
+    }
     private void ShootCannonball()
     {
         if (_CanShoot)
         {
             _CanShoot = false;
             _NOfCannonball--;
-            GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab,_CannonLocation.transform.position, Quaternion.identity);
+            GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab, _CannonActiveToShoot.transform.position, Quaternion.identity);
             _LaunchedCannondBall.GetComponent<Cannonball>().ShootCannonball(180f - _TrajectoryAngle, _ShootSpeed, _MaxDistance, _CannonballDamage);
         }
     }
