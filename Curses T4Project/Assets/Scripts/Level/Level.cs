@@ -149,7 +149,7 @@ public class Level : MonoBehaviour
             {
                     //call ui level passed here
                     GM.UIManager.HideAllUICanvas();
-                    GM.UIManager.ShowUICanvas("StageCompletedUI");
+                    GM.UIManager.ShowUICanvas("StageCompleteUI");
                 break;
             }
         }
