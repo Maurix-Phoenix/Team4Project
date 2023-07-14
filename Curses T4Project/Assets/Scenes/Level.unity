@@ -550,7 +550,7 @@ MonoBehaviour:
   Content: {fileID: 81507401}
   LevelObjects: []
   TemporaryObjects: []
-  LevelSpeed: 1
+  LevelSpeed: 3
   IsInBossBattle: 0
   IsLevelEnded: 0
   NOfLayersUnderWater: 3
@@ -658,6 +658,18 @@ PrefabInstance:
     - target: {fileID: 1756665306235774044, guid: effb874bf0d257d439f9a36bfe2244de, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808166621175333066, guid: effb874bf0d257d439f9a36bfe2244de, type: 3}
+      propertyPath: _TrajectoryAngle
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860761120668900247, guid: effb874bf0d257d439f9a36bfe2244de, type: 3}
+      propertyPath: _ChangingLayerSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860761120668900247, guid: effb874bf0d257d439f9a36bfe2244de, type: 3}
+      propertyPath: _ImmersionRotationSpeed
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7003287592325827061, guid: effb874bf0d257d439f9a36bfe2244de, type: 3}
       propertyPath: m_RootOrder
@@ -919,6 +931,10 @@ PrefabInstance:
     - target: {fileID: 6832541835159222980, guid: 46eabcc63d2181e43b889c05547d4165, type: 3}
       propertyPath: _TrajectoryAngle
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832541835159222980, guid: 46eabcc63d2181e43b889c05547d4165, type: 3}
+      propertyPath: FloatingAmplitude
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1719,6 +1735,10 @@ PrefabInstance:
     - target: {fileID: 6832541835159222980, guid: 46eabcc63d2181e43b889c05547d4165, type: 3}
       propertyPath: _TrajectoryAngle
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832541835159222980, guid: 46eabcc63d2181e43b889c05547d4165, type: 3}
+      propertyPath: FloatingAmplitude
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
