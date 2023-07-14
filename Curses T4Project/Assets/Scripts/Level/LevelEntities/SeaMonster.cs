@@ -48,7 +48,7 @@ public class SeaMonster : LevelEntity, IDamageable
         //if in aggro multiply the speed
         if (_Aggroed)
         {
-            MoveSpeed = Level.ThisLevel.LevelSpeed * _AggroSpeedMultiplier;
+            MoveSpeed = GameManager.Instance.Level.LevelSpeed * _AggroSpeedMultiplier;
         }
         
     }

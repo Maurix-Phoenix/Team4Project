@@ -8,8 +8,6 @@ using static T4P;
 
 public class Level : MonoBehaviour
 {
-    public static Level ThisLevel;
-    private GameManager GM;
     [Header("References")]
     public GameObject Content;
 
@@ -48,11 +46,6 @@ public class Level : MonoBehaviour
 
     private void Awake()
     {
-        ThisLevel = this;
-        GM = GameManager.Instance;
-
-
-
         //Check the Layer limits
         if (ActualLayer > 0)
         {
@@ -79,8 +72,8 @@ public class Level : MonoBehaviour
 
     private void InitializePosition()
     {
-        XEndingPosition = T4Project.XVisualLimit.x;
-        XStartingPosition = T4Project.XVisualLimit.y;
+        XStartingPosition = T4Project.XVisualLimit.x;
+        XEndingPosition = T4Project.XVisualLimit.y;
     }
 
     private void Update()
@@ -94,36 +87,21 @@ public class Level : MonoBehaviour
     }
 
     /// <summary>
-    /// start the level
+    /// start the level should be called when layer is in position.x = 0
     /// </summary>
     public void StartLevel()
     {
         T4Debug.Log("[Level] Started");
-        MoveLevel();
+        GameManager.Instance.EventManager.RaiseOnLevelStart();
     }
 
     /// <summary>
-    /// all the level entities will stop
+    /// all the level entities will stop, should be called once, when player position.x < 0
     /// </summary>
     public void StopLevel()
     {
         T4Debug.Log("[Level] Stopped");
-        foreach (var levelEntity in LevelObjects)
-        {
-            levelEntity.IsStopped = true;
-        }
-    }
-
-    /// <summary>
-    /// all the level entities will start move
-    /// </summary>
-    public void MoveLevel()
-    {
-        T4Debug.Log("[Level] Move");
-        foreach (var levelEntity in LevelObjects)
-        {
-            levelEntity.IsStopped = false;
-        }
+        GameManager.Instance.EventManager.RaiseOnLevelStop();
     }
 
     /// <summary>
@@ -141,15 +119,15 @@ public class Level : MonoBehaviour
                 StopLevel();
                 
                 //call ui game over here
-                GM.UIManager.HideAllUICanvas();
-                GM.UIManager.ShowUICanvas("GameOverUI");
+                GameManager.Instance.UIManager.HideAllUICanvas();
+                GameManager.Instance.UIManager.ShowUICanvas("GameOverUI");
                 break; 
             }
             case EndLevelType.Victory: 
             {
                     //call ui level passed here
-                    GM.UIManager.HideAllUICanvas();
-                    GM.UIManager.ShowUICanvas("StageCompleteUI");
+                    GameManager.Instance.UIManager.HideAllUICanvas();
+                    GameManager.Instance.UIManager.ShowUICanvas("StageCompleteUI");
                 break;
             }
         }

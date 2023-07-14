@@ -245,6 +245,7 @@ MonoBehaviour:
   _InputPauseReference: {fileID: 0}
   InitialHealth: 3
   NOfCannonball: 0
+  NOfDoubloons: 0
   IsShooting: 0
   CanShoot: 0
   IsChangingLayer: 0
@@ -327,7 +328,7 @@ MonoBehaviour:
   _AboveWaterAmplitude: 0.05
   _UnderWaterFrequency: 1
   _UnderWaterAmplitude: 0.1
-  _AnimationSpeed: 1
+  _AnimationSpeed: 3
   _AnimationSpeedModifier: 1
 --- !u!1 &5044277267086782192
 GameObject:

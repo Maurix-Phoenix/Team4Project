@@ -5,6 +5,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Rigidbody))]
 
@@ -16,20 +17,23 @@ public class EndWall : LevelEntity, IDamageable
 {
     [Header("References")]
     [SerializeField] private GameObject _CannonballPrefab;
-    [SerializeField] private GameObject _CannonPrefab;
+    //[SerializeField] private GameObject _CannonPrefab; //MAU
+    [SerializeField] private GameObject[] _CannonPrefab = new GameObject[4]; //MAU
+    [SerializeField] private Transform _FirePos; //MAU
     [SerializeField] private GameObject _TriggerMovement;
 
     [Header("EndWall Variables")]
+    [SerializeField] private Vector3 _FixedPosition = new Vector3 (0, -4, 3);
     [SerializeField] private int _Health = 10;
     [SerializeField] private int _NOfCannonball = 3;
 
     [Header("Cannons Variables")]
     [SerializeField] private bool _CanShoot = false;
-    [SerializeField] private float _CannonHeight = 1.5f;
-    [SerializeField] private List<GameObject> _Cannons = new List<GameObject>();
+    //[SerializeField] private float _CannonHeight = 1.5f;
+    //[SerializeField] private List<GameObject> _Cannons = new List<GameObject>();
     private GameObject _CannonActiveToShoot;
     public GameObject CannonActiveToShoot { get { return _CannonActiveToShoot; } }
-    private Vector3 _CannonSpot;
+    //private Vector3 _CannonSpot;
 
     [Header("Cannonball Variables")]
     [SerializeField] private int _CannonballDamage = 1;
@@ -51,7 +55,13 @@ public class EndWall : LevelEntity, IDamageable
     protected override void Start()
     {
         base.Start();
-        SetCannons();
+
+        //MAU
+        //set the endwall to a fixed position y,z
+        _FixedPosition.x = transform.position.x;
+        transform.position = _FixedPosition;
+
+        //SetCannons();
     }
 
     private void Awake()
@@ -70,8 +80,8 @@ public class EndWall : LevelEntity, IDamageable
     protected override void Update()
     {
         base.Update();
-        if (Player.ThisPlayer.gameObject.transform.position.x >= Level.ThisLevel.XIntermediatePosition &&
-            Player.ThisPlayer.NOfCannonball <= 0 &&
+        if (GameManager.Instance.Player.gameObject.transform.position.x >= GameManager.Instance.Level.XIntermediatePosition &&
+            GameManager.Instance.Player.NOfCannonball <= 0 &&
             !_CanShoot &&
             _NOfCannonball > 0 &&
             _Health > 0f)
@@ -96,7 +106,7 @@ public class EndWall : LevelEntity, IDamageable
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (Player.ThisPlayer.gameObject.transform.position.x >= Level.ThisLevel.XIntermediatePosition && Player.ThisPlayer.NOfCannonball <= 0)
+        if (GameManager.Instance.Player.gameObject.transform.position.x >= GameManager.Instance.Level.XIntermediatePosition && GameManager.Instance.Player.NOfCannonball <= 0)
         {
             ShootCannonball();
         }
@@ -107,28 +117,38 @@ public class EndWall : LevelEntity, IDamageable
     {
         if (other.attachedRigidbody.gameObject.GetComponent<Player>())
         {
-            _CannonActiveToShoot = _Cannons[-Level.ThisLevel.ActualLayer];
-            Level.ThisLevel.IsInBossBattle = true;
+
+            _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(-GameManager.Instance.Level.ActualLayer)];
+            _FirePos = _CannonActiveToShoot.transform.Find("FirePos").transform;
+            GameManager.Instance.Level.IsInBossBattle = true;
             IsStopped = true;
+
+            /*
+            _CannonActiveToShoot = _Cannons[-GameManager.Instance.Level.ActualLayer];
+            GameManager.Instance.Level.IsInBossBattle = true;
+            IsStopped = true;
+            */
         }
     }
 
-    private void SetCannons()
+    /*private void SetCannons()
     {
-        for (int i = 0; i < Level.ThisLevel.NOfLayersUnderWater; i++)
+        for (int i = 0; i < GameManager.Instance.Level.NOfLayersUnderWater; i++)
         {
-            _CannonSpot = new Vector3(gameObject.transform.position.x, (Level.ThisLevel.UnitSpaceBetweenLayer * (-i)) + _CannonHeight, 0f);
+            _CannonSpot = new Vector3(gameObject.transform.position.x, (GameManager.Instance.Level.UnitSpaceBetweenLayer * (-i)) + _CannonHeight, 0f);
             GameObject Cannon = Instantiate(_CannonPrefab, _CannonSpot, Quaternion.Euler(0f, 0f, 100f), gameObject.transform);
             _Cannons.Add(Cannon);
         }
-    }
+    }*/
+
+
     private void ShootCannonball()
     {
         if (_CanShoot)
         {
             _CanShoot = false;
             _NOfCannonball--;
-            GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab, _CannonActiveToShoot.transform.position, Quaternion.identity);
+            GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab, _FirePos.position, Quaternion.identity);
             _LaunchedCannondBall.GetComponent<Cannonball>().ShootCannonball(180f - _TrajectoryAngle, _ShootSpeed, _MaxDistance, _CannonballDamage);
         }
     }
@@ -136,6 +156,8 @@ public class EndWall : LevelEntity, IDamageable
     public void TakeDamage(int dmg, GameObject damager)
     {
         _Health -= dmg;
+
+        T4P.T4Debug.Log($"Wall HEALTH: {_Health}");
 
         if (_Health <= 0)
         {
@@ -147,7 +169,7 @@ public class EndWall : LevelEntity, IDamageable
     {
         yield return new WaitForSeconds(_DespawnTimer);
 
-        Level.ThisLevel.IsLevelEnded = true;
+        GameManager.Instance.Level.IsLevelEnded = true;
 
         gameObject.SetActive(false);
     }

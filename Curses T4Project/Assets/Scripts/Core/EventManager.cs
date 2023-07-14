@@ -41,4 +41,20 @@ public class EventManager :  MonoBehaviour
     #endregion
 
 
+    #region Level Events
+
+    public Action LevelStart;
+    public Action LevelStop;
+
+    public void RaiseOnLevelStart()
+    {
+        LevelStart?.Invoke();
+    }
+
+    public void RaiseOnLevelStop()
+    {
+        LevelStop?.Invoke();
+    }
+    #endregion
+
 }

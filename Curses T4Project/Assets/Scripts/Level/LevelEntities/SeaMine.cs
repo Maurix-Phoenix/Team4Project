@@ -2,7 +2,6 @@
 //by MAURIZIO FISCHETTI
 
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using static T4P;
 
@@ -68,7 +67,7 @@ public class SeaMine : LevelEntity, IDamageable
             
 
             //TODO: need to set the explosion particle system with the range of the explosion.
-            Instantiate(ExplosionPrefabVFX, transform.position, Quaternion.identity, Level.ThisLevel.Content.transform);
+            Instantiate(ExplosionPrefabVFX, transform.position, Quaternion.identity, GameManager.Instance.Level.Content.transform);
 
             Collider[] others = Physics.OverlapSphere(transform.position, _ExplosionRange);
 

@@ -1,7 +1,6 @@
 //CannonBall.cs
 //by ANTHONY FEDELI
 
-using System.Threading;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -10,7 +9,7 @@ using UnityEngine;
 /// <summary>
 /// Cannonball.cs manages the behaviour of the cannonball
 /// </summary>
-public class Cannonball : MonoBehaviour
+public class Cannonball : LevelEntityTemporary
 {
     private int _CannonballDamage = 1;
     private float _CannonballSpeed = 1f;
@@ -23,8 +22,8 @@ public class Cannonball : MonoBehaviour
     private Vector3 _TargetLocation;
 
     private Rigidbody _Rb;
-    private Vector3 _Player;
-    private Vector3 _EndWall;
+    private Player _Player; //MAU
+    private EndWall _EndWall; //MAU
 
     private void Awake()
     {
@@ -35,30 +34,37 @@ public class Cannonball : MonoBehaviour
         _Rb.interpolation = RigidbodyInterpolation.Interpolate;
         _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
-        _Player = FindObjectOfType<Player>().gameObject.transform.position;
-        _EndWall = FindObjectOfType<EndWall>().CannonActiveToShoot.transform.position;
+        _Player = GameObject.Find("Player").GetComponent<Player>(); //MAU
+
+        _EndWall = GameObject.Find("EndWall").GetComponent<EndWall>(); //MAU
 
         _StartLocation = gameObject.transform.position;
     }
 
     private void Start()
     {
-        if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball"))
+        if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            _TargetLocation = (_Player - _StartLocation).normalized;
-            Debug.Log("EnemyCannonball " + _TargetLocation);
+            _TargetLocation = (_Player.transform.position - _StartLocation).normalized;
+            T4P.T4Debug.Log("EnemyCannonball " + _TargetLocation);
         }
-        else if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
+        else if (gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            _TargetLocation = (_EndWall - _StartLocation).normalized;
-            Debug.Log("PlayerCannonball " + _TargetLocation);
+            _TargetLocation = (_EndWall.transform.position - _StartLocation).normalized;
+
+            if(GameManager.Instance.Level.IsInBossBattle) //MAU - getting sure to get the active cannon position only in bossbattle.
+            {
+                _TargetLocation = (_EndWall.CannonActiveToShoot.transform.position - _StartLocation).normalized;
+            }
+
+            T4P.T4Debug.Log("PlayerCannonball " + _TargetLocation);
         }
     }
 
     private void FixedUpdate()
     {
         //destroy cannonball after reaching the max distance
-        if (Level.ThisLevel.IsInBossBattle)
+        if (GameManager.Instance.Level.IsInBossBattle)
         {
             _Rb.useGravity = false;
             _StartLocation = gameObject.transform.position;
@@ -95,7 +101,7 @@ public class Cannonball : MonoBehaviour
 
     public void ShootCannonball(float TrajectoryAngle, float CannonballSpeed, float MaxDistance, int CannonballDamage)
     {
-        if (Level.ThisLevel.IsInBossBattle)
+        if (GameManager.Instance.Level.IsInBossBattle)
         {
             _CannonballSpeed = CannonballSpeed;
             _CannonballDamage = CannonballDamage;
@@ -117,7 +123,19 @@ public class Cannonball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        collision.gameObject.GetComponent<IDamageable>().TakeDamage(_CannonballDamage, gameObject);
+        //MAU
+        //check if the collision are on differt layers
+        if (collision.gameObject.layer != gameObject.layer)
+        {
+            IDamageable damageable;
+            if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
+            {
+                damageable.TakeDamage(_CannonballDamage, gameObject);
+            }
+
+        }
+
+
         Destroy(gameObject);
     }
 }

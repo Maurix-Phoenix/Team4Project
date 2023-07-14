@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public UIManager UIManager { get; private set; }
     public AudioManager AudioManager { get; private set; }
     public DataManager DataManager { get; private set; }
+    public Level Level { get; private set; }
+    public Player Player { get; private set; }
+    
 
     private void Awake()
     {
@@ -67,13 +70,15 @@ public class GameManager : MonoBehaviour
 
     private bool Initialize()
     {
+        
         GameState = States.Initializing;
         //Initialize other managers
         DataManager = GetComponentInChildren<DataManager>();
         EventManager = GetComponentInChildren<EventManager>();
         UIManager = GetComponentInChildren<UIManager>();
         AudioManager = GetComponentInChildren<AudioManager>();
-
+        Level = null;
+        Player = null;
         LoadGame();
 
         return true;
@@ -96,21 +101,22 @@ public class GameManager : MonoBehaviour
         T4Debug.Log("GameManager: Game started!");
 
         EventManager.RaiseOnGameStart();
-        StatePlaying();
+        SetState(States.Playing);
     }
     private void StatePlaying()
     {
+        UIManager.HideUICanvas("PauseMenuUI");
         Time.timeScale = 1;
         //operations to do after game state switch to playing
-        UIManager.HideUICanvas("PauseMenuUI");
+
 
         //raise unpause events
         EventManager.RaiseOnGameUnpause();
     }
     private void StatePause()
     {
-        Time.timeScale = 0;
         UIManager.ShowUICanvas("PauseMenuUI");
+        Time.timeScale = 0;
 
         //raise pause events
         EventManager.RaiseOnGamePause();
@@ -155,6 +161,12 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Time.timeScale = 1;
+
+        //resetting level and player references
+        Level = null;
+        Player = null;
+
         T4Debug.Log($"[GameManager] Scene '{scene.name}' loaded.");
 
         //diabling all the canvas
@@ -169,6 +181,12 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        //TMP until event system complete (need a rework on level.cs)
+        if(scene.name == "Level")
+        {
+            Level = GameObject.Find("Level").GetComponent<Level>();
+            Player = GameObject.Find("Player").GetComponent<Player>();
+        }
     }
     #endregion
 

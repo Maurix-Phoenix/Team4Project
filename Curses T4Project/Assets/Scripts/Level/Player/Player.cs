@@ -17,14 +17,13 @@ using static T4P;
 
 public class Player : MonoBehaviour, IDamageable
 {
-    public static Player ThisPlayer;
-
     [Header("References")]
     [SerializeField] private InputActionReference _InputPauseReference;
 
     [Header("Player Variables")]
     public int InitialHealth = 3;
     public int NOfCannonball;
+    public int NOfDoubloons = 0;
 
     [Header("Shoot Condition")]
     public bool IsShooting = false;
@@ -40,8 +39,6 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        ThisPlayer = this;
-
         //Initialize the Rigidbody component
         _Rb = GetComponent<Rigidbody>();
         _Rb.useGravity = false;
@@ -49,22 +46,38 @@ public class Player : MonoBehaviour, IDamageable
         _Rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
         _Rb.interpolation = RigidbodyInterpolation.Interpolate;
         _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-
     }
 
     void Start()
     {
-        NOfCannonball = Level.ThisLevel.StartingCannonBalls;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        NOfCannonball = GameManager.Instance.Level.StartingCannonBalls;
     }
 
     private void OnPauseGameInput()
     {
         GameManager.Instance.PauseUnpauseGame();
+    }
+
+    /// <summary>
+    ///add the reource of the given type
+    /// </summary>
+    /// <param name="resourceType">the type of the resource</param>
+    /// <param name="value">the quantity of the resource to add</param>
+    public void AddResource(T4Project.PickupsType resourceType, int value)
+    {
+        switch(resourceType)
+        {
+            case T4Project.PickupsType.Cannonball:
+            {
+                NOfCannonball += value;
+                break;
+            }
+            case T4Project.PickupsType.Doubloon:
+            {
+                NOfDoubloons += value;
+                break;
+            }
+        }
     }
 
     public void TakeDamage(int dmg, GameObject damager)
@@ -83,7 +96,7 @@ public class Player : MonoBehaviour, IDamageable
 
             //GameOver here
             //MAU - call endlevel (gameover)
-            Level.ThisLevel.EndLevel(Level.EndLevelType.GameOver);
+            GameManager.Instance.Level.EndLevel(Level.EndLevelType.GameOver);
         }
     }
 }

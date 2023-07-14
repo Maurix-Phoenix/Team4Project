@@ -6,22 +6,20 @@ using UnityEngine;
 
 public class LevelEntityTemporary : MonoBehaviour
 {
-
     private void Start()
     {
-        Level.ThisLevel.TemporaryObjects.Add(this);
+        GameManager.Instance.Level.TemporaryObjects.Add(this);
     }
 
     private void OnDestroy()
     {
-        Level level = Level.ThisLevel;
-        if (level.TemporaryObjects.Count > 0)
+        if (GameManager.Instance.Level.TemporaryObjects.Count > 0)
         {
-            for (int i = level.TemporaryObjects.Count - 1; i >= 0; i--)
+            for (int i = GameManager.Instance.Level.TemporaryObjects.Count - 1; i >= 0; i--)
             {
-                if (level.TemporaryObjects[i] == this)
+                if (GameManager.Instance.Level.TemporaryObjects[i] == this)
                 {
-                    level.TemporaryObjects.Remove(this);
+                    GameManager.Instance.Level.TemporaryObjects.Remove(this);
                 }
             }
         }

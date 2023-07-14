@@ -24,14 +24,42 @@ public class LevelEntity : MonoBehaviour
 
     public bool IsStopped = false;
 
+    private void OnEnable()
+    {
+        EventManager EM = GameManager.Instance.EventManager;
+        EM.LevelStart += OnLevelStart;
+        EM.LevelStop += OnLevelStop;
+    }
+
+    private void OnDisable()
+    {
+        EventManager EM = GameManager.Instance.EventManager;
+        EM.LevelStart -= OnLevelStart;
+        EM.LevelStop -= OnLevelStop;
+    }
+
+    #region Events Methods
+
+    private void OnLevelStart()
+    {
+        IsStopped = false;
+    }
+
+    private void OnLevelStop()
+    {
+        IsStopped = true;
+    }
+
+    #endregion
+
     protected virtual void Start()
     {
         Position = transform.localPosition;
         Rotation = transform.localRotation;
         Scale = transform.localScale;
 
-        MoveSpeed = Level.ThisLevel.LevelSpeed;
-        Level.ThisLevel.LevelObjects.Add(this);
+        MoveSpeed = GameManager.Instance.Level.LevelSpeed;
+        GameManager.Instance.Level.LevelObjects.Add(this);
 
         RB = gameObject.GetComponent<Rigidbody>();
         Direction = Vector3.zero;
@@ -78,8 +106,8 @@ public class LevelEntity : MonoBehaviour
             }
             else
             {
-                Direction.x = Player.ThisPlayer.transform.position.x - transform.position.x;
-                Direction.y = Player.ThisPlayer.transform.position.y - transform.position.y;
+                Direction.x = GameManager.Instance.Player.transform.position.x - transform.position.x;
+                Direction.y = GameManager.Instance.Player.transform.position.y - transform.position.y;
             }
 
             //move with physics

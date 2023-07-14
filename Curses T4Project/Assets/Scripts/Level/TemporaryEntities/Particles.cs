@@ -17,7 +17,7 @@ public class Particles : LevelEntityTemporary
     void Update()
     {
 
-        transform.position += new Vector3(-1 * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(-1 * Time.deltaTime * GameManager.Instance.Level.LevelSpeed, 0, 0);
 
     }
 

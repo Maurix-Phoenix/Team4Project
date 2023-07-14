@@ -12,6 +12,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerShoot : MonoBehaviour
 {
+
     [Header("References")]
     [SerializeField] private InputActionReference _InputShootReference;
     [SerializeField] private GameObject _CannonballPrefab;
@@ -48,21 +49,25 @@ public class PlayerShoot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Player.ThisPlayer.IsShooting)
+        if (GameManager.Instance.Player.IsShooting)
         {
-            Player.ThisPlayer.IsShooting = false;
-            Player.ThisPlayer.CanShoot = false;
+            GameManager.Instance.Player.IsShooting = false;
+            GameManager.Instance.Player.CanShoot = false;
             _ShootingRecharge = 0f;
-            Player.ThisPlayer.NOfCannonball--;
+            GameManager.Instance.Player.NOfCannonball--;
             GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab, _CannonLocation.transform.position, Quaternion.identity);
-            _LaunchedCannondBall.GetComponent<Cannonball>().ShootCannonball(_TrajectoryAngle * _UnderWaterTrajectoryAngleModifier, _CannonballSpeed * _UnderWaterSpeedModifier, _MaxDistance, _CannonballDamage);
+
+            //MAU - i've corrected the underwater modifiers using a sum  (a - modifier) cause using this (a * modifier) was too exagerated because the values are near 0.
+            _LaunchedCannondBall.GetComponent<Cannonball>().ShootCannonball(_TrajectoryAngle - _UnderWaterTrajectoryAngleModifier, _CannonballSpeed - _UnderWaterSpeedModifier, _MaxDistance, _CannonballDamage);
+            //_LaunchedCannondBall.GetComponent<Cannonball>().ShootCannonball(_TrajectoryAngle * _UnderWaterTrajectoryAngleModifier, _CannonballSpeed * _UnderWaterSpeedModifier, _MaxDistance, _CannonballDamage);
+
         }
 
-        if (gameObject.transform.position.x >= Level.ThisLevel.XIntermediatePosition && Player.ThisPlayer.NOfCannonball > 0 && Player.ThisPlayer.CanShoot)
+        if (gameObject.transform.position.x >= GameManager.Instance.Level.XIntermediatePosition && GameManager.Instance.Player.NOfCannonball > 0 && GameManager.Instance.Player.CanShoot)
         {
-            Player.ThisPlayer.CanShoot = false;
+            GameManager.Instance.Player.CanShoot = false;
             _ShootingRecharge = 0f;
-            Player.ThisPlayer.NOfCannonball--;
+            GameManager.Instance.Player.NOfCannonball--;
             GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab, _CannonLocation.transform.position, Quaternion.identity);
             _LaunchedCannondBall.GetComponent<Cannonball>().ShootCannonball(0f, _CannonballSpeed, 0f , _CannonballDamage);
         }
@@ -70,7 +75,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Update()
     {
-        if (Level.ThisLevel.ActualLayer < 0)
+        if (GameManager.Instance.Level.ActualLayer < 0)
         {
             _UnderWaterSpeedModifier = _StartingUnderWaterSpeedModifier;
             _UnderWaterTrajectoryAngleModifier = _StartingUnderWaterTrajectoryAngleModifier;
@@ -80,26 +85,26 @@ public class PlayerShoot : MonoBehaviour
             _UnderWaterSpeedModifier = 1f;
             _UnderWaterTrajectoryAngleModifier = 1f;
         }
-        if (Level.ThisLevel.IsInBossBattle)
+        if (GameManager.Instance.Level.IsInBossBattle)
         {
             _ShootCD = _ShootAtBossCD;
         }
 
-        if (!Player.ThisPlayer.CanShoot && !Player.ThisPlayer.IsInStartAnimation)
+        if (!GameManager.Instance.Player.CanShoot && !GameManager.Instance.Player.IsInStartAnimation)
         {
             _ShootingRecharge += Time.deltaTime;
             if (_ShootingRecharge > _ShootCD)
             {
-                Player.ThisPlayer.CanShoot = true;
+                GameManager.Instance.Player.CanShoot = true;
             }
         }
     }
 
     private void OnShootInput()
     {
-        if (!Player.ThisPlayer.IsChangingLayer && !Player.ThisPlayer.IsInStartAnimation && Player.ThisPlayer.NOfCannonball > 0 && Player.ThisPlayer.CanShoot && !Level.ThisLevel.IsInBossBattle)
+        if (!GameManager.Instance.Player.IsChangingLayer && !GameManager.Instance.Player.IsInStartAnimation && GameManager.Instance.Player.NOfCannonball > 0 && GameManager.Instance.Player.CanShoot && !GameManager.Instance.Level.IsInBossBattle)
         {
-            Player.ThisPlayer.IsShooting = true;
+            GameManager.Instance.Player.IsShooting = true;
         }
     }
 }
