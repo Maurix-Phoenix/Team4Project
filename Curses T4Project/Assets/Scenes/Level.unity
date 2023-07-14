@@ -664,6 +664,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5860761120668900247, guid: effb874bf0d257d439f9a36bfe2244de, type: 3}
+      propertyPath: _MovementCD
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860761120668900247, guid: effb874bf0d257d439f9a36bfe2244de, type: 3}
       propertyPath: _ChangingLayerSpeed
       value: 4
       objectReference: {fileID: 0}
@@ -1615,6 +1619,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 81507402}
     m_Modifications:
+    - target: {fileID: 4276865645811689148, guid: 53d761395fca22d49ae841801621ad1f, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8685273324697885346, guid: 53d761395fca22d49ae841801621ad1f, type: 3}
       propertyPath: m_Name
       value: SeaMine (2)
