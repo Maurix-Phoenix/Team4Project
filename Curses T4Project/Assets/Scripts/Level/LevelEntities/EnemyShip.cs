@@ -102,6 +102,7 @@ public class EnemyShip : LevelEntity, IDamageable
         {
             other.gameObject.GetComponent<Player>().TakeDamage(_CollisionDamage, gameObject);
             gameObject.GetComponent<Collider>().enabled = false;
+            RB.isKinematic = true;
         }
     }
 

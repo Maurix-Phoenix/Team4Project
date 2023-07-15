@@ -60,6 +60,7 @@ public class SeaMonster : LevelEntity, IDamageable
         {
             other.gameObject.GetComponent<Player>().TakeDamage(_Damage,this.gameObject);
             gameObject.GetComponent<Collider>().enabled = false;
+            RB.isKinematic = true;
         }
     }
 
