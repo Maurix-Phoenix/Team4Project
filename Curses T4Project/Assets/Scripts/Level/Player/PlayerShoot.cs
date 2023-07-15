@@ -55,6 +55,7 @@ public class PlayerShoot : MonoBehaviour
             GameManager.Instance.Player.CanShoot = false;
             _ShootingRecharge = 0f;
             GameManager.Instance.Player.NOfCannonball--;
+            GameManager.Instance.Player.UpdatePlayerUI();
             GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab, _CannonLocation.transform.position, Quaternion.identity);
 
             //MAU - i've corrected the underwater modifiers using a sum  (a - modifier) cause using this (a * modifier) was too exagerated because the values are near 0.
@@ -68,6 +69,8 @@ public class PlayerShoot : MonoBehaviour
             GameManager.Instance.Player.CanShoot = false;
             _ShootingRecharge = 0f;
             GameManager.Instance.Player.NOfCannonball--;
+            GameManager.Instance.Player.UpdatePlayerUI();
+
             GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab, _CannonLocation.transform.position, Quaternion.identity);
             _LaunchedCannondBall.GetComponent<Cannonball>().ShootCannonball(0f, _CannonballSpeed, 0f , _CannonballDamage);
         }

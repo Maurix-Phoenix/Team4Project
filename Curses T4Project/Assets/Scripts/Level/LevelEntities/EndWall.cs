@@ -17,13 +17,13 @@ public class EndWall : LevelEntity, IDamageable
 {
     [Header("References")]
     [SerializeField] private GameObject _CannonballPrefab;
-    //[SerializeField] private GameObject _CannonPrefab; //MAU
+    //[SerializeField] private GameObject _CannonPrefab;
     [SerializeField] private GameObject[] _CannonPrefab = new GameObject[4]; //MAU
     [SerializeField] private Transform _FirePos; //MAU
     [SerializeField] private GameObject _TriggerMovement;
 
     [Header("EndWall Variables")]
-    [SerializeField] private Vector3 _FixedPosition = new Vector3 (0, -4, 3);
+    [SerializeField] private Vector3 _FixedPosition = new Vector3 (0, -4, 3); //MAU
     [SerializeField] private int _Health = 10;
     [SerializeField] private int _NOfCannonball = 3;
 
@@ -123,6 +123,7 @@ public class EndWall : LevelEntity, IDamageable
             GameManager.Instance.Level.IsInBossBattle = true;
             IsStopped = true;
 
+            GameManager.Instance.UIManager.UpdateUIText("EndWallHealth_UIText", "[EW] " + _Health.ToString());
             /*
             _CannonActiveToShoot = _Cannons[-GameManager.Instance.Level.ActualLayer];
             GameManager.Instance.Level.IsInBossBattle = true;
@@ -156,6 +157,8 @@ public class EndWall : LevelEntity, IDamageable
     public void TakeDamage(int dmg, GameObject damager)
     {
         _Health -= dmg;
+
+        GameManager.Instance.UIManager.UpdateUIText("EndWallHealth_UIText", "[EW] " + _Health.ToString());
 
         T4P.T4Debug.Log($"Wall HEALTH: {_Health}");
 

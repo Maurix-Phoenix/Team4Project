@@ -21,8 +21,8 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private InputActionReference _InputPauseReference;
 
     [Header("Player Variables")]
-    public int InitialHealth = 3;
-    public int NOfCannonball;
+    public int Health = 3;
+    public int NOfCannonball = 0;
     public int NOfDoubloons = 0;
 
     [Header("Shoot Condition")]
@@ -50,7 +50,10 @@ public class Player : MonoBehaviour, IDamageable
 
     void Start()
     {
+        Health = GameManager.Instance.Level.StartingHealth;
         NOfCannonball = GameManager.Instance.Level.StartingCannonBalls;
+
+        UpdatePlayerUI();
     }
 
     private void OnPauseGameInput()
@@ -70,11 +73,13 @@ public class Player : MonoBehaviour, IDamageable
             case T4Project.PickupsType.Cannonball:
             {
                 NOfCannonball += value;
+                    UpdatePlayerUI();
                 break;
             }
             case T4Project.PickupsType.Doubloon:
             {
                 NOfDoubloons += value;
+                    UpdatePlayerUI();
                 break;
             }
         }
@@ -82,13 +87,13 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(int dmg, GameObject damager)
     {
-        InitialHealth -= dmg;
-
+        Health -= dmg;
+        UpdatePlayerUI();
         //Damage Effect here
 
         T4Debug.Log($"Player damaged by {damager.name}");
 
-        if (InitialHealth <= 0)
+        if (Health <= 0)
         {
 
             //player death animation?
@@ -98,5 +103,12 @@ public class Player : MonoBehaviour, IDamageable
             //MAU - call endlevel (gameover)
             GameManager.Instance.Level.EndLevel(Level.EndLevelType.GameOver);
         }
+    }
+
+    public void UpdatePlayerUI()
+    {
+        GameManager.Instance.UIManager.UpdateUIText("Health_UIText", "[+] " + Health.ToString());
+        GameManager.Instance.UIManager.UpdateUIText("Doubloons_UIText", "[$] " + NOfDoubloons.ToString());
+        GameManager.Instance.UIManager.UpdateUIText("Cannonballs_UIText", "[o] " + NOfCannonball.ToString());
     }
 }

@@ -35,6 +35,7 @@ public class Level : MonoBehaviour
     public float XEndingPosition = 26f;
 
     [Header("Player Variables")]
+    public int StartingHealth = 3;
     public int StartingCannonBalls = 5;
 
     public enum EndLevelType

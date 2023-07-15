@@ -2,6 +2,7 @@
 //by MAURIZIO FISCHETTI
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static T4P;
 /// <summary>
@@ -12,6 +13,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject UIContainer { get; private set; }
     public List<Canvas> UICanvasList;
+    public List<TMP_Text> UITextList = new List<TMP_Text>();
 
     private void Awake()
     {
@@ -39,6 +41,15 @@ public class UIManager : MonoBehaviour
                 UICanvasList.Add(c);
             }
         }
+
+        //Initialize the UITexts with the texts child of UIContainer
+        foreach(TMP_Text tmpT in UIContainer.GetComponentsInChildren<TMP_Text>(includeInactive: true))
+        { 
+            if(tmpT != null && !UITextList.Contains(tmpT))
+            {
+                UITextList.Add(tmpT);
+            }
+        }
     }
 
     private GameObject GetUICanvas(string uiCanvasName)
@@ -55,7 +66,21 @@ public class UIManager : MonoBehaviour
         return null;
     }
 
-     
+    private TMP_Text GetUIText(string uiTextName)
+    {
+        //Get by the name of the text inside UICanvas list.
+        for(int i = 0; i < UITextList.Count; i++)
+        {
+            if (UITextList[i] != null && UITextList[i].name == uiTextName)
+            {
+                return UITextList[i];
+            }
+        }
+        T4Debug.Log($"[UI Manager] cannot find any UI Text named {uiTextName} in the UIText list!");
+        return null;
+    }
+
+
     /// <summary>
     /// Deactivate the canvas that is inside the UICanvas List
     /// </summary>
@@ -93,5 +118,16 @@ public class UIManager : MonoBehaviour
         {
             HideUICanvas(obj.name);
         }
+    }
+
+    public void UpdateUIText(string uiTextName, string text)
+    {
+        TMP_Text ttu = GetUIText(uiTextName);
+        if(ttu != null)
+        {
+            ttu.text = text;
+        }
+        else { T4Debug.Log($"[UI Manager] {uiTextName} cannot be updated - null?", T4Debug.LogType.Error); }
+
     }
 }

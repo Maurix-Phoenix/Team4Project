@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class LevelEntityTemporary : MonoBehaviour
 {
-    private void Start()
+    protected virtual void Start()
     {
         GameManager.Instance.Level.TemporaryObjects.Add(this);
     }

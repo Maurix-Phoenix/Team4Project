@@ -1,6 +1,7 @@
 //CannonBall.cs
 //by ANTHONY FEDELI
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -41,12 +42,14 @@ public class Cannonball : LevelEntityTemporary
         _StartLocation = gameObject.transform.position;
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             _TargetLocation = (_Player.transform.position - _StartLocation).normalized;
             T4P.T4Debug.Log("EnemyCannonball " + _TargetLocation);
+
         }
         else if (gameObject.layer == LayerMask.NameToLayer("Player"))
         {
@@ -61,18 +64,47 @@ public class Cannonball : LevelEntityTemporary
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        //destroy cannonball after reaching the max distance
-        if (GameManager.Instance.Level.IsInBossBattle)
+
+        //If level is not in boss battle, destroy the projectile after reaching the max distance.
+        if(!GameManager.Instance.Level.IsInBossBattle)
         {
-            _Rb.useGravity = false;
-            _StartLocation = gameObject.transform.position;
-            _Rb.MovePosition(_StartLocation + _TargetLocation * _CannonballSpeed * Time.fixedDeltaTime);
+            _Rb.useGravity = true;
+            if (Vector3.Distance(transform.position, _StartLocation) > _MaxDistance || 
+                transform.position.y < _StartLocation.y - GameManager.Instance.Level.UnitSpaceBetweenLayer / 2 ||
+                transform.position.y > _StartLocation.y + GameManager.Instance.Level.UnitSpaceBetweenLayer / 2)
+            {
+                Destroy(gameObject);
+            }
         }
         else
         {
-            _Rb.useGravity = true;
+            _Rb.useGravity = false;
+        }
+
+
+    }
+
+    private void FixedUpdate()
+    {
+        //moving the cannonball
+        if (GameManager.Instance.Level.IsInBossBattle)
+        {
+            if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
+                _TargetLocation = (_Player.transform.position - _StartLocation).normalized;
+            }
+            
+            // _Rb.useGravity = false;
+            _Rb.MovePosition(transform.position + _TargetLocation * _CannonballSpeed * Time.fixedDeltaTime);
+        }
+        /*
+        else
+        {
+            
+          _Rb.useGravity = true;
+            
             if (_Rb.velocity.x > 0)
             {
                 if (gameObject.transform.position.x > _StartLocation.x + _MaxDistance)
@@ -88,6 +120,7 @@ public class Cannonball : LevelEntityTemporary
                 }
             }
         }
+        */
     }
 
     /// <summary>
