@@ -1,6 +1,7 @@
 //SeaMonster.cs
 //by MAURIZIO FISCHETTI
 
+using Unity.VisualScripting;
 using UnityEngine;
 using static T4P;
 
@@ -33,16 +34,12 @@ public class SeaMonster : LevelEntity, IDamageable
         base.Update();
 
         //if the ray hit the player then aggro
-        if (Physics.Raycast(new Ray(transform.position, Vector3.left), out RaycastHit hit, _AggroRange))
+        if (Physics.Raycast(transform.position, Vector3.left, out RaycastHit hit, _AggroRange, layerMask: LayerMask.GetMask("Player")))
         {
-            if (hit.collider != null)
+            if (hit.collider.attachedRigidbody.gameObject.name == "Player")
             {
-                if (hit.collider.attachedRigidbody.gameObject.name == "Player")
-                {
-                    _Aggroed = true;
-                }
+                _Aggroed = true;
             }
-
         }
 
         //if in aggro multiply the speed

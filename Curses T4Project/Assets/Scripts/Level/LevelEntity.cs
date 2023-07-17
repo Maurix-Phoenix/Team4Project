@@ -1,11 +1,8 @@
 //LevelEntity.cs
 //by MAURIZIO FISCHETTI
 
-using System.Collections;
-using Unity.VisualScripting;
-//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.EventSystems;
+
 
 public class LevelEntity : MonoBehaviour
 {

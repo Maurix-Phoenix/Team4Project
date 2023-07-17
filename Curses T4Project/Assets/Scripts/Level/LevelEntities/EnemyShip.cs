@@ -39,7 +39,7 @@ public class EnemyShip : LevelEntity, IDamageable
         base.Update();
 
         _IsPlayerInRange = false;
-        if (Physics.Raycast(new Ray(transform.position, Vector3.left), out RaycastHit hit, _ShootRange))
+        if (Physics.Raycast(new Ray(transform.position, Vector3.left), out RaycastHit hit, _ShootRange, LayerMask.GetMask("Player")))
         {
             if (hit.collider != null)
             {
