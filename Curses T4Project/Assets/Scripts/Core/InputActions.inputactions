@@ -7,9 +7,9 @@
             "actions": [
                 {
                     "name": "MovementInput",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "b5cfa411-1d90-4805-a40d-484fa4bee432",
-                    "expectedControlType": "Integer",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": true
