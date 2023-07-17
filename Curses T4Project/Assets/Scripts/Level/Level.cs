@@ -111,14 +111,13 @@ public class Level : MonoBehaviour
     /// <param name="endtype"></param>
     public void EndLevel(EndLevelType endtype)
     {
+        Time.timeScale = 0;
         T4Debug.Log($"[Level] Ended - {endtype}");
         switch(endtype)
         {
             case EndLevelType.None: { break; }
             case EndLevelType.GameOver: 
             {
-                StopLevel();
-                
                 //call ui game over here
                 GameManager.Instance.UIManager.HideAllUICanvas();
                 GameManager.Instance.UIManager.ShowUICanvas("GameOverUI");
