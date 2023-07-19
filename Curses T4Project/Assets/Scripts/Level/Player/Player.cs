@@ -10,6 +10,7 @@ using static T4P;
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerShoot))]
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(DamageFlash))]
 
 /// <summary>
 /// Player.cs manages the behaviour of the player and the variables and conditions.
@@ -17,9 +18,6 @@ using static T4P;
 
 public class Player : MonoBehaviour, IDamageable
 {
-    [Header("References")]
-    [SerializeField] private InputActionReference _InputPauseReference;
-
     [Header("Player Variables")]
     public int Health = 3;
     public int NOfCannonball = 0;
@@ -89,7 +87,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         Health -= dmg;
         UpdatePlayerUI();
-        //Damage Effect here
+        GetComponent<DamageFlash>().DamageIndicatorStart();
 
         T4Debug.Log($"Player damaged by {damager.name}");
 

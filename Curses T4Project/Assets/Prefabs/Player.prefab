@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 1942532089542088273}
   - component: {fileID: 5808166621175333066}
   - component: {fileID: 5860761120668900247}
+  - component: {fileID: 6340709511854637800}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -330,6 +331,21 @@ MonoBehaviour:
   _UnderWaterAmplitude: 0.1
   _AnimationSpeed: 3
   _AnimationSpeedModifier: 1
+--- !u!114 &6340709511854637800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756665306235774044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26a05569e3b3b445aafe96e698f8471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ShipMr: {fileID: 4972972743702256699}
+  _DamageColor: {r: 1, g: 0, b: 0, a: 0}
+  _IndicatorTime: 0.3
 --- !u!1 &5044277267086782192
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +617,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab4438aeb7e02f140b395f939f9a4aaa, type: 3}
+--- !u!23 &4972972743702256699 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: ab4438aeb7e02f140b395f939f9a4aaa, type: 3}
+  m_PrefabInstance: {fileID: 5963357431423566015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6145338164875454292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab4438aeb7e02f140b395f939f9a4aaa, type: 3}
