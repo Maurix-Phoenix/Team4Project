@@ -45,6 +45,8 @@ public class EventManager :  MonoBehaviour
 
     public Action LevelStart;
     public Action LevelStop;
+    public Action LevelLoaded;
+    public Action PlayerSpawn;
 
     public void RaiseOnLevelStart()
     {

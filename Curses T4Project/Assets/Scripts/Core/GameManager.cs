@@ -18,9 +18,8 @@ public class GameManager : MonoBehaviour
     public UIManager UIManager { get; private set; }
     public AudioManager AudioManager { get; private set; }
     public DataManager DataManager { get; private set; }
-    public Level Level { get; private set; }
-    public Player Player { get; private set; }
-    
+    public LevelManager LevelManager { get; private set; }
+    public Scene CurrentScene { get; private set; }
 
     private void Awake()
     {
@@ -77,8 +76,7 @@ public class GameManager : MonoBehaviour
         EventManager = GetComponentInChildren<EventManager>();
         UIManager = GetComponentInChildren<UIManager>();
         AudioManager = GetComponentInChildren<AudioManager>();
-        Level = null;
-        Player = null;
+        LevelManager = GetComponentInChildren<LevelManager>();
         LoadGame();
 
         return true;
@@ -98,7 +96,7 @@ public class GameManager : MonoBehaviour
     private void StateStarting()
     {
         //operations to do after the GameManager is fully instantiated
-        T4Debug.Log("GameManager: Game started!");
+        T4Debug.Log("[GameManager] Game started!");
 
         EventManager.RaiseOnGameStart();
         SetState(States.Playing);
@@ -161,11 +159,9 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        CurrentScene = scene;
         Time.timeScale = 1;
 
-        //resetting level and player references
-        Level = null;
-        Player = null;
 
         T4Debug.Log($"[GameManager] Scene '{scene.name}' loaded.");
 
@@ -183,10 +179,14 @@ public class GameManager : MonoBehaviour
 
         //TMP until event system complete (need a rework on level.cs)
         if(scene.name == "Level")
-        {
-            Level = GameObject.Find("Level").GetComponent<Level>();
-            Player = GameObject.Find("Player").GetComponent<Player>();
+        {            
+            LevelManager.LoadLevel(LevelManager.LevelToLoad);
         }
+        if(scene.name == "LevelSelection")
+        {
+            LevelManager.CurrentLevel = LevelManager.LevelToLoad.GetComponent<Level>();
+        }
+
     }
     #endregion
 

@@ -64,10 +64,10 @@ public class SeaMine : LevelEntity, IDamageable
             _IsExploding = true;
             yield return new WaitForSeconds(t);
 
-            
+
 
             //TODO: need to set the explosion particle system with the range of the explosion.
-            Instantiate(ExplosionPrefabVFX, transform.position, Quaternion.identity, GameManager.Instance.Level.Content.transform);
+            Instantiate(ExplosionPrefabVFX, transform.position, Quaternion.identity);
 
             Collider[] others = Physics.OverlapSphere(transform.position, _ExplosionRange);
 
@@ -83,6 +83,7 @@ public class SeaMine : LevelEntity, IDamageable
                     damageable.TakeDamage(_ExplosionDamage, gameObject );
                 }               
             }
+            DropLoot();
             gameObject.SetActive(false);
 
             yield return new WaitForEndOfFrame();

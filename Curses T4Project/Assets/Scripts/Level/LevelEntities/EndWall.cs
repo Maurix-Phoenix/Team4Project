@@ -80,8 +80,8 @@ public class EndWall : LevelEntity, IDamageable
     protected override void Update()
     {
         base.Update();
-        if (GameManager.Instance.Player.gameObject.transform.position.x >= GameManager.Instance.Level.XIntermediatePosition &&
-            GameManager.Instance.Player.NOfCannonball <= 0 &&
+        if (GameManager.Instance.LevelManager.Player.gameObject.transform.position.x >= GameManager.Instance.LevelManager.CurrentLevel.XIntermediatePosition &&
+            GameManager.Instance.LevelManager.Player.NOfCannonball <= 0 &&
             !_CanShoot &&
             _NOfCannonball > 0 &&
             _Health > 0f)
@@ -106,7 +106,7 @@ public class EndWall : LevelEntity, IDamageable
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (GameManager.Instance.Player.gameObject.transform.position.x >= GameManager.Instance.Level.XIntermediatePosition && GameManager.Instance.Player.NOfCannonball <= 0)
+        if (GameManager.Instance.LevelManager.Player.gameObject.transform.position.x >= GameManager.Instance.LevelManager.CurrentLevel.XIntermediatePosition && GameManager.Instance.LevelManager.Player.NOfCannonball <= 0)
         {
             ShootCannonball();
         }
@@ -118,9 +118,9 @@ public class EndWall : LevelEntity, IDamageable
         if (other.attachedRigidbody.gameObject.GetComponent<Player>())
         {
 
-            _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(-GameManager.Instance.Level.ActualLayer)];
+            _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(-GameManager.Instance.LevelManager.CurrentLevel.ActualLayer)];
             _FirePos = _CannonActiveToShoot.transform.Find("FirePos").transform;
-            GameManager.Instance.Level.IsInBossBattle = true;
+            GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle = true;
             IsStopped = true;
 
             GameManager.Instance.UIManager.UpdateUIText("EndWallHealth_UIText", "[EW] " + _Health.ToString());
@@ -164,6 +164,7 @@ public class EndWall : LevelEntity, IDamageable
 
         if (_Health <= 0)
         {
+            DropLoot();
             StartCoroutine(DeadAnimation());
         }
     }
@@ -172,7 +173,7 @@ public class EndWall : LevelEntity, IDamageable
     {
         yield return new WaitForSeconds(_DespawnTimer);
 
-        GameManager.Instance.Level.IsLevelEnded = true;
+        GameManager.Instance.LevelManager.CurrentLevel.IsLevelEnded = true;
 
         gameObject.SetActive(false);
     }

@@ -4,12 +4,28 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using static T4P;
+using JetBrains.Annotations;
+using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
-    [Header("References")]
-    public GameObject Content;
+    [Header("LevelEditor Save Data")]
+    [SerializeField] public string LevelName;
+    [SerializeField] public string LevelDesigner;
+    [SerializeField] public int LevelID;
+    [SerializeField] public Sprite LevelThumbnail = null;
+
+    [Header("Level Completition")]
+    [SerializeField] public bool Unlocked = false;
+    [SerializeField] public int  StarsObtained = 0;
+    [SerializeField] public bool StarCompleted = false;
+    [SerializeField] public bool StarDoubloons = false;
+    [SerializeField] public bool StarAce = false;
+    [SerializeField] public int  TotalFlags = 3;
+    [SerializeField] public bool FlagObtained;
+    [SerializeField] public int  TotalDoubloons = 0;
 
     [Header("Level Entities")]
     public List<LevelEntity> LevelObjects;
@@ -47,6 +63,7 @@ public class Level : MonoBehaviour
 
     private void Awake()
     {
+        //SHOULD BE IN PLAYER
         //Check the Layer limits
         if (ActualLayer > 0)
         {
@@ -82,14 +99,16 @@ public class Level : MonoBehaviour
         //if (gameObject)
     }
 
-    private void PopulateLevel()
+    public void SaveLevel()
     {
-        //this will populate the level taking a Level file (need level editor)
+#if UNITY_EDITOR
+        gameObject.name = $"{LevelID}-{LevelName}-{LevelDesigner}";
+        PrefabUtility.SaveAsPrefabAsset(gameObject, $"Assets/Resources/Levels/{gameObject.name}.prefab");
+        T4Debug.Log($"LEVEL {gameObject.name} SAVED in Assets/Resources/Levels/");       
+
+#endif
     }
 
-    /// <summary>
-    /// start the level should be called when layer is in position.x = 0
-    /// </summary>
     public void StartLevel()
     {
         T4Debug.Log("[Level] Started");
@@ -125,6 +144,35 @@ public class Level : MonoBehaviour
             }
             case EndLevelType.Victory: 
             {
+                    //check endlevel stars here
+                    //check if player has all the flags and unlock the new one
+                    Player player = GameManager.Instance.LevelManager.Player;
+
+
+                    if(!StarCompleted)
+                    {
+                        StarCompleted = true;
+                        StarsObtained++;
+                    }
+
+                    if(player.NOfDoubloons >= (TotalDoubloons * 70) / 100)
+                    {
+                        if(!StarDoubloons)
+                        {
+                            StarDoubloons = true;
+                            StarsObtained++;
+                        }
+                    }
+                    if(player.Health == StartingHealth)
+                    {
+                        if(!StarAce)
+                        {
+                            StarAce = true;
+                            StarsObtained++;
+                        }
+
+                    }
+
                     //call ui level passed here
                     GameManager.Instance.UIManager.HideAllUICanvas();
                     GameManager.Instance.UIManager.ShowUICanvas("StageCompleteUI");
@@ -133,6 +181,16 @@ public class Level : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Vector3 scale = new Vector3(2, 1, 1);
+        Gizmos.DrawCube(T4Project.LanePosition[0], scale);
+        Gizmos.DrawCube(T4Project.LanePosition[1], scale);
+        Gizmos.DrawCube(T4Project.LanePosition[2], scale);
+    }
+
+
+    //SHOULD BE IN PLAYER
     public void SetLayer(int _modifier)
     {
         ActualLayer += _modifier;

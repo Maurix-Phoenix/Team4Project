@@ -1,5 +1,6 @@
 //T4P.cs Team 4 "The Drowned" project 
 
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,6 +8,21 @@ using UnityEngine;
 /// </summary>
 public static class T4P
 {
+    public static class Utilities
+    {
+        public static Vector3 RandomPointInCircle(Vector3 center, float radius)
+        {
+            Vector3 point = center;
+
+            float angle = Random.Range(0, Mathf.PI * 2);
+            point.x = center.x + radius * Mathf.Cos(angle);
+            point.y = center.y + radius * Mathf.Sin(angle);
+            point.z = center.z;
+
+            return point;
+        }
+    }
+
     public static class T4Debug
     {
         public enum LogType
@@ -37,8 +53,20 @@ public static class T4P
 
     public static class T4Project
     {
+        //Level Details
+        //Level ViewLimits
         public static Vector2 XVisualLimit = new Vector2(-15f, 40f);
         public static Vector2 YVisualLimit = new Vector2(-13f, 13f);
+
+        //Lanes
+        public static List<Vector3> LanePosition = new List<Vector3>
+        {
+            new Vector3 (0, 0, 0),  //0.top
+            new Vector3 (0, -3, 0), //1.middle
+            new Vector3 (0, -6, 0)    //2.bottom
+        };
+
+        //Pickups
         public enum PickupsType
         {
             None = -1,
@@ -46,5 +74,8 @@ public static class T4P
             Doubloon,
             ALL = 2,
         }
+
+
+
     }
 }

@@ -36,16 +36,13 @@ public class SeaMonster : LevelEntity, IDamageable
         //if the ray hit the player then aggro
         if (Physics.Raycast(transform.position, Vector3.left, out RaycastHit hit, _AggroRange, layerMask: LayerMask.GetMask("Player")))
         {
-            if (hit.collider.attachedRigidbody.gameObject.name == "Player")
-            {
-                _Aggroed = true;
-            }
+                _Aggroed = true; 
         }
 
         //if in aggro multiply the speed
         if (_Aggroed)
         {
-            MoveSpeed = GameManager.Instance.Level.LevelSpeed * _AggroSpeedMultiplier;
+            MoveSpeed = GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed * _AggroSpeedMultiplier;
         }
         
     }
@@ -73,6 +70,7 @@ public class SeaMonster : LevelEntity, IDamageable
 
         if(_Health <= 0)
         {
+            DropLoot();
             //TMP
             gameObject.SetActive(false);
             //death animation (routine) here, after deactivate the object

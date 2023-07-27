@@ -14,10 +14,10 @@ public class Particles : LevelEntityTemporary
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-
-        transform.position += new Vector3(-1 * Time.deltaTime * GameManager.Instance.Level.LevelSpeed, 0, 0);
+        base.Update();
+        transform.position += new Vector3(-1 * Time.deltaTime * GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed, 0, 0);
 
     }
 

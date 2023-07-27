@@ -41,14 +41,9 @@ public class EnemyShip : LevelEntity, IDamageable
         _IsPlayerInRange = false;
         if (Physics.Raycast(new Ray(transform.position, Vector3.left), out RaycastHit hit, _ShootRange, LayerMask.GetMask("Player")))
         {
-            if (hit.collider != null)
-            {
-                if (hit.collider.attachedRigidbody.gameObject.name == "Player")
-                {
-                    _IsPlayerInRange = true;
-                }
-            }
-      
+
+            _IsPlayerInRange = true;
+
         }
         
 
@@ -111,6 +106,7 @@ public class EnemyShip : LevelEntity, IDamageable
         _Health -= dmg;
         if(_Health <= 0)
         {
+            DropLoot();
             //tmp
             gameObject.SetActive(false);
         }

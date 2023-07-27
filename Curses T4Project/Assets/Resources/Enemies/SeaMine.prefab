@@ -124,6 +124,9 @@ MonoBehaviour:
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
   RB: {fileID: 0}
+  CanDropLoot: 0
+  LootList: []
+  DropRadius: 0
   Floating: 1
   FloatingAmplitude: 0.1
   FloatingFrequency: 2

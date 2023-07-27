@@ -243,10 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc49b29df68a2494a98f926604515b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _InputPauseReference: {fileID: 0}
   Health: 3
   NOfCannonball: 0
   NOfDoubloons: 0
+  NOfFlags: 0
   IsShooting: 0
   CanShoot: 0
   IsChangingLayer: 0
@@ -321,10 +321,10 @@ MonoBehaviour:
   _InputMovementReference: {fileID: 5423363297166148666, guid: 46418ff666dc9834ba4ad76d6e313323, type: 3}
   _Ship: {fileID: 5044277267086782192}
   _BackToSurfaceInBossBattle: 0
-  _ChangingLayerSpeed: 2
+  _ChangingLayerSpeed: 5
   _ImmersionRotationSpeed: 30
   _DefaultShipRotation: {x: 0, y: 0, z: 90}
-  _MovementCD: 1
+  _MovementCD: 0.5
   _AboveWaterFrequency: 3
   _AboveWaterAmplitude: 0.05
   _UnderWaterFrequency: 1

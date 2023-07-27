@@ -35,7 +35,7 @@ public class Cannonball : LevelEntityTemporary
         _Rb.interpolation = RigidbodyInterpolation.Interpolate;
         _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
-        _Player = GameObject.Find("Player").GetComponent<Player>(); //MAU
+        _Player = GameManager.Instance.LevelManager.Player; //MAU
 
         _EndWall = GameObject.Find("EndWall").GetComponent<EndWall>(); //MAU
 
@@ -55,7 +55,7 @@ public class Cannonball : LevelEntityTemporary
         {
             _TargetLocation = (_EndWall.transform.position - _StartLocation).normalized;
 
-            if(GameManager.Instance.Level.IsInBossBattle) //MAU - getting sure to get the active cannon position only in bossbattle.
+            if(GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle) //MAU - getting sure to get the active cannon position only in bossbattle.
             {
                 _TargetLocation = (_EndWall.CannonActiveToShoot.transform.position - _StartLocation).normalized;
             }
@@ -64,16 +64,17 @@ public class Cannonball : LevelEntityTemporary
         }
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
 
         //If level is not in boss battle, destroy the projectile after reaching the max distance.
-        if(!GameManager.Instance.Level.IsInBossBattle)
+        if(!GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
         {
             _Rb.useGravity = true;
             if (Vector3.Distance(transform.position, _StartLocation) > _MaxDistance || 
-                transform.position.y < _StartLocation.y - GameManager.Instance.Level.UnitSpaceBetweenLayer / 2 ||
-                transform.position.y > _StartLocation.y + GameManager.Instance.Level.UnitSpaceBetweenLayer / 2)
+                transform.position.y < _StartLocation.y - GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer / 2 ||
+                transform.position.y > _StartLocation.y + GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer / 2)
             {
                 Destroy(gameObject);
             }
@@ -89,7 +90,7 @@ public class Cannonball : LevelEntityTemporary
     private void FixedUpdate()
     {
         //moving the cannonball
-        if (GameManager.Instance.Level.IsInBossBattle)
+        if (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
         {
             if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
@@ -134,7 +135,7 @@ public class Cannonball : LevelEntityTemporary
 
     public void ShootCannonball(float TrajectoryAngle, float CannonballSpeed, float MaxDistance, int CannonballDamage)
     {
-        if (GameManager.Instance.Level.IsInBossBattle)
+        if (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
         {
             _CannonballSpeed = CannonballSpeed;
             _CannonballDamage = CannonballDamage;

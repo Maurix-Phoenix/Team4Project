@@ -22,6 +22,7 @@ public class Player : MonoBehaviour, IDamageable
     public int Health = 3;
     public int NOfCannonball = 0;
     public int NOfDoubloons = 0;
+    public int NOfFlags = 0;
 
     [Header("Shoot Condition")]
     public bool IsShooting = false;
@@ -48,8 +49,8 @@ public class Player : MonoBehaviour, IDamageable
 
     void Start()
     {
-        Health = GameManager.Instance.Level.StartingHealth;
-        NOfCannonball = GameManager.Instance.Level.StartingCannonBalls;
+        Health = GameManager.Instance.LevelManager.CurrentLevel.StartingHealth;
+        NOfCannonball = GameManager.Instance.LevelManager.CurrentLevel.StartingCannonBalls;
 
         UpdatePlayerUI();
     }
@@ -99,7 +100,7 @@ public class Player : MonoBehaviour, IDamageable
 
             //GameOver here
             //MAU - call endlevel (gameover)
-            GameManager.Instance.Level.EndLevel(Level.EndLevelType.GameOver);
+            GameManager.Instance.LevelManager.CurrentLevel.EndLevel(Level.EndLevelType.GameOver);
         }
     }
 
