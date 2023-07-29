@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject UIContainer { get; private set; }
     public List<Canvas> UICanvasList;
     public List<TMP_Text> UITextList = new List<TMP_Text>();
-
+    public LevelPanel LevelPanelSelection;
     private void Awake()
     {
         Initialize();

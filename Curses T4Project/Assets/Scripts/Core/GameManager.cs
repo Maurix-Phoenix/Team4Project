@@ -1,5 +1,6 @@
 //GameManager.cs
 //by MAURIZIO FISCHETTI;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static T4P;
@@ -177,7 +178,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //TMP until event system complete (need a rework on level.cs)
+
         if(scene.name == "Level")
         {            
             LevelManager.LoadLevel(LevelManager.LevelToLoad);
@@ -185,6 +186,7 @@ public class GameManager : MonoBehaviour
         if(scene.name == "LevelSelection")
         {
             LevelManager.CurrentLevel = LevelManager.LevelToLoad.GetComponent<Level>();
+            UIManager.LevelPanelSelection.UpdateLevelPanel(LevelManager.CurrentLevel);
         }
 
     }

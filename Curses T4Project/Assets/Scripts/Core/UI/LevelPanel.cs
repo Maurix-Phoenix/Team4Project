@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class LevelPanel : MonoBehaviour
@@ -34,15 +35,13 @@ public class LevelPanel : MonoBehaviour
     public void UpdateLevelPanel(Level level)
     {
         //LevelThumbanilImage = null; //TODO - ADD the thumbnail image of the level
-
+        LevelData ld = GameManager.Instance.DataManager.GetLevelData(level);
         LevelThumbnail.sprite = SetLevelThumbnail(level);
-        LevelDesignInfoText.text = $"{level.LevelID}-{level.LevelName}\nby {level.LevelDesigner}";
-        T4P.T4Debug.Log($"Level Thumbanil: {level.LevelID}");
-        
+        LevelDesignInfoText.text = $"{level.LevelID}-{level.LevelName}\nby {level.LevelDesigner}";        
 
         string flagString;
 
-        if (level.FlagObtained)
+        if (ld.FlagObtained)
         {
             flagString = "v";
         }
@@ -51,7 +50,7 @@ public class LevelPanel : MonoBehaviour
             flagString = "x";
         }
 
-        LevelCompletitionText.text = $"Stars {level.StarsObtained}/3\tFlag [{flagString}]";
+        LevelCompletitionText.text = $"Stars {ld.StarsObtained}/3\tFlag [{flagString}]";
     }
 
     private Sprite SetLevelThumbnail(Level level)

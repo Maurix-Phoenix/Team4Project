@@ -271,6 +271,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7949612830765424794, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: _CryptData
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949612830765424794, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: _IsEnabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

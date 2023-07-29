@@ -18,14 +18,7 @@ public class Level : MonoBehaviour
     [SerializeField] public Sprite LevelThumbnail = null;
 
     [Header("Level Completition")]
-    [SerializeField] public bool Unlocked = false;
-    [SerializeField] public int  StarsObtained = 0;
-    [SerializeField] public bool StarCompleted = false;
-    [SerializeField] public bool StarDoubloons = false;
-    [SerializeField] public bool StarAce = false;
-    [SerializeField] public int  TotalFlags = 3;
-    [SerializeField] public bool FlagObtained;
-    [SerializeField] public int  TotalDoubloons = 0;
+    public LevelData LevelData = new LevelData();
 
     [Header("Level Entities")]
     public List<LevelEntity> LevelObjects;
@@ -63,6 +56,13 @@ public class Level : MonoBehaviour
 
     private void Awake()
     {
+        for(int i = 0; i < GameManager.Instance.DataManager.LevelData.Count; i++)
+        {
+            if (GameManager.Instance.DataManager.LevelData[i].LevelID == LevelID)
+            {
+                LevelData = GameManager.Instance.DataManager.GetLevelData(this);
+            }
+        }
         //SHOULD BE IN PLAYER
         //Check the Layer limits
         if (ActualLayer > 0)
@@ -96,18 +96,9 @@ public class Level : MonoBehaviour
 
     private void Update()
     {
-        //if (gameObject)
+
     }
 
-    public void SaveLevel()
-    {
-#if UNITY_EDITOR
-        gameObject.name = $"{LevelID}-{LevelName}-{LevelDesigner}";
-        PrefabUtility.SaveAsPrefabAsset(gameObject, $"Assets/Resources/Levels/{gameObject.name}.prefab");
-        T4Debug.Log($"LEVEL {gameObject.name} SAVED in Assets/Resources/Levels/");       
-
-#endif
-    }
 
     public void StartLevel()
     {
@@ -149,33 +140,37 @@ public class Level : MonoBehaviour
                     Player player = GameManager.Instance.LevelManager.Player;
 
 
-                    if(!StarCompleted)
+                    if(!LevelData.StarCompleted)
                     {
-                        StarCompleted = true;
-                        StarsObtained++;
+                        LevelData.StarCompleted = true;
+                        LevelData.StarsObtained++;
                     }
 
-                    if(player.NOfDoubloons >= (TotalDoubloons * 70) / 100)
+                    if(player.NOfDoubloons >= (LevelData.TotalDoubloons * 70) / 100)
                     {
-                        if(!StarDoubloons)
+                        if(!LevelData.StarDoubloons)
                         {
-                            StarDoubloons = true;
-                            StarsObtained++;
+                            LevelData.StarDoubloons = true;
+                            LevelData.StarsObtained++;
                         }
                     }
                     if(player.Health == StartingHealth)
                     {
-                        if(!StarAce)
+                        if(!LevelData.StarAce)
                         {
-                            StarAce = true;
-                            StarsObtained++;
+                            LevelData.StarAce = true;
+                            LevelData.StarsObtained++;
                         }
 
                     }
 
                     //call ui level passed here
                     GameManager.Instance.UIManager.HideAllUICanvas();
+
+                    GameManager.Instance.DataManager.SaveLevel(LevelData.LevelID);
+
                     GameManager.Instance.UIManager.ShowUICanvas("StageCompleteUI");
+                    
                 break;
             }
         }

@@ -1,7 +1,10 @@
 //DataManager.cs
 //by MAURIZIO FISCHETTI
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 using static T4P;
 
@@ -18,10 +21,19 @@ public class DataManager : MonoBehaviour
     [SerializeField]private string _FileName = "SaveFile.TDSAVE";
     private string _FullPath = "";
 
+    [SerializeField] private string _LevelFileFolder = "Levels";
+    private string[] _LevelFileName;
+    private string[] _LevelFullPath;
+
+
     [SerializeField]private bool _CryptData = false;
     [SerializeField]private string _CryptKey = "T4TheDrowned";
 
     public GameData GameData;
+
+    public List<Level> LevelList = new List<Level>();
+    public List<LevelData> LevelData = new List<LevelData>();
+
 
     private void Awake()
     {
@@ -34,7 +46,7 @@ public class DataManager : MonoBehaviour
         {
             //initialize blank datas
             GameData = new GameData();
-
+            
             //generic patch of the system in use (windows, linux, iOs, Android etc...) + folder + filename
             _FullPath = Path.Combine(Application.persistentDataPath, _FileFolder, _FileName);
 
@@ -48,10 +60,52 @@ public class DataManager : MonoBehaviour
                 Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, _FileFolder));
                 Save(GameData);
             }
+
+
+
+            //Levels
+            _LevelFileName = new string[Resources.LoadAll<GameObject>("Levels/").Length];
+            _LevelFullPath = new string[Resources.LoadAll<GameObject>("Levels/").Length];
+
+            for (int i = 0; i < Resources.LoadAll<GameObject>("Levels/").Length; i++)
+            {
+                Level level = Resources.LoadAll<GameObject>("Levels/")[i].GetComponent<Level>();
+                LevelList.Add(level);
+                LevelData.Add(new LevelData());
+
+                LevelData[i].LevelID = LevelList[i].LevelID;
+                LevelData[i].LevelName = LevelList[i].LevelName;
+                LevelData[i].LevelDesigner = LevelList[i].LevelDesigner;
+
+                _LevelFileName[i] = $"{LevelList[i].LevelID}.TDLEVEL";
+                _LevelFullPath[i] = Path.Combine(Application.persistentDataPath, _FileFolder, _LevelFileFolder, _LevelFileName[i]);
+
+                if (File.Exists(_LevelFullPath[i]))
+                {
+                    LevelData[i] = LoadLevel(i);
+                }
+                else
+                {
+                    Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, _FileFolder, _LevelFileFolder));
+                    SaveLevel(LevelData[i].LevelID);
+                }
+            }         
         }
     }
 
 
+    public LevelData GetLevelData(Level level)
+    {
+        foreach (LevelData levelData in LevelData)
+        {
+            if(level.LevelID ==  levelData.LevelID)
+            {
+                return levelData;
+            }
+        }
+        T4Debug.Log($"[Data Manager] Cannot find LevelData for {level.name}", T4Debug.LogType.Warning);
+        return null;
+    }
 
     /// <summary>
     /// Save the game
@@ -80,6 +134,61 @@ public class DataManager : MonoBehaviour
             fs.Flush(); //clears the buffer (clear the memory used for writing the file)
             fs.Close();
         }
+    }
+
+    public void SaveLevel(int id)
+    {
+        if (_IsEnabled)
+        {
+            string dataString = JsonUtility.ToJson(LevelData[id], true);
+            if(_CryptData)
+            {
+                dataString = DeEncrypt(dataString);
+            }
+
+            FileStream fs = new FileStream(_LevelFullPath[id], FileMode.Create, FileAccess.Write);
+            if(fs.CanWrite)
+            {
+                byte[] byteString = Encoding.Default.GetBytes(dataString);
+                fs.Write(byteString);
+            }
+            fs.Flush();
+            fs.Close();
+        }
+    }
+
+    public LevelData LoadLevel(int id)
+    {
+        if (_IsEnabled)
+        {
+
+            if (File.Exists(_LevelFullPath[id]))
+            {
+                string dataString = "";
+                LevelData loadedData;
+
+                FileStream fs = new FileStream(_LevelFullPath[id], FileMode.Open, FileAccess.Read);
+                if(fs.CanRead)
+                {
+                    byte[] byteString = new byte[fs.Length];
+                    int readedBytes = fs.Read(byteString);
+                    dataString = Encoding.Default.GetString(byteString, 0, readedBytes);
+                }
+                    
+                fs.Close();
+
+                if(_CryptData)
+                {
+                    dataString = DeEncrypt(dataString);
+                }
+
+                loadedData = JsonUtility.FromJson<LevelData>(dataString);
+
+                return loadedData;
+            }
+        }
+        return null;
+        
     }
 
     /// <summary>

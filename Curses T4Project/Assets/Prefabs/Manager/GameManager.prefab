@@ -4392,17 +4392,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2579173a73f78408a5dd3cc6d042b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _IsEnabled: 0
+  _IsEnabled: 1
   _FileFolder: Data
   _FileName: SaveFile.TDSAVE
-  _CryptData: 1
+  _LevelFileFolder: Levels
+  _CryptData: 0
   _CryptKey: T4TheDrowned
   GameData:
-    DeathCount: 0
-    EnemiesKilled: 0
-    CoinsCollected: 0
+    TotalDeathCount: 0
+    TotalEnemiesKilled: 0
+    TotalCoinsCollected: 0
+    TotalFlagsObtained: 0
+    TotalStarsObtained: 0
+    Muted: 0
     MusicVolume: 1
     SFXVolume: 1
+  LevelList: []
+  LevelData: []
 --- !u!1 &8051700735269001089
 GameObject:
   m_ObjectHideFlags: 0
@@ -5383,6 +5389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UICanvasList: []
   UITextList: []
+  LevelPanelSelection: {fileID: 2031266340508456356}
 --- !u!1 &9004074325196629449
 GameObject:
   m_ObjectHideFlags: 0
