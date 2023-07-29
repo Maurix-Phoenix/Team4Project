@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
     /// <param name="sceneToLoad">name of the scene</param>
     public void LoadScene(string sceneToLoad)
     {
-        SceneManager.LoadSceneAsync(sceneToLoad);
+        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -206,5 +206,10 @@ public class GameManager : MonoBehaviour
         {
             SetState(States.Paused);
         }
+    }
+
+    public void QuitGame()
+    {
+        SetState(States.Quitting);
     }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static T4P;
 
@@ -28,7 +29,7 @@ public class LevelManager : MonoBehaviour
 
         PlayerPrefab = Resources.Load<GameObject>("Specials/Player");
 
-        if(LevelPrefabsList.Count == 0)
+        if (LevelPrefabsList.Count == 0)
         {
             T4Debug.Log($"[Level Manager] LevelPrefabs List is Empty!", T4Debug.LogType.Warning);
         }
@@ -37,6 +38,13 @@ public class LevelManager : MonoBehaviour
             LevelToLoad = LevelPrefabsList[0];
             CurrentLevel = LevelToLoad.GetComponent<Level>();
         }
+
+    }
+
+    private void Start()
+    {
+
+
     }
 
     /// <summary>
@@ -127,6 +135,39 @@ public class LevelManager : MonoBehaviour
             LevelToLoad = CurrentLevel.gameObject;
 
         }
+    }
+
+
+
+    public void LoadNextLevel()
+    {
+
+        int index = CurrentLevel.LevelID + 1;
+        T4Debug.Log($"selected index: {index}");
+        if (index > LevelPrefabsList.Count - 1)
+        {
+            index = 0;
+        }
+
+        LevelToLoad = LevelPrefabsList[index];
+        T4Debug.Log($"adjusted index: {index}");
+
+        GameManager.Instance.LoadScene("Level");
+    }
+
+    public void LoadPreviousLevel()
+    {
+        int index = CurrentLevel.LevelID - 1;
+        T4Debug.Log($"selected index: {index}");
+        if (index < 0)
+        {
+            index = LevelPrefabsList.Count - 1;
+        }
+
+        LevelToLoad = LevelPrefabsList[index];
+        T4Debug.Log($"adjusted index: {index}");
+
+        GameManager.Instance.LoadScene("Level");
     }
     
     private void InstantiateLevel(GameObject level)
