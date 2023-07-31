@@ -7,7 +7,7 @@ public class Pickup : LevelEntity
 {
 
     public PickupTemplate PT;
-    [SerializeField] private T4Project.PickupsType _PickupType; //TODO
+    [SerializeField] public T4Project.PickupsType PickupType;
     [SerializeField] private int _Value = 1;
     [SerializeField] private float _AttractionDistance = 3;
     [SerializeField] private float _AttractionSpeed = 10.0f;
@@ -26,7 +26,7 @@ public class Pickup : LevelEntity
             //if pt is not null it will pass its values on the private current instance ones.
             _Value = PT.Value;
             _AttractionDistance = PT.AttractionDistance;
-            _PickupType = PT.Type;
+            PickupType = PT.Type;
         }
     }
 
@@ -47,7 +47,7 @@ public class Pickup : LevelEntity
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Player player = GameManager.Instance.LevelManager.Player;
-            GameManager.Instance.LevelManager.Player.AddResource(_PickupType, _Value);
+            GameManager.Instance.LevelManager.Player.AddResource(PickupType, _Value);
 
             gameObject.SetActive(false);
             T4Debug.Log($"{gameObject.name} Collected.");

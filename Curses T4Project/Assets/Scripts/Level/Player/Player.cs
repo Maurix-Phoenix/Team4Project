@@ -72,16 +72,22 @@ public class Player : MonoBehaviour, IDamageable
             case T4Project.PickupsType.Cannonball:
             {
                 NOfCannonball += value;
-                    UpdatePlayerUI();
+                    
                 break;
             }
             case T4Project.PickupsType.Doubloon:
             {
                 NOfDoubloons += value;
-                    UpdatePlayerUI();
+                    
+                break;
+            }
+            case T4Project.PickupsType.Flag:
+            {
+                NOfFlags += value;
                 break;
             }
         }
+        UpdatePlayerUI();
     }
 
     public void TakeDamage(int dmg, GameObject damager)
@@ -109,5 +115,6 @@ public class Player : MonoBehaviour, IDamageable
         GameManager.Instance.UIManager.UpdateUIText("Health_UIText", "[+] " + Health.ToString());
         GameManager.Instance.UIManager.UpdateUIText("Doubloons_UIText", "[$] " + NOfDoubloons.ToString());
         GameManager.Instance.UIManager.UpdateUIText("Cannonballs_UIText", "[o] " + NOfCannonball.ToString());
+        GameManager.Instance.UIManager.UpdateUIText("Flags_UIText", "[X] " + NOfFlags.ToString());
     }
 }

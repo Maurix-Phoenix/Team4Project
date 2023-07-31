@@ -72,7 +72,8 @@ public static class T4P
             None = -1,
             Cannonball,
             Doubloon,
-            ALL = 2,
+            Flag,
+            ALL = 3,
         }
 
 

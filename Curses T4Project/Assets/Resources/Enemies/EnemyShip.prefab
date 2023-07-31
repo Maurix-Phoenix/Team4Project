@@ -152,13 +152,13 @@ MonoBehaviour:
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
   RB: {fileID: 0}
-  CanDropLoot: 0
+  CanDropLoot: 1
   LootList:
   - PickupPrefab: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
     DropQuantityRange: {x: 1, y: 3}
   - PickupPrefab: {fileID: 8138790477708015956, guid: 270e4db85530a7641b5332b529ec9dc8, type: 3}
     DropQuantityRange: {x: 1, y: 3}
-  DropRadius: 0
+  DropRadius: 0.5
   Floating: 1
   FloatingAmplitude: 0.12
   FloatingFrequency: 1

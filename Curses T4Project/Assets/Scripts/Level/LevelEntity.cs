@@ -118,6 +118,11 @@ public class LevelEntity : MonoBehaviour
                 for(int i = 0; i < dropN; i++)
                 {
                     Vector3 spawnPos = T4P.Utilities.RandomPointInCircle(transform.position, DropRadius);
+                    if (transform.position.y >= 0 &&  spawnPos.y >= 0)
+                    {
+                        spawnPos.y = 0;
+                    }
+                    
                     Instantiate(loot.PickupPrefab,spawnPos,Quaternion.identity);
                 }
             }

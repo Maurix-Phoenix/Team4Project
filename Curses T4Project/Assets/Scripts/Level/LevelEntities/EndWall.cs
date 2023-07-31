@@ -115,7 +115,7 @@ public class EndWall : LevelEntity, IDamageable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.attachedRigidbody.gameObject.GetComponent<Player>())
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
 
             _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(-GameManager.Instance.LevelManager.CurrentLevel.ActualLayer)];

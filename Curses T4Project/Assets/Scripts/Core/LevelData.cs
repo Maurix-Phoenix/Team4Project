@@ -20,8 +20,6 @@ public class LevelData
     public bool StarCompleted = false;
     public bool StarDoubloons = false;
     public bool StarAce = false;
-    public int TotalFlags = 3;
     public bool FlagObtained;
-    public int TotalDoubloons = 0;
 }
 

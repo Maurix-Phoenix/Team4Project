@@ -17,8 +17,15 @@ public class Level : MonoBehaviour
     [SerializeField] public int LevelID;
     [SerializeField] public Sprite LevelThumbnail = null;
 
-    [Header("Level Completition")]
+    [Header("Level Resources")]
+    [SerializeField] private int _TotalCannonballs = 0;
+    [SerializeField] private int _TotalDoubloons = 0;
+    [SerializeField] private int _TotalFlags = 0;
+
+    [Header("Level Savings")]
     public LevelData LevelData = new LevelData();
+
+
 
     [Header("Level Entities")]
     public List<LevelEntity> LevelObjects;
@@ -102,7 +109,11 @@ public class Level : MonoBehaviour
 
     public void StartLevel()
     {
-        T4Debug.Log("[Level] Started");
+        CalculateFlags();
+        CalculateCannonballs();
+        CalculateDoubloons();
+        T4Debug.Log($"[Level] Started [Resources Cannonballs {_TotalCannonballs} - Flags:{_TotalFlags} - TotalDoubloons:{_TotalDoubloons}");
+
         GameManager.Instance.EventManager.RaiseOnLevelStart();
     }
 
@@ -146,14 +157,18 @@ public class Level : MonoBehaviour
                         LevelData.StarsObtained++;
                     }
 
-                    if(player.NOfDoubloons >= (LevelData.TotalDoubloons * 70) / 100)
+                    if(!LevelData.StarDoubloons && _TotalDoubloons > 0)
                     {
-                        if(!LevelData.StarDoubloons)
+                        if (player.NOfDoubloons >= (_TotalDoubloons * 70) / 100)
                         {
-                            LevelData.StarDoubloons = true;
-                            LevelData.StarsObtained++;
+                            if (!LevelData.StarDoubloons)
+                            {
+                                LevelData.StarDoubloons = true;
+                                LevelData.StarsObtained++;
+                            }
                         }
                     }
+
                     if(player.Health == StartingHealth)
                     {
                         if(!LevelData.StarAce)
@@ -163,6 +178,15 @@ public class Level : MonoBehaviour
                         }
 
                     }
+
+                    if(!LevelData.FlagObtained && _TotalFlags > 0)
+                    {
+                        if (player.NOfFlags == _TotalFlags)
+                        {
+                            LevelData.FlagObtained = true;
+                        }
+                    }
+
 
                     //call ui level passed here
                     GameManager.Instance.UIManager.HideAllUICanvas();
@@ -175,6 +199,97 @@ public class Level : MonoBehaviour
             }
         }
     }
+
+    //Calculate the Flags based on the objects inside the list and their loot (minimun value)
+    private void CalculateFlags()
+    {
+        foreach (LevelEntity le in LevelObjects)
+        {
+            Pickup pk;
+            if (le.TryGetComponent(out pk))
+            {
+                if (pk.PickupType == T4Project.PickupsType.Flag)
+                {
+                    _TotalFlags++;
+                }
+            }
+
+            if (le.CanDropLoot)
+            {
+                foreach (LevelEntity.Loot loot in le.LootList)
+                {
+                    if (loot.PickupPrefab.TryGetComponent(out pk))
+                    {
+                        if (pk.PickupType == T4Project.PickupsType.Flag)
+                        {
+                           _TotalFlags += loot.DropQuantityRange.x;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Calculate the doubloons based on the objects inside the list and their loot (minimun value)
+    private void CalculateDoubloons()
+    {
+        foreach(LevelEntity le in LevelObjects)
+        {
+            
+            Pickup pk;
+            if(le.TryGetComponent(out pk))
+            {
+                if (pk.PickupType == T4Project.PickupsType.Doubloon)
+                {
+                    _TotalDoubloons++;
+                }
+            }
+
+            if(le.CanDropLoot)
+            {
+                foreach(LevelEntity.Loot loot in le.LootList)
+                {
+                    if(loot.PickupPrefab.TryGetComponent(out pk))
+                    {
+                        if(pk.PickupType == T4Project.PickupsType.Doubloon)
+                        {
+                            _TotalDoubloons += loot.DropQuantityRange.x;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Calculate the Cannonballs based on the objects inside the list and their loot (minimun value)
+    private void CalculateCannonballs()
+    {
+        foreach (LevelEntity le in LevelObjects)
+        {
+            Pickup pk;
+            if (le.TryGetComponent(out pk))
+            {
+                if (pk.PickupType == T4Project.PickupsType.Cannonball)
+                {
+                    _TotalCannonballs++;
+                }
+            }
+
+            if (le.CanDropLoot)
+            {
+                foreach (LevelEntity.Loot loot in le.LootList)
+                {
+                    if (loot.PickupPrefab.TryGetComponent(out pk))
+                    {
+                        if (pk.PickupType == T4Project.PickupsType.Cannonball)
+                        {
+                            _TotalCannonballs += loot.DropQuantityRange.x;
+                        }
+                    }
+                }
+            }
+    }
+}
 
     private void OnDrawGizmos()
     {
