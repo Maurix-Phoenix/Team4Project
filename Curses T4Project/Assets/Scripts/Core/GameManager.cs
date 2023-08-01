@@ -178,7 +178,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-
+        if(scene.name == "MainMenu")
+        {
+            UIManager.FlagsCollection.UpdateFlagCollection();
+        }
         if(scene.name == "Level")
         {            
             LevelManager.LoadLevel(LevelManager.LevelToLoad);

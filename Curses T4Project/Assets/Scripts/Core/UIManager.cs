@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public List<Canvas> UICanvasList;
     public List<TMP_Text> UITextList = new List<TMP_Text>();
     public LevelPanel LevelPanelSelection;
+    public FlagCollection FlagsCollection;
     private void Awake()
     {
         Initialize();
