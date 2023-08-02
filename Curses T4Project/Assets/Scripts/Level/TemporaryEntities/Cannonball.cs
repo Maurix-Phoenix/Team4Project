@@ -45,13 +45,13 @@ public class Cannonball : LevelEntityTemporary
     protected override void Start()
     {
         base.Start();
-        if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball"))
         {
             _TargetLocation = (_Player.transform.position - _StartLocation).normalized;
             T4P.T4Debug.Log("EnemyCannonball " + _TargetLocation);
 
         }
-        else if (gameObject.layer == LayerMask.NameToLayer("Player"))
+        else if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
         {
             _TargetLocation = (_EndWall.transform.position - _StartLocation).normalized;
 
@@ -83,8 +83,6 @@ public class Cannonball : LevelEntityTemporary
         {
             _Rb.useGravity = false;
         }
-
-
     }
 
     private void FixedUpdate()
@@ -92,7 +90,7 @@ public class Cannonball : LevelEntityTemporary
         //moving the cannonball
         if (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
         {
-            if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball"))
             {
                 _TargetLocation = (_Player.transform.position - _StartLocation).normalized;
             }

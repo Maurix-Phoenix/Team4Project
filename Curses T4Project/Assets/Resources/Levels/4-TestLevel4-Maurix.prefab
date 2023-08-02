@@ -32,14 +32,14 @@ Transform:
   - {fileID: 316680901673715669}
   - {fileID: 4549981089369147655}
   - {fileID: 1517005697211660144}
-  - {fileID: 773285370715550512}
+  - {fileID: 1164189374979773901}
   - {fileID: 3648387142064715381}
   - {fileID: 3143282397769372431}
   - {fileID: 1465320339120771553}
-  - {fileID: 4315507533409774442}
+  - {fileID: 6477261547056920455}
   - {fileID: 9076981883574141176}
   - {fileID: 6053330256424976666}
-  - {fileID: 158813309732608837}
+  - {fileID: 1936771501657243724}
   - {fileID: 955459527324640705}
   - {fileID: 3557973702423567118}
   m_Father: {fileID: 0}
@@ -60,26 +60,34 @@ MonoBehaviour:
   LevelName: TestLevel4
   LevelDesigner: Maurix
   LevelID: 4
-  Unlocked: 0
-  StarsObtained: 0
-  StarCompleted: 0
-  StarDoubloons: 0
-  StarAce: 0
-  TotalFlags: 3
-  FlagObtained: 0
-  TotalDoubloons: 0
+  LevelThumbnail: {fileID: 0}
+  _TotalCannonballs: 0
+  _TotalDoubloons: 0
+  _TotalFlags: 0
+  LevelData:
+    LevelID: 0
+    LevelName: Level
+    LevelDesigner: TheDrowned
+    Unlocked: 0
+    StarsObtained: 0
+    StarCompleted: 0
+    StarDoubloons: 0
+    StarAce: 0
+    FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
   LevelSpeed: 1
   IsInBossBattle: 0
   IsLevelEnded: 0
-  NOfLayersUnderWater: 4
+  StartingLane: 0
+  NOfLayersUnderWater: 2
   ActualLayer: 0
   FinalLayer: 0
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -6
-  XIntermediatePosition: 10
-  XEndingPosition: 26
+  XIntermediatePosition: 3
+  XEndingPosition: 15
+  YLanePosition: 0
   StartingHealth: 3
   StartingCannonBalls: 5
 --- !u!1001 &773285370715550511
@@ -147,7 +155,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
---- !u!4 &773285370715550512 stripped
+--- !u!4 &1164189374979773901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1914956605740656354, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
   m_PrefabInstance: {fileID: 773285370715550511}
@@ -415,7 +423,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d761395fca22d49ae841801621ad1f, type: 3}
---- !u!4 &4315507533409774442 stripped
+--- !u!4 &6477261547056920455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9208318095562227939, guid: 53d761395fca22d49ae841801621ad1f, type: 3}
   m_PrefabInstance: {fileID: 2749834094691366756}
@@ -819,7 +827,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d761395fca22d49ae841801621ad1f, type: 3}
---- !u!4 &158813309732608837 stripped
+--- !u!4 &1936771501657243724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9208318095562227939, guid: 53d761395fca22d49ae841801621ad1f, type: 3}
   m_PrefabInstance: {fileID: 7289726832615129263}

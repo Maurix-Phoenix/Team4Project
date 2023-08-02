@@ -27,6 +27,8 @@ public class EndWall : LevelEntity, IDamageable
     [SerializeField] private int _Health = 10;
     [SerializeField] private int _NOfCannonball = 3;
 
+    public int Health { get { return _Health; } }
+
     [Header("Cannons Variables")]
     [SerializeField] private bool _CanShoot = false;
     //[SerializeField] private float _CannonHeight = 1.5f;
@@ -118,7 +120,7 @@ public class EndWall : LevelEntity, IDamageable
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
 
-            _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(-GameManager.Instance.LevelManager.CurrentLevel.ActualLayer)];
+            _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(GameManager.Instance.LevelManager.CurrentLevel.ActualLayer)];
             _FirePos = _CannonActiveToShoot.transform.Find("FirePos").transform;
             GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle = true;
             IsStopped = true;

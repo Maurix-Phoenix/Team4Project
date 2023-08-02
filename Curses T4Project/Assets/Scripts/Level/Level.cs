@@ -25,8 +25,6 @@ public class Level : MonoBehaviour
     [Header("Level Savings")]
     public LevelData LevelData = new LevelData();
 
-
-
     [Header("Level Entities")]
     public List<LevelEntity> LevelObjects;
     public List<LevelEntityTemporary> TemporaryObjects;
@@ -37,18 +35,20 @@ public class Level : MonoBehaviour
     public bool IsLevelEnded = false;
 
     [Header("Layer Variables")]
+    public T4Project.LaneType StartingLane;
     [Tooltip("The Layer counting start from 0.")]
-    public int NOfLayersUnderWater = 4;
+    [Range(0, 2)] public int NOfLayersUnderWater = 2;
     [Tooltip("The number of total layer goes from '0' to '-n'.\n'0' is the layer above the water.\n'-n' is the layer on the sea bed.")]
     public int ActualLayer = 0;
     [Tooltip("The number of total layer goes from '0' to '-n'.\n'0' is the layer above the water.\n'-n' is the layer on the sea bed.")]
     public int FinalLayer = 0;
     public int UnitSpaceBetweenLayer = 3;
 
-    [Header("Player Animation Positions")]
+    [Header("Player Positions")]
     public float XStartingPosition = -6f;
     public float XIntermediatePosition = 10f;
     public float XEndingPosition = 26f;
+    public float YLanePosition;
 
     [Header("Player Variables")]
     public int StartingHealth = 3;
@@ -70,8 +70,7 @@ public class Level : MonoBehaviour
                 LevelData = GameManager.Instance.DataManager.GetLevelData(this);
             }
         }
-        //SHOULD BE IN PLAYER
-        //Check the Layer limits
+        //Check the Layer limits for debugging at the start
         if (ActualLayer > 0)
         {
             ActualLayer = 0;
@@ -91,14 +90,26 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        InitializePosition();
+        InitializeStartingPosition();
         StopLevel();
     }
 
-    private void InitializePosition()
+    private void InitializeStartingPosition()
     {
-        XStartingPosition = T4Project.XVisualLimit.x;
-        XEndingPosition = T4Project.XVisualLimit.y;
+        switch (StartingLane)
+        {
+            case T4Project.LaneType.AboveWater:
+                ActualLayer = 0;
+                break;
+            case T4Project.LaneType.UnderWater:
+                ActualLayer = -1;
+                break;
+            case T4Project.LaneType.SeaBed:
+                ActualLayer = -2;
+                break;
+        }
+        YLanePosition = ActualLayer * UnitSpaceBetweenLayer;
+        GameManager.Instance.LevelManager.Player.transform.position = new Vector3(XStartingPosition, YLanePosition, 0f);
     }
 
     private void Update()
@@ -134,7 +145,7 @@ public class Level : MonoBehaviour
     {
         Time.timeScale = 0;
         T4Debug.Log($"[Level] Ended - {endtype}");
-        switch(endtype)
+        switch (endtype)
         {
             case EndLevelType.None: { break; }
             case EndLevelType.GameOver: 

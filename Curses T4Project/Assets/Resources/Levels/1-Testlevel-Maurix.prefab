@@ -61,6 +61,9 @@ MonoBehaviour:
   LevelDesigner: Maurix
   LevelID: 1
   LevelThumbnail: {fileID: 0}
+  _TotalCannonballs: 0
+  _TotalDoubloons: 0
+  _TotalFlags: 0
   LevelData:
     LevelID: 0
     LevelName: Level
@@ -70,21 +73,21 @@ MonoBehaviour:
     StarCompleted: 0
     StarDoubloons: 0
     StarAce: 0
-    TotalFlags: 3
     FlagObtained: 0
-    TotalDoubloons: 0
   LevelObjects: []
   TemporaryObjects: []
   LevelSpeed: 1
   IsInBossBattle: 0
   IsLevelEnded: 0
-  NOfLayersUnderWater: 4
+  StartingLane: 0
+  NOfLayersUnderWater: 2
   ActualLayer: 0
   FinalLayer: 0
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -6
-  XIntermediatePosition: 10
-  XEndingPosition: 26
+  XIntermediatePosition: 3
+  XEndingPosition: 15
+  YLanePosition: 0
   StartingHealth: 3
   StartingCannonBalls: 5
 --- !u!1001 &1924020793139767426

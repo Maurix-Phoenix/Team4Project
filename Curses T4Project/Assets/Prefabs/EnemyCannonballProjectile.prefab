@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3790390860483883974}
   - component: {fileID: 7078596503136655241}
   - component: {fileID: 48237912782737185}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: EnemyCannonballProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073fdae5531de5647b090e87507d18b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LifeTime: 5

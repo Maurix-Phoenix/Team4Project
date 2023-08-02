@@ -12,7 +12,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerShoot : MonoBehaviour
 {
-
     [Header("References")]
     [SerializeField] private InputActionReference _InputShootReference;
     [SerializeField] private GameObject _CannonballPrefab;
@@ -32,6 +31,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private float _ShootCD = 1f;
     [SerializeField] private float _ShootAtBossCD = 0.2f;
     private float _ShootingRecharge = 0f;
+    private int _cannonballShootedAtBoss = 0;
 
     private PlayerMovement _PlayerMovement;
 
@@ -64,8 +64,14 @@ public class PlayerShoot : MonoBehaviour
 
         }
 
-        if (gameObject.transform.position.x >= GameManager.Instance.LevelManager.CurrentLevel.XIntermediatePosition && GameManager.Instance.LevelManager.Player.NOfCannonball > 0 && GameManager.Instance.LevelManager.Player.CanShoot)
+        if (gameObject.transform.position.x >= GameManager.Instance.LevelManager.CurrentLevel.XIntermediatePosition &&
+            GameManager.Instance.LevelManager.Player.NOfCannonball > 0 &&
+            GameManager.Instance.LevelManager.Player.CanShoot
+            && _cannonballShootedAtBoss > 0
+            )
         {
+            Debug.Log(_cannonballShootedAtBoss);
+            _cannonballShootedAtBoss--;
             GameManager.Instance.LevelManager.Player.CanShoot = false;
             _ShootingRecharge = 0f;
             GameManager.Instance.LevelManager.Player.NOfCannonball--;
@@ -88,9 +94,15 @@ public class PlayerShoot : MonoBehaviour
             _UnderWaterSpeedModifier = 1f;
             _UnderWaterTrajectoryAngleModifier = 1f;
         }
+
         if (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
         {
             _ShootCD = _ShootAtBossCD;
+        }
+        else
+        {
+            _cannonballShootedAtBoss = FindObjectOfType<EndWall>().Health;
+            Debug.Log(_cannonballShootedAtBoss);
         }
 
         if (!GameManager.Instance.LevelManager.Player.CanShoot && !GameManager.Instance.LevelManager.Player.IsInStartAnimation)
@@ -103,12 +115,15 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
-    private void OnShootInput()
+    private void OnShootInput(InputValue _value)
     {
-        if (!GameManager.Instance.LevelManager.Player.IsChangingLayer && !GameManager.Instance.LevelManager.Player.IsInStartAnimation && GameManager.Instance.LevelManager.Player.NOfCannonball > 0 &&
-            GameManager.Instance.LevelManager.Player.CanShoot && !GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
+        if (!GameManager.Instance.LevelManager.Player.IsChangingLayer &&
+            !GameManager.Instance.LevelManager.Player.IsInStartAnimation &&
+            GameManager.Instance.LevelManager.Player.NOfCannonball > 0 &&
+            GameManager.Instance.LevelManager.Player.CanShoot &&
+            !GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
         {
-            GameManager.Instance.LevelManager.Player.IsShooting = true;
+            GameManager.Instance.LevelManager.Player.IsShooting = _value.isPressed;
         }
     }
 }

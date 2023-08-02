@@ -175,7 +175,7 @@ MonoBehaviour:
   _CannonballDamage: 1
   _CannonballSpeed: 10
   _MaxDistance: 10
-  _TrajectoryAngle: -15
+  _TrajectoryAngle: 12
 --- !u!1 &3226884337010107121
 GameObject:
   m_ObjectHideFlags: 0

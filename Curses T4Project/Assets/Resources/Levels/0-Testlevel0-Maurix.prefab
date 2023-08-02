@@ -55,6 +55,9 @@ MonoBehaviour:
   LevelDesigner: Maurix
   LevelID: 0
   LevelThumbnail: {fileID: 0}
+  _TotalCannonballs: 0
+  _TotalDoubloons: 0
+  _TotalFlags: 0
   LevelData:
     LevelID: 0
     LevelName: Level
@@ -64,21 +67,21 @@ MonoBehaviour:
     StarCompleted: 0
     StarDoubloons: 0
     StarAce: 0
-    TotalFlags: 3
     FlagObtained: 0
-    TotalDoubloons: 0
   LevelObjects: []
   TemporaryObjects: []
   LevelSpeed: 1
   IsInBossBattle: 0
   IsLevelEnded: 0
-  NOfLayersUnderWater: 4
+  StartingLane: 2
+  NOfLayersUnderWater: 2
   ActualLayer: 0
   FinalLayer: 0
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -6
-  XIntermediatePosition: 10
-  XEndingPosition: 26
+  XIntermediatePosition: 3
+  XEndingPosition: 15
+  YLanePosition: 6
   StartingHealth: 3
   StartingCannonBalls: 5
 --- !u!1001 &1924020793139767426
@@ -227,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1156577040673246854, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 68.1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1156577040673246854, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -268,6 +271,10 @@ PrefabInstance:
     - target: {fileID: 7625677585532137803, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
       propertyPath: m_Name
       value: EndWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7941652794988939001, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -61,9 +61,9 @@ public static class T4P
         //Lanes
         public static List<Vector3> LanePosition = new List<Vector3>
         {
-            new Vector3 (0, 0, 0),  //0.top
-            new Vector3 (0, -3, 0), //1.middle
-            new Vector3 (0, -6, 0)    //2.bottom
+            new Vector3 (0, 0, 0),      //0.top
+            new Vector3 (0, -3, 0),     //1.middle
+            new Vector3 (0, -6, 0)      //2.bottom
         };
 
         //Pickups
@@ -76,7 +76,11 @@ public static class T4P
             ALL = 3,
         }
 
-
-
+        public enum LaneType
+        {
+            AboveWater,
+            UnderWater,
+            SeaBed,
+        }
     }
 }

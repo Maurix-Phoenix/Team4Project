@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Start()
     {
-        InitializeShip();
+        SetStartingPosition();
     }
 
     private void Update()
@@ -96,13 +96,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void InitializeShip()
+    private void SetStartingPosition()
     {
         //Set Starting Position
         _ActualPosition = new Vector3(GameManager.Instance.LevelManager.CurrentLevel.XStartingPosition,
                                       GameManager.Instance.LevelManager.CurrentLevel.ActualLayer * GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer,
                                       0f);
-        gameObject.transform.position = _ActualPosition;
     }
     private void OnMovementInput()
     {

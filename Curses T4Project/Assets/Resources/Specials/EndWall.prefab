@@ -354,8 +354,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5841443139636440996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: 0, z: -3.5}
-  m_LocalScale: {x: 30, y: 15, z: 6}
+  m_LocalPosition: {x: -5.5, y: 0, z: -3.5}
+  m_LocalScale: {x: 11, y: 15, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1156577040673246854}
@@ -971,6 +971,9 @@ MonoBehaviour:
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
   RB: {fileID: 0}
+  CanDropLoot: 0
+  LootList: []
+  DropRadius: 0.5
   Floating: 0
   FloatingAmplitude: 0.3
   FloatingFrequency: 1
@@ -1300,12 +1303,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 574579335400900047}
     m_Modifications:
     - target: {fileID: 386357729603849520, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
+      propertyPath: m_Name
+      value: FirePos
+      objectReference: {fileID: 0}
+    - target: {fileID: 386357729603849520, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 428014673052421037, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Name
-      value: EndWallCannon
+      value: EndWallCannon0
       objectReference: {fileID: 0}
     - target: {fileID: 428014673052421037, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Layer
@@ -1399,12 +1406,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 8778662473415319699}
     m_Modifications:
     - target: {fileID: 386357729603849520, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
+      propertyPath: m_Name
+      value: FirePos
+      objectReference: {fileID: 0}
+    - target: {fileID: 386357729603849520, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 428014673052421037, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Name
-      value: EndWallCannon
+      value: EndWallCannon2
       objectReference: {fileID: 0}
     - target: {fileID: 428014673052421037, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Layer
@@ -1498,12 +1509,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 8637784628451988371}
     m_Modifications:
     - target: {fileID: 386357729603849520, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
+      propertyPath: m_Name
+      value: FirePos
+      objectReference: {fileID: 0}
+    - target: {fileID: 386357729603849520, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 428014673052421037, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Name
-      value: EndWallCannon
+      value: EndWallCannon3
       objectReference: {fileID: 0}
     - target: {fileID: 428014673052421037, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Layer
@@ -1597,12 +1612,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 8294065747307240524}
     m_Modifications:
     - target: {fileID: 386357729603849520, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
+      propertyPath: m_Name
+      value: FirePos
+      objectReference: {fileID: 0}
+    - target: {fileID: 386357729603849520, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 428014673052421037, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Name
-      value: EndWallCannon
+      value: EndWallCannon1
       objectReference: {fileID: 0}
     - target: {fileID: 428014673052421037, guid: 6035cad40218cea4dbd99ccb1dc33f85, type: 3}
       propertyPath: m_Layer

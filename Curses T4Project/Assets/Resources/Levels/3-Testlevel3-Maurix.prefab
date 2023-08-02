@@ -70,13 +70,15 @@ MonoBehaviour:
   LevelSpeed: 1
   IsInBossBattle: 0
   IsLevelEnded: 0
-  NOfLayersUnderWater: 4
+  StartingLane: 1
+  NOfLayersUnderWater: 2
   ActualLayer: 0
   FinalLayer: 0
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -6
-  XIntermediatePosition: 10
-  XEndingPosition: 26
+  XIntermediatePosition: 3
+  XEndingPosition: 15
+  YLanePosition: 0
   StartingHealth: 3
   StartingCannonBalls: 5
 --- !u!1001 &2626965905369828622
