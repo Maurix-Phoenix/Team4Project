@@ -1,5 +1,5 @@
 //Player.cs
-//by ANTHONY FEDELI
+//by ANTHONY FEDELI & MAURIZIO FISCHETTI
 
 using System.Collections;
 using UnityEngine;
@@ -49,10 +49,14 @@ public class Player : MonoBehaviour, IDamageable
 
     void Start()
     {
+        InitializePlayer();
+        UpdatePlayerUI();
+    }
+
+    private void InitializePlayer()
+    {
         Health = GameManager.Instance.LevelManager.CurrentLevel.StartingHealth;
         NOfCannonball = GameManager.Instance.LevelManager.CurrentLevel.StartingCannonBalls;
-
-        UpdatePlayerUI();
     }
 
     private void OnPauseGameInput()

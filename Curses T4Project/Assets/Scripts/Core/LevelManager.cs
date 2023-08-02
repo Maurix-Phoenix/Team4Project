@@ -40,13 +40,11 @@ public class LevelManager : MonoBehaviour
         }
 
     }
-
     private void Start()
     {
 
 
     }
-
     /// <summary>
     /// Load the level with the given prefab
     /// </summary>
@@ -64,7 +62,6 @@ public class LevelManager : MonoBehaviour
         }
         T4Debug.Log($"[Level Manager] Could not find a Level gameobject: {levelObj}");
     }
-
     /// <summary>
     /// Load the level with the given name
     /// </summary>
@@ -83,7 +80,6 @@ public class LevelManager : MonoBehaviour
         T4Debug.Log($"[Level Manager] Could not find a Level with name: {levelName}");
         
     }
-
     /// <summary>
     /// Load the level with the given ID
     /// </summary>
@@ -101,8 +97,6 @@ public class LevelManager : MonoBehaviour
         }
         T4Debug.Log($"[Level Manager] Could not find a Level with ID: {id}");
     }
-
-
     public void LevelSelectionPrevious() 
     {
         if(GameManager.Instance.CurrentScene.name == "LevelSelection")
@@ -136,9 +130,6 @@ public class LevelManager : MonoBehaviour
 
         }
     }
-
-
-
     public void LoadNextLevel()
     {
 
@@ -154,7 +145,6 @@ public class LevelManager : MonoBehaviour
 
         GameManager.Instance.LoadScene("Level");
     }
-
     public void LoadPreviousLevel()
     {
         int index = CurrentLevel.LevelID - 1;
@@ -169,13 +159,11 @@ public class LevelManager : MonoBehaviour
 
         GameManager.Instance.LoadScene("Level");
     }
-    
     private void InstantiateLevel(GameObject level)
     {
         CurrentLevel = Instantiate(level).GetComponent<Level>();
         SpawnPlayer();
     }
-
     private void SpawnPlayer()
     {
         Player = Instantiate(PlayerPrefab).GetComponent<Player>();

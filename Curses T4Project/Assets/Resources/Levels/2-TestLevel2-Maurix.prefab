@@ -71,26 +71,34 @@ MonoBehaviour:
   LevelName: TestLevel2
   LevelDesigner: Maurix
   LevelID: 2
-  Unlocked: 0
-  StarsObtained: 2
-  StarCompleted: 1
-  StarDoubloons: 1
-  StarAce: 0
-  TotalFlags: 4
-  FlagObtained: 1
-  TotalDoubloons: 100
+  LevelThumbnail: {fileID: 0}
+  _TotalCannonballs: 0
+  _TotalDoubloons: 0
+  _TotalFlags: 0
+  LevelData:
+    LevelID: 0
+    LevelName: Level
+    LevelDesigner: TheDrowned
+    Unlocked: 0
+    StarsObtained: 0
+    StarCompleted: 0
+    StarDoubloons: 0
+    StarAce: 0
+    FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
   LevelSpeed: 1
   IsInBossBattle: 0
   IsLevelEnded: 0
-  NOfLayersUnderWater: 4
+  StartingLane: 0
+  NOfLayersUnderWater: 2
   ActualLayer: 0
   FinalLayer: 0
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -6
-  XIntermediatePosition: 10
-  XEndingPosition: 26
+  XIntermediatePosition: 3
+  XEndingPosition: 15
+  YLanePosition: 0
   StartingHealth: 3
   StartingCannonBalls: 5
 --- !u!1001 &39612687153155382
