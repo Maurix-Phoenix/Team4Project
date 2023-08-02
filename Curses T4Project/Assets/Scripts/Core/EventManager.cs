@@ -58,5 +58,4 @@ public class EventManager :  MonoBehaviour
         LevelStop?.Invoke();
     }
     #endregion
-
 }

@@ -70,7 +70,6 @@ public class PlayerShoot : MonoBehaviour
             && _cannonballShootedAtBoss > 0
             )
         {
-            Debug.Log(_cannonballShootedAtBoss);
             _cannonballShootedAtBoss--;
             GameManager.Instance.LevelManager.Player.CanShoot = false;
             _ShootingRecharge = 0f;
@@ -102,7 +101,6 @@ public class PlayerShoot : MonoBehaviour
         else
         {
             _cannonballShootedAtBoss = FindObjectOfType<EndWall>().Health;
-            Debug.Log(_cannonballShootedAtBoss);
         }
 
         if (!GameManager.Instance.LevelManager.Player.CanShoot && !GameManager.Instance.LevelManager.Player.IsInStartAnimation)

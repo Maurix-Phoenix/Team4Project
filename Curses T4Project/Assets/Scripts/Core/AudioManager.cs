@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static T4P;
 
 /// <summary>
@@ -22,6 +23,9 @@ public class AudioManager : MonoBehaviour
     public List<Music> Musics= new List<Music>();
     public List<SFX> SFXs = new List<SFX>();
 
+    public Slider SliderMusic;
+    public Slider SliderSFX;
+
     private void Awake()
     {
         Initialize();
@@ -31,6 +35,9 @@ public class AudioManager : MonoBehaviour
     {
         AudioSourceMusic = transform.GetChild(0).GetComponent<AudioSource>();
         AudioSourceSFX = transform.GetChild(1).GetComponent<AudioSource>();
+
+        AudioSourceMusic.volume = GameManager.Instance.DataManager.GameData.MusicVolume;
+        AudioSourceSFX.volume = GameManager.Instance.DataManager.GameData.SFXVolume;
 
         if (AudioSourceMusic != null && AudioSourceSFX != null)
         {
@@ -231,5 +238,22 @@ public class AudioManager : MonoBehaviour
     {
         public string Name;
         public AudioClip clip;
+    }
+
+
+
+    public void SetSliderMusicVolume() 
+    { 
+       
+       AudioSourceMusic.volume = SliderMusic.value;
+       GameManager.Instance.DataManager.GameData.MusicVolume = AudioSourceMusic.volume;
+        T4Debug.Log($"[Audio Manager] music volume: {AudioSourceMusic.volume}");
+    }
+    public void SetSliderSFXSVolume()
+    {
+        AudioSourceSFX.volume = SliderSFX.value;
+        GameManager.Instance.DataManager.GameData.SFXVolume = AudioSourceSFX.volume;
+        T4Debug.Log($"[Audio Manager] sfx volume: {AudioSourceSFX.volume}");
+
     }
 }
