@@ -1,12 +1,8 @@
 //LevelManager.cs
 //by MAURIZIO FISCHETTI
 
-using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using static T4P;
 
 public class LevelManager : MonoBehaviour
@@ -27,7 +23,7 @@ public class LevelManager : MonoBehaviour
             LevelPrefabsList.Add(level);
         }
 
-        PlayerPrefab = Resources.Load<GameObject>("Specials/Player");
+        PlayerPrefab = Resources.Load<GameObject>("GameEntities/Player");
 
         if (LevelPrefabsList.Count == 0)
         {

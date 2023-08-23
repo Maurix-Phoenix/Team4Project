@@ -2,14 +2,16 @@
 //by MAURIZIO FISCHETTI
 
 using System.Collections;
+using System.Linq;
 using UnityEngine;
-using static T4P;
-
+using UnityEngine.UI;
 
 public class SeaMine : LevelEntity, IDamageable
 {
     [Header("Sea Mine")]
     [SerializeField] private int _Health = 1;
+    [SerializeField] private bool _IsDroppedByFlagShip = false;
+    [SerializeField] private float _GoDownSpeed = 1;
 
     [Header("Explosion Effect")]
     public GameObject ExplosionPrefabVFX;
@@ -31,24 +33,50 @@ public class SeaMine : LevelEntity, IDamageable
             StartCoroutine(Explode(_WaitToExplode));
         }
         
+        if (_IsDroppedByFlagShip)
+        {
+            gameObject.transform.localScale = Vector3.zero;
+        }
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (_IsDroppedByFlagShip && gameObject.transform.localScale.x < 1)
+        {
+            gameObject.transform.localScale += new Vector3(Time.deltaTime / 2, Time.deltaTime / 2, Time.deltaTime / 2);
+        }
+        else
+        {
+            gameObject.transform.localScale = Vector3.one;
+        }
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        if (_IsDroppedByFlagShip)
+        {
+            //RB.velocity += Vector3.down * Time.fixedDeltaTime * _GoDownSpeed;
+            RB.MovePosition(RB.position + Vector3.down * Time.fixedDeltaTime * _GoDownSpeed);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-
-        if(_PlayerOnlyTrigger)
+        if (_PlayerOnlyTrigger)
         {
             if (other.gameObject.GetComponent<Player>() != null)
             {
-                TakeDamage(1, other.gameObject);
+                TakeDamage(_Health, other.gameObject);
             }
             else return;
         }
         else
         {
-            TakeDamage(1, other.gameObject );
+            TakeDamage(_Health, other.gameObject);
         }
-
     }
 
     /// <summary>
@@ -71,6 +99,14 @@ public class SeaMine : LevelEntity, IDamageable
 
             Collider[] others = Physics.OverlapSphere(transform.position, _ExplosionRange);
 
+            foreach (Collider collider in others)
+            {
+                if (collider.GetComponent<Player>() && collider.isTrigger)
+                {
+                    others = others.Where(colliderHitted => colliderHitted != collider).ToArray();
+                }
+            }
+
             foreach (Collider coll in others)
             {
                 IDamageable damageable = null;
@@ -80,9 +116,10 @@ public class SeaMine : LevelEntity, IDamageable
                 }
                 else if (coll.transform.parent != null && coll.transform.parent.TryGetComponent<IDamageable>(out damageable))
                 {
-                    damageable.TakeDamage(_ExplosionDamage, gameObject );
-                }               
+                    damageable.TakeDamage(_ExplosionDamage, gameObject);
+                }
             }
+
             DropLoot();
             gameObject.SetActive(false);
 

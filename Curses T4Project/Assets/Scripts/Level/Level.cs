@@ -46,8 +46,8 @@ public class Level : MonoBehaviour
 
     [Header("Player Positions")]
     public float XStartingPosition = -6f;
-    public float XIntermediatePosition = 10f;
-    public float XEndingPosition = 26f;
+    public float XIntermediatePosition = 5f;
+    public float XEndingPosition = 25f;
     public float YLanePosition;
 
     [Header("Player Variables")]

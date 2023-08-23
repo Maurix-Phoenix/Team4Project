@@ -316,6 +316,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6240779146488578566, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: LevelPrefabsList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240779146488578566, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: LevelPrefabsList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8374757378213820853, guid: 249b765286cf93c47aaeb660e2ffc6ec, type: 3}
+    - target: {fileID: 6240779146488578566, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: LevelPrefabsList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8374757378213820853, guid: fc2737f989a92c94faa1dc3f22082b05, type: 3}
+    - target: {fileID: 6240779146488578566, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: LevelPrefabsList.Array.data[2]
+      value: 
+      objectReference: {fileID: 8374757378213820853, guid: be1066fde546dc941b1f940fc5756403, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

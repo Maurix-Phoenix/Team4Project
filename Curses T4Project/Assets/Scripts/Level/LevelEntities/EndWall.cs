@@ -17,25 +17,18 @@ public class EndWall : LevelEntity, IDamageable
 {
     [Header("References")]
     [SerializeField] private GameObject _CannonballPrefab;
-    //[SerializeField] private GameObject _CannonPrefab;
-    [SerializeField] private GameObject[] _CannonPrefab = new GameObject[4]; //MAU
-    [SerializeField] private Transform _FirePos; //MAU
+    [SerializeField] private GameObject[] _CannonPrefab = new GameObject[3]; 
+    [SerializeField] private Transform _FirePos; 
     [SerializeField] private GameObject _TriggerMovement;
 
     [Header("EndWall Variables")]
-    [SerializeField] private Vector3 _FixedPosition = new Vector3 (0, -4, 3); //MAU
+    [SerializeField] private Vector3 _FixedPosition = new Vector3 (0, -4, 3); 
     [SerializeField] private int _Health = 10;
     [SerializeField] private int _NOfCannonball = 3;
 
-    public int Health { get { return _Health; } }
-
     [Header("Cannons Variables")]
     [SerializeField] private bool _CanShoot = false;
-    //[SerializeField] private float _CannonHeight = 1.5f;
-    //[SerializeField] private List<GameObject> _Cannons = new List<GameObject>();
-    private GameObject _CannonActiveToShoot;
-    public GameObject CannonActiveToShoot { get { return _CannonActiveToShoot; } }
-    //private Vector3 _CannonSpot;
+    [SerializeField] private GameObject _CannonActiveToShoot;
 
     [Header("Cannonball Variables")]
     [SerializeField] private int _CannonballDamage = 1;
@@ -54,19 +47,25 @@ public class EndWall : LevelEntity, IDamageable
 
     private Rigidbody _Rb;
 
+    public GameObject CannonActiveToShoot { get { return _CannonActiveToShoot; } }
+    public int Health { get { return _Health; } }
+    public Transform FirePos { get { return _FirePos; } }
+
     protected override void Start()
     {
         base.Start();
 
-        //MAU
         //set the endwall to a fixed position y,z
         _FixedPosition.x = transform.position.x;
         transform.position = _FixedPosition;
-
-        //SetCannons();
     }
 
     private void Awake()
+    {
+        InitializeRB();
+    }
+
+    private void InitializeRB()
     {
         //Initialize the Rigidbody component
         _Rb = GetComponent<Rigidbody>();
@@ -74,9 +73,6 @@ public class EndWall : LevelEntity, IDamageable
         _Rb.isKinematic = true;
         _Rb.interpolation = RigidbodyInterpolation.Interpolate;
         _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-
-        //Initialize position
-        //gameObject.transform.position = _StartPosition;
     }
 
     protected override void Update()
@@ -119,30 +115,15 @@ public class EndWall : LevelEntity, IDamageable
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-
+            _TriggerMovement.SetActive(false);
             _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(GameManager.Instance.LevelManager.CurrentLevel.ActualLayer)];
-            _FirePos = _CannonActiveToShoot.transform.Find("FirePos").transform;
+            _FirePos = _CannonActiveToShoot.transform.Find("FirePos").gameObject.transform;
             GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle = true;
             IsStopped = true;
-
             GameManager.Instance.UIManager.UpdateUIText("EndWallHealth_UIText", "[EW] " + _Health.ToString());
-            /*
-            _CannonActiveToShoot = _Cannons[-GameManager.Instance.Level.ActualLayer];
-            GameManager.Instance.Level.IsInBossBattle = true;
-            IsStopped = true;
-            */
+
         }
     }
-
-    /*private void SetCannons()
-    {
-        for (int i = 0; i < GameManager.Instance.Level.NOfLayersUnderWater; i++)
-        {
-            _CannonSpot = new Vector3(gameObject.transform.position.x, (GameManager.Instance.Level.UnitSpaceBetweenLayer * (-i)) + _CannonHeight, 0f);
-            GameObject Cannon = Instantiate(_CannonPrefab, _CannonSpot, Quaternion.Euler(0f, 0f, 100f), gameObject.transform);
-            _Cannons.Add(Cannon);
-        }
-    }*/
 
 
     private void ShootCannonball()

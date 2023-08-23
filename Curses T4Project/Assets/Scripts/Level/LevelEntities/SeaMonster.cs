@@ -1,68 +1,17 @@
 //SeaMonster.cs
-//by MAURIZIO FISCHETTI
+//by MAURIZIO FISCHETTI and ANTHONY FEDELI
 
-using Unity.VisualScripting;
 using UnityEngine;
-using static T4P;
 
 public class SeaMonster : LevelEntity, IDamageable
 {
     [Header("Sea Monster")]
     [SerializeField] private int _Health = 1;
-    [SerializeField] private int _Damage = 1;
+    [SerializeField] private bool _IsSharkPack = false;
+    [SerializeField] private bool _IsOctopus = false;
 
-
-    [Header("Aggro")]
-    [SerializeField] private bool _AggroAtStart = false;
-    [SerializeField] private float _AggroSpeedMultiplier = 2.0f;
-    [SerializeField] private float _AggroRange = 3.0f;
-
-    private bool _Aggroed = false;
-
-    protected override void Start()
-    {
-        base.Start();
-
-        if(_AggroAtStart)
-        {
-            _Aggroed = true;
-        }
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-
-        //if the ray hit the player then aggro
-        if (Physics.Raycast(transform.position, Vector3.left, out RaycastHit hit, _AggroRange, layerMask: LayerMask.GetMask("Player")))
-        {
-                _Aggroed = true; 
-        }
-
-        //if in aggro multiply the speed
-        if (_Aggroed)
-        {
-            MoveSpeed = GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed * _AggroSpeedMultiplier;
-        }
-        
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        //do damage to the player and deactivate the collider
-        if (other.gameObject.GetComponent<Player>() != null)
-        {
-            other.gameObject.GetComponent<Player>().TakeDamage(_Damage,this.gameObject);
-            gameObject.GetComponent<Collider>().enabled = false;
-            RB.isKinematic = true;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x -_AggroRange, transform.position.y, transform.position.z));
-    }
+    public bool IsSharkPack { get { return _IsSharkPack; } }
+    public bool IsOctopus { get { return _IsOctopus; } }
 
     public void TakeDamage(int dmg, GameObject damager)
     {

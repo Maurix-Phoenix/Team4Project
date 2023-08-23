@@ -57,7 +57,7 @@ public class Cannonball : LevelEntityTemporary
 
             if(GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle) //MAU - getting sure to get the active cannon position only in bossbattle.
             {
-                _TargetLocation = (_EndWall.CannonActiveToShoot.transform.position - _StartLocation).normalized;
+                _TargetLocation = (_EndWall.CannonActiveToShoot.transform.Find("CannonSlot").transform.position - _StartLocation).normalized;
             }
 
             T4P.T4Debug.Log("PlayerCannonball " + _TargetLocation);
@@ -72,11 +72,22 @@ public class Cannonball : LevelEntityTemporary
         if(!GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
         {
             _Rb.useGravity = true;
-            if (Vector3.Distance(transform.position, _StartLocation) > _MaxDistance || 
-                transform.position.y < _StartLocation.y - GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer / 2 ||
-                transform.position.y > _StartLocation.y + GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer / 2)
+            if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball") ||
+                    transform.position.y < _StartLocation.y - 1)
             {
-                Destroy(gameObject);
+                if (Vector3.Distance(transform.position, _StartLocation) > _MaxDistance)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                if (Vector3.Distance(transform.position, _StartLocation) > _MaxDistance ||
+                    transform.position.y < _StartLocation.y - GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer / 2 ||
+                    transform.position.y > _StartLocation.y + GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer / 2)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
         else
@@ -98,28 +109,6 @@ public class Cannonball : LevelEntityTemporary
             // _Rb.useGravity = false;
             _Rb.MovePosition(transform.position + _TargetLocation * _CannonballSpeed * Time.fixedDeltaTime);
         }
-        /*
-        else
-        {
-            
-          _Rb.useGravity = true;
-            
-            if (_Rb.velocity.x > 0)
-            {
-                if (gameObject.transform.position.x > _StartLocation.x + _MaxDistance)
-                {
-                    Destroy(gameObject);
-                }
-            }
-            else if (_Rb.velocity.x < 0)
-            {
-                if (gameObject.transform.position.x < _StartLocation.x - _MaxDistance)
-                {
-                    Destroy(gameObject);
-                }
-            }
-        }
-        */
     }
 
     /// <summary>
@@ -153,10 +142,10 @@ public class Cannonball : LevelEntityTemporary
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         //MAU
-        //check if the collision are on differt layers
+        //check if the collision are on different layers
         if (collision.gameObject.layer != gameObject.layer)
         {
             IDamageable damageable;
@@ -164,10 +153,24 @@ public class Cannonball : LevelEntityTemporary
             {
                 damageable.TakeDamage(_CannonballDamage, gameObject);
             }
-
         }
-
-
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Mine"))
+        {
+            //check if the collision are on different layers
+            if (collision.gameObject.layer != gameObject.layer)
+            {
+                IDamageable damageable;
+                if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
+                {
+                    damageable.TakeDamage(_CannonballDamage, gameObject);
+                }
+            }
+            Destroy(gameObject);
+        }
     }
 }
