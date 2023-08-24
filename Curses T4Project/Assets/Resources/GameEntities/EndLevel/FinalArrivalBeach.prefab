@@ -134,8 +134,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 13, z: 6}
-  m_Center: {x: -5, y: -6, z: 0}
+  m_Size: {x: 15, y: 13, z: 6}
+  m_Center: {x: -7.5, y: -6, z: 0}
 --- !u!1 &7625677585532137803
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,5 +247,5 @@ MonoBehaviour:
   IsStopped: 0
   _TriggerToMovePlayer: {fileID: 4329660299347481139}
   _TriggerPosition: {x: 0, y: -6, z: 0}
-  _TriggerDimension: {x: 10, y: 13, z: 6}
-  BringPlayerToSurface: 1
+  _TriggerDimension: {x: 15, y: 13, z: 6}
+  BringPlayerBackToSurface: 1

@@ -47,9 +47,9 @@ public class Level : MonoBehaviour
     public int UnitSpaceBetweenLayer = 3;
 
     [Header("Player Positions")]
-    public float XStartingPosition = -6f;
+    public float XStartingPosition = -5f;
     public float XIntermediatePosition = 5f;
-    public float XEndingPosition = 25f;
+    public float XEndingPosition = 30f;
     public float YLanePosition;
 
     [Header("Player Variables")]

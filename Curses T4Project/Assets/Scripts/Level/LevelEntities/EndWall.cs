@@ -104,10 +104,6 @@ public class EndWall : LevelEntity, IDamageable
         }
     }
 
-    private void OnValidate()
-    {
-        InitializeTrigger();
-    }
 
     private void InitializeRB()
     {

@@ -1,7 +1,6 @@
 //CannonBall.cs
 //by ANTHONY FEDELI
 
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -37,7 +36,7 @@ public class Cannonball : LevelEntityTemporary
 
         _Player = GameManager.Instance.LevelManager.Player; //MAU
 
-        if (!GameManager.Instance.LevelManager.CurrentLevel.PlayerHasReachBeach)
+        if (!GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
         {
             _EndWall = GameObject.Find("EndWall").GetComponent<EndWall>(); //MAU
         }

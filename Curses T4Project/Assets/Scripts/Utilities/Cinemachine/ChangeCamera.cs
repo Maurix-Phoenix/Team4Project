@@ -1,7 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+//ChangeCamera.cs
+//by ANTHONY FEDELI
+
 using UnityEngine;
 
+/// <summary>
+/// ChangeCamera.cs manages the switching between the cinemachine.
+/// </summary>
 public class ChangeCamera : MonoBehaviour
 {
     private Animator _animator;
