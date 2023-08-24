@@ -1,8 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+//DOTAbility.cs
+//by ANTHONY FEDELI
+
 using UnityEngine;
 
+/// <summary>
+/// DOTAbility.cs give to the gameobject the ability of do damage over time when enter in contact with the player.
+/// </summary>
 public class DOTAbility : MonoBehaviour
 {
     [Header("Reposition")]

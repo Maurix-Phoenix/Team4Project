@@ -37,7 +37,10 @@ public class Cannonball : LevelEntityTemporary
 
         _Player = GameManager.Instance.LevelManager.Player; //MAU
 
-        _EndWall = GameObject.Find("EndWall").GetComponent<EndWall>(); //MAU
+        if (!GameManager.Instance.LevelManager.CurrentLevel.PlayerHasReachBeach)
+        {
+            _EndWall = GameObject.Find("EndWall").GetComponent<EndWall>(); //MAU
+        }
 
         _StartLocation = gameObject.transform.position;
     }
@@ -55,9 +58,12 @@ public class Cannonball : LevelEntityTemporary
         {
             _TargetLocation = (_EndWall.transform.position - _StartLocation).normalized;
 
-            if(GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle) //MAU - getting sure to get the active cannon position only in bossbattle.
+            if (!GameManager.Instance.LevelManager.CurrentLevel.PlayerHasReachBeach)
             {
-                _TargetLocation = (_EndWall.CannonActiveToShoot.transform.Find("CannonSlot").transform.position - _StartLocation).normalized;
+                if (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle) //MAU - getting sure to get the active cannon position only in bossbattle.
+                {
+                    _TargetLocation = (_EndWall.CannonActiveToShoot.transform.Find("CannonSlot").transform.position - _StartLocation).normalized;
+                }
             }
 
             T4P.T4Debug.Log("PlayerCannonball " + _TargetLocation);

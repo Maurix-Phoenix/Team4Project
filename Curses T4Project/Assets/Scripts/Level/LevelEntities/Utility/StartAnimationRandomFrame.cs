@@ -1,6 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+//StartAnimationRandomFrame.cs
+//by ANTHONY FEDELI
+
 using UnityEngine;
+
+/// <summary>
+/// StartAnimationRandomFrame.cs is required for randomize the animation of the prefab with the same mesh.
+/// </summary>
 
 public class StartAnimationRandomFrame : MonoBehaviour
 {

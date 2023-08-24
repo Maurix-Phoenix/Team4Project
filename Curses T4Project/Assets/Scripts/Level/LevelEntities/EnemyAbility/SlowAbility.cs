@@ -1,7 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+//SlowAbility.cs
+//by ANTHONY FEDELI
+
 using UnityEngine;
 using static T4P;
+
+/// <summary>
+/// SlowAbility.cs give to the gameobject the ability of reduce the changing layer speed of the playe when enter in contact with it.
+/// </summary>
 
 public class SlowAbility : MonoBehaviour
 {

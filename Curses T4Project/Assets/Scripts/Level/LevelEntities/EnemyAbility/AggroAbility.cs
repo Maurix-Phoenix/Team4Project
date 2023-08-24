@@ -1,6 +1,5 @@
-//StealAbility.cs
+//AggroAbility.cs
 //by MAURIZIO FISCHETTI and ANTHONY FEDELI
-
 
 using UnityEngine;
 

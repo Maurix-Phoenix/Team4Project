@@ -33,6 +33,8 @@ public class Level : MonoBehaviour
     public float LevelSpeed = 1.0f;
     public bool IsInBossBattle = false;
     public bool IsLevelEnded = false;
+    public bool IsFinalArrivalBeach = false;
+    public bool PlayerHasReachBeach = false;
 
     [Header("Layer Variables")]
     public T4Project.LaneType StartingLane;

@@ -367,6 +367,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+    public void BackToSurface()
+    {
+        _BackToSurfaceInBossBattle = true;
+    }
+
     private void EndMovement()
     {
         //Reset rigidbody constraint
@@ -482,16 +488,22 @@ public class PlayerMovement : MonoBehaviour
 
                 if (gameObject.transform.position.x < GameManager.Instance.LevelManager.CurrentLevel.XEndingPosition)
                 {
-                    //increase animation speed
-                    _AnimationSpeed += Time.fixedDeltaTime;
-
                     //move the ship to the play position
+                    if (GameManager.Instance.LevelManager.CurrentLevel.PlayerHasReachBeach)
+                    {
+                        _AnimationSpeed = 0;
+                    }
+                    else
+                    {
+                        //increase animation speed
+                        _AnimationSpeed += Time.fixedDeltaTime;
+                    }
                     _Rb.MovePosition(_Rb.position + Vector3.up * speed * Time.fixedDeltaTime + Vector3.right * _AnimationSpeed * Time.fixedDeltaTime);
                 }
                 else
                 {
                     //LEVEL FINISHED
-                    //MAU - call endlevel
+                    //MAU - call END LEVEL
                     GameManager.Instance.LevelManager.CurrentLevel.EndLevel(Level.EndLevelType.Victory);
                 }
             }

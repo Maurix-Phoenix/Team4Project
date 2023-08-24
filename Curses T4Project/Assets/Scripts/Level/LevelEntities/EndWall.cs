@@ -3,9 +3,7 @@
 
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Rigidbody))]
 
@@ -19,10 +17,11 @@ public class EndWall : LevelEntity, IDamageable
     [SerializeField] private GameObject _CannonballPrefab;
     [SerializeField] private GameObject[] _CannonPrefab = new GameObject[3]; 
     [SerializeField] private Transform _FirePos; 
-    [SerializeField] private GameObject _TriggerMovement;
+    [SerializeField] private BoxCollider _TriggerToMovePlayer;
 
     [Header("EndWall Variables")]
-    [SerializeField] private Vector3 _FixedPosition = new Vector3 (0, -4, 3); 
+    [SerializeField] private Vector3 _TriggerPosition; 
+    [SerializeField] private Vector3 _TriggerDimension; 
     [SerializeField] private int _Health = 10;
     [SerializeField] private int _NOfCannonball = 3;
 
@@ -51,28 +50,10 @@ public class EndWall : LevelEntity, IDamageable
     public int Health { get { return _Health; } }
     public Transform FirePos { get { return _FirePos; } }
 
-    protected override void Start()
-    {
-        base.Start();
-
-        //set the endwall to a fixed position y,z
-        _FixedPosition.x = transform.position.x;
-        transform.position = _FixedPosition;
-    }
-
     private void Awake()
     {
         InitializeRB();
-    }
-
-    private void InitializeRB()
-    {
-        //Initialize the Rigidbody component
-        _Rb = GetComponent<Rigidbody>();
-        _Rb.useGravity = false;
-        _Rb.isKinematic = true;
-        _Rb.interpolation = RigidbodyInterpolation.Interpolate;
-        _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        InitializeTrigger();
     }
 
     protected override void Update()
@@ -108,23 +89,42 @@ public class EndWall : LevelEntity, IDamageable
         {
             ShootCannonball();
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            _TriggerMovement.SetActive(false);
+            _TriggerToMovePlayer.gameObject.SetActive(false);
             _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(GameManager.Instance.LevelManager.CurrentLevel.ActualLayer)];
             _FirePos = _CannonActiveToShoot.transform.Find("FirePos").gameObject.transform;
             GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle = true;
             IsStopped = true;
             GameManager.Instance.UIManager.UpdateUIText("EndWallHealth_UIText", "[EW] " + _Health.ToString());
-
         }
     }
 
+    private void OnValidate()
+    {
+        InitializeTrigger();
+    }
+
+    private void InitializeRB()
+    {
+        //Initialize the Rigidbody component
+        _Rb = GetComponent<Rigidbody>();
+        _Rb.useGravity = false;
+        _Rb.isKinematic = true;
+        _Rb.interpolation = RigidbodyInterpolation.Interpolate;
+        _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+    }
+
+    private void InitializeTrigger()
+    {
+        _TriggerToMovePlayer = gameObject.transform.Find("Trigger").GetComponent<BoxCollider>();
+        _TriggerToMovePlayer.size = _TriggerDimension;
+        _TriggerToMovePlayer.center = new Vector3(- _TriggerDimension.x / 2, _TriggerPosition.y, _TriggerPosition.z);
+    }
 
     private void ShootCannonball()
     {

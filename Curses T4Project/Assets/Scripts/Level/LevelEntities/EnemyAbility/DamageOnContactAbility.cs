@@ -1,6 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+//DamageOnContactAbility.cs
+//by ANTHONY FEDELI
+
 using UnityEngine;
+
+/// <summary>
+/// DamageOnContactAbility.cs give to the gameobject the ability of do damage when enter in contact with the player.
+/// </summary>
 
 public class DamageOnContactAbility : MonoBehaviour
 {

@@ -1,6 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+//DamageFlash.cs
+//by ANTHONY FEDELI
+
 using UnityEngine;
+
+/// <summary>
+/// DamageFlash.cs is required for visualize the damage inflict to the player.
+/// </summary>
 
 public class DamageFlash : MonoBehaviour
 {
