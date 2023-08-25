@@ -16,7 +16,7 @@ public class SlowAbility : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponentInParent<Player>() != null && !_HasSlowed)
+        if (other.gameObject.GetComponentInParent<Player>() != null && other.gameObject.GetComponentInParent<Player>().IsChangingLayer && !_HasSlowed)
         {
             _HasSlowed = true;
             float speedMultiplier = 1f - (_MovementReductionPercentage / 100);
