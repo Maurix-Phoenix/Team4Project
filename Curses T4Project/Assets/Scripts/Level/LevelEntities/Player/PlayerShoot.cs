@@ -1,11 +1,8 @@
 //PlayerShoot.cs
 //by ANTHONY FEDELI
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static T4P;
 
 /// <summary>
 /// PlayerShoot.cs manages the ability of the ship to shoot a cannonball
@@ -105,12 +102,6 @@ public class PlayerShoot : MonoBehaviour
         {
             if (!GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
             {
-#if UNITY_EDITOR
-                if(FindObjectOfType<EndWall>() == null)
-                    {
-                        T4Debug.Log("EndWall not placed!!!", T4Debug.LogType.Warning);
-                    }
-#endif
                 _cannonballToShootAtBoss = FindObjectOfType<EndWall>().Health;
             }
         }

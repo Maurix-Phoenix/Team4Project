@@ -88,6 +88,21 @@ public class Level : MonoBehaviour
             T4Debug.Log("Unit Space Between Layer of PlayerMovement.cs can't be 0.", T4Debug.LogType.Warning);
         }
 #endif
+
+        if (!IsFinalArrivalBeach)
+        {
+            if (FindObjectOfType<EndWall>() == null)
+            {
+                T4Debug.Log("IsFinalArrivalBeach in Level Script is set to FALSE. EndWall NEED to be placed and active!!! \n FinalArrivalBeach (GameObject) is not required in the scene.", T4Debug.LogType.Error);
+            }
+        }
+        else
+        {
+            if (FindObjectOfType<FinalArrivalBeach>() == null)
+            {
+                T4Debug.Log("IsFinalArrivalBeach in Level Script is is set to TRUE. FinalArrivalBeach NEED to be placed and active!!! \n EndWall (GameObject) is not required in the scene.", T4Debug.LogType.Error);
+            }
+        }
     }
 
     private void Start()

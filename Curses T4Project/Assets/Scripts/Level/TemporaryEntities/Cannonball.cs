@@ -36,9 +36,9 @@ public class Cannonball : LevelEntityTemporary
 
         _Player = GameManager.Instance.LevelManager.Player; //MAU
 
-        if (!GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
+        if (FindObjectOfType<EndWall>() != null)
         {
-            _EndWall = GameObject.Find("EndWall").GetComponent<EndWall>(); //MAU
+            _EndWall = FindObjectOfType<EndWall>(); //MAU
         }
 
         _StartLocation = gameObject.transform.position;
