@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 4052973080612319481}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7482381336072997223
 Rigidbody:
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AggroAtStart: 0
   _Aggroed: 0
-  _AggroSpeedMultiplier: 3
-  _AggroAreaRange: 8
+  _AggroSpeedMultiplier: 2.5
+  _AggroAreaRange: 10
   _AggroAreaRangeToAttack: 0
   _AggroAreaHeight: 0
   _CollisionAreaHeight: 1
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
-  _CanOneShotPlayer: 0
-  _SharkPackNotAggroed: 1
+  _CanAttack: 1
+  _CanInstantKill: 0
 --- !u!1001 &4590774365651687186
 PrefabInstance:
   m_ObjectHideFlags: 0
