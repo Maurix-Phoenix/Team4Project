@@ -1,0 +1,42 @@
+level speed 3
+
+messo mina nel mortar ed impostare barca su "alway shoot"
+
+starting cannonball dal level a 10
+
+Parametri shooting
+
+- Max distance 30
+
+- Trajectory angle 10
+
+Tolto shooting a normal ship
+
+Blue mine frequency 0.2
+Amplitude blue mine 3
+
+Flag ship su always shoot
+
+Shark 
+- speed x2.5
+- Area range 10
+
+Player
+
+- Level speed 10
+- Movement CD 0.3
+
+Shark pack
+- aggro 7
+- Velocità 3
+
+Drop cannonballs
+
+- Normal ship: 0 a 2
+- Merchant: 2 a 3
+- Mortar: da 1 a 1
+- Pirate: 1 a 1
+
+Octopus
+
+- Move to player attivo
