@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelName: Test
   LevelDesigner: Anthony
-  LevelID: 2
+  LevelID: 9
   LevelThumbnail: {fileID: 0}
   _TotalCannonballs: 0
   _TotalDoubloons: 0
@@ -66,6 +66,8 @@ MonoBehaviour:
   LevelSpeed: 1
   IsInBossBattle: 0
   IsLevelEnded: 0
+  IsFinalArrivalBeach: 0
+  PlayerHasReachBeach: 0
   StartingLane: 0
   NOfLayersUnderWater: 2
   ActualLayer: 0
