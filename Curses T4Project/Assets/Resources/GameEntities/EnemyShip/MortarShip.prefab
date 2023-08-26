@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
-  _AlwaysShoot: 0
-  _ShootRange: 6
+  _AlwaysShoot: 1
+  _ShootRange: 9
   _TimeBetweenShoot: 2
   _CannonballDamage: 1
   _CannonballSpeed: 6.2
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
-  _CanOneShotPlayer: 0
-  _SharkPackNotAggroed: 1
+  _CanAttack: 1
+  _CanInstantKill: 0
 --- !u!1 &6616437478419769803
 GameObject:
   m_ObjectHideFlags: 0
