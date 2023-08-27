@@ -40,3 +40,13 @@ Drop cannonballs
 Octopus
 
 - Move to player attivo
+
+Blu mine:
+
+- Corsia y -1
+- Amplitude a 1.75
+- Frequency a 1 
+
+Flag ship
+
+- Togliere spunta su "not counted"
