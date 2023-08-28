@@ -260,12 +260,12 @@ MonoBehaviour:
   _CannonballPrefab: {fileID: 4457566165532286096, guid: 574ee7ff6d2ac4f4888edd8ca3a4181f, type: 3}
   _CannonLocation: {fileID: 8184758461260523324}
   _CannonballDamage: 1
-  _CannonballSpeed: 10
+  _CannonballSpeed: 12
   _UnderWaterSpeedModifier: 0.2
-  _MaxDistance: 10
-  _TrajectoryAngle: 20
+  _MaxDistance: 25
+  _TrajectoryAngle: 10
   _UnderWaterTrajectoryAngleModifier: 0.2
-  _ShootCD: 1
+  _ShootCD: 0.5
   _ShootAtBossCD: 0.2
   _cannonballToShootAtBoss: 0
 --- !u!114 &5860761120668900247
@@ -283,10 +283,10 @@ MonoBehaviour:
   _InputMovementReference: {fileID: 5423363297166148666, guid: 46418ff666dc9834ba4ad76d6e313323, type: 3}
   _Ship: {fileID: 5044277267086782192}
   _BackToSurfaceInBossBattle: 0
-  _ChangingLayerSpeed: 5
+  _ChangingLayerSpeed: 10
   _ImmersionRotationSpeed: 30
   _DefaultShipRotation: {x: 0, y: 0, z: 90}
-  _MovementCD: 0.5
+  _MovementCD: 0.2
   _IsSlowed: 0
   _ChangingLayerSpeedMultiplier: 1
   _SlowChagingLayerSpeedDuration: 0

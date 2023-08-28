@@ -128,7 +128,7 @@ MonoBehaviour:
   _AggroAtStart: 0
   _Aggroed: 0
   _AggroSpeedMultiplier: 2.5
-  _AggroAreaRange: 10
+  _AggroAreaRange: 7.5
   _AggroAreaRangeToAttack: 0
   _AggroAreaHeight: 0
   _CollisionAreaHeight: 1

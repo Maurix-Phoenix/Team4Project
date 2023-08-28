@@ -75,7 +75,7 @@ MonoBehaviour:
     FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
-  LevelSpeed: 1
+  LevelSpeed: 5
   IsInBossBattle: 0
   IsLevelEnded: 0
   IsFinalArrivalBeach: 0

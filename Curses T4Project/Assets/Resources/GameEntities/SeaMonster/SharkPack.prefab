@@ -88,8 +88,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7, y: 4.5, z: 6}
-  m_Center: {x: -3.5, y: 0, z: 0}
+  m_Size: {x: 6, y: 4.5, z: 6}
+  m_Center: {x: -3, y: 0, z: 0}
 --- !u!114 &5360049954752045163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AggroAtStart: 0
   _Aggroed: 0
-  _AggroSpeedMultiplier: 3
-  _AggroAreaRange: 7
+  _AggroSpeedMultiplier: 2
+  _AggroAreaRange: 6
   _AggroAreaRangeToAttack: 1.6
   _AggroAreaHeight: 4.5
   _CollisionAreaHeight: 1

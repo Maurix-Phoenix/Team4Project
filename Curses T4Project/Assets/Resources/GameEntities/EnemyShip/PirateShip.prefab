@@ -4097,8 +4097,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 1, z: 6}
-  m_Center: {x: 0.4, y: 0.2, z: 0}
+  m_Size: {x: 2.9587643, y: 2.1761012, z: 6}
+  m_Center: {x: 0.4206177, y: 0.7880508, z: 0}
 --- !u!114 &3749175792978898576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4120,12 +4120,12 @@ MonoBehaviour:
   - PickupPrefab: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
     DropQuantityRange: {x: 1, y: 1}
   - PickupPrefab: {fileID: 8138790477708015956, guid: 270e4db85530a7641b5332b529ec9dc8, type: 3}
-    DropQuantityRange: {x: 1, y: 1}
+    DropQuantityRange: {x: 1, y: 2}
   DropRadius: 0.5
   Floating: 1
   FloatingAmplitude: 0.3
   FloatingFrequency: 5
-  MoveSpeed: 0
+  MoveSpeed: 2
   MoveToPlayer: 0
   IsStopped: 0
   _Health: 2
@@ -4162,7 +4162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
-  _CanAttack: 1
+  _CanAttack: 0
   _CanInstantKill: 0
 --- !u!114 &769530587879181280
 MonoBehaviour:
