@@ -204,7 +204,7 @@ MonoBehaviour:
   _PlayerOnlyTrigger: 0
   _ExplosionDamage: 1
   _ExplosionRange: 2
-  _WaitToExplode: 0.5
+  _WaitToExplode: 1
   _ExplodeAtStart: 0
 --- !u!1 &1362818834680630718
 GameObject:

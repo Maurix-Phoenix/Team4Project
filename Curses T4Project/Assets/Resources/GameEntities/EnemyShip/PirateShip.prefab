@@ -4123,7 +4123,7 @@ MonoBehaviour:
     DropQuantityRange: {x: 1, y: 2}
   DropRadius: 0.5
   Floating: 1
-  FloatingAmplitude: 0.3
+  FloatingAmplitude: 0.1
   FloatingFrequency: 5
   MoveSpeed: 2
   MoveToPlayer: 0
@@ -4147,7 +4147,7 @@ MonoBehaviour:
   _TimeBetweenShoot: 2
   _CannonballDamage: 1
   _CannonballSpeed: 8
-  _MaxDistance: 6
+  _MaxDistance: 20
   _TrajectoryAngle: 15
 --- !u!114 &8302130687319622772
 MonoBehaviour:

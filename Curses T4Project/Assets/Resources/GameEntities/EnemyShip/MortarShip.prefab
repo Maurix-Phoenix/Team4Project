@@ -110,7 +110,7 @@ MonoBehaviour:
     DropQuantityRange: {x: 1, y: 1}
   DropRadius: 0.5
   Floating: 1
-  FloatingAmplitude: 0.3
+  FloatingAmplitude: 0.1
   FloatingFrequency: 5
   MoveSpeed: 0
   MoveToPlayer: 0

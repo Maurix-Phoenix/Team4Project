@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acff44f52792b1946bd0310f10300e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MovementReductionPercentage: 63.7
-  _DebuffDuration: 3
+  _MovementReductionPercentage: 40
+  _DebuffDuration: 1.5
   _HasSlowed: 0
 --- !u!1 &8539559611476114392
 GameObject:

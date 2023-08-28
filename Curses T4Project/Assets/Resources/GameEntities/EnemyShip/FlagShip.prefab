@@ -109,12 +109,12 @@ MonoBehaviour:
   - PickupPrefab: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
     DropQuantityRange: {x: 0, y: 0}
   - PickupPrefab: {fileID: 8138790477708015956, guid: 270e4db85530a7641b5332b529ec9dc8, type: 3}
-    DropQuantityRange: {x: 1, y: 2}
+    DropQuantityRange: {x: 1, y: 3}
   - PickupPrefab: {fileID: 6731371445131291682, guid: 2b3d864f2490bb04caed9f597ba1219c, type: 3}
     DropQuantityRange: {x: 1, y: 1}
   DropRadius: 0.5
   Floating: 1
-  FloatingAmplitude: 0.3
+  FloatingAmplitude: 0.1
   FloatingFrequency: 5
   MoveSpeed: 1
   MoveToPlayer: 0
