@@ -10,7 +10,7 @@ using static T4P;
 /// </summary>
 public class UIManager : MonoBehaviour
 {
-
+    public string CanvasToShow = "MainMenuUI";
     public GameObject UIContainer { get; private set; }
     public List<Canvas> UICanvasList;
     public List<TMP_Text> UITextList = new List<TMP_Text>();
@@ -108,7 +108,28 @@ public class UIManager : MonoBehaviour
             uiC.SetActive(true);
         }
         else { T4Debug.Log($"[UI Manager] {canvasName} cannot show.", T4Debug.LogType.Error); }
+        
     }
+
+    public void ShowUICanvasOnly(string canvasName)
+    {
+        HideAllUICanvas();
+        ShowUICanvas(canvasName);
+    }
+
+    public void SetUICanvasOnLoad(string canvasName)
+    {
+        if(GetUICanvas(canvasName) != null)
+        {
+            CanvasToShow = canvasName;
+        }
+    }
+    public void ShowUICanvasOnLoad()
+    {
+        ShowUICanvasOnly(CanvasToShow);
+        CanvasToShow = null;
+    }
+
 
     /// <summary>
     /// Deactivates all the ui elements in the list
@@ -118,6 +139,7 @@ public class UIManager : MonoBehaviour
         foreach(Canvas obj in UICanvasList)
         {
             HideUICanvas(obj.name);
+            CanvasToShow = null;
         }
     }
 

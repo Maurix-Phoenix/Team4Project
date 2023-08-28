@@ -36,11 +36,7 @@ public class LevelManager : MonoBehaviour
         }
 
     }
-    private void Start()
-    {
 
-
-    }
     /// <summary>
     /// Load the level with the given prefab
     /// </summary>
@@ -95,7 +91,7 @@ public class LevelManager : MonoBehaviour
     }
     public void LevelSelectionPrevious() 
     {
-        if(GameManager.Instance.CurrentScene.name == "LevelSelection")
+        if(GameManager.Instance.CurrentScene.name == "MainMenu")
         {
             int index = LevelPrefabsList.IndexOf(CurrentLevel.gameObject) -1;
             if(index < 0)
@@ -112,7 +108,7 @@ public class LevelManager : MonoBehaviour
     }
     public void LevelSelectionNext() 
     {
-        if (GameManager.Instance.CurrentScene.name == "LevelSelection")
+        if (GameManager.Instance.CurrentScene.name == "MainMenu")
         {
             int index = LevelPrefabsList.IndexOf(CurrentLevel.gameObject) +1;
             if (index > LevelPrefabsList.Count - 1)

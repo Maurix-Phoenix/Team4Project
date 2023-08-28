@@ -163,35 +163,34 @@ public class GameManager : MonoBehaviour
         CurrentScene = scene;
         Time.timeScale = 1;
 
-
         T4Debug.Log($"[GameManager] Scene '{scene.name}' loaded.");
 
-        //diabling all the canvas
-        UIManager.HideAllUICanvas();
-        string sceneCanvasName = scene.name + "UI";
-        //enabling the canvas ui of the current scene (based on the name)
-        foreach(Canvas c in UIManager.UICanvasList)
-        {
-            if (c.name == sceneCanvasName)
-            {
-                UIManager.ShowUICanvas(sceneCanvasName);
-            }
-        }
 
         if(scene.name == "MainMenu")
         {
+            AudioManager.PlayMusic("MainMenuMusic");
+            if (UIManager.CanvasToShow != null)
+            {
+                UIManager.ShowUICanvasOnLoad();
+            }
+            else
+            {
+                UIManager.ShowUICanvasOnly("MainMenuUI");
+            }
             UIManager.FlagsCollection.UpdateFlagCollection();
-        }
-        if(scene.name == "Level")
-        {            
-            LevelManager.LoadLevel(LevelManager.LevelToLoad);
-        }
-        if(scene.name == "LevelSelection")
-        {
+
+
             LevelManager.CurrentLevel = LevelManager.LevelToLoad.GetComponent<Level>();
             UIManager.LevelPanelSelection.UpdateLevelPanel(LevelManager.CurrentLevel);
         }
+        if(scene.name == "Level")
+        {
+            UIManager.HideAllUICanvas();
+            UIManager.ShowUICanvasOnly("LevelUI");
+            LevelManager.LoadLevel(LevelManager.LevelToLoad);
 
+            AudioManager.PlayMusic("LevelMusic");
+        }
     }
     #endregion
 

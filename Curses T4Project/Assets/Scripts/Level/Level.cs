@@ -4,10 +4,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using static T4P;
-using JetBrains.Annotations;
-using UnityEngine.UI;
+
 
 public class Level : MonoBehaviour
 {
@@ -128,12 +126,6 @@ public class Level : MonoBehaviour
         YLanePosition = ActualLayer * UnitSpaceBetweenLayer;
         GameManager.Instance.LevelManager.Player.transform.position = new Vector3(XStartingPosition, YLanePosition, 0f);
     }
-
-    private void Update()
-    {
-
-    }
-
 
     public void StartLevel()
     {
