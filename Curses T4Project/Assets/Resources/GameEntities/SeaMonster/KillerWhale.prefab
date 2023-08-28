@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 5700559999335090416}
   - component: {fileID: -8656147532291600947}
   - component: {fileID: 386701096450761778}
+  - component: {fileID: 179379287563194}
   m_Layer: 8
   m_Name: KillerWhale
   m_TagString: Untagged
@@ -589,7 +590,7 @@ Transform:
   m_Children:
   - {fileID: 3645781626574636586}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &9064421857059902453
 Rigidbody:
@@ -637,8 +638,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 1, z: 6}
-  m_Center: {x: 0.4, y: 0, z: 0}
+  m_Size: {x: 1.6, y: 1.09, z: 6}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!114 &5700559999335090416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,7 +662,7 @@ MonoBehaviour:
   Floating: 1
   FloatingAmplitude: 0.2
   FloatingFrequency: 2.5
-  MoveSpeed: 0
+  MoveSpeed: 2
   MoveToPlayer: 0
   IsStopped: 0
   _Health: 1
@@ -694,8 +695,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
-  _CanOneShotPlayer: 0
-  _SharkPackNotAggroed: 1
+  _CanAttack: 1
+  _CanInstantKill: 0
+--- !u!114 &179379287563194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174185729104750988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eddc80c3b57f294582b9e3f07e29364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _AggroAtStart: 0
+  _Aggroed: 0
+  _AggroSpeedMultiplier: 2
+  _AggroAreaRange: 8
+  _AggroAreaRangeToAttack: 1.6
+  _AggroAreaHeight: 4.5
+  _CollisionAreaHeight: 1.09
+  _CollisionAreaRange: 1.6
 --- !u!1 &5643485304516041404
 GameObject:
   m_ObjectHideFlags: 0

@@ -4049,7 +4049,7 @@ Transform:
   - {fileID: -8679921383154817045}
   - {fileID: 7641753874284411182}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &200730177836029518
 Rigidbody:
@@ -4128,7 +4128,7 @@ MonoBehaviour:
   MoveSpeed: 0
   MoveToPlayer: 0
   IsStopped: 0
-  _Health: 1
+  _Health: 2
 --- !u!114 &-1609781942118561700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4162,8 +4162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
-  _CanOneShotPlayer: 0
-  _SharkPackNotAggroed: 1
+  _CanAttack: 1
+  _CanInstantKill: 0
 --- !u!114 &769530587879181280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4177,7 +4177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ResourcesStealed: 0
-  _HasStealed: 0
+  _HasStolen: 0
   MaxCannonballStealable: 1
   MinCannonballStealable: 1
   MaxDoubloonsStealable: 1

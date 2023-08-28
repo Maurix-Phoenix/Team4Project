@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 5122060228359468802}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4852485588673365577
 Rigidbody:
@@ -103,7 +103,7 @@ MonoBehaviour:
   CanDropLoot: 0
   LootList: []
   DropRadius: 0
-  Floating: 1
+  Floating: 0
   FloatingAmplitude: 0.2
   FloatingFrequency: 3
   MoveSpeed: 0
@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 2
-  _CanOneShotPlayer: 0
-  _SharkPackNotAggroed: 1
+  _CanAttack: 1
+  _CanInstantKill: 0
 --- !u!1001 &4656598726376739049
 PrefabInstance:
   m_ObjectHideFlags: 0
