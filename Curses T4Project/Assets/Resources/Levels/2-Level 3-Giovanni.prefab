@@ -130,7 +130,7 @@ MonoBehaviour:
   XIntermediatePosition: 5
   XEndingPosition: 15
   YLanePosition: 0
-  StartingHealth: 1000
+  StartingHealth: 5
   StartingCannonBalls: 10
 --- !u!1001 &88804629532097995
 PrefabInstance:
