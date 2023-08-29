@@ -26,6 +26,10 @@ public class StealAbility : MonoBehaviour
     [SerializeField] private int MaxDoubloonsStealable = 1;
     [SerializeField] private int MinDoubloonsStealable = 1;
 
+    private void Start()
+    {
+        
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponentInParent<Player>() != null && !_HasStolen)

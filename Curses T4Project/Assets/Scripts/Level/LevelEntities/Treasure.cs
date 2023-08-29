@@ -24,6 +24,16 @@ public class Treasure : LevelEntity, IDamageable
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Hitted");
+        if (!_IsOpened && other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            _IsOpened = true;
+            StartCoroutine(OpenChest());
+        }
+    }
+
     private IEnumerator OpenChest()
     {
         animator.SetTrigger("OpenChest");

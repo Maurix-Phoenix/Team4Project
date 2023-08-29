@@ -13,6 +13,7 @@ public class ShootAbility : MonoBehaviour
     [SerializeField] private GameObject ProjectilePrefab;
     [SerializeField] private bool _AlwaysShoot = false;
     [SerializeField] private float _ShootRange = 3.0f;
+    [SerializeField] private bool _ShowShootRange = true;
     [SerializeField] private float _TimeBetweenShoot = 2.0f;
     [SerializeField] private int _CannonballDamage = 1;
     [SerializeField] private float _CannonballSpeed = 3f;
@@ -82,7 +83,10 @@ public class ShootAbility : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x - _ShootRange, transform.position.y, transform.position.z));
+        if (_ShowShootRange)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position, new Vector3(transform.position.x - _ShootRange, transform.position.y, transform.position.z));
+        }
     }
 }

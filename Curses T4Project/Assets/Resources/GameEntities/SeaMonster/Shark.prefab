@@ -127,12 +127,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AggroAtStart: 0
   _Aggroed: 0
-  _AggroSpeedMultiplier: 2.5
-  _AggroAreaRange: 7.5
-  _AggroAreaRangeToAttack: 0
+  _DashSpeedMultiplier: 2
+  _AggroRange: 8
   _AggroAreaHeight: 0
-  _CollisionAreaHeight: 1
-  _CollisionAreaRange: 3
+  _RangeToAttack: 1.6
 --- !u!114 &4121199506014025047
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4024,6 +4024,7 @@ GameObject:
   - component: {fileID: 200730177836029518}
   - component: {fileID: 1045963505334766321}
   - component: {fileID: 3749175792978898576}
+  - component: {fileID: -6551179027964353909}
   m_Layer: 8
   m_Name: MerchantShip
   m_TagString: Untagged
@@ -4126,6 +4127,21 @@ MonoBehaviour:
   MoveToPlayer: 0
   IsStopped: 0
   _Health: 1
+--- !u!114 &-6551179027964353909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3007834961422331484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c43a928df095774d90ea74f51c222be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CollisionDamage: 1
+  _CanAttack: 1
+  _CanInstantKill: 0
 --- !u!1 &3083042877650571306
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Debuff")]
     [SerializeField] private bool _IsSlowed = false;
+    [SerializeField] private ParticleSystem _SlowEffect;
     [SerializeField] private float _ChangingLayerSpeedMultiplier = 1;
     [SerializeField] private float _SlowChagingLayerSpeedDuration;
 
@@ -83,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (!GameManager.Instance.LevelManager.Player.IsChangingLayer)
                 {
+                    _SlowEffect.Stop();
                     _SlowChagingLayerSpeedDuration = 0f;
                     _ChangingLayerSpeedMultiplier = 1f;
                     _ChangingLayerSpeed = _BaseChangingLayerSpeed;
@@ -367,12 +369,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
     public void BackToSurface()
     {
         _BackToSurfaceInBossBattle = true;
     }
-
     private void EndMovement()
     {
         //Reset rigidbody constraint
@@ -615,6 +615,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void SlowMovement(float SlowMovementDuration, float ChangingLayerSpeedMultiplier, bool IsSlowed)
     {
+        _SlowEffect.Play();
         _SlowChagingLayerSpeedDuration = SlowMovementDuration;
         _ChangingLayerSpeedMultiplier = ChangingLayerSpeedMultiplier;
         _ChangingLayerSpeed *= _ChangingLayerSpeedMultiplier;
