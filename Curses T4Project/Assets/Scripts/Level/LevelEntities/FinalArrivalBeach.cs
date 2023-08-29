@@ -41,10 +41,10 @@ public class FinalArrivalBeach : LevelEntity
                 }
                 GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle = true;
                 GameManager.Instance.LevelManager.CurrentLevel.IsLevelEnded = true;
+                IsStopped = true;
             }
             else
             {
-                IsStopped = true;
                 GameManager.Instance.LevelManager.CurrentLevel.PlayerHasReachBeach = true;
                 //MAU call VICTORY
                 GameManager.Instance.LevelManager.CurrentLevel.EndLevel(Level.EndLevelType.Victory);
@@ -63,7 +63,6 @@ public class FinalArrivalBeach : LevelEntity
         //Initialize the Rigidbody component
         _Rb = GetComponent<Rigidbody>();
         _Rb.useGravity = false;
-        _Rb.isKinematic = true;
         _Rb.interpolation = RigidbodyInterpolation.Interpolate;
         _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }

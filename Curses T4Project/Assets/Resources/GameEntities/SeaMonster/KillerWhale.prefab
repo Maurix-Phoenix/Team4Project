@@ -248,14 +248,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2546483030224163231}
-  m_LocalRotation: {x: -0.7071068, y: 1.1728107e-14, z: -2.2761283e-15, w: 0.7071067}
-  m_LocalPosition: {x: -1.5956176e-11, y: -0.000000001760587, z: -0.000000020906144}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3645781626574636586}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!137 &182656225832771291
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -569,6 +569,7 @@ GameObject:
   - component: {fileID: -8656147532291600947}
   - component: {fileID: 386701096450761778}
   - component: {fileID: 179379287563194}
+  - component: {fileID: 309259489750331695}
   m_Layer: 8
   m_Name: KillerWhale
   m_TagString: Untagged
@@ -680,7 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26b0ccd914c3c943bc2b3f908c177ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Direction: 0
+  PushTo: 1
   _HasPushed: 0
 --- !u!114 &386701096450761778
 MonoBehaviour:
@@ -695,6 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
+  _IsMerchantShip: 0
   _CanAttack: 1
   _CanInstantKill: 0
 --- !u!114 &179379287563194
@@ -711,12 +713,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AggroAtStart: 0
   _Aggroed: 0
-  _AggroSpeedMultiplier: 2
-  _AggroAreaRange: 8
-  _AggroAreaRangeToAttack: 1.6
+  _DashSpeedMultiplier: 2
+  _ShowAggroRange: 1
+  _AggroRange: 8
   _AggroAreaHeight: 4.5
-  _CollisionAreaHeight: 1.09
-  _CollisionAreaRange: 1.6
+  _RangeToAttack: 1.6
+--- !u!114 &309259489750331695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174185729104750988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Amplitude: 0.2
+  _Frequency: 2.5
 --- !u!1 &5643485304516041404
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,15 +819,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6104475444667227390}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8839779213446897634}
   m_Father: {fileID: 3645781626574636586}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &6297541412669553531
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 421516213323465076}
   - component: {fileID: 2767574549439329796}
   - component: {fileID: 2947747371766824184}
+  - component: {fileID: -1022314485858944946}
   m_Layer: 8
   m_Name: Octopus
   m_TagString: Untagged
@@ -132,6 +133,20 @@ MonoBehaviour:
   _BaseAttackCD: 0
   _TimeRemainBetweenAttack: 2
   _DotDamage: 1
+--- !u!114 &-1022314485858944946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185184320239924483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Amplitude: 0.2
+  _Frequency: 5
 --- !u!1001 &2530150064997767497
 PrefabInstance:
   m_ObjectHideFlags: 0

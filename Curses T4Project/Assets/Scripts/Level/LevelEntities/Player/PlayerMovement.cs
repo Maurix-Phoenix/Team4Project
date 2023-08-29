@@ -2,10 +2,8 @@
 //by ANTHONY FEDELI
 
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.Universal;
 
 /// <summary>
 /// PlayerMovement.cs manages the Movement between Layers of play and the idle animation of the Ship
@@ -35,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem _SlowEffect;
     [SerializeField] private float _ChangingLayerSpeedMultiplier = 1;
     [SerializeField] private float _SlowChagingLayerSpeedDuration;
+    [SerializeField] private bool _CanRotateWithDebuff = false;
 
     [Header("Floating")]
     [Tooltip("Base Value 3")]
@@ -543,7 +542,7 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region Debuff
-    public void PushedAway(float direction)
+    public void PushAway(float direction)
     {
         ChangeLane(direction);
     }
@@ -581,7 +580,10 @@ public class PlayerMovement : MonoBehaviour
                 PickDistance(_NextPosition.y);
 
                 //start the immersion animation
-                StartCoroutine(RotateAnimation(_Direction.y));
+                if (_CanRotateWithDebuff)
+                {
+                    StartCoroutine(RotateAnimation(_Direction.y));
+                }
             }
             //Go Up
             else if (_Direction.y > 0 &&
@@ -603,7 +605,10 @@ public class PlayerMovement : MonoBehaviour
                 PickDistance(_NextPosition.y);
 
                 //start the immersion animation
-                StartCoroutine(RotateAnimation(_Direction.y));
+                if (_CanRotateWithDebuff)
+                {
+                    StartCoroutine(RotateAnimation(_Direction.y));
+                }
             }
         }
     }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1986071874996080864}
   - component: {fileID: 5372109750793555346}
   - component: {fileID: 4121199506014025047}
+  - component: {fileID: -6860201050262451703}
   m_Layer: 8
   m_Name: Shark
   m_TagString: Untagged
@@ -128,6 +129,7 @@ MonoBehaviour:
   _AggroAtStart: 0
   _Aggroed: 0
   _DashSpeedMultiplier: 2
+  _ShowAggroRange: 1
   _AggroRange: 8
   _AggroAreaHeight: 0
   _RangeToAttack: 1.6
@@ -144,8 +146,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
+  _IsMerchantShip: 0
   _CanAttack: 1
   _CanInstantKill: 0
+--- !u!114 &-6860201050262451703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7590077369570360522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Amplitude: 0.2
+  _Frequency: 3
 --- !u!1001 &4590774365651687186
 PrefabInstance:
   m_ObjectHideFlags: 0

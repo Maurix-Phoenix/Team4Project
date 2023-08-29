@@ -55,7 +55,10 @@ public class Cannonball : LevelEntityTemporary
         }
         else if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
         {
-            _TargetLocation = (_EndWall.transform.position - _StartLocation).normalized;
+            if(!GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
+            {
+                _TargetLocation = (_EndWall.transform.position - _StartLocation).normalized;
+            }
 
             if (!GameManager.Instance.LevelManager.CurrentLevel.PlayerHasReachBeach)
             {

@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5135392395845209963}
   - component: {fileID: 8256776095991511759}
   - component: {fileID: 3269791943601566163}
+  - component: {fileID: -3356313293254790109}
   m_Layer: 11
   m_Name: DelayYellowMine
   m_TagString: Untagged
@@ -206,6 +207,20 @@ MonoBehaviour:
   _ExplosionRange: 2
   _WaitToExplode: 1
   _ExplodeAtStart: 0
+--- !u!114 &-3356313293254790109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265495297724893570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Amplitude: 0.1
+  _Frequency: 2
 --- !u!1 &1362818834680630718
 GameObject:
   m_ObjectHideFlags: 0

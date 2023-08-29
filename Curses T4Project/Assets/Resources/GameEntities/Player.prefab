@@ -5113,13 +5113,14 @@ MonoBehaviour:
   _Ship: {fileID: 5044277267086782192}
   _BackToSurfaceInBossBattle: 0
   _ChangingLayerSpeed: 10
-  _ImmersionRotationSpeed: 30
+  _ImmersionRotationSpeed: 80
   _DefaultShipRotation: {x: 0, y: 0, z: 90}
   _MovementCD: 0.2
   _IsSlowed: 0
   _SlowEffect: {fileID: 2545490507437343535}
   _ChangingLayerSpeedMultiplier: 1
   _SlowChagingLayerSpeedDuration: 0
+  _CanRotateWithDebuff: 0
   _AboveWaterFrequency: 3
   _AboveWaterAmplitude: 0.05
   _UnderWaterFrequency: 1
