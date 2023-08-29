@@ -74,7 +74,7 @@ MonoBehaviour:
   LevelThumbnail: {fileID: 0}
   _TotalCannonballs: 0
   _TotalDoubloons: 3
-  _TotalFlags: 1
+  TotalFlags: 0
   LevelData:
     LevelID: 0
     LevelName: Level 1
@@ -114,6 +114,10 @@ PrefabInstance:
     - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_Name
       value: BasicRedMine (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_RootOrder
@@ -229,6 +233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalShip (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -250,6 +258,10 @@ PrefabInstance:
     - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_Name
       value: BasicRedMine (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_RootOrder
@@ -361,6 +373,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shark (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7590077369570360522, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -430,6 +446,10 @@ PrefabInstance:
     - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
       propertyPath: m_Name
       value: PirateShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -505,6 +525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MortarShip (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4846380258472143400, guid: d352036bb2bd01243a83d50b95e8b3ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -570,6 +594,10 @@ PrefabInstance:
     - target: {fileID: 7590077369570360522, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
       propertyPath: m_Name
       value: Shark (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590077369570360522, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -637,6 +665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubloonPickup (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -658,6 +690,10 @@ PrefabInstance:
     - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_Name
       value: BasicRedMine (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_RootOrder
@@ -725,6 +761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KillerWhale
       objectReference: {fileID: 0}
+    - target: {fileID: 5174185729104750988, guid: d261b68b94e07534e95001ebd88db446, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6855799959060814530, guid: d261b68b94e07534e95001ebd88db446, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -791,6 +831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicRedMine (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -856,6 +900,10 @@ PrefabInstance:
     - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_Name
       value: BasicRedMine (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_RootOrder
@@ -971,6 +1019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MerchantShip
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -992,6 +1044,10 @@ PrefabInstance:
     - target: {fileID: 2204055857794461172, guid: 3a4abddd303c0404b87e3808482d05ef, type: 3}
       propertyPath: m_Name
       value: FlagShip (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204055857794461172, guid: 3a4abddd303c0404b87e3808482d05ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5601053858196147682, guid: 3a4abddd303c0404b87e3808482d05ef, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1115,6 +1171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalShip
       objectReference: {fileID: 0}
+    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1180,6 +1240,10 @@ PrefabInstance:
     - target: {fileID: 7590077369570360522, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
       propertyPath: m_Name
       value: Shark (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590077369570360522, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1247,6 +1311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shark (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7590077369570360522, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1268,6 +1336,10 @@ PrefabInstance:
     - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_Name
       value: BasicRedMine (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_RootOrder
@@ -1334,6 +1406,10 @@ PrefabInstance:
     - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_Name
       value: BasicRedMine (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_RootOrder
@@ -1449,6 +1525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MortarShip (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4846380258472143400, guid: d352036bb2bd01243a83d50b95e8b3ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1473,7 +1553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1156577040673246854, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 362
+      value: 335
       objectReference: {fileID: 0}
     - target: {fileID: 1156577040673246854, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1510,14 +1590,6 @@ PrefabInstance:
     - target: {fileID: 1156577040673246854, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2920981543560116865, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
-      propertyPath: _Health
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2920981543560116865, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
-      propertyPath: _CannonballDamage
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7625677585532137803, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
       propertyPath: m_Name
@@ -1589,6 +1661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubloonPickup (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1610,6 +1686,10 @@ PrefabInstance:
     - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_Name
       value: BasicRedMine (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_RootOrder
@@ -1720,6 +1800,10 @@ PrefabInstance:
     - target: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
       propertyPath: m_Name
       value: DoubloonPickup (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

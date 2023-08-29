@@ -14,6 +14,10 @@ public class SlowAbility : MonoBehaviour
     [SerializeField] private float _DebuffDuration;
     [SerializeField] private bool _HasSlowed;
 
+    private void Start()
+    {
+        
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponentInParent<Player>() != null && !other.gameObject.GetComponentInParent<Player>().IsChangingLayer && !_HasSlowed)

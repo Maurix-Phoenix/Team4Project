@@ -104,15 +104,12 @@ MonoBehaviour:
   CanDropLoot: 0
   LootList: []
   DropRadius: 0
-  Floating: 1
-  FloatingAmplitude: 0.2
-  FloatingFrequency: 5
   MoveSpeed: 0
   MoveToPlayer: 1
   IsStopped: 0
   _Health: 1
   _IsSharkPack: 0
-  _IsOctopus: 0
+  _IsOctopus: 1
 --- !u!114 &2947747371766824184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsOnMenuScene: 0
   _Amplitude: 0.2
   _Frequency: 5
 --- !u!1001 &2530150064997767497

@@ -30,6 +30,7 @@ public class LevelEntity : MonoBehaviour
     [SerializeField] public bool MoveToPlayer = false;
     private Vector3 Direction;
 
+
     public bool IsStopped = false;
 
     private void OnEnable()

@@ -24,6 +24,7 @@ public class Cannonball : LevelEntityTemporary
     private Rigidbody _Rb;
     private Player _Player; //MAU
     private EndWall _EndWall; //MAU
+    public int CannonballDamage { get { return _CannonballDamage; } }
 
     private void Awake()
     {
@@ -64,7 +65,8 @@ public class Cannonball : LevelEntityTemporary
             {
                 if (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle) //MAU - getting sure to get the active cannon position only in bossbattle.
                 {
-                    _TargetLocation = (_EndWall.CannonActiveToShoot.transform.Find("CannonSlot").transform.position - _StartLocation).normalized;
+                    _Rb.constraints = RigidbodyConstraints.FreezeRotation;
+                    _TargetLocation = (_EndWall.CannonActiveToShoot.transform.Find("FirePos").transform.position - _StartLocation).normalized;
                 }
             }
 

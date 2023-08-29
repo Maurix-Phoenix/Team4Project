@@ -30,6 +30,7 @@ public class EndWall : LevelEntity, IDamageable
 
     [Header("Cannons Variables")]
     [SerializeField] private bool _CanShoot = false;
+    [SerializeField] private bool _EndWallIsPositionated = false;
     [SerializeField] private GameObject _CannonActiveToShoot;
 
     [Header("Cannonball Variables")]
@@ -96,27 +97,38 @@ public class EndWall : LevelEntity, IDamageable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_EndWallIsPositionated)
         {
+            _EndWallIsPositionated = true;
             _TriggerToMovePlayer.gameObject.SetActive(false);
             _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(GameManager.Instance.LevelManager.CurrentLevel.ActualLayer)];
             _FirePos = _CannonActiveToShoot.transform.Find("FirePos").gameObject.transform;
             GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle = true;
             IsStopped = true;
+            //_Rb.isKinematic = true;
 
             //active endwall
             _EndWallUI.SetActive(true);
             _HealthUI.text = Health.ToString();
         }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("PlayerCannonball") && _EndWallIsPositionated)
+        {
+            TakeDamage(other.gameObject.GetComponent<Cannonball>().CannonballDamage, other.gameObject);
+        }
+
     }
 
+    private void OnValidate()
+    {
+        InitializeTrigger();
+    }
 
     private void InitializeRB()
     {
         //Initialize the Rigidbody component
         _Rb = GetComponent<Rigidbody>();
         _Rb.useGravity = false;
-        _Rb.isKinematic = true;
         _Rb.interpolation = RigidbodyInterpolation.Interpolate;
         _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
