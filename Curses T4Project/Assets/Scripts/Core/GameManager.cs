@@ -1,6 +1,5 @@
 //GameManager.cs
 //by MAURIZIO FISCHETTI;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static T4P;
@@ -105,6 +104,7 @@ public class GameManager : MonoBehaviour
     private void StatePlaying()
     {
         UIManager.HideUICanvas("PauseMenuUI");
+        AudioManager.AudioSourceMusic.UnPause();
         Time.timeScale = 1;
         //operations to do after game state switch to playing
 
@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
     private void StatePause()
     {
         UIManager.ShowUICanvas("PauseMenuUI");
+        AudioManager.AudioSourceMusic.Pause();
         Time.timeScale = 0;
 
         //raise pause events
@@ -189,6 +190,7 @@ public class GameManager : MonoBehaviour
             UIManager.ShowUICanvasOnly("LevelUI");
             LevelManager.LoadLevel(LevelManager.LevelToLoad);
 
+            UIManager.StageCompleteUI.UpdateStageCompleteUI();
             AudioManager.PlayMusic("LevelMusic");
         }
     }

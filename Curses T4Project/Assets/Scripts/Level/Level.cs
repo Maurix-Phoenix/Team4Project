@@ -18,7 +18,7 @@ public class Level : MonoBehaviour
     [Header("Level Resources")]
     [SerializeField] private int _TotalCannonballs = 0;
     [SerializeField] private int _TotalDoubloons = 0;
-    [SerializeField] private int _TotalFlags = 0;
+    [SerializeField] public int TotalFlags = 0;
 
     [Header("Level Savings")]
     public LevelData LevelData = new LevelData();
@@ -132,7 +132,9 @@ public class Level : MonoBehaviour
         CalculateFlags();
         CalculateCannonballs();
         CalculateDoubloons();
-        T4Debug.Log($"[Level] Started [Resources Cannonballs {_TotalCannonballs} - Flags:{_TotalFlags} - TotalDoubloons:{_TotalDoubloons}");
+        GameManager.Instance.UIManager.LevelUI.UpdateLevelUI();
+        GameManager.Instance.UIManager.StageCompleteUI.UpdateStageCompleteUI();
+        T4Debug.Log($"[Level] Started [Resources Cannonballs {_TotalCannonballs} - Flags:{TotalFlags} - TotalDoubloons:{_TotalDoubloons}");
 
         GameManager.Instance.EventManager.RaiseOnLevelStart();
     }
@@ -159,7 +161,8 @@ public class Level : MonoBehaviour
             case EndLevelType.None: { break; }
             case EndLevelType.GameOver: 
             {
-                //call ui game over here
+                    //call ui game over here
+                GameManager.Instance.AudioManager.PlaySFX("SFX_LevelFailed");
                 GameManager.Instance.UIManager.HideAllUICanvas();
                 GameManager.Instance.UIManager.ShowUICanvas("GameOverUI");
                 break; 
@@ -168,6 +171,7 @@ public class Level : MonoBehaviour
             {
                     //check endlevel stars here
                     //check if player has all the flags and unlock the new one
+
                     Player player = GameManager.Instance.LevelManager.Player;
 
 
@@ -199,21 +203,30 @@ public class Level : MonoBehaviour
 
                     }
 
-                    if(!LevelData.FlagObtained && _TotalFlags > 0)
+                    if(!LevelData.FlagObtained && TotalFlags > 0)
                     {
-                        if (player.NOfFlags == _TotalFlags)
+                        if (player.NOfFlags == TotalFlags)
                         {
                             LevelData.FlagObtained = true;
+
                         }
+                    }
+
+                    if(LevelData.FlagObtained)
+                    {
+                        GameManager.Instance.AudioManager.PlaySFX("SFX_FlagObtained");
+                    }
+                    else
+                    {
+                        GameManager.Instance.AudioManager.PlaySFX("SFX_LevelComplete");
                     }
 
 
                     //call ui level passed here
-                    GameManager.Instance.UIManager.HideAllUICanvas();
-
                     GameManager.Instance.DataManager.SaveLevel(LevelData.LevelID);
-
-                    GameManager.Instance.UIManager.ShowUICanvas("StageCompleteUI");
+                    GameManager.Instance.UIManager.StageCompleteUI.UpdateStageCompleteUI();
+                    GameManager.Instance.UIManager.ShowUICanvasOnly("StageCompleteUI");
+                    
                     
                 break;
             }
@@ -230,7 +243,7 @@ public class Level : MonoBehaviour
             {
                 if (pk.PickupType == T4Project.PickupsType.Flag)
                 {
-                    _TotalFlags++;
+                    TotalFlags++;
                 }
             }
 
@@ -242,7 +255,7 @@ public class Level : MonoBehaviour
                     {
                         if (pk.PickupType == T4Project.PickupsType.Flag)
                         {
-                           _TotalFlags += loot.DropQuantityRange.x;
+                           TotalFlags += loot.DropQuantityRange.x;
                         }
                     }
                 }

@@ -103,14 +103,15 @@ public class Player : MonoBehaviour, IDamageable
     public void TakeDamage(int dmg, GameObject damager)
     {
         Health -= dmg;
+
         UpdatePlayerUI();
         GetComponent<DamageFlash>().DamageIndicatorStart();
 
         T4Debug.Log($"Player damaged by {damager.name}");
 
-        if (Health <= 0)
+        if(Health <=0)
         {
-
+            Health = 0;
             //player death animation?
             //gameObject.SetActive(false);
 
@@ -122,9 +123,6 @@ public class Player : MonoBehaviour, IDamageable
 
     public void UpdatePlayerUI()
     {
-        GameManager.Instance.UIManager.UpdateUIText("Health_UIText", "[+] " + Health.ToString());
-        GameManager.Instance.UIManager.UpdateUIText("Doubloons_UIText", "[$] " + NOfDoubloons.ToString());
-        GameManager.Instance.UIManager.UpdateUIText("Cannonballs_UIText", "[o] " + NOfCannonball.ToString());
-        GameManager.Instance.UIManager.UpdateUIText("Flags_UIText", "[X] " + NOfFlags.ToString());
+        GameManager.Instance.UIManager.LevelUI.UpdateLevelUI();
     }
 }

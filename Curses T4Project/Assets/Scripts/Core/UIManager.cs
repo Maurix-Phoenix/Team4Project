@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     public List<TMP_Text> UITextList = new List<TMP_Text>();
     public LevelPanel LevelPanelSelection;
     public FlagCollection FlagsCollection;
+    public LevelUI LevelUI;
+    public StageCompleteUI StageCompleteUI;
     private void Awake()
     {
         Initialize();
@@ -51,6 +53,24 @@ public class UIManager : MonoBehaviour
                 UITextList.Add(tmpT);
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        GameManager.Instance.EventManager.LevelStart += OnLevelStart;
+    }
+    private void OnDisable()
+    {
+        GameManager.Instance.EventManager.LevelStart -= OnLevelStart;
+    }
+
+    private void OnLevelStart()
+    {
+        LevelUI.LoadFlag();
+        LevelUI.UpdateLevelUI();
+
+        StageCompleteUI.LoadFlag();
+        StageCompleteUI.UpdateStageCompleteUI();
     }
 
     private GameObject GetUICanvas(string uiCanvasName)
@@ -141,16 +161,5 @@ public class UIManager : MonoBehaviour
             HideUICanvas(obj.name);
             CanvasToShow = null;
         }
-    }
-
-    public void UpdateUIText(string uiTextName, string text)
-    {
-        TMP_Text ttu = GetUIText(uiTextName);
-        if(ttu != null)
-        {
-            ttu.text = text;
-        }
-        else { T4Debug.Log($"[UI Manager] {uiTextName} cannot be updated - null?", T4Debug.LogType.Error); }
-
     }
 }

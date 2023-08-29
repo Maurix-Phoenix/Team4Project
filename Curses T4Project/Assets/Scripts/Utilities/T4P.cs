@@ -54,6 +54,8 @@ public static class T4P
     public static class T4Project
     {
         //Level Details
+        public const int LevelFlagsMAX = 4;
+
         //Level ViewLimits
         public static Vector2 XVisualLimit = new Vector2(-15f, 40f);
         public static Vector2 YVisualLimit = new Vector2(-13f, 13f);

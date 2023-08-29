@@ -3,6 +3,7 @@
 
 
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -18,6 +19,8 @@ public class EndWall : LevelEntity, IDamageable
     [SerializeField] private GameObject[] _CannonPrefab = new GameObject[3]; 
     [SerializeField] private Transform _FirePos; 
     [SerializeField] private BoxCollider _TriggerToMovePlayer;
+    [SerializeField] private GameObject _EndWallUI;
+    [SerializeField] private TMP_Text _HealthUI;
 
     [Header("EndWall Variables")]
     [SerializeField] private Vector3 _TriggerPosition; 
@@ -100,7 +103,10 @@ public class EndWall : LevelEntity, IDamageable
             _FirePos = _CannonActiveToShoot.transform.Find("FirePos").gameObject.transform;
             GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle = true;
             IsStopped = true;
-            GameManager.Instance.UIManager.UpdateUIText("EndWallHealth_UIText", "[EW] " + _Health.ToString());
+
+            //active endwall
+            _EndWallUI.SetActive(true);
+            _HealthUI.text = Health.ToString();
         }
     }
 
@@ -137,9 +143,10 @@ public class EndWall : LevelEntity, IDamageable
     {
         _Health -= dmg;
 
-        GameManager.Instance.UIManager.UpdateUIText("EndWallHealth_UIText", "[EW] " + _Health.ToString());
-
-        T4P.T4Debug.Log($"Wall HEALTH: {_Health}");
+        if(_Health>=0)
+        {
+            _HealthUI.text = _Health.ToString();
+        }
 
         if (_Health <= 0)
         {
