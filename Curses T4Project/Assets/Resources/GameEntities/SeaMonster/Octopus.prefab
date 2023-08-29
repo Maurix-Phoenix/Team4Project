@@ -105,7 +105,7 @@ MonoBehaviour:
   LootList: []
   DropRadius: 0
   MoveSpeed: 0
-  MoveToPlayer: 1
+  MovePickUpToPlayer: 0
   IsStopped: 0
   _Health: 1
   _IsSharkPack: 0
@@ -122,9 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3acbf2391f87034d88c1c33724c92c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CanMoveFromDistance: 0
+  _TargetDistance: 5
   _TargetLocked: 0
   _TargetPosition: {fileID: 0}
-  _RepositionSpeed: 5
+  _RepositionSpeed: 10
   _InPositionToAttack: 0
   _DoDamage: 0
   _BaseAttackCD: 0

@@ -52,7 +52,7 @@ public class FloatingAbility : MonoBehaviour
         {
             if (!gameObject.GetComponent<LevelEntity>().IsStopped)
             {
-                if (!gameObject.GetComponent<LevelEntity>().MoveToPlayer)
+                if (!gameObject.GetComponent<LevelEntity>().MovePickUpToPlayer)
                 {
                     if (_RigidBody.isKinematic)
                     {

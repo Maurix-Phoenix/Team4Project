@@ -61,7 +61,7 @@ MonoBehaviour:
   LevelThumbnail: {fileID: 0}
   _TotalCannonballs: 0
   _TotalDoubloons: 1
-  _TotalFlags: 0
+  TotalFlags: 0
   LevelData:
     LevelID: 0
     LevelName: Level

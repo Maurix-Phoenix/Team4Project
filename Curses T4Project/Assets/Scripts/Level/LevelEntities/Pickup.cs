@@ -32,14 +32,12 @@ public class Pickup : LevelEntity
 
     protected override void Update()
     {
-
         base.Update();
-        if (!MoveToPlayer && Vector3.Distance(GameManager.Instance.LevelManager.Player.transform.position, transform.position) < _AttractionDistance)
+        if (!MovePickUpToPlayer && Vector3.Distance(GameManager.Instance.LevelManager.Player.transform.position, transform.position) < _AttractionDistance)
         {
-            MoveToPlayer = true;
+            MovePickUpToPlayer = true;
             MoveSpeed = _AttractionSpeed;
         }
-
     }
 
     private void OnTriggerEnter(Collider other)

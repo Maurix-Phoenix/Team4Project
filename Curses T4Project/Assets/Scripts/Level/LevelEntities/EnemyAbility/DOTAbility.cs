@@ -9,6 +9,8 @@ using UnityEngine;
 public class DOTAbility : MonoBehaviour
 {
     [Header("Reposition")]
+    [SerializeField] private bool _CanMoveFromDistance = false;
+    [SerializeField] private float _TargetDistance = 1.0f;
     [SerializeField] private bool _TargetLocked = false;
     [SerializeField] private Transform _TargetPosition;
     [SerializeField] private float _RepositionSpeed = 1f;
@@ -34,11 +36,14 @@ public class DOTAbility : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Player>() != null)
+        if (!_CanMoveFromDistance)
         {
-            _TargetPosition = other.gameObject.GetComponent<PlayerShoot>().CannonLocation;
-            gameObject.GetComponent<SeaMonster>().MoveSpeed = 0;
-            _TargetLocked = true;
+            if (other.gameObject.GetComponent<Player>() != null)
+            {
+                _TargetPosition = other.gameObject.GetComponent<PlayerShoot>().CannonLocation;
+                gameObject.GetComponent<SeaMonster>().MoveSpeed = 0;
+                _TargetLocked = true;
+            }
         }
     }
 
@@ -61,8 +66,27 @@ public class DOTAbility : MonoBehaviour
         StartAttack();
     }
 
+    private void OnDrawGizmos()
+    {
+        if (_CanMoveFromDistance)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, _TargetDistance);
+        }
+    }
+
     private void CheckPosition()
     {
+        if (!_TargetLocked)
+        {
+            if (_CanMoveFromDistance && Vector3.Distance(transform.position, GameManager.Instance.LevelManager.Player.transform.position) < _TargetDistance)
+            {
+                _TargetPosition = GameManager.Instance.LevelManager.Player.GetComponent<PlayerShoot>().CannonLocation;
+                gameObject.GetComponent<SeaMonster>().MoveSpeed = 0;
+                _TargetLocked = true;
+            }
+        }
+
         if (_TargetLocked && !_InPositionToAttack)
         {
             if (gameObject.transform.position != _TargetPosition.position)

@@ -27,7 +27,7 @@ public class LevelEntity : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] public float MoveSpeed;
-    [SerializeField] public bool MoveToPlayer = false;
+    [SerializeField] public bool MovePickUpToPlayer = false;
     private Vector3 Direction;
 
 
@@ -129,10 +129,12 @@ public class LevelEntity : MonoBehaviour
         {
             Direction.x = -1;
 
-            if (MoveToPlayer)
+            if (MovePickUpToPlayer)
             {
                 Direction.x = GameManager.Instance.LevelManager.Player.transform.position.x - transform.position.x;
                 Direction.y = GameManager.Instance.LevelManager.Player.transform.position.y - transform.position.y;
+                RB.MovePosition(RB.position + Direction.normalized * MoveSpeed * Time.fixedDeltaTime);
+                return;
             }
 
             //move with physics
