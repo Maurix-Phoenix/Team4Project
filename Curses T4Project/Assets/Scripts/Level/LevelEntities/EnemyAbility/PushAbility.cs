@@ -2,6 +2,7 @@
 //by ANTHONY FEDELI
 
 using UnityEngine;
+using static T4P;
 
 /// <summary>
 /// PushAbility.cs give to the gameobject the ability of push the player to another lane when enter in collision with it.
@@ -9,25 +10,55 @@ using UnityEngine;
 
 public class PushAbility : MonoBehaviour
 {
-    [SerializeField] private int _Direction = 0;
+    public enum PushDirection
+    {
+        None,
+        UpperLane,
+        BottomLane
+    }
+
+    [SerializeField] private PushDirection PushTo;
     [SerializeField] private bool _HasPushed = false;
+
+    private void Start()
+    {
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        _Direction = 0;
         if (other.gameObject.GetComponentInParent<Player>() != null && !_HasPushed)
         {
             _HasPushed = true;
-            if (GameManager.Instance.LevelManager.CurrentLevel.ActualLayer >= -1)
+
+            switch (PushTo)
             {
-                _Direction = 2 * Random.Range(0, 2) - 1;
-                Debug.Log(_Direction);
+                case PushDirection.None:
+                    T4Debug.Log($"Lane to move the player to isn't selected in {this} of {gameObject.name}.");
+                    break;
+                case PushDirection.UpperLane:
+                    if (GameManager.Instance.LevelManager.CurrentLevel.ActualLayer >= 0)
+                    {
+                        T4Debug.Log($"{gameObject.name} cant' push the player above the water.");
+                    }
+                    else
+                    {
+                        other.gameObject.GetComponentInParent<PlayerMovement>().PushAway(1f);
+                    }
+                    break;
+                case PushDirection.BottomLane:
+                    if (GameManager.Instance.LevelManager.CurrentLevel.ActualLayer <= - GameManager.Instance.LevelManager.CurrentLevel.NOfLayersUnderWater)
+                    {
+                        T4Debug.Log($"{gameObject.name} cant' push the player under the seabed.");
+                    }
+                    else
+                    {
+                        other.gameObject.GetComponentInParent<PlayerMovement>().PushAway(-1f);
+                    }
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                _Direction = 1;
-            }
-            other.gameObject.GetComponentInParent<PlayerMovement>().PushedAway(_Direction);
         }
     }
 }

@@ -1,7 +1,6 @@
 //Player.cs
 //by ANTHONY FEDELI & MAURIZIO FISCHETTI
 
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static T4P;

@@ -25,12 +25,6 @@ public class LevelEntity : MonoBehaviour
     [SerializeField] public List<Loot> LootList;
     [SerializeField] public float DropRadius = 0.5f;
 
-
-    [Header("Floating")]
-    [SerializeField] public bool Floating = false;
-    [SerializeField] public float FloatingAmplitude = 0.3f;
-    [SerializeField] public float FloatingFrequency = 1.0f;
-
     [Header("Movement")]
     [SerializeField] public float MoveSpeed;
     [SerializeField] public bool MoveToPlayer = false;
@@ -81,7 +75,6 @@ public class LevelEntity : MonoBehaviour
 
     protected virtual void Update()
     {
-
         if (RB == null)
         {
             Move();
@@ -129,26 +122,20 @@ public class LevelEntity : MonoBehaviour
         }
     }
 
-    private void Move()
+    public void Move()
     {
         if (!IsStopped)
         {
             Direction.x = -1;
-            if (!MoveToPlayer)
-            {
-                if (Floating)
-                {
-                    Direction.y = FloatingAmplitude * Mathf.Sin(FloatingFrequency * Time.time);
-                }                
-            }
-            else
+
+            if (MoveToPlayer)
             {
                 Direction.x = GameManager.Instance.LevelManager.Player.transform.position.x - transform.position.x;
                 Direction.y = GameManager.Instance.LevelManager.Player.transform.position.y - transform.position.y;
             }
 
             //move with physics
-            if (RB != null)
+            if (RB != null && !RB.isKinematic)
             {
                 RB.MovePosition(RB.position + Direction.normalized * MoveSpeed * Time.fixedDeltaTime);
             }

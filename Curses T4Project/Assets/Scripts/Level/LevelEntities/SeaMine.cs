@@ -4,7 +4,6 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SeaMine : LevelEntity, IDamageable
 {
@@ -59,7 +58,7 @@ public class SeaMine : LevelEntity, IDamageable
         if (_IsDroppedByFlagShip)
         {
             //RB.velocity += Vector3.down * Time.fixedDeltaTime * _GoDownSpeed;
-            RB.MovePosition(RB.position + Vector3.down * Time.fixedDeltaTime * _GoDownSpeed);
+            RB.MovePosition(RB.position + Vector3.down * _GoDownSpeed * Time.fixedDeltaTime);
         }
     }
 
@@ -91,8 +90,6 @@ public class SeaMine : LevelEntity, IDamageable
 
             _IsExploding = true;
             yield return new WaitForSeconds(t);
-
-
 
             //TODO: need to set the explosion particle system with the range of the explosion.
             Instantiate(ExplosionPrefabVFX, transform.position, Quaternion.identity);

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3536447911968957470}
   - component: {fileID: -1548605415053829792}
   - component: {fileID: -9139282527427860103}
+  - component: {fileID: -5542823202251223387}
   m_Layer: 8
   m_Name: MortarShip
   m_TagString: Untagged
@@ -131,6 +132,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
   _AlwaysShoot: 1
   _ShootRange: 9
+  _ShowShootRange: 1
   _TimeBetweenShoot: 2
   _CannonballDamage: 1
   _CannonballSpeed: 6.2
@@ -149,8 +151,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
+  _IsMerchantShip: 0
   _CanAttack: 1
   _CanInstantKill: 0
+--- !u!114 &-5542823202251223387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846380258472143400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Amplitude: 0.1
+  _Frequency: 5
 --- !u!1 &6616437478419769803
 GameObject:
   m_ObjectHideFlags: 0

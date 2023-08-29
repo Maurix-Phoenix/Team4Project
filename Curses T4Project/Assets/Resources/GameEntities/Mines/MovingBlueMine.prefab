@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 1478077939214735049}
   - component: {fileID: 3567904126739248706}
   - component: {fileID: 6448214605442750222}
-  - component: {fileID: 6988499665571547277}
+  - component: {fileID: 2073500744599224280}
   m_Layer: 11
   m_Name: MovingBlueMine
   m_TagString: Untagged
@@ -456,7 +456,7 @@ MonoBehaviour:
   _ExplosionRange: 1.5
   _WaitToExplode: 0
   _ExplodeAtStart: 0
---- !u!114 &6988499665571547277
+--- !u!114 &2073500744599224280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -468,8 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Amplitude: 1.75
-  _Frequency: 1
+  _Amplitude: 0
+  _Frequency: 0
 --- !u!1 &2859857423421743793
 GameObject:
   m_ObjectHideFlags: 0

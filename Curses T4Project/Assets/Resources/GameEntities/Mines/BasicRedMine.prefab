@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 6641631353864286159}
   - component: {fileID: 7590141779029093950}
   - component: {fileID: 5616190154596069422}
+  - component: {fileID: 8104552294453916354}
   m_Layer: 11
   m_Name: BasicRedMine
   m_TagString: Untagged
@@ -538,6 +539,20 @@ MonoBehaviour:
   _ExplosionRange: 2
   _WaitToExplode: 0
   _ExplodeAtStart: 0
+--- !u!114 &8104552294453916354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830451329472774394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Amplitude: 0.1
+  _Frequency: 2
 --- !u!1 &3913129955628532934
 GameObject:
   m_ObjectHideFlags: 0

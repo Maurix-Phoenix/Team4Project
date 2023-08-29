@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8314810238729291042}
   - component: {fileID: 1450557974950509952}
   - component: {fileID: 2883216889658138816}
+  - component: {fileID: 4604932197568865864}
   m_Layer: 8
   m_Name: GiantSquid
   m_TagString: Untagged
@@ -144,8 +145,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
+  _IsMerchantShip: 0
   _CanAttack: 1
   _CanInstantKill: 0
+--- !u!114 &4604932197568865864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313393088565659173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Amplitude: 0.2
+  _Frequency: 3
 --- !u!1001 &5729935020447831741
 PrefabInstance:
   m_ObjectHideFlags: 0
