@@ -80,11 +80,10 @@ Transform:
   - {fileID: 2191755887235396080}
   - {fileID: 7175200728815654616}
   - {fileID: 1102929050702051513}
-  - {fileID: 1669976351990146414}
   - {fileID: 6215085239521678817}
   - {fileID: 2894629244425566993}
-  - {fileID: 9212836914577350166}
   - {fileID: 1584283677623348160}
+  - {fileID: 9212836914577350166}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -124,7 +123,7 @@ MonoBehaviour:
   IsLevelEnded: 0
   IsFinalArrivalBeach: 1
   PlayerHasReachBeach: 0
-  StartingLane: 0
+  StartingLane: 2
   NOfLayersUnderWater: 2
   ActualLayer: 0
   FinalLayer: 0
@@ -146,6 +145,10 @@ PrefabInstance:
     - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_Name
       value: CoralWall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149169503836463020, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_RootOrder
@@ -261,6 +264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirateShip (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -282,6 +289,10 @@ PrefabInstance:
     - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_Name
       value: CoralWall (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149169503836463020, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_RootOrder
@@ -397,6 +408,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MortarShip (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4846380258472143400, guid: d352036bb2bd01243a83d50b95e8b3ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -418,6 +433,10 @@ PrefabInstance:
     - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_Name
       value: MovingBlueMine (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2950647972917880070, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_RootOrder
@@ -533,6 +552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shark (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7590077369570360522, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -554,6 +577,10 @@ PrefabInstance:
     - target: {fileID: 1265495297724893570, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
       propertyPath: m_Name
       value: DelayYellowMine (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265495297724893570, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1928703821532468024, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
       propertyPath: m_RootOrder
@@ -620,6 +647,10 @@ PrefabInstance:
     - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_Name
       value: MovingBlueMine (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2950647972917880070, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_RootOrder
@@ -739,6 +770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubloonPickup (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -809,6 +844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirateShip (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -830,6 +869,10 @@ PrefabInstance:
     - target: {fileID: 185184320239924483, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
       propertyPath: m_Name
       value: Octopus (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185184320239924483, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5828362848588817745, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
       propertyPath: m_RootOrder
@@ -945,6 +988,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirateShip (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1014,6 +1061,10 @@ PrefabInstance:
     - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_Name
       value: MerchantShip (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1085,6 +1136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MortarShip (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4846380258472143400, guid: d352036bb2bd01243a83d50b95e8b3ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1106,6 +1161,10 @@ PrefabInstance:
     - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_Name
       value: MovingBlueMine (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2950647972917880070, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_RootOrder
@@ -1183,11 +1242,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 400654841617513956, guid: 08cf1f8f02a82194193bf5b2978a20b2, type: 3}
       propertyPath: m_Size.x
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400654841617513956, guid: 08cf1f8f02a82194193bf5b2978a20b2, type: 3}
       propertyPath: m_Center.x
-      value: -3.5
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 1055360394649241753, guid: 08cf1f8f02a82194193bf5b2978a20b2, type: 3}
       propertyPath: _AggroAreaRange
@@ -1240,6 +1299,10 @@ PrefabInstance:
     - target: {fileID: 9118706276547681086, guid: 08cf1f8f02a82194193bf5b2978a20b2, type: 3}
       propertyPath: m_Name
       value: SharkPack (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118706276547681086, guid: 08cf1f8f02a82194193bf5b2978a20b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1311,6 +1374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirateShip (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1320,72 +1387,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
   m_PrefabInstance: {fileID: 2777430932468482764}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2976700377970868014
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3489857097673311127}
-    m_Modifications:
-    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_Name
-      value: BasicRedMine (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 169.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
---- !u!4 &1669976351990146414 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
-  m_PrefabInstance: {fileID: 2976700377970868014}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3347686390668147597
 PrefabInstance:
@@ -1447,6 +1448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirateShip (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1468,6 +1473,10 @@ PrefabInstance:
     - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_Name
       value: MovingBlueMine (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2950647972917880070, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_RootOrder
@@ -1587,6 +1596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MerchantShip (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1608,6 +1621,10 @@ PrefabInstance:
     - target: {fileID: 1265495297724893570, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
       propertyPath: m_Name
       value: DelayYellowMine (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265495297724893570, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1928703821532468024, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
       propertyPath: m_RootOrder
@@ -1674,6 +1691,10 @@ PrefabInstance:
     - target: {fileID: 1265495297724893570, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
       propertyPath: m_Name
       value: DelayYellowMine (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265495297724893570, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1928703821532468024, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
       propertyPath: m_RootOrder
@@ -1785,6 +1806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubloonPickup (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1806,6 +1831,10 @@ PrefabInstance:
     - target: {fileID: 185184320239924483, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
       propertyPath: m_Name
       value: Octopus (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185184320239924483, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5828362848588817745, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
       propertyPath: m_RootOrder
@@ -1921,6 +1950,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalShip (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1991,6 +2024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirateShip (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2013,6 +2050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicRedMine (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2023,7 +2064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2078,6 +2119,10 @@ PrefabInstance:
     - target: {fileID: 185184320239924483, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
       propertyPath: m_Name
       value: Octopus (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185184320239924483, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5828362848588817745, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
       propertyPath: m_RootOrder
@@ -2144,6 +2189,10 @@ PrefabInstance:
     - target: {fileID: 5174185729104750988, guid: d261b68b94e07534e95001ebd88db446, type: 3}
       propertyPath: m_Name
       value: KillerWhale (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174185729104750988, guid: d261b68b94e07534e95001ebd88db446, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6855799959060814530, guid: d261b68b94e07534e95001ebd88db446, type: 3}
       propertyPath: m_RootOrder
@@ -2259,6 +2308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MortarShip (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4846380258472143400, guid: d352036bb2bd01243a83d50b95e8b3ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2280,6 +2333,10 @@ PrefabInstance:
     - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_Name
       value: CoralWall (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149169503836463020, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_RootOrder
@@ -2395,6 +2452,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MortarShip (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4846380258472143400, guid: d352036bb2bd01243a83d50b95e8b3ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2416,6 +2477,10 @@ PrefabInstance:
     - target: {fileID: 1265495297724893570, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
       propertyPath: m_Name
       value: DelayYellowMine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265495297724893570, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1928703821532468024, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
       propertyPath: m_RootOrder
@@ -2481,11 +2546,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 400654841617513956, guid: 08cf1f8f02a82194193bf5b2978a20b2, type: 3}
       propertyPath: m_Size.x
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400654841617513956, guid: 08cf1f8f02a82194193bf5b2978a20b2, type: 3}
       propertyPath: m_Center.x
-      value: -2.5
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 1055360394649241753, guid: 08cf1f8f02a82194193bf5b2978a20b2, type: 3}
       propertyPath: _AggroAreaRange
@@ -2539,6 +2604,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SharkPack (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9118706276547681086, guid: 08cf1f8f02a82194193bf5b2978a20b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2560,6 +2629,10 @@ PrefabInstance:
     - target: {fileID: 185184320239924483, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
       propertyPath: m_Name
       value: Octopus (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185184320239924483, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5828362848588817745, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
       propertyPath: m_RootOrder
@@ -2675,6 +2748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirateShip (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2696,6 +2773,10 @@ PrefabInstance:
     - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_Name
       value: CoralWall (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149169503836463020, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_RootOrder
@@ -2762,6 +2843,10 @@ PrefabInstance:
     - target: {fileID: 2204055857794461172, guid: 3a4abddd303c0404b87e3808482d05ef, type: 3}
       propertyPath: m_Name
       value: FlagShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204055857794461172, guid: 3a4abddd303c0404b87e3808482d05ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5601053858196147682, guid: 3a4abddd303c0404b87e3808482d05ef, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2837,6 +2922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralWall (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7149169503836463020, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2902,6 +2991,10 @@ PrefabInstance:
     - target: {fileID: 181480266081387332, guid: 6919b2d86173056458301bb0d6ef9bb7, type: 3}
       propertyPath: m_Name
       value: Treasure
+      objectReference: {fileID: 0}
+    - target: {fileID: 181480266081387332, guid: 6919b2d86173056458301bb0d6ef9bb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 965369855112226774, guid: 6919b2d86173056458301bb0d6ef9bb7, type: 3}
       propertyPath: m_RootOrder
@@ -3013,6 +3106,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GiantSquid (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6313393088565659173, guid: 0f6a3eba8811dd34f89b6ceaeaca9b37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3034,6 +3131,10 @@ PrefabInstance:
     - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_Name
       value: BasicRedMine (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830451329472774394, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_RootOrder
@@ -3145,6 +3246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GiantSquid (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6313393088565659173, guid: 0f6a3eba8811dd34f89b6ceaeaca9b37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3215,6 +3320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirateShip (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3281,6 +3390,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shark (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7590077369570360522, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3346,6 +3459,10 @@ PrefabInstance:
     - target: {fileID: 6313393088565659173, guid: 0f6a3eba8811dd34f89b6ceaeaca9b37, type: 3}
       propertyPath: m_Name
       value: GiantSquid
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313393088565659173, guid: 0f6a3eba8811dd34f89b6ceaeaca9b37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3417,6 +3534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirateShip (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3441,7 +3562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1156577040673246854, guid: 9fa0901172a7d8948bd3b43467656a6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 437.4791
+      value: 427
       objectReference: {fileID: 0}
     - target: {fileID: 1156577040673246854, guid: 9fa0901172a7d8948bd3b43467656a6a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3504,6 +3625,10 @@ PrefabInstance:
     - target: {fileID: 185184320239924483, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
       propertyPath: m_Name
       value: Octopus (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 185184320239924483, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5828362848588817745, guid: 45ab2ba2a3056d645ba0a47d8cf3b86d, type: 3}
       propertyPath: m_RootOrder
@@ -3570,6 +3695,10 @@ PrefabInstance:
     - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_Name
       value: MovingBlueMine (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2950647972917880070, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_RootOrder
@@ -3685,6 +3814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubloonPickup (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3706,6 +3839,10 @@ PrefabInstance:
     - target: {fileID: 1265495297724893570, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
       propertyPath: m_Name
       value: DelayYellowMine (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265495297724893570, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1928703821532468024, guid: 9ec70ac92b154bd4a9174194ccd80dd8, type: 3}
       propertyPath: m_RootOrder
@@ -3772,6 +3909,10 @@ PrefabInstance:
     - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_Name
       value: MovingBlueMine (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574121776758882236, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2950647972917880070, guid: c41e840f871b2e94fb14c0013d0bbd4e, type: 3}
       propertyPath: m_RootOrder
@@ -3895,6 +4036,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirateShip (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: f8bb35a909bac3c4bb65a58d7fa0e0d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3916,6 +4061,10 @@ PrefabInstance:
     - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_Name
       value: CoralWall (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781982203811929798, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149169503836463020, guid: fc4fab408ec99e44bb3a7f5c675a2ca8, type: 3}
       propertyPath: m_RootOrder
