@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4986623303727675109}
   - component: {fileID: 662796131540576846}
   m_Layer: 0
-  m_Name: 2-Level 3-Giovanni
+  m_Name: 3-Level 3-Giovanni
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

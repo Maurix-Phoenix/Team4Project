@@ -40,11 +40,15 @@ public class LevelUI : MonoBehaviour
 
     public void UpdateLevelFlagUI()
     {
-        if (!GameManager.Instance.LevelManager.CurrentLevel.LevelData.FlagObtained)
+        Player player = GameManager.Instance.LevelManager.Player;
+        Level currentLevel = GameManager.Instance.LevelManager.CurrentLevel;
+
+        if (!currentLevel.LevelData.FlagObtained)
         {
-            if (GameManager.Instance.LevelManager.CurrentLevel.TotalFlags > 0)
+            if (currentLevel.TotalFlags > 0)
             {
-                FlagCover.fillAmount = 1 - GameManager.Instance.LevelManager.Player.NOfFlags / GameManager.Instance.LevelManager.CurrentLevel.TotalFlags;
+                float amount = 1.0f - ((float)player.NOfFlags / (float)currentLevel.TotalFlags);
+                FlagCover.fillAmount = amount;
             }
         }
     }
