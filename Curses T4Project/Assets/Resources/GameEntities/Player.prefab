@@ -5094,7 +5094,7 @@ MonoBehaviour:
   _MaxDistance: 25
   _TrajectoryAngle: 10
   _UnderWaterTrajectoryAngleModifier: 0.2
-  _ShootCD: 0.5
+  _ShootCD: 0.2
   _ShootAtBossCD: 0.2
   _cannonballToShootAtBoss: 0
 --- !u!114 &5860761120668900247
