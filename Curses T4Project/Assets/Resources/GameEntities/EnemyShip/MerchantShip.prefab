@@ -4096,8 +4096,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.85, y: 1, z: 6}
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Size: {x: 2.85, y: 2.609252, z: 6}
+  m_Center: {x: 0, y: 1.0046258, z: 0}
 --- !u!114 &3749175792978898576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4117,15 +4117,12 @@ MonoBehaviour:
   CanDropLoot: 1
   LootList:
   - PickupPrefab: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
-    DropQuantityRange: {x: 1, y: 1}
+    DropQuantityRange: {x: 0, y: 0}
   - PickupPrefab: {fileID: 8138790477708015956, guid: 270e4db85530a7641b5332b529ec9dc8, type: 3}
     DropQuantityRange: {x: 2, y: 3}
   DropRadius: 0.5
-  Floating: 1
-  FloatingAmplitude: 0.1
-  FloatingFrequency: 5
   MoveSpeed: 0
-  MoveToPlayer: 0
+  MovePickUpToPlayer: 0
   IsStopped: 0
   _Health: 1
 --- !u!114 &-6551179027964353909
@@ -4156,6 +4153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsOnMenuScene: 0
   _Amplitude: 0.1
   _Frequency: 5
 --- !u!1 &3083042877650571306

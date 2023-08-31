@@ -106,15 +106,12 @@ MonoBehaviour:
   CanDropLoot: 1
   LootList:
   - PickupPrefab: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
-    DropQuantityRange: {x: 1, y: 1}
+    DropQuantityRange: {x: 0, y: 0}
   - PickupPrefab: {fileID: 8138790477708015956, guid: 270e4db85530a7641b5332b529ec9dc8, type: 3}
     DropQuantityRange: {x: 0, y: 2}
   DropRadius: 0.5
-  Floating: 1
-  FloatingAmplitude: 0.1
-  FloatingFrequency: 5
   MoveSpeed: 1
-  MoveToPlayer: 0
+  MovePickUpToPlayer: 0
   IsStopped: 0
   _Health: 1
 --- !u!114 &-2344524346517922184
@@ -166,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsOnMenuScene: 0
   _Amplitude: 0.1
   _Frequency: 5
 --- !u!1 &6616437478419769803
