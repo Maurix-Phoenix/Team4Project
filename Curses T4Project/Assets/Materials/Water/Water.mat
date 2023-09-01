@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -35,6 +35,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _CausticMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -47,12 +51,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DistortionFilter:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionNoise:
+        m_Texture: {fileID: 2800000, guid: 49a8f6d72d4d9214cb1a9453e0a7acdc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fe6698d30394c994595a7e5d42a35d93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -83,6 +95,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _WaterEffect:
+        m_Texture: {fileID: 2800000, guid: 49a8f6d72d4d9214cb1a9453e0a7acdc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaterEffectFilter:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -105,10 +125,14 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _ColorMultiplier: 2.47
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DistortionFrequency: 4.1
+    - _DistortionSpeed: 5
+    - _DistortionStrength: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnableExternalAlpha: 0
@@ -116,11 +140,14 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _GodrayIntensity: 0.5
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
+    - _RaymarchStepSize: 0.05
+    - _RaymarchSteps: 50
     - _ReceiveShadows: 1
     - _SampleGI: 0
     - _Smoothness: 0.5
@@ -128,23 +155,31 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
+    - _SunPenetration: 2
     - _Surface: 0
     - _UVSec: 0
+    - _WaterEffectFrequency: -0.01
+    - _WaterEffectStrenght: 0.3
+    - _WaterEffectThreshold: 0.18
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _amplitude: 0.2
+    - _amplitude: 0.15
     - _frequency: 25
-    - _waveSpeed: -1
+    - _waveSpeed: -2
     m_Colors:
     - _BaseColor: {r: 0.44705886, g: 0.6431373, b: 1, a: 1}
+    - _CameraPosition: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.44705886, g: 0.6431373, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _GodrayColor: {r: 1, g: 1, b: 0, a: 1}
+    - _LightPosition: {r: 0, g: 1, b: 0, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _WaterDeepColor: {r: 0.19999999, g: 0.36954555, b: 1, a: 1}
-    - _WaterMainColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterSurfaceColor: {r: 0.760057, g: 0.9433962, b: 0.94126433, a: 1}
+    - _SurfacePosition: {r: 0, g: 0, b: 0, a: 1}
+    - _WaterDeepColor: {r: 1, g: 0, b: 0.019974232, a: 1}
+    - _WaterMainColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+    - _WaterSurfaceColor: {r: 0.33333337, g: 0.9227452, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &9014665066981013548
 MonoBehaviour:
