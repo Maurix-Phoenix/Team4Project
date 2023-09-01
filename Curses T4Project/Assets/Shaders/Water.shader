@@ -115,7 +115,8 @@ Shader "Unlit/Water"
 
                     col += weColor * _WaterEffectStrenght;
                     //col = lerp(col, _WaterDeepColor, i.uv.y);
-                    col = lerp(col, _WaterDeepColor, sin(i.uv.y));
+                    //col = lerp(col, _WaterDeepColor, sin(i.uv.y));
+                    col = lerp(col, _WaterDeepColor, sin(i.uv.y)*sin(i.uv.y));
                 }
                 
 
