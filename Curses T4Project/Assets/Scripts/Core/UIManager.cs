@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     public FlagCollection FlagsCollection;
     public LevelUI LevelUI;
     public StageCompleteUI StageCompleteUI;
+    public TutorialUI TutorialUI;
+
     private void Awake()
     {
         Initialize();

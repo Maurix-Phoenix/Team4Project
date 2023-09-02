@@ -12,6 +12,9 @@ using UnityEngine;
 public class DashAbility : MonoBehaviour
 {
     [Header("Aggro Conditions")]
+    [SerializeField] private GameObject _AggroAlert;
+    [SerializeField] private Color _NoAggroColor;
+    [SerializeField] private Color _AggroColor;
     [SerializeField] private bool _AggroAtStart = false;
     [SerializeField] private bool _Aggroed = false;
     [SerializeField] private float _DashSpeedMultiplier = 2.0f;
@@ -31,13 +34,9 @@ public class DashAbility : MonoBehaviour
 
     void Start()
     {
-        if (_AggroAtStart)
-        {
-            _Aggroed = true;
-        }
-
         if (gameObject.GetComponent<SeaMonster>() != null)
         {
+            _AggroAlert.GetComponent<MeshRenderer>().material.color = _NoAggroColor;
             if (gameObject.GetComponent<SeaMonster>().IsSharkPack)
             {
                 _SharkAggroArea = GetComponent<BoxCollider>();
@@ -45,11 +44,17 @@ public class DashAbility : MonoBehaviour
                 _SharkAggroArea.size = new Vector3(_AggroRange, _AggroAreaHeight, 6f);
             }
         }
+
+        if (_AggroAtStart)
+        {
+            _Aggroed = true;
+        }
     }
 
     void Update()
     {
         Aggro();
+        AggroAlert();
     }
 
     private void Aggro()
@@ -80,6 +85,23 @@ public class DashAbility : MonoBehaviour
             if (_Aggroed)
             {
                 gameObject.GetComponent<EnemyShip>().MoveSpeed = GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed * _DashSpeedMultiplier;
+            }
+        }
+    }
+
+    private void AggroAlert()
+    {
+        if (gameObject.GetComponent<SeaMonster>() != null)
+        {
+            if (_Aggroed)
+            {
+                _AggroAlert.GetComponent<MeshRenderer>().material.color = _AggroColor;
+                _AggroAlert.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _AggroColor);
+            }
+            else
+            {
+                _AggroAlert.GetComponent<MeshRenderer>().material.color = _NoAggroColor;
+                _AggroAlert.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _NoAggroColor);
             }
         }
     }

@@ -134,7 +134,6 @@ public class PlayerMovement : MonoBehaviour
             GameManager.Instance.LevelManager.Player.CanMove &&
             GameManager.Instance.LevelManager.CurrentLevel.NOfLayersUnderWater > 0 &&
             !GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
-
         {
             //set the direction of the movement
             _Direction.y = _InputMovementReference.action.ReadValue<float>();

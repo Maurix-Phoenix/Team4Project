@@ -26,7 +26,7 @@ public class EndWall : LevelEntity, IDamageable
     [SerializeField] private Vector3 _TriggerPosition; 
     [SerializeField] private Vector3 _TriggerDimension; 
     [SerializeField] private int _Health = 10;
-    [SerializeField] private int _NOfCannonball = 3;
+    private int _NOfCannonball = 1;
 
     [Header("Cannons Variables")]
     [SerializeField] private bool _CanShoot = false;
@@ -100,6 +100,7 @@ public class EndWall : LevelEntity, IDamageable
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_EndWallIsPositionated)
         {
             _EndWallIsPositionated = true;
+            _NOfCannonball = other.gameObject.GetComponent<Player>().Health;
             _TriggerToMovePlayer.gameObject.SetActive(false);
             _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(GameManager.Instance.LevelManager.CurrentLevel.ActualLayer)];
             _FirePos = _CannonActiveToShoot.transform.Find("FirePos").gameObject.transform;
