@@ -72,6 +72,7 @@ Transform:
   - {fileID: 6653860790093389596}
   - {fileID: 566318804141890504}
   - {fileID: 4502302025964606721}
+  - {fileID: 7453715686715764639}
   - {fileID: 5011409843301371708}
   - {fileID: 7647936341600596134}
   - {fileID: 5391946370661290288}
@@ -124,8 +125,8 @@ MonoBehaviour:
   XIntermediatePosition: 5
   XEndingPosition: 30
   YLanePosition: 0
-  StartingHealth: 3
-  StartingCannonBalls: 5
+  StartingHealth: 100
+  StartingCannonBalls: 100
 --- !u!1 &2546562485029804194
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3164693864455862864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -19.409996, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -224,6 +225,7 @@ Transform:
   - {fileID: 8963269925543689757}
   - {fileID: 6121978414163707579}
   - {fileID: 6168246758571228260}
+  - {fileID: 8807401448572161859}
   m_Father: {fileID: 6671093256376295538}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -320,6 +322,37 @@ Transform:
   m_Father: {fileID: 5146384805216637454}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8617933311485531842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913863549095693292}
+  m_Layer: 8
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &913863549095693292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617933311485531842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8807401448572161859}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8791512683802805234
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 74.20001
+      value: 54.100014
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.y
@@ -413,11 +446,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveDown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressEsc
@@ -429,11 +462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: TutorialTextToShow
-      value: 'Watch out now!
-
-        Enemies are incoming!
-
-        Avoid them!'
+      value: "Watch out now!\nEnemies are coming! \nAvoid them! (Press 'Esc' to continue)"
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressMoveDown
@@ -452,6 +481,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
   m_PrefabInstance: {fileID: 587912497386149934}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1083482998855863269
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6671093256376295538}
+    m_Modifications:
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 82.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590077369570360522, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_Name
+      value: Shark (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590077369570360522, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+--- !u!4 &7453715686715764639 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
+  m_PrefabInstance: {fileID: 1083482998855863269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1717854167373174094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -466,7 +565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1156577040673246854, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 623.4
+      value: 399.15997
       objectReference: {fileID: 0}
     - target: {fileID: 1156577040673246854, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -530,13 +629,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6671093256376295538}
     m_Modifications:
+    - target: {fileID: 3536447911968957470, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+      propertyPath: LootList.Array.data[1].DropQuantityRange.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 182.39001
+      value: 117.3
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -614,7 +717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 356.68097
+      value: 239.00998
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -684,7 +787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 386.7
+      value: 269.02905
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -746,7 +849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 237.62
+      value: 182.31998
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.y
@@ -794,15 +897,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveDown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressSpacebar
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressEsc
@@ -812,7 +915,8 @@ PrefabInstance:
       propertyPath: TutorialTextToShow
       value: 'Defeating the enemy''s ship
 
-        grants you cannonballs.'
+        grants you cannonballs. (Press
+        ''Esc'' to continue)'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
@@ -845,7 +949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 280338005711704888, guid: 21bfde2c1d68bdb4391a7fda0e835efa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 195.10002
+      value: 130.01004
       objectReference: {fileID: 0}
     - target: {fileID: 280338005711704888, guid: 21bfde2c1d68bdb4391a7fda0e835efa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -911,7 +1015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1914956605740656354, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 553.1
+      value: 358.4099
       objectReference: {fileID: 0}
     - target: {fileID: 1914956605740656354, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
       propertyPath: m_LocalPosition.y
@@ -981,7 +1085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 597
+      value: 398.40997
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1029,15 +1133,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveDown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressSpacebar
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressEsc
@@ -1046,7 +1150,7 @@ PrefabInstance:
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: TutorialTextToShow
       value: With enough cannonballs you can destroy the wall and advance to the
-        next adventure!
+        next adventure! (Press 'Esc' to continue)
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
@@ -1073,13 +1177,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6671093256376295538}
     m_Modifications:
+    - target: {fileID: 3536447911968957470, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+      propertyPath: LootList.Array.data[1].DropQuantityRange.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 266.8
+      value: 181.60992
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1149,7 +1257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 510.6
+      value: 352.61996
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1197,15 +1305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveDown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressSpacebar
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressEsc
@@ -1215,7 +1323,8 @@ PrefabInstance:
       propertyPath: TutorialTextToShow
       value: 'Uh, shiny!
 
-        Collect the doubloons to raise the score level.'
+        Collect the doubloons to raise the score level.
+        (Press ''Esc'' to continue)'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
@@ -1256,7 +1365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6079148126957320284, guid: 3a4abddd303c0404b87e3808482d05ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 454.7
+      value: 305.20996
       objectReference: {fileID: 0}
     - target: {fileID: 6079148126957320284, guid: 3a4abddd303c0404b87e3808482d05ef, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1318,7 +1427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 151.44
+      value: 121.91998
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1377,7 +1486,7 @@ PrefabInstance:
       value: 'Prepare to return fire!
 
         Press the SpaceBar to shoot at your
-        enemies!'
+        enemies! (Press ''Esc'' or ''Spacebar'' to continue)'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
@@ -1410,7 +1519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 120.7
+      value: 72.4
       objectReference: {fileID: 0}
     - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1480,7 +1589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 113.64
+      value: 65.340004
       objectReference: {fileID: 0}
     - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1550,7 +1659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 102.39
+      value: 54.090004
       objectReference: {fileID: 0}
     - target: {fileID: 7528229538158453882, guid: 3b0e5ca92d599214e9eaf13b14b9ad37, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1620,7 +1729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 331.9
+      value: 239.31998
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1668,15 +1777,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveDown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressSpacebar
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressEsc
@@ -1687,7 +1796,11 @@ PrefabInstance:
       value: 'Be careful!
 
         Mines may explode if you touch them or if you
-        shoot at them.'
+        shoot at them. (Press ''Esc'' to continue)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: IsTutorialTriggered
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
@@ -1728,7 +1841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 372.7
+      value: 255.02902
       objectReference: {fileID: 0}
     - target: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1784,13 +1897,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6671093256376295538}
     m_Modifications:
+    - target: {fileID: 3536447911968957470, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+      propertyPath: LootList.Array.data[1].DropQuantityRange.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 209.6
+      value: 144.50998
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1846,6 +1963,104 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
   m_PrefabInstance: {fileID: 6788178608940036748}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7042047168859120343
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3672898438916451526}
+    m_Modifications:
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 107.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384778655189565351, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: m_Name
+      value: Tutorial (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: PressEsc
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: PressMoveUp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: PressMoveDown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: PressSpacebar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: NeedToPressEsc
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: TutorialTextToShow
+      value: 'Remember: all the enemies are not the same. Some of them have different
+        attacks that can cause you trouble! (Press ''Esc'' to continue)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: NeedToPressSpacebar
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 913863549095693292}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+--- !u!4 &8807401448572161859 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+  m_PrefabInstance: {fileID: 7042047168859120343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7486006091914548105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1860,7 +2075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 423.9
+      value: 311.11996
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1908,15 +2123,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveDown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressSpacebar
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressEsc
@@ -1926,7 +2141,8 @@ PrefabInstance:
       propertyPath: TutorialTextToShow
       value: 'That''s a special ship!
 
-        Take it down to collect its flag!'
+        Take it down to collect its flag!
+        (Press ''Esc'' to continue)'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
@@ -1959,7 +2175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 280338005711704888, guid: 21bfde2c1d68bdb4391a7fda0e835efa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 207.70001
+      value: 142.60999
       objectReference: {fileID: 0}
     - target: {fileID: 280338005711704888, guid: 21bfde2c1d68bdb4391a7fda0e835efa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2025,7 +2241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34
+      value: 28.8
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2083,7 +2299,12 @@ PrefabInstance:
       propertyPath: TutorialTextToShow
       value: 'Hey Pirate!
 
-        Press W and S to move your Ship.'
+        Press W and S to move your Ship. (Press ''W''
+        or ''S'' to continue)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: IsTutorialTriggered
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2103,13 +2324,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6671093256376295538}
     m_Modifications:
+    - target: {fileID: 3536447911968957470, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+      propertyPath: LootList.Array.data[1].DropQuantityRange.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 288.90002
+      value: 203.70996
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_LocalPosition.y
