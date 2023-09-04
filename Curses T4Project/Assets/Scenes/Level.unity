@@ -5101,6 +5101,10 @@ PrefabInstance:
       value: WaterOrigin
       objectReference: {fileID: 0}
     - target: {fileID: 2838934042151524555, guid: 573e5fc6ecebce4408056c680a15dd79, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838934042151524555, guid: 573e5fc6ecebce4408056c680a15dd79, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6099,6 +6103,10 @@ PrefabInstance:
       value: WaterOrigin (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2838934042151524555, guid: 573e5fc6ecebce4408056c680a15dd79, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838934042151524555, guid: 573e5fc6ecebce4408056c680a15dd79, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6731,7 +6739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
+  m_RequiresDepthTextureOption: 0
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
