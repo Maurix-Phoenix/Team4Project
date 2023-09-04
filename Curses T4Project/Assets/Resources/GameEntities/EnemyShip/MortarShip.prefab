@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
   _IsMerchantShip: 0
-  _CanAttack: 1
+  _CanAttack: 0
   _CanInstantKill: 0
 --- !u!114 &-5542823202251223387
 MonoBehaviour:

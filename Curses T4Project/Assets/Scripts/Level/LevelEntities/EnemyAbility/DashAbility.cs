@@ -12,31 +12,35 @@ using UnityEngine;
 public class DashAbility : MonoBehaviour
 {
     [Header("Aggro Conditions")]
-    [SerializeField] private GameObject _AggroAlert;
-    [SerializeField] private Color _NoAggroColor;
-    [SerializeField] private Color _AggroColor;
     [SerializeField] private bool _AggroAtStart = false;
     [SerializeField] private bool _Aggroed = false;
     [SerializeField] private float _DashSpeedMultiplier = 2.0f;
 
     public bool Aggroed { get { return _Aggroed; } }
 
-    [Header("Aggro Range")]
-    [SerializeField] private bool _ShowAggroRange = true;
-    [SerializeField] private float _AggroRange = 8.0f;
-    [SerializeField] private float _AggroAreaHeight = 4.5f;
-
     [Header("Shark Pack Conditions")]
     [SerializeField] private float _RangeToAttack = 1.6f;
 
     private BoxCollider _SharkAggroArea;
 
+    [Header("Aggro Range")]
+    [SerializeField] private bool _ShowAggroRange = true;
+    [SerializeField] private float _AggroRange = 8.0f;
+    [SerializeField] private float _AggroAreaHeight = 4.5f;
+
+    [Header("Aggro Alert")]
+    [SerializeField] private GameObject _AggroAlert;
+    [SerializeField] private ParticleSystem _SharkPackAggroAlert;
+    [SerializeField] private ParticleSystem _SharkPackNoAggro;
+    [SerializeField] private Color _NoAggroColor;
+    [SerializeField] private Color _AggroColor;
 
     void Start()
     {
+        _Aggroed = false;
+
         if (gameObject.GetComponent<SeaMonster>() != null)
         {
-            _AggroAlert.GetComponent<MeshRenderer>().material.color = _NoAggroColor;
             if (gameObject.GetComponent<SeaMonster>().IsSharkPack)
             {
                 _SharkAggroArea = GetComponent<BoxCollider>();
@@ -93,15 +97,31 @@ public class DashAbility : MonoBehaviour
     {
         if (gameObject.GetComponent<SeaMonster>() != null)
         {
-            if (_Aggroed)
+            if (gameObject.GetComponent<SeaMonster>().IsSharkPack)
             {
-                _AggroAlert.GetComponent<MeshRenderer>().material.color = _AggroColor;
-                _AggroAlert.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _AggroColor);
+                if (_Aggroed)
+                {
+                    _SharkPackNoAggro.gameObject.SetActive(false);
+                    _SharkPackAggroAlert.gameObject.SetActive(true);
+                }
+                else
+                {
+                    _SharkPackNoAggro.gameObject.SetActive(true);
+                    _SharkPackAggroAlert.gameObject.SetActive(false);
+                }
             }
             else
             {
-                _AggroAlert.GetComponent<MeshRenderer>().material.color = _NoAggroColor;
-                _AggroAlert.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _NoAggroColor);
+                if (_Aggroed)
+                {
+                    _AggroAlert.GetComponent<MeshRenderer>().material.color = _AggroColor;
+                    _AggroAlert.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _AggroColor);
+                }
+                else
+                {
+                    _AggroAlert.GetComponent<MeshRenderer>().material.color = _NoAggroColor;
+                    _AggroAlert.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _NoAggroColor);
+                }
             }
         }
     }

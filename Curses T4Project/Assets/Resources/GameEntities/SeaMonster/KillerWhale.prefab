@@ -423,6 +423,7 @@ Transform:
   m_Children:
   - {fileID: 5631960517356246708}
   - {fileID: 4688982868186411656}
+  - {fileID: 4385130041048398610}
   m_Father: {fileID: 6855799959060814530}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -660,11 +661,8 @@ MonoBehaviour:
   CanDropLoot: 0
   LootList: []
   DropRadius: 0
-  Floating: 1
-  FloatingAmplitude: 0.2
-  FloatingFrequency: 2.5
   MoveSpeed: 2
-  MoveToPlayer: 0
+  MovePickUpToPlayer: 0
   IsStopped: 0
   _Health: 1
   _IsSharkPack: 0
@@ -697,7 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
   _IsMerchantShip: 0
-  _CanAttack: 1
+  _CanAttack: 0
   _CanInstantKill: 0
 --- !u!114 &179379287563194
 MonoBehaviour:
@@ -714,10 +712,15 @@ MonoBehaviour:
   _AggroAtStart: 0
   _Aggroed: 0
   _DashSpeedMultiplier: 2
+  _RangeToAttack: 1.6
   _ShowAggroRange: 1
   _AggroRange: 8
   _AggroAreaHeight: 4.5
-  _RangeToAttack: 1.6
+  _AggroAlert: {fileID: 6417948992582655340}
+  _SharkPackAggroAlert: {fileID: 0}
+  _SharkPackNoAggro: {fileID: 0}
+  _NoAggroColor: {r: 1, g: 1, b: 1, a: 0}
+  _AggroColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &309259489750331695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,6 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsOnMenuScene: 0
   _Amplitude: 0.2
   _Frequency: 2.5
 --- !u!1 &5643485304516041404
@@ -892,6 +896,89 @@ Transform:
   m_Father: {fileID: 949345963452218095}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6417948992582655340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4385130041048398610}
+  - component: {fileID: 2792393023500412769}
+  - component: {fileID: 2008063770899691230}
+  m_Layer: 8
+  m_Name: AggroAlert
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4385130041048398610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417948992582655340}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.041, z: 0.196}
+  m_LocalScale: {x: 0.06, y: 0.09, z: 0.06}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3645781626574636586}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!33 &2792393023500412769
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417948992582655340}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2008063770899691230
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417948992582655340}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6672585745134765419
 GameObject:
   m_ObjectHideFlags: 0

@@ -104,11 +104,8 @@ MonoBehaviour:
   CanDropLoot: 0
   LootList: []
   DropRadius: 0
-  Floating: 0
-  FloatingAmplitude: 0.2
-  FloatingFrequency: 3
   MoveSpeed: 0
-  MoveToPlayer: 0
+  MovePickUpToPlayer: 0
   IsStopped: 0
   _Health: 2
   _IsSharkPack: 0
@@ -127,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CollisionDamage: 2
   _IsMerchantShip: 0
-  _CanAttack: 1
+  _CanAttack: 0
   _CanInstantKill: 0
 --- !u!114 &-693274094255248368
 MonoBehaviour:
@@ -141,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsOnMenuScene: 0
   _Amplitude: 0.2
   _Frequency: 3
 --- !u!1001 &4656598726376739049

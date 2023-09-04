@@ -114,11 +114,8 @@ MonoBehaviour:
   - PickupPrefab: {fileID: 6731371445131291682, guid: 2b3d864f2490bb04caed9f597ba1219c, type: 3}
     DropQuantityRange: {x: 1, y: 1}
   DropRadius: 0.5
-  Floating: 1
-  FloatingAmplitude: 0.1
-  FloatingFrequency: 5
   MoveSpeed: 1
-  MoveToPlayer: 0
+  MovePickUpToPlayer: 0
   IsStopped: 0
   _Health: 2
 --- !u!114 &7882734928722052921
@@ -145,7 +142,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2204055857794461172}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f56b3f5903282b34dae9d2d066d2a7a6, type: 3}
   m_Name: 
@@ -173,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
   _IsMerchantShip: 0
-  _CanAttack: 1
+  _CanAttack: 0
   _CanInstantKill: 0
 --- !u!114 &6367775089351187715
 MonoBehaviour:
@@ -187,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsOnMenuScene: 0
   _Amplitude: 0.1
   _Frequency: 5
 --- !u!1 &6674744912335447245

@@ -4198,10 +4198,15 @@ MonoBehaviour:
   _AggroAtStart: 0
   _Aggroed: 0
   _DashSpeedMultiplier: 2
+  _RangeToAttack: 1.6
   _ShowAggroRange: 1
   _AggroRange: 2.5
   _AggroAreaHeight: 4.5
-  _RangeToAttack: 1.6
+  _AggroAlert: {fileID: 0}
+  _SharkPackAggroAlert: {fileID: 0}
+  _SharkPackNoAggro: {fileID: 0}
+  _NoAggroColor: {r: 0, g: 0, b: 0, a: 0}
+  _AggroColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-6846554450242420509
 MonoBehaviour:
   m_ObjectHideFlags: 0
