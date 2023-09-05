@@ -104,6 +104,14 @@ public class GameManager : MonoBehaviour
     private void StatePlaying()
     {
         UIManager.HideUICanvas("PauseMenuUI");
+        if(CurrentScene.name == "Level")
+        {
+            if(UIManager.ToggleButtonUI.IsToggled)
+            {
+                UIManager.ToggleButtonUI.ToggleElements();
+            }
+            UIManager.ShowUICanvasOnly("LevelUI");
+        }
         AudioManager.AudioSourceMusic.UnPause();
         Time.timeScale = 1;
         //operations to do after game state switch to playing

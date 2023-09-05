@@ -1,9 +1,11 @@
 //UIManager.cs
 //by MAURIZIO FISCHETTI
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using static T4P;
 /// <summary>
 /// [UI Manager]  manages, show/hide the UI
@@ -12,6 +14,11 @@ public class UIManager : MonoBehaviour
 {
     public string CanvasToShow = "MainMenuUI";
     public GameObject UIContainer { get; private set; }
+
+    [Header("Canvas Animation")]
+    [SerializeField] private float _FadeAnimationTime = 0.5f;
+
+    public CanvasGroup CanvasGroup { get; private set; }
     public List<Canvas> UICanvasList;
     public List<TMP_Text> UITextList = new List<TMP_Text>();
     public LevelPanel LevelPanelSelection;
@@ -19,6 +26,7 @@ public class UIManager : MonoBehaviour
     public LevelUI LevelUI;
     public StageCompleteUI StageCompleteUI;
     public TutorialUI TutorialUI;
+    public ToggleButtonUI ToggleButtonUI;
 
     private void Awake()
     {
@@ -27,7 +35,8 @@ public class UIManager : MonoBehaviour
     private bool Initialize()
     {
         UIContainer = transform.Find("UI").gameObject;
-        if(UIContainer != null ) 
+        CanvasGroup = UIContainer.GetComponent<CanvasGroup>();
+        if (UIContainer != null || CanvasGroup != null)
         {
             InitializeList();
             T4Debug.Log("[UI Manager] Initializated");
@@ -39,18 +48,18 @@ public class UIManager : MonoBehaviour
     private void InitializeList()
     {
         //Initialize the UICanvas List with the canvases child of the UIContainer
-        foreach(Canvas c in UIContainer.GetComponentsInChildren<Canvas>(includeInactive: true))
-        { 
-            if(c != null && !UICanvasList.Contains(c) && c != UIContainer.GetComponent<Canvas>())
+        foreach (Canvas c in UIContainer.GetComponentsInChildren<Canvas>(includeInactive: true))
+        {
+            if (c != null && !UICanvasList.Contains(c) && c != UIContainer.GetComponent<Canvas>())
             {
                 UICanvasList.Add(c);
             }
         }
 
         //Initialize the UITexts with the texts child of UIContainer
-        foreach(TMP_Text tmpT in UIContainer.GetComponentsInChildren<TMP_Text>(includeInactive: true))
-        { 
-            if(tmpT != null && !UITextList.Contains(tmpT))
+        foreach (TMP_Text tmpT in UIContainer.GetComponentsInChildren<TMP_Text>(includeInactive: true))
+        {
+            if (tmpT != null && !UITextList.Contains(tmpT))
             {
                 UITextList.Add(tmpT);
             }
@@ -80,7 +89,7 @@ public class UIManager : MonoBehaviour
         /// Get by the name the Gameonbject if inside UICanvas list.
         for (int i = 0; i < UICanvasList.Count; i++)
         {
-            if(UICanvasList[i] != null && UICanvasList[i].name == uiCanvasName)
+            if (UICanvasList[i] != null && UICanvasList[i].name == uiCanvasName)
             {
                 return UICanvasList[i].gameObject;
             }
@@ -89,10 +98,12 @@ public class UIManager : MonoBehaviour
         return null;
     }
 
+
+    //DELETE THIS
     private TMP_Text GetUIText(string uiTextName)
     {
         //Get by the name of the text inside UICanvas list.
-        for(int i = 0; i < UITextList.Count; i++)
+        for (int i = 0; i < UITextList.Count; i++)
         {
             if (UITextList[i] != null && UITextList[i].name == uiTextName)
             {
@@ -111,7 +122,7 @@ public class UIManager : MonoBehaviour
     public void HideUICanvas(string canvasName)
     {
         GameObject uiC = GetUICanvas(canvasName);
-        if(uiC != null)
+        if (uiC != null)
         {
             uiC.SetActive(false);
         }
@@ -127,10 +138,12 @@ public class UIManager : MonoBehaviour
         GameObject uiC = GetUICanvas(canvasName);
         if (uiC != null)
         {
+            StartCoroutine(FadeAnimation(_FadeAnimationTime));
             uiC.SetActive(true);
+            
         }
         else { T4Debug.Log($"[UI Manager] {canvasName} cannot show.", T4Debug.LogType.Error); }
-        
+
     }
 
     public void ShowUICanvasOnly(string canvasName)
@@ -141,7 +154,7 @@ public class UIManager : MonoBehaviour
 
     public void SetUICanvasOnLoad(string canvasName)
     {
-        if(GetUICanvas(canvasName) != null)
+        if (GetUICanvas(canvasName) != null)
         {
             CanvasToShow = canvasName;
         }
@@ -158,10 +171,28 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void HideAllUICanvas()
     {
-        foreach(Canvas obj in UICanvasList)
+        foreach (Canvas obj in UICanvasList)
         {
             HideUICanvas(obj.name);
             CanvasToShow = null;
         }
     }
+
+    IEnumerator FadeAnimation( float time)
+    {
+        CanvasGroup.alpha = 0;
+
+        float elapsedT = 0;
+
+        while(elapsedT <= time)
+        {
+            elapsedT += Time.unscaledDeltaTime;
+            CanvasGroup.alpha = Mathf.Lerp(0, 1, elapsedT / time);
+            yield return null;
+        }
+
+        CanvasGroup.alpha = 1;
+    }
+
+
 }

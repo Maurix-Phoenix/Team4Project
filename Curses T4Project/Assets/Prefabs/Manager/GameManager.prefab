@@ -6342,16 +6342,16 @@ MonoBehaviour:
           m_StringArgument: UISFX_ClickCancel
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5636601536938671408}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ShowUICanvasOnly
+      - m_Target: {fileID: 3829958758217255405}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenuUI
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &3710316742002435871
@@ -8812,6 +8812,7 @@ GameObject:
   - component: {fileID: 1309951643385210610}
   - component: {fileID: 7070487822722998679}
   - component: {fileID: 5431701815431608877}
+  - component: {fileID: 4022876421220671392}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -8913,6 +8914,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &4022876421220671392
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5217729759454338040}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5268597302970582249
 GameObject:
   m_ObjectHideFlags: 0
@@ -10683,6 +10696,7 @@ MonoBehaviour:
   - {fileID: 5816583458292181904}
   - {fileID: 5692121988338602940}
   - {fileID: 1870662089949964747}
+  IsToggled: 0
 --- !u!1 &6581904300830632858
 GameObject:
   m_ObjectHideFlags: 0
@@ -14992,6 +15006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanvasToShow: MainMenuUI
+  _FadeAnimationTime: 1
   UICanvasList: []
   UITextList: []
   LevelPanelSelection: {fileID: 2031266340508456356}
@@ -14999,6 +15014,7 @@ MonoBehaviour:
   LevelUI: {fileID: 2465663344459488184}
   StageCompleteUI: {fileID: 6902547835119850237}
   TutorialUI: {fileID: 122679229145787157}
+  ToggleButtonUI: {fileID: 5430885100472669928}
 --- !u!1 &9004074325196629449
 GameObject:
   m_ObjectHideFlags: 0

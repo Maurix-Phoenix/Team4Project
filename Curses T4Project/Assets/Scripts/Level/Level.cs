@@ -3,52 +3,55 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using static T4P;
 
 
 public class Level : MonoBehaviour
 {
-    [Header("LevelEditor Save Data")]
+    [Header("LevelEditor Infos")]
     [SerializeField] public string LevelName;
     [SerializeField] public string LevelDesigner;
     [SerializeField] public int LevelID;
     [SerializeField] public Sprite LevelThumbnail = null;
 
+    //Level resources
     [Header("Level Resources")]
-    [SerializeField] private int _TotalCannonballs = 0;
-    [SerializeField] private int _TotalDoubloons = 0;
-    [SerializeField] public int TotalFlags = 0;
+    private bool _ResourcesCalculated = false;
+    private int _TotalCannonballs = 0;
+    private int _TotalDoubloons = 0;
+    [HideInInspector]public int TotalFlags = 0;
 
     [Header("Level Savings")]
-    public LevelData LevelData = new LevelData();
+    [HideInInspector]public LevelData LevelData = new LevelData();
 
     [Header("Level Entities")]
-    public List<LevelEntity> LevelObjects;
-    public List<LevelEntityTemporary> TemporaryObjects;
+    [HideInInspector]public List<LevelEntity> LevelObjects;
+    [HideInInspector]public List<LevelEntityTemporary> TemporaryObjects;
 
     [Header("Level Conditions")]
     public float LevelSpeed = 1.0f;
-    public bool IsInBossBattle = false;
-    public bool IsLevelEnded = false;
+    [HideInInspector]public bool IsInBossBattle = false;
+    [HideInInspector] public bool IsLevelEnded = false;
     public bool IsFinalArrivalBeach = false;
-    public bool PlayerHasReachBeach = false;
+    [HideInInspector] public bool PlayerHasReachBeach = false;
 
     [Header("Layer Variables")]
     public T4Project.LaneType StartingLane;
     [Tooltip("The Layer counting start from 0.")]
     [Range(0, 2)] public int NOfLayersUnderWater = 2;
     [Tooltip("The number of total layer goes from '0' to '-n'.\n'0' is the layer above the water.\n'-n' is the layer on the sea bed.")]
-    public int ActualLayer = 0;
+    [HideInInspector] public int ActualLayer = 0;
     [Tooltip("The number of total layer goes from '0' to '-n'.\n'0' is the layer above the water.\n'-n' is the layer on the sea bed.")]
-    public int FinalLayer = 0;
+    [HideInInspector] public int FinalLayer = 0;
     public int UnitSpaceBetweenLayer = 3;
 
     [Header("Player Positions")]
-    public float XStartingPosition = -5f;
-    public float XIntermediatePosition = 5f;
-    public float XEndingPosition = 30f;
-    public float YLanePosition;
+    [HideInInspector] public float XStartingPosition = -5f;
+    [HideInInspector] public float XIntermediatePosition = 5f;
+    [HideInInspector] public float XEndingPosition = 30f;
+    [HideInInspector] public float YLanePosition;
 
     [Header("Player Variables")]
     public int StartingHealth = 3;
@@ -103,6 +106,7 @@ public class Level : MonoBehaviour
         }
     }
 
+
     private void Start()
     {
         InitializeStartingPosition();
@@ -129,13 +133,9 @@ public class Level : MonoBehaviour
 
     public void StartLevel()
     {
-        CalculateFlags();
-        CalculateCannonballs();
-        CalculateDoubloons();
+        CalculateLevelResources();
         GameManager.Instance.UIManager.LevelUI.UpdateLevelUI();
         GameManager.Instance.UIManager.StageCompleteUI.UpdateStageCompleteUI();
-        T4Debug.Log($"[Level] Started [Resources Cannonballs {_TotalCannonballs} - Flags:{TotalFlags} - TotalDoubloons:{_TotalDoubloons}");
-
         GameManager.Instance.EventManager.RaiseOnLevelStart();
     }
 
@@ -230,6 +230,23 @@ public class Level : MonoBehaviour
                     
                 break;
             }
+        }
+    }
+
+
+    //Calculate level Resources
+    private void CalculateLevelResources()
+    {
+        if(!_ResourcesCalculated)
+        {
+            _TotalCannonballs = 0;
+            _TotalDoubloons = 0;
+            TotalFlags = 0;
+            CalculateFlags();
+            CalculateDoubloons();
+            CalculateCannonballs();
+            T4Debug.Log($"[Level] Started [Resources Cannonballs {_TotalCannonballs} - Flags:{TotalFlags} - TotalDoubloons:{_TotalDoubloons}");
+            _ResourcesCalculated = true;
         }
     }
 

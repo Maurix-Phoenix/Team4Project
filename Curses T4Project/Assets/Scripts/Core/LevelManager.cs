@@ -159,5 +159,6 @@ public class LevelManager : MonoBehaviour
     private void SpawnPlayer()
     {
         Player = Instantiate(PlayerPrefab).GetComponent<Player>();
+        GameManager.Instance.EventManager.RaiseOnPlayerSpawn();
     }
 }

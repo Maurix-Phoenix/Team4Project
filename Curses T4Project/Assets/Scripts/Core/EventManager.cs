@@ -57,5 +57,10 @@ public class EventManager :  MonoBehaviour
     {
         LevelStop?.Invoke();
     }
+
+    public void RaiseOnPlayerSpawn()
+    {
+        PlayerSpawn?.Invoke();
+    }
     #endregion
 }

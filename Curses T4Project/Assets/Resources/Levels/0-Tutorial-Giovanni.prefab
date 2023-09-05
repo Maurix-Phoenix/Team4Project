@@ -97,7 +97,7 @@ MonoBehaviour:
   LevelID: 0
   LevelThumbnail: {fileID: 0}
   _TotalCannonballs: 0
-  _TotalDoubloons: 1
+  _TotalDoubloons: 0
   TotalFlags: 0
   LevelData:
     LevelID: 0
