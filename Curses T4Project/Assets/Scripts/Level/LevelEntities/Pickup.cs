@@ -5,9 +5,14 @@ using static T4P;
 
 public class Pickup : LevelEntity
 {
-
+    [Header("References")]
     public PickupTemplate PT;
     [SerializeField] public T4Project.PickupsType PickupType;
+    [SerializeField] private AudioClip _CoinSFX;
+    [SerializeField] private AudioClip _CannonballSFX;
+    [SerializeField] private AudioClip _FlagSFX;
+
+    [Header("Variables")]
     [SerializeField] private int _Value = 1;
     [SerializeField] private float _AttractionDistance = 3;
     [SerializeField] private float _AttractionSpeed = 10.0f;
@@ -44,11 +49,27 @@ public class Pickup : LevelEntity
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Player player = GameManager.Instance.LevelManager.Player;
+            PlayPickUPSFX();
             GameManager.Instance.LevelManager.Player.AddResource(PickupType, _Value);
 
             gameObject.SetActive(false);
             T4Debug.Log($"{gameObject.name} Collected.");
+        }
+    }
+
+    private void PlayPickUPSFX()
+    {
+        switch (PickupType)
+        {
+            case T4Project.PickupsType.Cannonball:
+                GameManager.Instance.AudioManager.PlaySFX(_CannonballSFX);
+                break;
+            case T4Project.PickupsType.Doubloon:
+                GameManager.Instance.AudioManager.PlaySFX(_CoinSFX);
+                break;
+            case T4Project.PickupsType.Flag:
+                GameManager.Instance.AudioManager.PlaySFX(_FlagSFX);
+                break;
         }
     }
 

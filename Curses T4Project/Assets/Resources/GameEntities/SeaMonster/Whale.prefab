@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5122060228359468802}
+  - {fileID: 974482538479647987}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,8 +109,15 @@ MonoBehaviour:
   MovePickUpToPlayer: 0
   IsStopped: 0
   _Health: 2
+  _IsDead: 0
   _IsSharkPack: 0
   _IsOctopus: 0
+  _CanBite: 0
+  _BiteSFX: {fileID: 0}
+  _HitSFX: {fileID: 8300000, guid: cae9cf98c1af8f34f9e37b1477dfd490, type: 3}
+  _DeathAnimationVFX: {fileID: 7383245983946097607}
+  _ObjectsToHideOnDeath:
+  - {fileID: 5503088748255374776}
 --- !u!114 &3239301584772374756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CollisionDamage: 2
   _IsMerchantShip: 0
+  _MerchantSFX: {fileID: 0}
   _CanAttack: 0
   _CanInstantKill: 0
 --- !u!114 &-693274094255248368
@@ -141,6 +150,77 @@ MonoBehaviour:
   _IsOnMenuScene: 0
   _Amplitude: 0.2
   _Frequency: 3
+--- !u!1001 &4416258126473032359
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 280338005711704888}
+    m_Modifications:
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99950117
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.031582538
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -3.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115160636314488633, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_Name
+      value: DeathUnderWaterPS
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+--- !u!4 &974482538479647987 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+  m_PrefabInstance: {fileID: 4416258126473032359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7383245983946097607 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6575040246200971616, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+  m_PrefabInstance: {fileID: 4416258126473032359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4656598726376739049
 PrefabInstance:
   m_ObjectHideFlags: 0

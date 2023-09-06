@@ -107,9 +107,10 @@ MonoBehaviour:
     DropQuantityRange: {x: 3, y: 3}
   DropRadius: 1
   MoveSpeed: 0
-  MoveToPlayer: 0
+  MovePickUpToPlayer: 0
   IsStopped: 0
   _IsOpened: 0
+  _OpenSFX: {fileID: 8300000, guid: 99a6bbd4321879e45bab08081dd2fabc, type: 3}
 --- !u!1001 &4161723701465842109
 PrefabInstance:
   m_ObjectHideFlags: 0

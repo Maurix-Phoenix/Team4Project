@@ -45,7 +45,6 @@ public class PlayerShoot : MonoBehaviour
     {
         _StartingUnderWaterSpeedModifier = _UnderWaterSpeedModifier;
         _StartingUnderWaterTrajectoryAngleModifier = _UnderWaterTrajectoryAngleModifier;
-
     }
 
     private void FixedUpdate()

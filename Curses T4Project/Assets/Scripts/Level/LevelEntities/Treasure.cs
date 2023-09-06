@@ -7,6 +7,7 @@ public class Treasure : LevelEntity, IDamageable
 {
     [Header("Treasure Stats")]
     [SerializeField] private bool _IsOpened;
+    [SerializeField] private AudioClip _OpenSFX;
 
     private Animator animator;
 
@@ -26,7 +27,6 @@ public class Treasure : LevelEntity, IDamageable
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hitted");
         if (!_IsOpened && other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             _IsOpened = true;
@@ -37,6 +37,7 @@ public class Treasure : LevelEntity, IDamageable
     private IEnumerator OpenChest()
     {
         animator.SetTrigger("OpenChest");
+        GameManager.Instance.AudioManager.PlaySFX(_OpenSFX);
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         DropLoot();

@@ -22,6 +22,9 @@ public class DOTAbility : MonoBehaviour
     [SerializeField] private float _TimeRemainBetweenAttack = 2f;
     [SerializeField] private int _DotDamage = 1;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip _DotSFX;
+
     private Animator animator;
 
     private void Awake()
@@ -77,6 +80,17 @@ public class DOTAbility : MonoBehaviour
 
     private void CheckPosition()
     {
+        if (gameObject.transform.position.y >= - 1.5)
+        {
+            _TargetLocked = false;
+            _InPositionToAttack = false;
+            animator.SetBool("IsInPosition", false);
+            _CanMoveFromDistance = false;
+            gameObject.GetComponent<SeaMonster>().MoveSpeed = GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed;
+
+            return;
+        }
+
         if (!_TargetLocked)
         {
             if (_CanMoveFromDistance && Vector3.Distance(transform.position, GameManager.Instance.LevelManager.Player.transform.position) < _TargetDistance)
@@ -114,6 +128,7 @@ public class DOTAbility : MonoBehaviour
             if (_TimeRemainBetweenAttack < 0)
             {
                 _TimeRemainBetweenAttack = _BaseAttackCD;
+                GameManager.Instance.AudioManager.PlaySFX(_DotSFX);
                 _DoDamage = true;
                 animator.SetTrigger("Attack");
             }

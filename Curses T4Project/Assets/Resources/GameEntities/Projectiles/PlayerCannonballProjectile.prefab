@@ -148,6 +148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifeTime: 5
+  _AboveWaterSFX: {fileID: 8300000, guid: 98436a2392f3f3b4ba09d61f1867f5cb, type: 3}
+  _UnderWaterSFX: {fileID: 8300000, guid: e70f5315cb68f34488920aa0e00df112, type: 3}
+  _ExplosionUpSFX: {fileID: 8300000, guid: 3b2024de1b7e1d349aaeae54a70125d8, type: 3}
+  _ExplosionDownSFX: {fileID: 8300000, guid: 45a27bf0b41cb944f8381cc8752c95a4, type: 3}
 --- !u!1 &6428895851356462071
 GameObject:
   m_ObjectHideFlags: 0

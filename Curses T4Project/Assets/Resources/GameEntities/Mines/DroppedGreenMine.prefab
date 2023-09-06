@@ -192,16 +192,14 @@ MonoBehaviour:
   CanDropLoot: 0
   LootList: []
   DropRadius: 0
-  Floating: 1
-  FloatingAmplitude: 0.1
-  FloatingFrequency: 2
   MoveSpeed: 0
-  MoveToPlayer: 0
+  MovePickUpToPlayer: 0
   IsStopped: 0
   _Health: 1
   _IsDroppedByFlagShip: 1
   _GoDownSpeed: 1
   ExplosionPrefabVFX: {fileID: 1321841788029400320, guid: d476a7f41b2368c48a862b7b83329f59, type: 3}
+  _ExplosionSFX: {fileID: 8300000, guid: 784a54076d59c3f4d9d95ce0d46cd27b, type: 3}
   _PlayerOnlyTrigger: 0
   _ExplosionDamage: 1
   _ExplosionRange: 1
@@ -219,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsOnMenuScene: 0
   _Amplitude: 0.1
   _Frequency: 2
 --- !u!1 &1362818834680630718

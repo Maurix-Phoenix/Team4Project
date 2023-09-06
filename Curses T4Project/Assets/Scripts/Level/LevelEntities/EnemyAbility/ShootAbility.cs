@@ -32,37 +32,40 @@ public class ShootAbility : MonoBehaviour
 
     private void Update()
     {
-        _IsPlayerInRange = false;
-        if (Physics.Raycast(new Ray(transform.position, Vector3.left), out RaycastHit hit, _ShootRange, LayerMask.GetMask("Player")))
+        if (!gameObject.GetComponent<EnemyShip>().IsStopped && !gameObject.GetComponent<EnemyShip>().IsDead && (gameObject.transform.position.x < 15 && gameObject.transform.position.x > 0))
         {
-
-            _IsPlayerInRange = true;
-        }
-
-        if (!_CanShoot)
-        {
-            _TimeToShoot -= Time.deltaTime;
-            if (_TimeToShoot <= 0)
+            _IsPlayerInRange = false;
+            if (Physics.Raycast(new Ray(transform.position, Vector3.left), out RaycastHit hit, _ShootRange, LayerMask.GetMask("Player")))
             {
-                _CanShoot = true;
+
+                _IsPlayerInRange = true;
             }
-        }
-        else
-        {
-            if (!_AlwaysShoot)
+
+            if (!_CanShoot)
             {
-                if (_IsPlayerInRange && !_IsShooting)
+                _TimeToShoot -= Time.deltaTime;
+                if (_TimeToShoot <= 0)
                 {
-                    _IsShooting = true;
-                    StartCoroutine(Shoot());
+                    _CanShoot = true;
                 }
             }
             else
             {
-                if (!_IsShooting)
+                if (!_AlwaysShoot)
                 {
-                    _IsShooting = true;
-                    StartCoroutine(Shoot());
+                    if (_IsPlayerInRange && !_IsShooting)
+                    {
+                        _IsShooting = true;
+                        StartCoroutine(Shoot());
+                    }
+                }
+                else
+                {
+                    if (!_IsShooting)
+                    {
+                        _IsShooting = true;
+                        StartCoroutine(Shoot());
+                    }
                 }
             }
         }

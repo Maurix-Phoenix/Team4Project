@@ -11,6 +11,12 @@ using UnityEngine;
 /// </summary>
 public class Cannonball : LevelEntityTemporary
 {
+    [Header("SFX")]
+    [SerializeField] private AudioClip _AboveWaterSFX;
+    [SerializeField] private AudioClip _UnderWaterSFX;
+    [SerializeField] private AudioClip _ExplosionUpSFX;
+    [SerializeField] private AudioClip _ExplosionDownSFX;
+
     private int _CannonballDamage = 1;
     private float _CannonballSpeed = 1f;
     private float _MaxDistance = 0f;
@@ -48,6 +54,15 @@ public class Cannonball : LevelEntityTemporary
     protected override void Start()
     {
         base.Start();
+        if (GameManager.Instance.LevelManager.CurrentLevel.ActualLayer >= 0)
+        {
+            GameManager.Instance.AudioManager.PlaySFX(_AboveWaterSFX);
+        }
+        else
+        {
+            GameManager.Instance.AudioManager.PlaySFX(_UnderWaterSFX);
+        }
+
         if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball"))
         {
             _TargetLocation = (_Player.transform.position - _StartLocation).normalized;
@@ -161,6 +176,7 @@ public class Cannonball : LevelEntityTemporary
             IDamageable damageable;
             if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
             {
+                ExplosionSound();
                 damageable.TakeDamage(_CannonballDamage, gameObject);
             }
         }
@@ -177,10 +193,23 @@ public class Cannonball : LevelEntityTemporary
                 IDamageable damageable;
                 if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
                 {
+                    ExplosionSound();
                     damageable.TakeDamage(_CannonballDamage, gameObject);
                 }
             }
             Destroy(gameObject);
+        }
+    }
+
+    private void ExplosionSound()
+    {
+        if (gameObject.transform.position.y < 0)
+        {
+            GameManager.Instance.AudioManager.PlaySFX(_ExplosionDownSFX);
+        }
+        else
+        {
+            GameManager.Instance.AudioManager.PlaySFX(_ExplosionUpSFX);
         }
     }
 }
