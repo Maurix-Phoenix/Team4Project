@@ -96,8 +96,6 @@ MonoBehaviour:
   LevelDesigner: Giovanni
   LevelID: 0
   LevelThumbnail: {fileID: 0}
-  _TotalCannonballs: 0
-  _TotalDoubloons: 0
   TotalFlags: 0
   LevelData:
     LevelID: 0
@@ -462,7 +460,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: TutorialTextToShow
-      value: "Watch out now!\nEnemies are coming! \nAvoid them! (Press 'Esc' to continue)"
+      value: "Watch out now!\nEnemies are coming! \nAvoid them!\n(Press 'Esc' to
+        continue)"
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressMoveDown
@@ -639,7 +638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 117.3
+      value: 122.3
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -915,7 +914,9 @@ PrefabInstance:
       propertyPath: TutorialTextToShow
       value: 'Defeating the enemy''s ship
 
-        grants you cannonballs. (Press
+        grants you cannonballs.
+
+        (Press
         ''Esc'' to continue)'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
@@ -1149,8 +1150,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: TutorialTextToShow
-      value: With enough cannonballs you can destroy the wall and advance to the
-        next adventure! (Press 'Esc' to continue)
+      value: 'With enough cannonballs you can destroy the wall and advance to the
+        next adventure!
+
+        (Press ''Esc'' to continue)'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
@@ -1324,7 +1327,9 @@ PrefabInstance:
       value: 'Uh, shiny!
 
         Collect the doubloons to raise the score level.
-        (Press ''Esc'' to continue)'
+
+        (Press
+        ''Esc'' to continue)'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
@@ -1486,7 +1491,7 @@ PrefabInstance:
       value: 'Prepare to return fire!
 
         Press the SpaceBar to shoot at your
-        enemies! (Press ''Esc'' or ''Spacebar'' to continue)'
+        enemies!'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
@@ -1796,7 +1801,9 @@ PrefabInstance:
       value: 'Be careful!
 
         Mines may explode if you touch them or if you
-        shoot at them. (Press ''Esc'' to continue)'
+        shoot at them.
+
+        (Press ''Esc'' to continue)'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: IsTutorialTriggered
@@ -1977,7 +1984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 107.1
+      value: 109.26
       objectReference: {fileID: 0}
     - target: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2041,8 +2048,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: TutorialTextToShow
-      value: 'Remember: all the enemies are not the same. Some of them have different
-        attacks that can cause you trouble! (Press ''Esc'' to continue)'
+      value: 'Remember: all the enemies
+
+        are not the same.
+
+        Some
+        of them have different attacks that can cause you trouble!
+
+        (Press
+        ''Esc'' to continue)'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
@@ -2142,7 +2156,9 @@ PrefabInstance:
       value: 'That''s a special ship!
 
         Take it down to collect its flag!
-        (Press ''Esc'' to continue)'
+
+        (Press
+        ''Esc'' to continue)'
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar

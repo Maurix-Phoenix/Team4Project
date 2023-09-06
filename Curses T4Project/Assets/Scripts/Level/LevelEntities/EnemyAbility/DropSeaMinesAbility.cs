@@ -29,7 +29,7 @@ public class DropSeaMines : MonoBehaviour
 
     private void DropSea()
     {
-        if (!gameObject.GetComponent<EnemyShip>().IsStopped)
+        if (!gameObject.GetComponent<EnemyShip>().IsStopped && !gameObject.GetComponent<EnemyShip>().IsDead && (gameObject.transform.position.x < 15 && gameObject.transform.position.x > 0))
         {
             if (_IsMineCounted)
             {

@@ -3,7 +3,9 @@ guid: f361bcca86bc9df45b0fd67807dd78bf
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _AboveWaterSFX: {fileID: 8300000, guid: 98436a2392f3f3b4ba09d61f1867f5cb, type: 3}
+  - _UnderWaterSFX: {fileID: 8300000, guid: e70f5315cb68f34488920aa0e00df112, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

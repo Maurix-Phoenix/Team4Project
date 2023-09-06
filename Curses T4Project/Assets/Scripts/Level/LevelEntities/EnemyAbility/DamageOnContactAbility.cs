@@ -13,6 +13,7 @@ public class DamageOnContactAbility : MonoBehaviour
 
     [Header("Merchant Ship - Conditions")]
     [SerializeField] private bool _IsMerchantShip = false;
+    [SerializeField] private AudioClip _MerchantSFX;
 
     [Header("Shark Pack - Ability")]
     [SerializeField] private bool _CanAttack = true;
@@ -63,6 +64,7 @@ public class DamageOnContactAbility : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Player>() != null)
             {
+                GameManager.Instance.AudioManager.PlaySFX(_MerchantSFX);
                 gameObject.GetComponent<EnemyShip>().TakeDamage(_CollisionDamage, other.gameObject);
             }
         }

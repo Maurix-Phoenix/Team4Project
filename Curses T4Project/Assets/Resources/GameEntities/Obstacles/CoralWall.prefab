@@ -188,7 +188,7 @@ MonoBehaviour:
   LootList: []
   DropRadius: 0.5
   MoveSpeed: 0
-  MoveToPlayer: 0
+  MovePickUpToPlayer: 0
   IsStopped: 0
   _CoralMesh: {fileID: 8064432220383864396}
   _newCoralColor: {r: 0.7254902, g: 0.48627454, b: 0.5803922, a: 0}
@@ -207,6 +207,7 @@ MonoBehaviour:
   _MovementReductionPercentage: 40
   _DebuffDuration: 1.5
   _HasSlowed: 0
+  _SlowEffectSound: {fileID: 8300000, guid: 6757e3b43cb3f46458f416c6c3d44098, type: 3}
 --- !u!1 &5029682951959969293
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +431,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.4245283, g: 0.05807228, b: 0.06539982, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

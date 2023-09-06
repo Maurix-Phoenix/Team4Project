@@ -14,6 +14,7 @@ public class SeaMine : LevelEntity, IDamageable
 
     [Header("Explosion Effect")]
     public GameObject ExplosionPrefabVFX;
+    [SerializeField] private AudioClip _ExplosionSFX;
     [SerializeField] private bool _PlayerOnlyTrigger = false;
     [SerializeField] private int _ExplosionDamage = 1;
     [SerializeField] private float _ExplosionRange = 2.0f;
@@ -87,7 +88,6 @@ public class SeaMine : LevelEntity, IDamageable
     {
         if (!_IsExploding)
         {
-
             _IsExploding = true;
             yield return new WaitForSeconds(t);
 
@@ -117,6 +117,7 @@ public class SeaMine : LevelEntity, IDamageable
                 }
             }
 
+            GameManager.Instance.AudioManager.PlaySFX(_ExplosionSFX);
             DropLoot();
             gameObject.SetActive(false);
 

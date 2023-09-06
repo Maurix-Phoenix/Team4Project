@@ -10,9 +10,13 @@ using static T4P;
 
 public class SlowAbility : MonoBehaviour
 {
+    [Header("Debuff")]
     [SerializeField][Range(0f, 99f)] private float _MovementReductionPercentage;
     [SerializeField] private float _DebuffDuration;
     [SerializeField] private bool _HasSlowed;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip _SlowEffectSound;
 
     private void Start()
     {
@@ -22,6 +26,7 @@ public class SlowAbility : MonoBehaviour
     {
         if (other.gameObject.GetComponentInParent<Player>() != null && !other.gameObject.GetComponentInParent<Player>().IsChangingLayer && !_HasSlowed)
         {
+            GameManager.Instance.AudioManager.PlaySFX(_SlowEffectSound);
             _HasSlowed = true;
             float speedMultiplier = 1f - (_MovementReductionPercentage / 100);
             other.gameObject.GetComponentInParent<PlayerMovement>().CoralHitted(_DebuffDuration, speedMultiplier, _HasSlowed);

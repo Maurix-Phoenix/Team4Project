@@ -30,14 +30,13 @@ public class DashAbility : MonoBehaviour
 
     [Header("Aggro Alert")]
     [SerializeField] private GameObject _AggroAlert;
-    [SerializeField] private ParticleSystem _SharkPackAggroAlert;
-    [SerializeField] private ParticleSystem _SharkPackNoAggro;
-    [SerializeField] private Color _NoAggroColor;
-    [SerializeField] private Color _AggroColor;
+    [SerializeField] private AudioClip _DashSFX;
+    private bool _AggroEnabled;
 
     void Start()
     {
         _Aggroed = false;
+        _AggroAlert.gameObject.SetActive(false);
 
         if (gameObject.GetComponent<SeaMonster>() != null)
         {
@@ -59,6 +58,15 @@ public class DashAbility : MonoBehaviour
     {
         Aggro();
         AggroAlert();
+
+        if (_Aggroed)
+        {
+            if (!_AggroEnabled)
+            {
+                _AggroEnabled = true;
+                GameManager.Instance.AudioManager.PlaySFX(_DashSFX);
+            }
+        }
     }
 
     private void Aggro()
@@ -97,31 +105,32 @@ public class DashAbility : MonoBehaviour
     {
         if (gameObject.GetComponent<SeaMonster>() != null)
         {
-            if (gameObject.GetComponent<SeaMonster>().IsSharkPack)
+            if (_Aggroed)
             {
-                if (_Aggroed)
+                if (!gameObject.GetComponent<SeaMonster>().IsDead)
                 {
-                    _SharkPackNoAggro.gameObject.SetActive(false);
-                    _SharkPackAggroAlert.gameObject.SetActive(true);
+                    _AggroAlert.gameObject.SetActive(true);
                 }
                 else
                 {
-                    _SharkPackNoAggro.gameObject.SetActive(true);
-                    _SharkPackAggroAlert.gameObject.SetActive(false);
+                    _AggroAlert.gameObject.SetActive(false);
                 }
+
             }
             else
             {
-                if (_Aggroed)
-                {
-                    _AggroAlert.GetComponent<MeshRenderer>().material.color = _AggroColor;
-                    _AggroAlert.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _AggroColor);
-                }
-                else
-                {
-                    _AggroAlert.GetComponent<MeshRenderer>().material.color = _NoAggroColor;
-                    _AggroAlert.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _NoAggroColor);
-                }
+                _AggroAlert.gameObject.SetActive(false);
+            }
+        }
+        if (gameObject.GetComponent<EnemyShip>() != null)
+        {
+            if (_Aggroed)
+            {
+                _AggroAlert.gameObject.SetActive(true);
+            }
+            else
+            {
+                _AggroAlert.gameObject.SetActive(false);
             }
         }
     }

@@ -155,12 +155,15 @@ MonoBehaviour:
   LootList: []
   DropRadius: 0.5
   MoveSpeed: 0
-  MoveToPlayer: 0
+  MovePickUpToPlayer: 0
   IsStopped: 0
   PT: {fileID: 0}
   PickupType: 2
+  _CoinSFX: {fileID: 0}
+  _CannonballSFX: {fileID: 0}
+  _FlagSFX: {fileID: 8300000, guid: 4f38e56957ce11243b83b6feef57c814, type: 3}
   _Value: 1
-  _AttractionDistance: 3
+  _AttractionDistance: 2
   _AttractionSpeed: 10
 --- !u!114 &-5789967960559355656
 MonoBehaviour:

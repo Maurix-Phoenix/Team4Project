@@ -20,6 +20,11 @@ public class DamageFlash : MonoBehaviour
         _OriginalColor = _ShipMr.material.color;
     }
 
+    private void Start()
+    {
+        
+    }
+
     public void DamageIndicatorStart()
     {
         _ShipMr.material.color = _DamageColor;

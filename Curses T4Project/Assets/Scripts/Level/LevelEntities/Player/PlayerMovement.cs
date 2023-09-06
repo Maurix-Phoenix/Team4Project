@@ -28,12 +28,18 @@ public class PlayerMovement : MonoBehaviour
     private float _TravelDistance;
     private float _BaseChangingLayerSpeed;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip _Submerge;
+    [SerializeField] private AudioClip _MoveUnderWater;
+
     [Header("Debuff")]
     [SerializeField] private bool _IsSlowed = false;
     [SerializeField] private ParticleSystem _SlowEffect;
     [SerializeField] private float _ChangingLayerSpeedMultiplier = 1;
     [SerializeField] private float _SlowChagingLayerSpeedDuration;
     [SerializeField] private bool _CanRotateWithDebuff = false;
+    [SerializeField] private AudioClip _ResumeSpeedSFX;
+
 
     [Header("Floating")]
     [Tooltip("Base Value 3")]
@@ -87,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
                     _SlowChagingLayerSpeedDuration = 0f;
                     _ChangingLayerSpeedMultiplier = 1f;
                     _ChangingLayerSpeed = _BaseChangingLayerSpeed;
+                    GameManager.Instance.AudioManager.PlaySFX(_ResumeSpeedSFX);
                     _IsSlowed = false;
                 }
             }
@@ -143,6 +150,9 @@ public class PlayerMovement : MonoBehaviour
             if (_Direction.y < 0 &&
                 GameManager.Instance.LevelManager.CurrentLevel.ActualLayer > -GameManager.Instance.LevelManager.CurrentLevel.NOfLayersUnderWater)
             {
+                //SFX
+                GameManager.Instance.AudioManager.PlaySFX(_Submerge);
+
                 //start the movement animation and the CD before move again
                 GameManager.Instance.LevelManager.Player.IsChangingLayer = true;
                 GameManager.Instance.LevelManager.Player.CanMove = false;
@@ -164,6 +174,9 @@ public class PlayerMovement : MonoBehaviour
             else if (_Direction.y > 0 &&
                      GameManager.Instance.LevelManager.CurrentLevel.ActualLayer < 0)
             {
+                //SFX
+                GameManager.Instance.AudioManager.PlaySFX(_Submerge);
+
                 //start the movement animation and the CD before move again
                 GameManager.Instance.LevelManager.Player.IsChangingLayer = true;
                 GameManager.Instance.LevelManager.Player.CanMove = false;

@@ -17,9 +17,13 @@ public class StealAbility : MonoBehaviour
         Both
     }
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip _StealSFX;
+
+    [Header("Resource Type")]
     [SerializeField] private ResourceToSteal ResourcesStealed;
     [SerializeField] private bool _HasStolen = false;
-
+    
     [Header("Quantity")]
     [SerializeField] private int MaxCannonballStealable = 1;
     [SerializeField] private int MinCannonballStealable = 1;
@@ -37,6 +41,7 @@ public class StealAbility : MonoBehaviour
             _HasStolen = true;
             int CannonballStealed = Random.Range(MinCannonballStealable, MaxCannonballStealable);
             int DoubloonsStealed = Random.Range(MinDoubloonsStealable, MaxDoubloonsStealable);
+            GameManager.Instance.AudioManager.PlaySFX(_StealSFX);
 
             switch (ResourcesStealed)
             {
