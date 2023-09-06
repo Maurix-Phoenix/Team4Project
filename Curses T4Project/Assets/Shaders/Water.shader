@@ -17,6 +17,9 @@ Shader "Unlit/Water"
         _WaterEffectStrenght("Water Effect Strenght", Float) = 1
         _WaterEffectThreshold ("Threshold", Range(0, 1)) = 0.5
 
+        _refractionFrequency("Refraction Frequency", Float) = 1
+        _refractionAmplitude("Refraction Strenght", Float) = 1
+
     }
     SubShader
     {
@@ -52,6 +55,10 @@ Shader "Unlit/Water"
             float _WaterEffectFrequency;
             float _WaterEffectStrenght;
             float _WaterEffectThreshold;
+
+            float _refractionAmplitude;
+            float _refractionFrequency;
+
             float _amplitude;
             float _frequency;
             float _waveSpeed;
@@ -79,8 +86,15 @@ Shader "Unlit/Water"
                 if( v.uv.y == 0)
                 {
                    v.vertex.z += _amplitude * sin(v.uv.x * _frequency + _Time.w * _waveSpeed); 
-                }           
+                } 
+               
+               if(v.uv.y > 0 && v.uv.x > 0 && v.uv.x < 1)
+               {
+                    v.vertex.x += _refractionAmplitude * sin(v.uv.y * _refractionFrequency + _Time.w);
+                   // v.vertex.z += _amplitude * sin(v.uv.x * _frequency + _Time.w * _waveSpeed); 
+               }
                 
+               
                 
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv;
@@ -108,12 +122,17 @@ Shader "Unlit/Water"
                 }
                 else
                 {
+                    if(i.uv.y > i.uv.y / 2 - 0.2 && i.uv.y < i.uv.y/ + 0.2 )
+                    {
+                        col = lerp(col, col/2, i.uv.y);
+                        
+                    }
                     if (weColor.r > _WaterEffectThreshold && weColor.g > _WaterEffectThreshold && weColor.b > _WaterEffectThreshold) 
                     {
                         weColor = lerp(_WaterSurfaceColor, _WaterDeepColor, i.uv.x*1.5);
                     }
 
-                    col += weColor * _WaterEffectStrenght;
+                    col = lerp(col,weColor,sin(i.uv.y) * _WaterEffectStrenght * sin(i.uv.y));//* _WaterEffectStrenght;
                     //col = lerp(col, _WaterDeepColor, i.uv.y);
                     //col = lerp(col, _WaterDeepColor, sin(i.uv.y));
                     col = lerp(col, _WaterDeepColor, sin(i.uv.y)*sin(i.uv.y));

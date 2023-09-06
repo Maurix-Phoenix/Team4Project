@@ -111,6 +111,9 @@ public class Level : MonoBehaviour
     {
         InitializeStartingPosition();
         StopLevel();
+
+        //Label Test
+        //GameManager.Instance.UIManager.CreateUILabel($"{LevelID}-{LevelName}", Vector3.zero, null, 3);
     }
 
     private void InitializeStartingPosition()
