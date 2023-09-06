@@ -45,15 +45,15 @@ public class SeaMonster : LevelEntity, IDamageable
 
         if( _IsDead )
         {
-            for (int i = 0; i < _ObjectsToHideOnDeath.Count; i++)
-            {
-                _ObjectsToHideOnDeath[i].SetActive(false);
-            }
-
             _DeathAnimationVFX.Play();
 
             while (_DeathAnimationVFX.isPlaying)
             {
+                for (int i = 0; i < _ObjectsToHideOnDeath.Count; i++)
+                {
+                    _ObjectsToHideOnDeath[i].SetActive(false);
+                }
+
                 yield return null;
             }
 

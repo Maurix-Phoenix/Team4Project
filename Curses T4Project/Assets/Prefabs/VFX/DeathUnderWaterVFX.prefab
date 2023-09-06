@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6575040246200971616}
   - component: {fileID: 3668247653346512596}
   m_Layer: 8
-  m_Name: DeathUnderWaterPS
+  m_Name: DeathUnderWaterVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -117,7 +117,7 @@ MonoBehaviour:
   _Health: 1
   _IsDead: 0
   _Destruction: {fileID: 8300000, guid: 66d2c47285bc128419ac2a4cf518bd11, type: 3}
-  _DeathAnimationVFX: {fileID: 0}
+  _DeathAnimationVFX: {fileID: 6011647779874105013}
   _ObjectsToHideOnDeath:
   - {fileID: 7324822378052197222}
   - {fileID: 6616437478419769803}
@@ -356,5 +356,10 @@ PrefabInstance:
 --- !u!4 &5808236563419392151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3499131778342841972, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
+  m_PrefabInstance: {fileID: 6923274738796824291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6011647779874105013 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3709207422531985494, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
   m_PrefabInstance: {fileID: 6923274738796824291}
   m_PrefabAsset: {fileID: 0}
