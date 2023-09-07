@@ -30,6 +30,8 @@ Shader "Unlit/Water"
         //blend multiply
         Blend DstColor zero
         ZWrite Off
+
+        
         //ZTest Always //draws always on top
 
         

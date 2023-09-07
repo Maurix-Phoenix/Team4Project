@@ -34,7 +34,9 @@ public class UnderwaterBackground : MonoBehaviour
     {
         if(GameManager.Instance != null)
         {
-            if (GameManager.Instance.GameState == GameManager.States.Playing)
+            if (GameManager.Instance.GameState == GameManager.States.Playing && 
+                !GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle && 
+                !GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
             {
                 transform.localPosition += (_ScrollingSpeed + (GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed/3)) * Vector3.left * Time.deltaTime;
             }

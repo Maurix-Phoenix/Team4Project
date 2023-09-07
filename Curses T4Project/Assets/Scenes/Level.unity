@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 84c8ea6debd14ae4b9e4e777dc235342, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: a3341d5bf9080d24ea5ebfcaf09f92b2, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 476d58197eb8f1e42a08205c7b133564, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5100,6 +5100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterOrigin
       objectReference: {fileID: 0}
+    - target: {fileID: 2838934042151524555, guid: 573e5fc6ecebce4408056c680a15dd79, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6585182626109391199, guid: 573e5fc6ecebce4408056c680a15dd79, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5175,7 +5179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615188773}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5334,7 +5338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962427574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: -2.8, z: 0}
+  m_LocalPosition: {x: 2.87, y: -2.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5461,7 +5465,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115259688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -12.1, z: 42.666668}
+  m_LocalPosition: {x: 0, y: -14.2, z: 45.9}
   m_LocalScale: {x: 6.6666665, y: 5, z: 3.3333333}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6590,7 +6594,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 8151
@@ -6636,7 +6640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 0
+  m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras:
@@ -6729,7 +6733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269848eaf9ff61749ab7c94416639af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ScrollingSpeed: 1
+  _ScrollingSpeed: 2
 --- !u!212 &2129854941
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6858,7 +6862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2838934041365183832}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -2.4910002, z: 12.8}
+  m_LocalPosition: {x: 0, y: -2.52, z: 13.5}
   m_LocalScale: {x: 3.2176614, y: 1, z: 1.0593419}
   m_ConstrainProportionsScale: 0
   m_Children: []
