@@ -154,6 +154,7 @@ public class LevelManager : MonoBehaviour
     private void InstantiateLevel(GameObject level)
     {
         CurrentLevel = Instantiate(level).GetComponent<Level>();
+        GameManager.Instance.EventManager.RaiseOnLevelLoaded();
         SpawnPlayer();
     }
     private void SpawnPlayer()

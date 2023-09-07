@@ -48,6 +48,11 @@ public class EventManager :  MonoBehaviour
     public Action LevelLoaded;
     public Action PlayerSpawn;
 
+    public void RaiseOnLevelLoaded()
+    {
+        LevelLoaded?.Invoke();
+    }
+
     public void RaiseOnLevelStart()
     {
         LevelStart?.Invoke();

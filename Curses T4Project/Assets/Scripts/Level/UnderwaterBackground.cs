@@ -5,64 +5,114 @@ using UnityEngine;
 public class UnderwaterBackground : MonoBehaviour
 {
     [SerializeField]
+
+    private bool _CanMove = false;
     private float _ScrollingSpeed = 0.5f;
 
     private Vector3 _RightEdge;
     private Vector3 _LeftEdge;
-    private Vector3 _StartingPos;
     private Vector3 _EdgesDistance;
 
-    SpriteRenderer _SR; 
+    private SpriteRenderer _SR; 
 
+    private GameManager _GM;
 
     private void Awake()
     {
+        print("awake is called");
+
         _SR = GetComponent<SpriteRenderer>();
+        _GM = GameManager.Instance;
+    }
+
+    private void OnEnable()
+    {
+        if(_GM != null)
+        {
+            EventManager EM = _GM.EventManager;
+            EM.LevelLoaded += OnLevelLoad;
+            EM.LevelStart += OnLevelStart;
+            EM.LevelStop += OnLevelStop;
+        }
+
+    }
+
+    private void OnDisable()
+    {
+        if(_GM != null)
+        {
+            EventManager EM = _GM.EventManager;
+            EM.LevelLoaded -= OnLevelLoad;
+            EM.LevelStart -= OnLevelStart;
+            EM.LevelStop -= OnLevelStop;
+        }
+
     }
 
     private void Start()
     {
-        _StartingPos = transform.position;
-        _LeftEdge = new(transform.position.x - (_SR.bounds.extents.x /3f), transform.position.y, transform.position.z);
-        _RightEdge = new(transform.position.x + (_SR.bounds.extents.x /3f), transform.position.y, transform.position.z);
+        print("start is called");
+        _LeftEdge = new(transform.position.x - (_SR.bounds.extents.x / 3f), transform.position.y, transform.position.z);
+        _RightEdge = new(transform.position.x + (_SR.bounds.extents.x / 3f), transform.position.y, transform.position.z);
         _EdgesDistance = _RightEdge - _LeftEdge;
     }
+
+    private void OnLevelLoad()
+    {
+        print("level loaded is called");
+        _LeftEdge = new(transform.position.x - (_SR.bounds.extents.x / 3f), transform.position.y, transform.position.z);
+        _RightEdge = new(transform.position.x + (_SR.bounds.extents.x / 3f), transform.position.y, transform.position.z);
+        _EdgesDistance = _RightEdge - _LeftEdge;
+
+        _CanMove = false;
+    }
+
+    private void OnLevelStart()
+    {
+        print("levelstart is called");
+        _CanMove = true;
+    }
+    private void OnLevelStop()
+    {
+        print("levelstop is called");
+        _CanMove = false;
+    }
+
 
 
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance != null)
+        ScrollBackgroundRight();
+    }
+
+    private void ScrollBackgroundRight()
+    {
+        if (_CanMove)
         {
-            if (GameManager.Instance.GameState == GameManager.States.Playing && 
-                !GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle && 
-                !GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
+            float currentSpeed = _ScrollingSpeed;
+            if( _GM != null)
             {
-                transform.localPosition += (_ScrollingSpeed + (GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed/3)) * Vector3.left * Time.deltaTime;
+                if(!_GM.LevelManager.CurrentLevel.IsInBossBattle && !_GM.LevelManager.CurrentLevel.IsFinalArrivalBeach)
+                {
+                    currentSpeed = _ScrollingSpeed + (_GM.LevelManager.CurrentLevel.LevelSpeed / 3);
+                }
+                else
+                {
+                    currentSpeed = 0;
+                }
+            }
+
+            transform.position += currentSpeed * Vector3.left * Time.deltaTime;
+            if (transform.position.x < _LeftEdge.x)
+            {
+                ResetSpritePosition();
             }
         }
-        else
-        {
-            transform.position += _ScrollingSpeed * Vector3.left * Time.deltaTime;
-        }
-
-        if (transform.position.x < _LeftEdge.x)
-        {
-            ResetSpritePosition();
-        }        
     }
 
     private void ResetSpritePosition()
     {
         transform.position += _EdgesDistance;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-#if UNITY_EDITOR
-        Gizmos.DrawSphere(_StartingPos, 0.2f);
-        Gizmos.DrawSphere(_LeftEdge, 0.2f);
-        Gizmos.DrawSphere(_RightEdge, 0.2f);
-#endif
     }
 }
