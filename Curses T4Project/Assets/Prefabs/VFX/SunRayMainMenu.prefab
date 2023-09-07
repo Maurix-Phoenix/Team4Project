@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9199630697779533581}
   - component: {fileID: 7340860963884684465}
   m_Layer: 0
-  m_Name: Sun Rays
+  m_Name: SunRayMainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
