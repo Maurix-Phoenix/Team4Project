@@ -48,7 +48,8 @@ public class EndWall : LevelEntity, IDamageable
 
     [Header("Animation Variables")]
     [Tooltip("Base Value 1")][SerializeField] private float _DespawnTimer = 1f;
-    [SerializeField] private List<ParticleSystem> _FinalExplosion;
+    [SerializeField] private List<ParticleSystem> _FinalExplosionVFX;
+    [SerializeField] private List<ParticleSystem> _BubblesVFX;
     [SerializeField] private float _FinalShakeSpeed;
     [SerializeField] private float _FinalShakeAmplitude;
     [SerializeField] private float _FinalGoDownSpeed = 1;
@@ -195,17 +196,19 @@ public class EndWall : LevelEntity, IDamageable
             RB.MovePosition(gameObject.transform.position + Vector3.down * _FinalGoDownSpeed * Time.fixedDeltaTime);
             yield return null;
         }
-
-        //gameObject.SetActive(false);
     }
 
     private IEnumerator FinalExplosion()
     {
+        for (int i = 0; i < _BubblesVFX.Count; i++)
+        {
+            _BubblesVFX[i].Play();
+        }
         while (gameObject.transform.position.y > -20f)
         {
             ParticleSystem Explosion;
-            int randomExplosion = Random.Range(0, _FinalExplosion.Count);
-            Explosion = _FinalExplosion[randomExplosion];
+            int randomExplosion = Random.Range(0, _FinalExplosionVFX.Count);
+            Explosion = _FinalExplosionVFX[randomExplosion];
             Explosion.Play();
             GameManager.Instance.AudioManager.PlaySFX(_ExplosionSFX);
             while (Explosion.isPlaying)
