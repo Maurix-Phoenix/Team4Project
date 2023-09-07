@@ -202,6 +202,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -3.62
       objectReference: {fileID: 0}
+    - target: {fileID: 3668247653346512596, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6115160636314488633, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
       propertyPath: m_Name
       value: DeathUnderWaterPS

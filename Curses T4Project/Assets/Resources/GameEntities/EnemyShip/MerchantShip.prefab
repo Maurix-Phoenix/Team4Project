@@ -6942,6 +6942,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1349323560353019678}
     m_Modifications:
+    - target: {fileID: 990033257152864724, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1321841788029400320, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
       propertyPath: m_Name
       value: ShipExplosionVFX

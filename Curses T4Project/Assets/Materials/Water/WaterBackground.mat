@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
+  m_Name: WaterBackground
   m_Shader: {fileID: 4800000, guid: 3789accfb2a667741849a81d9846c504, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -167,7 +167,7 @@ Material:
     - _frequency: 25
     - _refractionAmplitude: 0.1
     - _refractionFrequency: 10
-    - _waveSpeed: -2
+    - _waveSpeed: -1
     m_Colors:
     - _BaseColor: {r: 0.44705886, g: 0.6431373, b: 1, a: 1}
     - _CameraPosition: {r: 0, g: 0, b: 0, a: 0}
@@ -180,8 +180,8 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SurfacePosition: {r: 0, g: 0, b: 0, a: 1}
     - _WaterDeepColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterMainColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterSurfaceColor: {r: 0.56037736, g: 1, b: 0.83861953, a: 1}
+    - _WaterMainColor: {r: 0.6421324, g: 0.649416, b: 0.6981132, a: 1}
+    - _WaterSurfaceColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &9014665066981013548
 MonoBehaviour:
