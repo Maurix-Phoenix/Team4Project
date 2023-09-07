@@ -104,9 +104,7 @@ MonoBehaviour:
   LevelDesigner: Giovanni
   LevelID: 2
   LevelThumbnail: {fileID: 0}
-  _TotalCannonballs: 0
-  _TotalDoubloons: 3
-  _TotalFlags: 1
+  TotalFlags: 0
   LevelData:
     LevelID: 1
     LevelName: Level 2
@@ -131,7 +129,7 @@ MonoBehaviour:
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -6
   XIntermediatePosition: 5
-  XEndingPosition: 15
+  XEndingPosition: 18
   YLanePosition: 0
   StartingHealth: 5
   StartingCannonBalls: 10

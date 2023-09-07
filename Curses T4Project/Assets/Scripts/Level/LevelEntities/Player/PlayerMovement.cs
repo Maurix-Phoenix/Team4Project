@@ -513,6 +513,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("Finished");
                     //LEVEL FINISHED
                     //MAU - call END LEVEL
                     GameManager.Instance.LevelManager.CurrentLevel.EndLevel(Level.EndLevelType.Victory);

@@ -48,10 +48,10 @@ public class Level : MonoBehaviour
     public int UnitSpaceBetweenLayer = 3;
 
     [Header("Player Positions")]
-    [HideInInspector] public float XStartingPosition = -5f;
-    [HideInInspector] public float XIntermediatePosition = 5f;
-    [HideInInspector] public float XEndingPosition = 30f;
-    [HideInInspector] public float YLanePosition;
+    public float XStartingPosition = -5f;
+    public float XIntermediatePosition = 5f;
+    public float XEndingPosition = 30f;
+    public float YLanePosition;
 
     [Header("Player Variables")]
     public int StartingHealth = 3;

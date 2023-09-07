@@ -3,6 +3,7 @@
 
 
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -47,6 +48,11 @@ public class EndWall : LevelEntity, IDamageable
 
     [Header("Animation Variables")]
     [Tooltip("Base Value 1")][SerializeField] private float _DespawnTimer = 1f;
+    [SerializeField] private List<ParticleSystem> _FinalExplosion;
+    [SerializeField] private float _FinalShakeSpeed;
+    [SerializeField] private float _FinalShakeAmplitude;
+    [SerializeField] private float _FinalGoDownSpeed = 1;
+    [SerializeField] private AudioClip _ExplosionSFX;
 
     private Rigidbody _Rb;
 
@@ -56,6 +62,7 @@ public class EndWall : LevelEntity, IDamageable
 
     private void Awake()
     {
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
         InitializeRB();
         InitializeTrigger();
     }
@@ -160,21 +167,52 @@ public class EndWall : LevelEntity, IDamageable
         {
             _HealthUI.text = _Health.ToString();
         }
+        else
+        {
+            _HealthUI.text = "0";
+        }
 
         if (_Health <= 0)
         {
             DropLoot();
             StartCoroutine(DeadAnimation());
+            StartCoroutine(FinalExplosion());
         }
     }
 
     private IEnumerator DeadAnimation()
     {
+        RB.isKinematic = true;
+
         yield return new WaitForSeconds(_DespawnTimer);
 
-        GameManager.Instance.LevelManager.CurrentLevel.IsLevelEnded = true;
+        while (gameObject.transform.position.y > -20f)
+        {
+            if (gameObject.transform.position.y < -8f)
+            {
+                GameManager.Instance.LevelManager.CurrentLevel.IsLevelEnded = true;
+            }
+            RB.MovePosition(gameObject.transform.position + Vector3.down * _FinalGoDownSpeed * Time.fixedDeltaTime);
+            yield return null;
+        }
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
+    private IEnumerator FinalExplosion()
+    {
+        while (gameObject.transform.position.y > -20f)
+        {
+            ParticleSystem Explosion;
+            int randomExplosion = Random.Range(0, _FinalExplosion.Count);
+            Explosion = _FinalExplosion[randomExplosion];
+            Explosion.Play();
+            GameManager.Instance.AudioManager.PlaySFX(_ExplosionSFX);
+            while (Explosion.isPlaying)
+            {
+                yield return new WaitForSeconds(Random.Range(0.5f, 1f));
+                yield return null;
+            }
+        }
+    }
 }

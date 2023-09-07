@@ -11,11 +11,12 @@ using UnityEngine;
 /// </summary>
 public class Cannonball : LevelEntityTemporary
 {
-    [Header("SFX")]
+    [Header("SFX e VFX")]
     [SerializeField] private AudioClip _AboveWaterSFX;
     [SerializeField] private AudioClip _UnderWaterSFX;
     [SerializeField] private AudioClip _ExplosionUpSFX;
     [SerializeField] private AudioClip _ExplosionDownSFX;
+    [SerializeField] private ParticleSystem _CannonBallExplosion;
 
     private int _CannonballDamage = 1;
     private float _CannonballSpeed = 1f;
@@ -174,9 +175,11 @@ public class Cannonball : LevelEntityTemporary
         if (collision.gameObject.layer != gameObject.layer)
         {
             IDamageable damageable;
+            Instantiate(_CannonBallExplosion, transform.position, Quaternion.identity);
+            ExplosionSound();
+
             if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
             {
-                ExplosionSound();
                 damageable.TakeDamage(_CannonballDamage, gameObject);
             }
         }
