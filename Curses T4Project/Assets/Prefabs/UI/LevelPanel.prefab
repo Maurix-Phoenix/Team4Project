@@ -483,6 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d14a819ff7073f46b364fc7fe4faaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelThumbanilImage: {fileID: 0}
+  LevelThumbnail: {fileID: 0}
   LevelDesignInfoText: {fileID: 0}
   LevelCompletitionText: {fileID: 0}
+  DefaultThumbnail: {fileID: 0}
+  LevelThumbailsList: []

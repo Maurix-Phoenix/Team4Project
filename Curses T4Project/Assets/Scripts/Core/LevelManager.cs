@@ -21,6 +21,17 @@ public class LevelManager : MonoBehaviour
         foreach (GameObject level in Resources.LoadAll("Levels/"))
         {
             LevelPrefabsList.Add(level);
+            Level ls = level.GetComponent<Level>();
+            //Always unlock level 0 "tutorial"
+            if (ls.LevelID == 0 )
+            {
+                ls.IsUnlocked = true;
+            }
+            else
+            {
+                ls.IsUnlocked = ls.LevelData.Unlocked;
+            }
+                   
         }
 
         PlayerPrefab = Resources.Load<GameObject>("GameEntities/Player");

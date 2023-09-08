@@ -34,23 +34,45 @@ public class LevelPanel : MonoBehaviour
 
     public void UpdateLevelPanel(Level level)
     {
-        //LevelThumbanilImage = null; //TODO - ADD the thumbnail image of the level
         LevelData ld = GameManager.Instance.DataManager.GetLevelData(level);
-        LevelThumbnail.sprite = SetLevelThumbnail(level);
-        LevelDesignInfoText.text = $"{level.LevelID}-{level.LevelName}\nby {level.LevelDesigner}";        
+        
 
         string flagString;
+        string completitionText;
+        string designText;
+        Sprite levelThumbanil;
 
-        if (ld.FlagObtained)
+        if(level.IsUnlocked)
         {
-            flagString = "v";
+            flagString = ld.FlagObtained ? "v" : "x";
+            designText = $"{level.LevelID}-{level.LevelName}";
+            completitionText = $"Stars {ld.StarsObtained}/3\tFlag [{flagString}]";
+            levelThumbanil = SetLevelThumbnail(level);
         }
         else
         {
-            flagString = "x";
+            completitionText = "LOCKED\nComplete the previous levels first!";
+            designText = "LOCKED";
+            levelThumbanil = DefaultThumbnail;
         }
 
-        LevelCompletitionText.text = $"Stars {ld.StarsObtained}/3\tFlag [{flagString}]";
+        LevelCompletitionText.text = completitionText;
+        LevelDesignInfoText.text = designText;
+        LevelThumbnail.sprite = levelThumbanil;
+
+    }
+
+    public void LevelButtonPlay()
+    {
+        if(GameManager.Instance.LevelManager.CurrentLevel.IsUnlocked)
+        {
+            GameManager.Instance.AudioManager.PlaySFX("UISFX_Click1");
+            GameManager.Instance.LoadScene("Level");
+        }
+        else
+        {
+            GameManager.Instance.AudioManager.PlaySFX("UISFX_ClickNotValid");
+        }
     }
 
     private Sprite SetLevelThumbnail(Level level)

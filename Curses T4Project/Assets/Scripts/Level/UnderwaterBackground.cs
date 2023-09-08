@@ -93,7 +93,7 @@ public class UnderwaterBackground : MonoBehaviour
             float currentSpeed = _ScrollingSpeed;
             if( _GM != null)
             {
-                if(!_GM.LevelManager.CurrentLevel.IsInBossBattle && !_GM.LevelManager.CurrentLevel.IsFinalArrivalBeach)
+                if(!_GM.LevelManager.CurrentLevel.IsInBossBattle && !_GM.LevelManager.CurrentLevel.PlayerHasReachBeach)
                 {
                     currentSpeed = _ScrollingSpeed + (_GM.LevelManager.CurrentLevel.LevelSpeed / 3);
                 }

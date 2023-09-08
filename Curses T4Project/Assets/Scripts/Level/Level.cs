@@ -31,6 +31,7 @@ public class Level : MonoBehaviour
     [HideInInspector]public List<LevelEntityTemporary> TemporaryObjects;
 
     [Header("Level Conditions")]
+    [HideInInspector] public bool IsUnlocked = false;
     public float LevelSpeed = 1.0f;
     [HideInInspector]public bool IsInBossBattle = false;
     [HideInInspector] public bool IsLevelEnded = false;
@@ -177,7 +178,7 @@ public class Level : MonoBehaviour
 
                     Player player = GameManager.Instance.LevelManager.Player;
 
-
+                    //Checking Level Completition
                     if(!LevelData.StarCompleted)
                     {
                         LevelData.StarCompleted = true;
@@ -224,14 +225,16 @@ public class Level : MonoBehaviour
                         GameManager.Instance.AudioManager.PlaySFX("SFX_LevelComplete");
                     }
 
-
                     //call ui level passed here
                     GameManager.Instance.DataManager.SaveLevel(LevelData.LevelID);
                     GameManager.Instance.UIManager.StageCompleteUI.UpdateStageCompleteUI();
                     GameManager.Instance.UIManager.ShowUICanvasOnly("StageCompleteUI");
-                    
-                    
-                break;
+
+                    //Unlock next Level
+                    if (LevelID < GameManager.Instance.LevelManager.LevelPrefabsList.Count)
+                    { GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().LevelData.Unlocked = true; print($"{LevelID + 1} - {GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().IsUnlocked}"); }
+
+                    break;
             }
         }
     }
