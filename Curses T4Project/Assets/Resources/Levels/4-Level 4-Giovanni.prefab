@@ -68,7 +68,7 @@ Transform:
   - {fileID: 8025847895381354141}
   - {fileID: 870120907661515570}
   - {fileID: 4579523311062160743}
-  - {fileID: 44624374702324621}
+  - {fileID: 2409467727678817990}
   - {fileID: 8080505324089400055}
   - {fileID: 6454096331508640635}
   - {fileID: 33956908094327250}
@@ -116,6 +116,7 @@ MonoBehaviour:
     FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
+  IsUnlocked: 1
   LevelSpeed: 5
   IsInBossBattle: 0
   IsLevelEnded: 0
@@ -128,7 +129,7 @@ MonoBehaviour:
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -5
   XIntermediatePosition: 5
-  XEndingPosition: 18
+  XEndingPosition: 16
   YLanePosition: 0
   StartingHealth: 5
   StartingCannonBalls: 10
@@ -1896,9 +1897,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3489857097673311127}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -1944,22 +1953,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &44624374702324621 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &2409467727678817990 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 3731765008619041240}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3818129774844518915

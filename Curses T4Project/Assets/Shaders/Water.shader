@@ -5,8 +5,8 @@ Shader "Unlit/Water"
         _MainTex ("Texture", 2D) = "white" {}
         _WaterEffect("Water Effect Texture", 2D) = "white" {}
 
-        _WaterMainColor ("MainColor", Color) = (0.2,0.2,1,1)
-        _WaterSurfaceColor("SurfaceColor", Color) = (0.2,0.2,0.8,1)
+        _WaterMainColor("MainColor", Color) = (0.2,0.2,0.8,1)
+        _WaterSurfaceColor ("SurfaceColor", Color) = (0.2,0.2,1,1)
         _WaterDeepColor("DeepestColor", Color) = (0.1,0.1,1,1)
 
         _amplitude("WaveAmplitude", Float) = 1
@@ -49,8 +49,8 @@ Shader "Unlit/Water"
             sampler2D _MainTex;
             sampler2D _WaterEffect;
 
-            float4 _WaterMainColor;
             float4 _WaterSurfaceColor;
+            float4 _WaterMainColor;
             float _WaterDeepColor;
 
 
@@ -116,11 +116,11 @@ Shader "Unlit/Water"
 
 
                 //Water Colors
-                float4 col = lerp(_WaterSurfaceColor, _WaterDeepColor, i.uv.y);
+                float4 col = lerp(_WaterMainColor, _WaterDeepColor, i.uv.y);
 
                 if(i.uv.y <= 0.02 )
                 {
-                    col = lerp(_WaterMainColor, _WaterSurfaceColor, i.uv.y);
+                    col = lerp(_WaterSurfaceColor, _WaterMainColor, i.uv.y);
                 }
                 else
                 {
@@ -131,7 +131,7 @@ Shader "Unlit/Water"
                     }
                     if (weColor.r > _WaterEffectThreshold && weColor.g > _WaterEffectThreshold && weColor.b > _WaterEffectThreshold) 
                     {
-                        weColor = lerp(_WaterSurfaceColor, _WaterDeepColor, i.uv.x*1.5);
+                        weColor = lerp(_WaterMainColor, _WaterDeepColor, i.uv.x*1.5);
                     }
 
                     col = lerp(col,weColor,sin(i.uv.y) * _WaterEffectStrenght * sin(i.uv.y));//* _WaterEffectStrenght;

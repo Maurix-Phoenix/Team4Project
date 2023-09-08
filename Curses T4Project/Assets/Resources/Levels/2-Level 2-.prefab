@@ -30,9 +30,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8827458346346524559}
-  - {fileID: 5924210279077361350}
-  - {fileID: 2011389012848915968}
-  - {fileID: 7425885346713684847}
+  - {fileID: 8347890698291989389}
+  - {fileID: 4181394507203300171}
+  - {fileID: 5107263263675069988}
   - {fileID: 6766037421655581680}
   - {fileID: 2760476733967949730}
   - {fileID: 7219263722321092421}
@@ -44,16 +44,16 @@ Transform:
   - {fileID: 5712150541200298929}
   - {fileID: 5951120258277786955}
   - {fileID: 8272003038633603856}
-  - {fileID: 4631323076065114100}
+  - {fileID: 7037837919600167615}
   - {fileID: 3655849098308739076}
-  - {fileID: 2728613019786955127}
+  - {fileID: 302678601735386172}
   - {fileID: 4623407370252143075}
-  - {fileID: 7416529445454387782}
+  - {fileID: 5116759588656146189}
   - {fileID: 224619662392402198}
   - {fileID: 3120205629001271265}
   - {fileID: 5908826490027107386}
-  - {fileID: 8504217972736026361}
-  - {fileID: 3621673746843343095}
+  - {fileID: 6335336179118414770}
+  - {fileID: 1417625173322917308}
   - {fileID: 5598711852209862931}
   - {fileID: 5229628822419783973}
   - {fileID: 96841728086394877}
@@ -73,7 +73,7 @@ Transform:
   - {fileID: 899827748162202728}
   - {fileID: 2573908065935260805}
   - {fileID: 5359102589627388991}
-  - {fileID: 3927784962256149193}
+  - {fileID: 1687974773042374530}
   - {fileID: 1079876998743237634}
   - {fileID: 4958729659752261916}
   - {fileID: 758696364353655146}
@@ -82,9 +82,9 @@ Transform:
   - {fileID: 8095120094204633501}
   - {fileID: 1675704834750320975}
   - {fileID: 9209866573476351255}
-  - {fileID: 1964131396745659623}
+  - {fileID: 4228687194649491884}
   - {fileID: 5336770660590335429}
-  - {fileID: 5488474241937622373}
+  - {fileID: 7909541121879324718}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -117,6 +117,7 @@ MonoBehaviour:
     FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
+  IsUnlocked: 1
   LevelSpeed: 5
   IsInBossBattle: 0
   IsLevelEnded: 0
@@ -129,7 +130,7 @@ MonoBehaviour:
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -6
   XIntermediatePosition: 5
-  XEndingPosition: 18
+  XEndingPosition: 16
   YLanePosition: 0
   StartingHealth: 5
   StartingCannonBalls: 10
@@ -141,9 +142,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -189,18 +194,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (20)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &3621673746843343095 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &1417625173322917308 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 78153512482525858}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &420284737394495644
@@ -211,9 +212,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip (5)
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -259,18 +264,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (21)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &3927784962256149193 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &1687974773042374530 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 420284737394495644}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &676837078298968658
@@ -763,9 +764,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip (9)
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -811,18 +816,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (17)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &2728613019786955127 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &302678601735386172 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 1624275768461001506}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1881212755410327573
@@ -1163,9 +1164,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip (10)
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -1211,18 +1216,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (22)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &1964131396745659623 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &4228687194649491884 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 2888656981742800562}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2893966010588713201
@@ -1299,9 +1300,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip (6)
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -1347,18 +1352,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (14)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &2011389012848915968 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &4181394507203300171 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 2935940719551413333}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2965329442983701097
@@ -2041,9 +2042,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip (8)
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -2089,18 +2094,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (19)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &8504217972736026361 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &6335336179118414770 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 4995160564262022316}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5525812786701052240
@@ -2581,9 +2582,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -2629,18 +2634,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (15)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &7425885346713684847 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &5107263263675069988 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 6078001605501321530}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6177710660949135379
@@ -2651,9 +2652,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip (11)
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -2699,18 +2704,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (18)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &7416529445454387782 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &5116759588656146189 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 6177710660949135379}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6302953954495747344
@@ -3063,9 +3064,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip (7)
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -3111,18 +3116,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (13)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &5924210279077361350 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &8347890698291989389 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 7016723656933080211}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7128747912617105027
@@ -3541,9 +3542,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -3589,18 +3594,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (16)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &4631323076065114100 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &7037837919600167615 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 8291882200318803361}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8570614149089614693
@@ -3895,9 +3896,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2235460832468694016}
     m_Modifications:
-    - target: {fileID: 3244368394904591741, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+    - target: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007834961422331484, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+      propertyPath: m_Name
+      value: MerchantShip (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
       propertyPath: m_RootOrder
@@ -3943,17 +3948,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846380258472143400, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (23)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
---- !u!4 &5488474241937622373 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
+--- !u!4 &7909541121879324718 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3699545607569721941, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1349323560353019678, guid: 2c9c19f5f0a52184dbfebca5cc529a6e, type: 3}
   m_PrefabInstance: {fileID: 9186664975985151792}
   m_PrefabAsset: {fileID: 0}

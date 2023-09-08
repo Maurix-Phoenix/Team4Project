@@ -40,7 +40,7 @@ public class DropSeaMines : MonoBehaviour
                     {
                         _DropTimer = 0;
                         _MineToDrop--;
-                        Instantiate(_SeaMine, _MineDropLocation);
+                        Instantiate(_SeaMine, _MineDropLocation.position, Quaternion.identity);
                     }
                 }
             }
@@ -50,7 +50,7 @@ public class DropSeaMines : MonoBehaviour
                 if (_DropTimer >= _TimeBetweenDrop)
                 {
                     _DropTimer = 0;
-                    Instantiate(_SeaMine, _MineDropLocation);
+                    Instantiate(_SeaMine, _MineDropLocation.position, Quaternion.identity);
                 }
             }
         }

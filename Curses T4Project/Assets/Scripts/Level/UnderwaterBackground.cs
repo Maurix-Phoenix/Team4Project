@@ -1,13 +1,12 @@
+using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UnderwaterBackground : MonoBehaviour
 {
-    [SerializeField]
-
-    private bool _CanMove = false;
-    private float _ScrollingSpeed = 0.5f;
+    [SerializeField] private bool _CanMove = false;
+    [SerializeField] private float _ScrollingSpeed = 0.5f;
 
     private Vector3 _RightEdge;
     private Vector3 _LeftEdge;
@@ -55,6 +54,10 @@ public class UnderwaterBackground : MonoBehaviour
         _LeftEdge = new(transform.position.x - (_SR.bounds.extents.x / 3f), transform.position.y, transform.position.z);
         _RightEdge = new(transform.position.x + (_SR.bounds.extents.x / 3f), transform.position.y, transform.position.z);
         _EdgesDistance = _RightEdge - _LeftEdge;
+        if (_GM.CurrentScene.name == "MainMenu")
+        {
+            _CanMove = true;
+        }
     }
 
     private void OnLevelLoad()

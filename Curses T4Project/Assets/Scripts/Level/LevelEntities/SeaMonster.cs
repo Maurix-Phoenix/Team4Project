@@ -34,6 +34,8 @@ public class SeaMonster : LevelEntity, IDamageable
 
         if (_Health <= 0)
         {
+            DropLoot();
+            GetComponent<BoxCollider>().enabled = false;
             StartCoroutine(DeathAnimation());
         }
     }
@@ -43,7 +45,7 @@ public class SeaMonster : LevelEntity, IDamageable
         _IsDead = true;
         IsStopped = true;
 
-        if( _IsDead )
+        if (_IsDead)
         {
             _DeathAnimationVFX.Play();
 

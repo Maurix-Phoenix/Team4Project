@@ -31,7 +31,7 @@ public class Level : MonoBehaviour
     [HideInInspector]public List<LevelEntityTemporary> TemporaryObjects;
 
     [Header("Level Conditions")]
-    [HideInInspector] public bool IsUnlocked = false;
+    public bool IsUnlocked = false;
     public float LevelSpeed = 1.0f;
     [HideInInspector]public bool IsInBossBattle = false;
     [HideInInspector] public bool IsLevelEnded = false;
@@ -232,7 +232,10 @@ public class Level : MonoBehaviour
 
                     //Unlock next Level
                     if (LevelID < GameManager.Instance.LevelManager.LevelPrefabsList.Count)
-                    { GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().LevelData.Unlocked = true; print($"{LevelID + 1} - {GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().IsUnlocked}"); }
+                    {
+                        GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().LevelData.Unlocked = true;
+                        GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().IsUnlocked = true;
+                    }
 
                     break;
             }

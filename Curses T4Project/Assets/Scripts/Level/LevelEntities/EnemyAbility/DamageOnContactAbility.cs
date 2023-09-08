@@ -11,62 +11,47 @@ public class DamageOnContactAbility : MonoBehaviour
 {
     [SerializeField] private int _CollisionDamage = 1;
 
-    [Header("Merchant Ship - Conditions")]
-    [SerializeField] private bool _IsMerchantShip = false;
-    [SerializeField] private AudioClip _MerchantSFX;
-
     [Header("Shark Pack - Ability")]
     [SerializeField] private bool _CanAttack = true;
     [SerializeField] private bool _CanInstantKill = false;
 
     private void Start()
     {
-        
+
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!_IsMerchantShip)
+        //do damage to the player and deactivate the collider
+        if (other.gameObject.GetComponent<Player>() != null)
         {
-            //do damage to the player and deactivate the collider
-            if (other.gameObject.GetComponent<Player>() != null)
+            if (gameObject.GetComponent<SeaMonster>() != null)
             {
-                if (gameObject.GetComponent<SeaMonster>() != null)
+                if (gameObject.GetComponent<SeaMonster>().IsSharkPack)
                 {
-                    if (gameObject.GetComponent<SeaMonster>().IsSharkPack)
+                    if (_CanAttack)
                     {
-                        if (_CanAttack)
-                        {
-                            _CanAttack = false;
-                            return;
-                        }
+                        _CanAttack = false;
+                        return;
+                    }
 
-                        //end level or do damage
-                        if (_CanInstantKill)
-                        {
-                            GameManager.Instance.LevelManager.CurrentLevel.EndLevel(Level.EndLevelType.GameOver);
-                        }
-                        else
-                        {
-                            other.gameObject.GetComponent<Player>().TakeDamage(_CollisionDamage, gameObject);
-                        }
-                        return;
-                    }
-                    if (gameObject.GetComponent<SeaMonster>().IsOctopus)
+                    //end level or do damage
+                    if (_CanInstantKill)
                     {
-                        return;
+                        GameManager.Instance.LevelManager.CurrentLevel.EndLevel(Level.EndLevelType.GameOver);
                     }
+                    else
+                    {
+                        other.gameObject.GetComponent<Player>().TakeDamage(_CollisionDamage, gameObject);
+                    }
+                    return;
                 }
+                if (gameObject.GetComponent<SeaMonster>().IsOctopus)
+                {
+                    return;
+                }
+            }
 
-                other.gameObject.GetComponent<Player>().TakeDamage(_CollisionDamage, gameObject);
-            }
-        }
-        else
-        {
-            if (other.gameObject.GetComponent<Player>() != null)
-            {
-                GameManager.Instance.AudioManager.PlaySFX(_MerchantSFX);
-                gameObject.GetComponent<EnemyShip>().TakeDamage(_CollisionDamage, other.gameObject);
-            }
+            other.gameObject.GetComponent<Player>().TakeDamage(_CollisionDamage, gameObject);
         }
     }
 }

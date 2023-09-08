@@ -26,8 +26,10 @@ public class EnemyShip : LevelEntity, IDamageable
     {
         _Health -= dmg;
 
-        if(_Health <= 0)
+        if (_Health <= 0)
         {
+            DropLoot();
+            GetComponent<BoxCollider>().enabled = false;
             StartCoroutine(DeathAnimation());
         }
     }
@@ -36,7 +38,6 @@ public class EnemyShip : LevelEntity, IDamageable
     {
         _IsDead = true;
 
-        GetComponent<BoxCollider>().enabled = false;
 
         if (_IsDead)
         {
