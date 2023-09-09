@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,19 +9,16 @@ public class FlagCollection : MonoBehaviour
 {
     public GameObject FlagPanelPrefab;
     public GameObject Content;
-
     public Sprite DefaultFlag;
-    public List<Sprite> FlagSprites = new List<Sprite>();
 
-    public List<GameObject> LevelFlagList = new List<GameObject>();
+    public TMP_Text currentFlagName;
+    public TMP_Text currentFlagDescription;
+    public Image currentFlagImage;
+
+    public List<FlagPanel> LevelFlagList = new List<FlagPanel>();
 
     private void Awake()
     {
-        foreach(Sprite sprite in Resources.LoadAll<Sprite>("Flags"))
-        {
-           FlagSprites.Add(sprite);
-        }
-
         InitializeFlagsCollection();
     }
 
@@ -37,26 +35,21 @@ public class FlagCollection : MonoBehaviour
             Sprite sprite = null;
             Level level = levelobj.GetComponent<Level>();
 
-            GameObject fp = Instantiate(FlagPanelPrefab, Content.transform);
-            TMP_Text t = fp.transform.Find("FlagText").GetComponent<TMP_Text>();
-            t.text = $"Level {level.LevelID} Flag";
+            GameObject fpObj = Instantiate(FlagPanelPrefab, Content.transform);
+            FlagPanel flagPanel = fpObj.GetComponent<FlagPanel>();
+            flagPanel.FT = level.LevelFlagTemplate;
+            flagPanel.FlagLabel.text = $"{level.LevelFlagTemplate.FlagID}. {level.LevelFlagTemplate.FlagName}";
 
-            foreach(Sprite s in FlagSprites)
-            {
-                if (s.name == level.LevelID.ToString())
-                {
-                    sprite = s;
-                }
-            }
+            sprite = level.LevelFlagTemplate.FlagSprite;
             if(sprite == null)
             {
                 sprite = DefaultFlag;
             }
 
-            fp.GetComponent<Image>().sprite = sprite;
+            flagPanel.FlagSprite.sprite = sprite;
 
-            LevelFlagList.Add(fp);
-            fp.SetActive(false);
+            LevelFlagList.Add(flagPanel);
+            fpObj.SetActive(false);
         }
     }
 
@@ -66,13 +59,28 @@ public class FlagCollection : MonoBehaviour
         {
             if (GameManager.Instance.DataManager.LevelData[i].FlagObtained)
             {
-                LevelFlagList[i].SetActive(true);
+                LevelFlagList[i].gameObject.SetActive(true);
             }
             else
             {
-                LevelFlagList[i].SetActive(false);
+                LevelFlagList[i].gameObject.SetActive(false);
             }
         }
+    }
+
+    public void UpdateDescription(FlagTemplate flagT)
+    {
+        if(flagT == null)
+        {
+            currentFlagImage.sprite = DefaultFlag;
+            currentFlagName.text = "Flag 404";
+            currentFlagDescription.text = "If you are reading this something went wrong...";
+        }
+
+
+        currentFlagImage.sprite = flagT.FlagSprite;
+        currentFlagName.text = flagT.FlagName;
+        currentFlagDescription.text = flagT.FlagDescription;
     }
 
 }

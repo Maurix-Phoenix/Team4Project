@@ -134,12 +134,15 @@ public class UIManager : MonoBehaviour
     /// Activate the canvas that is inside the UICanvas List
     /// </summary>
     /// <param name="canvasName">the name of the canvas gameobject</param>
-    public void ShowUICanvas(string canvasName)
+    public void ShowUICanvas(string canvasName, bool isAnimated = true)
     {
         GameObject uiC = GetUICanvas(canvasName);
         if (uiC != null)
         {
-            StartCoroutine(FadeAnimation(_FadeAnimationTime));
+            if(isAnimated)
+            {
+                StartCoroutine(FadeAnimation(_FadeAnimationTime));
+            }
             uiC.SetActive(true);
             
         }

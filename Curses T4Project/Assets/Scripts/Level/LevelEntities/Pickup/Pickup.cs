@@ -6,7 +6,6 @@ using static T4P;
 public class Pickup : LevelEntity
 {
     [Header("References")]
-    public PickupTemplate PT;
     [SerializeField] public T4Project.PickupsType PickupType;
     [SerializeField] private AudioClip _CoinSFX;
     [SerializeField] private AudioClip _CannonballSFX;
@@ -26,13 +25,6 @@ public class Pickup : LevelEntity
     protected override void Start()
     {
         base.Start();
-        if(PT != null )
-        {
-            //if pt is not null it will pass its values on the private current instance ones.
-            _Value = PT.Value;
-            _AttractionDistance = PT.AttractionDistance;
-            PickupType = PT.Type;
-        }
     }
 
     protected override void Update()

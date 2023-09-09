@@ -15,6 +15,7 @@ public class Level : MonoBehaviour
     [SerializeField] public string LevelDesigner;
     [SerializeField] public int LevelID;
     [SerializeField] public Sprite LevelThumbnail = null;
+    public FlagTemplate LevelFlagTemplate = null;
 
     //Level resources
     [Header("Level Resources")]
