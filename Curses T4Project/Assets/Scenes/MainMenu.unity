@@ -10280,6 +10280,8 @@ MonoBehaviour:
   _NormalMat: {fileID: 0}
   _CursedMat: {fileID: 0}
   _AboveWaterVFX: {fileID: 0}
+  _NormalColor: {r: 0, g: 0, b: 0, a: 0}
+  _CursedColor: {r: 0, g: 0, b: 0, a: 0}
   _UnderWaterVFX: {fileID: 0}
   _YUpperThreshold: 0
   _YLowerThreshold: 0
@@ -10392,7 +10394,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598956001}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15843,66 +15845,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 969158829885906862, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1470861597467366541, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2334076431342144263, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2172460196585051379}
-    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LevelButtonPlay
-      objectReference: {fileID: 0}
-    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LevelPanel, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8600694181203464271, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
---- !u!114 &2172460196585051379 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2031266340508456356, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-  m_PrefabInstance: {fileID: 2172460196585051378}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d14a819ff7073f46b364fc7fe4faaa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4127654339872535819
 PrefabInstance:
   m_ObjectHideFlags: 0

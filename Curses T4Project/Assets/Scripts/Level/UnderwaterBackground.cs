@@ -108,7 +108,7 @@ public class UnderwaterBackground : MonoBehaviour
                 }
             }
 
-            transform.position += currentSpeed * Vector3.left * Time.deltaTime;
+            transform.position += Mathf.Abs(currentSpeed) * Vector3.left * Time.deltaTime;
             if (transform.position.x < _LeftEdge.x)
             {
                 ResetSpritePosition();

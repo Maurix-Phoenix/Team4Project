@@ -237,6 +237,8 @@ public class Level : MonoBehaviour
                         GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().IsUnlocked = true;
                     }
 
+                    GameManager.Instance.DataManager.SaveLevel(LevelID);
+
                     break;
             }
         }

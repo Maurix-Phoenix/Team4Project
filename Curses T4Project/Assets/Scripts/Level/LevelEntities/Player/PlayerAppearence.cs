@@ -90,6 +90,7 @@ public class PlayerAppearence : MonoBehaviour
         if (_Position.transform.position.y > _YLowerThreshold)
         {
             _AboveWaterVFX.startColor = _NormalColor;
+            
         }
         else
         {

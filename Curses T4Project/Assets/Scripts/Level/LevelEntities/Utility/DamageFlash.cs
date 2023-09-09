@@ -15,8 +15,9 @@ public class DamageFlash : MonoBehaviour
     [SerializeField] private float _IndicatorTime = 0.15f;
     private Color _OriginalColor;
 
-    private void Awake()
+    private void OnEnable()
     {
+        print("ENABLE CALLED");
         _OriginalColor = _ShipMr.material.color;
     }
 

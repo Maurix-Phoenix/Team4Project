@@ -5204,10 +5204,10 @@ MonoBehaviour:
   _CursedMat: {fileID: 0}
   _AboveWaterVFX: {fileID: 1400958453503861695}
   _NormalColor: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
-  _CursedColor: {r: 0, g: 1, b: 0, a: 1}
+  _CursedColor: {r: 0, g: 1, b: 0.42455912, a: 1}
   _UnderWaterVFX: {fileID: 7647404534028450778}
   _YUpperThreshold: -0.5
-  _YLowerThreshold: -2
+  _YLowerThreshold: -5
 --- !u!1 &2144495948583928999
 GameObject:
   m_ObjectHideFlags: 0
