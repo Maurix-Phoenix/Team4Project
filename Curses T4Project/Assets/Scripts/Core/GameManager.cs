@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
     }
     private void StatePause()
     {
-        UIManager.ShowUICanvas("PauseMenuUI");
+        UIManager.ShowUICanvasOnly("PauseMenuUI");
         AudioManager.AudioSourceMusic.Pause();
         Time.timeScale = 0;
 

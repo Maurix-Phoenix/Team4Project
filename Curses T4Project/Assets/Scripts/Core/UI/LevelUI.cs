@@ -22,7 +22,9 @@ public class LevelUI : MonoBehaviour
 
     public void LoadFlag()
     {
-        Flag.sprite = Resources.Load<Sprite>($"Flags/{GameManager.Instance.LevelManager.CurrentLevel.LevelID}");
+
+        Flag.sprite = GameManager.Instance.LevelManager.CurrentLevel.LevelFlagTemplate.FlagSprite;
+
         if (Flag.sprite == null)
         {
             Flag.sprite = Resources.Load<Sprite>($"Thumbnails/Unknown");

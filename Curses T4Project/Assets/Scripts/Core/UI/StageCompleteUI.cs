@@ -13,12 +13,14 @@ public class StageCompleteUI : MonoBehaviour
     public Image StarEconomy;
 
     public void LoadFlag()
-{
-    Flag.sprite = Resources.Load<Sprite>($"Flags/{GameManager.Instance.LevelManager.CurrentLevel.LevelID}");
-    if (Flag.sprite == null)
     {
-        Flag.sprite = Resources.Load<Sprite>($"Thumbnails/Unknown");
-    } }
+        Flag.sprite = GameManager.Instance.LevelManager.CurrentLevel.LevelFlagTemplate.FlagSprite;
+        if (Flag.sprite == null)
+        {
+            Flag.sprite = Resources.Load<Sprite>($"Thumbnails/Unknown");
+        } 
+    }
+
     // Update is called once per frame
     public void UpdateStageCompleteUI()
     {
