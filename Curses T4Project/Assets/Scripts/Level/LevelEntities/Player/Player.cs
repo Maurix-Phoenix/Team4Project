@@ -104,7 +104,10 @@ public class Player : MonoBehaviour, IDamageable
         Health -= dmg;
 
         UpdatePlayerUI();
-        GetComponent<DamageFlash>().DamageIndicatorStart();
+        if (gameObject.GetComponent<DamageFlash>() != null && gameObject.GetComponent<DamageFlash>().enabled)
+        {
+            GetComponent<DamageFlash>().DamageIndicatorStart();
+        }
 
         T4Debug.Log($"Player damaged by {damager.name}");
         Camera.main.GetComponent<CameraShake>().StartShaking();

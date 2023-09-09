@@ -16,8 +16,11 @@ public class PortVendor : LevelEntity
         //do damage to the player and deactivate the collider
         if (other.gameObject.GetComponent<Player>() != null)
         {
-            GameManager.Instance.AudioManager.PlaySFX(_MerchantSFX);
-            Invoke("DropLoot", _SellAfterTime);
+            if (_CanSell)
+            {
+                GameManager.Instance.AudioManager.PlaySFX(_MerchantSFX);
+                Invoke("DropLoot", _SellAfterTime);
+            }
         }
     }
 }

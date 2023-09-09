@@ -131,8 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 2
-  _IsMerchantShip: 0
-  _MerchantSFX: {fileID: 0}
   _CanAttack: 0
   _CanInstantKill: 0
 --- !u!114 &-693274094255248368
@@ -172,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3517238649022123604, guid: 7a58f5c6eb551eb4f86e810db44356d7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -263,7 +261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a43478dc8334bc0468bf9afc6fc374bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a43478dc8334bc0468bf9afc6fc374bd, type: 3}
       propertyPath: m_LocalRotation.w

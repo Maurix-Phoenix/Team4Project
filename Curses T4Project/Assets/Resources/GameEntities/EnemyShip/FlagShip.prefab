@@ -177,8 +177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
-  _IsMerchantShip: 0
-  _MerchantSFX: {fileID: 0}
   _CanAttack: 0
   _CanInstantKill: 0
 --- !u!114 &6367775089351187715
@@ -220,7 +218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6674744912335447245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -251,7 +249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8212115052269536976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.808, y: 0.861, z: 0}
+  m_LocalPosition: {x: -1.808, y: 0.861, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -292,7 +290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3499131778342841972, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3499131778342841972, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
       propertyPath: m_LocalRotation.w
@@ -395,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ecb29fbce00282045bd93f06ff0ff303, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ecb29fbce00282045bd93f06ff0ff303, type: 3}
       propertyPath: m_LocalRotation.w

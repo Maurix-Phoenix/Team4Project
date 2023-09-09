@@ -17,6 +17,10 @@ public class Cannonball : LevelEntityTemporary
     [SerializeField] private AudioClip _ExplosionUpSFX;
     [SerializeField] private AudioClip _ExplosionDownSFX;
     [SerializeField] private ParticleSystem _CannonBallExplosion;
+    [SerializeField] private ParticleSystem _Trail;
+    [SerializeField] private Color _CursedColor;
+    [SerializeField] private Material _AboveWaterMaterial;
+    [SerializeField] private Material _UnderWaterMaterial;
 
     private int _CannonballDamage = 1;
     private float _CannonballSpeed = 1f;
@@ -58,10 +62,22 @@ public class Cannonball : LevelEntityTemporary
         if (GameManager.Instance.LevelManager.CurrentLevel.ActualLayer >= 0)
         {
             GameManager.Instance.AudioManager.PlaySFX(_AboveWaterSFX);
+            if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
+            {
+                gameObject.GetComponent<MeshRenderer>().material = _AboveWaterMaterial;
+                _Trail.startColor = Color.gray;
+            }
         }
         else
         {
             GameManager.Instance.AudioManager.PlaySFX(_UnderWaterSFX);
+
+            if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
+            {
+                gameObject.GetComponent<MeshRenderer>().material = _UnderWaterMaterial;
+                _Trail.startColor = _CursedColor;
+            }
+
         }
 
         if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball"))
@@ -175,7 +191,18 @@ public class Cannonball : LevelEntityTemporary
         if (collision.gameObject.layer != gameObject.layer)
         {
             IDamageable damageable;
-            Instantiate(_CannonBallExplosion, transform.position, Quaternion.identity);
+            ParticleSystem ExplosionVFX = Instantiate(_CannonBallExplosion, transform.position, Quaternion.identity);
+
+            if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball") && GameManager.Instance.LevelManager.CurrentLevel.ActualLayer < 0)
+            {
+                ExplosionVFX.startColor = _CursedColor;
+            }
+            else
+            {
+                ExplosionVFX.startColor = Color.white;
+            }
+
+
             ExplosionSound();
 
             if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))

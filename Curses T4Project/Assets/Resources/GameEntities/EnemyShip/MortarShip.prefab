@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
-  _AlwaysShoot: 1
+  _AlwaysShoot: 0
   _ShootRange: 9
   _ShowShootRange: 1
   _TimeBetweenShoot: 2
@@ -155,8 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
-  _IsMerchantShip: 0
-  _MerchantSFX: {fileID: 0}
   _CanAttack: 0
   _CanInstantKill: 0
 --- !u!114 &-5542823202251223387
@@ -198,7 +196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6616437478419769803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.15, y: 0.75, z: 0}
+  m_LocalPosition: {x: -1.15, y: 0.75, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -231,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7324822378052197222}
   m_LocalRotation: {x: -0.038971055, y: -0.41058183, z: -0.017567452, w: 0.91082114}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 300, y: 300, z: 300}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -322,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3499131778342841972, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3499131778342841972, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
       propertyPath: m_LocalRotation.w

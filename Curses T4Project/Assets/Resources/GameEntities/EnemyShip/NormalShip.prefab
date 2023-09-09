@@ -3427,7 +3427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149155446097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.07, z: 0}
+  m_LocalPosition: {x: 0, y: -0.07, z: 0.5}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4129,10 +4129,10 @@ MonoBehaviour:
   _Health: 1
   _IsDead: 0
   _Destruction: {fileID: 8300000, guid: 66d2c47285bc128419ac2a4cf518bd11, type: 3}
-  _DeathAnimationVFX: {fileID: 6011647779874105013, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  _DeathAnimationVFX: {fileID: 986456285105077541}
   _ObjectsToHideOnDeath:
-  - {fileID: 7324822378052197222, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-  - {fileID: 6616437478419769803, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
+  - {fileID: 919132149155446097}
+  - {fileID: 4660475344811749530}
 --- !u!114 &-6409954202646009245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4167,8 +4167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 1
-  _IsMerchantShip: 1
-  _MerchantSFX: {fileID: 8300000, guid: 8eac2fa718162c44bbf9206f7ab45d70, type: 3}
   _CanAttack: 0
   _CanInstantKill: 0
 --- !u!114 &-6520478772529705657
@@ -4708,7 +4706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4660475344811749530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 0.65, z: 0}
+  m_LocalPosition: {x: -1.25, y: 0.65, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6986,7 +6984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3499131778342841972, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3499131778342841972, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7021,6 +7019,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
+--- !u!198 &986456285105077541 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3709207422531985494, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}
+  m_PrefabInstance: {fileID: 4524244866999344499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1028563905901146887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3499131778342841972, guid: 1a1bf38582c652b42b2e0057d78bea36, type: 3}

@@ -18,8 +18,6 @@ public class UnderwaterBackground : MonoBehaviour
 
     private void Awake()
     {
-        print("awake is called");
-
         _SR = GetComponent<SpriteRenderer>();
         _GM = GameManager.Instance;
     }
@@ -50,19 +48,25 @@ public class UnderwaterBackground : MonoBehaviour
 
     private void Start()
     {
-        print("start is called");
         _LeftEdge = new(transform.position.x - (_SR.bounds.extents.x / 3f), transform.position.y, transform.position.z);
         _RightEdge = new(transform.position.x + (_SR.bounds.extents.x / 3f), transform.position.y, transform.position.z);
         _EdgesDistance = _RightEdge - _LeftEdge;
-        if (_GM.CurrentScene.name == "MainMenu")
+
+        if (_GM != null)
         {
-            _CanMove = true;
+            if (_GM.CurrentScene.name == "MainMenu")
+            {
+                _CanMove = true;
+            }
+            else
+            {
+                _CanMove = false;
+            }
         }
     }
 
     private void OnLevelLoad()
     {
-        print("level loaded is called");
         _LeftEdge = new(transform.position.x - (_SR.bounds.extents.x / 3f), transform.position.y, transform.position.z);
         _RightEdge = new(transform.position.x + (_SR.bounds.extents.x / 3f), transform.position.y, transform.position.z);
         _EdgesDistance = _RightEdge - _LeftEdge;
@@ -72,12 +76,10 @@ public class UnderwaterBackground : MonoBehaviour
 
     private void OnLevelStart()
     {
-        print("levelstart is called");
         _CanMove = true;
     }
     private void OnLevelStop()
     {
-        print("levelstop is called");
         _CanMove = false;
     }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4488485336900286879}
   - component: {fileID: 2397883937408234173}
   - component: {fileID: 3797366487408601810}
+  - component: {fileID: 4870186693882999632}
   m_Layer: 10
   m_Name: DoubloonPickup
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 8042878532907240043}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &582410826736805688
 CapsuleCollider:
@@ -131,6 +132,20 @@ MonoBehaviour:
   _IsOnMenuScene: 0
   _Amplitude: 0.1
   _Frequency: 5
+--- !u!114 &4870186693882999632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6653397608328699623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50bb1d42ff4c32f40b5a8fffdd58d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Mesh: {fileID: 7265955214048186577}
+  _RotationalSpeed: {x: 0, y: 0, z: 2}
 --- !u!1001 &7499815082125192576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,6 +215,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06120e9a8fca1d046b28ec8c7f947252, type: 3}
+--- !u!1 &7265955214048186577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 06120e9a8fca1d046b28ec8c7f947252, type: 3}
+  m_PrefabInstance: {fileID: 7499815082125192576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8042878532907240043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 06120e9a8fca1d046b28ec8c7f947252, type: 3}

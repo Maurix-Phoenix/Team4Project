@@ -6217,8 +6217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollisionDamage: 10
-  _IsMerchantShip: 0
-  _MerchantSFX: {fileID: 0}
   _CanAttack: 1
   _CanInstantKill: 0
 --- !u!114 &225830193542186060
