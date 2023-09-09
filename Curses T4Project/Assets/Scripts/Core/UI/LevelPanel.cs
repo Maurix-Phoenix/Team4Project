@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -17,6 +18,12 @@ public class LevelPanel : MonoBehaviour
 
     public Sprite DefaultThumbnail;
     public List<Sprite> LevelThumbailsList = new List<Sprite>();
+
+    public Image SpriteStarCompleted;
+    public Image SpriteStarAce;
+    public Image SpriteStarEconomy;
+    public Image SpriteFlagObtained;
+
 
 
     private void Awake()
@@ -34,29 +41,51 @@ public class LevelPanel : MonoBehaviour
 
     public void UpdateLevelPanel(Level level)
     {
-        LevelData ld = GameManager.Instance.DataManager.GetLevelData(level);
-        
+        SpriteStarCompleted.gameObject.SetActive(false);
+        SpriteStarEconomy.gameObject.SetActive(false);
+        SpriteStarEconomy.gameObject.SetActive(false);
+        SpriteFlagObtained.gameObject.SetActive(false);
 
-        string flagString;
-        string completitionText;
+        LevelData ld = GameManager.Instance.DataManager.GetLevelData(level);
+
+        Color obtainedCol = new Color(1, 1, 1, 1);
+        Color notObtainedCol = new Color(0, 0, 0, 1);
+        
         string designText;
         Sprite levelThumbanil;
 
         if(level.IsUnlocked)
         {
-            flagString = ld.FlagObtained ? "v" : "x";
+            LevelCompletitionText.gameObject.SetActive(false);
+
             designText = $"{level.LevelID}-{level.LevelName}";
-            completitionText = $"Stars {ld.StarsObtained}/3\tFlag [{flagString}]";
             levelThumbanil = SetLevelThumbnail(level);
+
+            SpriteStarCompleted.gameObject.SetActive(true);
+            SpriteStarAce.gameObject.SetActive(true);
+            SpriteStarEconomy.gameObject.SetActive(true);
+            SpriteFlagObtained.gameObject.SetActive(true);
+
+            SpriteStarAce.GetComponent<Image>().color = ld.StarAce ? obtainedCol : notObtainedCol;
+            SpriteStarEconomy.GetComponent<Image>().color = ld.StarDoubloons ? obtainedCol : notObtainedCol;
+            SpriteStarCompleted.GetComponent<Image>().color = ld.StarCompleted ? obtainedCol : notObtainedCol;
+            SpriteFlagObtained.GetComponent<Image>().color = ld.FlagObtained ? obtainedCol : notObtainedCol;
         }
         else
         {
-            completitionText = "LOCKED\nComplete the previous levels first!";
+            SpriteStarCompleted.gameObject.SetActive(false);
+            SpriteStarAce.gameObject.SetActive(false);
+            SpriteStarEconomy.gameObject.SetActive(false);
+            SpriteFlagObtained.gameObject.SetActive(false);
+
+            LevelCompletitionText.gameObject.SetActive(true);
+            LevelCompletitionText.text = "LOCKED\nComplete the previous levels first!";
             designText = "LOCKED";
             levelThumbanil = DefaultThumbnail;
         }
 
-        LevelCompletitionText.text = completitionText;
+
+
         LevelDesignInfoText.text = designText;
         LevelThumbnail.sprite = levelThumbanil;
 

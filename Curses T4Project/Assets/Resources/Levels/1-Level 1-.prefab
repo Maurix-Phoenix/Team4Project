@@ -86,7 +86,7 @@ MonoBehaviour:
     FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
-  IsUnlocked: 1
+  IsUnlocked: 0
   LevelSpeed: 5
   IsInBossBattle: 0
   IsLevelEnded: 0
