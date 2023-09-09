@@ -1008,7 +1008,7 @@ GameObject:
   - component: {fileID: 7944839885230127994}
   - component: {fileID: 3769081508794833969}
   m_Layer: 8
-  m_Name: Wood
+  m_Name: WoodLateral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1022,7 +1022,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: -5743520977940181895}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.21063493, z: 0.04731654}
+  m_LocalPosition: {x: 0, y: 0.21063493, z: 0.04731654}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1057,7 +1057,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5173966397720942367, guid: 9245bbb20a8aa694db1eadd23fc1f943, type: 3}
+  - {fileID: -6477940958727351939, guid: ecb29fbce00282045bd93f06ff0ff303, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1838,7 +1838,7 @@ GameObject:
   - component: {fileID: -7459055019164644623}
   - component: {fileID: -7595890981939975882}
   m_Layer: 8
-  m_Name: Wood
+  m_Name: WoodLateral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1852,7 +1852,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: -3835117684536714721}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.21063493, z: 0.04731654}
+  m_LocalPosition: {x: 0, y: 0.21063493, z: 0.04731654}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1887,7 +1887,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5173966397720942367, guid: 9245bbb20a8aa694db1eadd23fc1f943, type: 3}
+  - {fileID: -6477940958727351939, guid: ecb29fbce00282045bd93f06ff0ff303, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2336,7 +2336,7 @@ GameObject:
   - component: {fileID: 3688756930644544948}
   - component: {fileID: -379800588367434649}
   m_Layer: 8
-  m_Name: Wood
+  m_Name: WoodLateral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2350,7 +2350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: -2503781207340015222}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.21063493, z: 0.04731654}
+  m_LocalPosition: {x: 0, y: 0.21063493, z: 0.04731654}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2385,7 +2385,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5173966397720942367, guid: 9245bbb20a8aa694db1eadd23fc1f943, type: 3}
+  - {fileID: -6477940958727351939, guid: ecb29fbce00282045bd93f06ff0ff303, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3332,7 +3332,7 @@ GameObject:
   - component: {fileID: 3013185006642451193}
   - component: {fileID: -1027810420473006236}
   m_Layer: 8
-  m_Name: Wood
+  m_Name: WoodLateral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3346,7 +3346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643680195690839160}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.21063493, z: 0.04731654}
+  m_LocalPosition: {x: 0, y: 0.21063493, z: 0.04731654}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3381,7 +3381,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5173966397720942367, guid: 9245bbb20a8aa694db1eadd23fc1f943, type: 3}
+  - {fileID: -6477940958727351939, guid: ecb29fbce00282045bd93f06ff0ff303, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3438,8 +3438,14 @@ Transform:
   - {fileID: 4050840722709662635}
   - {fileID: 1651174981862204054}
   - {fileID: -2942418741372108187}
-  - {fileID: -1098541996339580735}
   - {fileID: -6191931438077022727}
+  - {fileID: 8509407713646577813}
+  - {fileID: -6144619349401958716}
+  - {fileID: -6094464930995860205}
+  - {fileID: 7680744101791008057}
+  - {fileID: -3077890398445498645}
+  - {fileID: 669722493609552199}
+  - {fileID: -1098541996339580735}
   - {fileID: 5313266531528563861}
   - {fileID: 1873531993480478553}
   - {fileID: 4707019416837839854}
@@ -3469,7 +3475,6 @@ Transform:
   - {fileID: 6981563031946859924}
   - {fileID: -3638224335972102482}
   - {fileID: 8720429019645812800}
-  - {fileID: 8509407713646577813}
   - {fileID: -8768972184410181200}
   - {fileID: -719009541976236912}
   - {fileID: -4222688527734780066}
@@ -3477,9 +3482,7 @@ Transform:
   - {fileID: 786618369704879757}
   - {fileID: 4130262838237191929}
   - {fileID: -6909301082471640039}
-  - {fileID: -6144619349401958716}
   - {fileID: 8345463600994200744}
-  - {fileID: -6094464930995860205}
   - {fileID: -9132150686820465583}
   - {fileID: 5354091011712069849}
   - {fileID: -2748918761312601185}
@@ -3495,13 +3498,11 @@ Transform:
   - {fileID: 3754367923233599074}
   - {fileID: -4058168408023935178}
   - {fileID: 8975164849335700119}
-  - {fileID: 7680744101791008057}
   - {fileID: 2409276070580803588}
   - {fileID: -4916624963485044907}
   - {fileID: 8582466218499493680}
   - {fileID: 4477646091028036178}
   - {fileID: 1411306337853376652}
-  - {fileID: -3077890398445498645}
   - {fileID: 7980455587725400067}
   - {fileID: 7621781451706699448}
   - {fileID: 7019526536150652585}
@@ -3509,7 +3510,6 @@ Transform:
   - {fileID: -7957042247534556917}
   - {fileID: -2136831082138315466}
   - {fileID: 4054069770425712993}
-  - {fileID: 669722493609552199}
   - {fileID: -530736102809129329}
   m_Father: {fileID: 1349323560353019678}
   m_RootOrder: 0
@@ -5555,7 +5555,7 @@ GameObject:
   - component: {fileID: 3508532585476329244}
   - component: {fileID: -8865789553452957585}
   m_Layer: 8
-  m_Name: Wood
+  m_Name: WoodLateral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5569,7 +5569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6524367628222918742}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.21063493, z: 0.04731654}
+  m_LocalPosition: {x: 0, y: 0.21063493, z: 0.04731654}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5604,7 +5604,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5173966397720942367, guid: 9245bbb20a8aa694db1eadd23fc1f943, type: 3}
+  - {fileID: -6477940958727351939, guid: ecb29fbce00282045bd93f06ff0ff303, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6468,7 +6468,7 @@ GameObject:
   - component: {fileID: 8741616610266145264}
   - component: {fileID: -1239573211756179830}
   m_Layer: 8
-  m_Name: Wood
+  m_Name: WoodLateral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6482,7 +6482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8005043392094963824}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.21063493, z: 0.04731654}
+  m_LocalPosition: {x: 0, y: 0.21063493, z: 0.04731654}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6517,7 +6517,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5173966397720942367, guid: 9245bbb20a8aa694db1eadd23fc1f943, type: 3}
+  - {fileID: -6477940958727351939, guid: ecb29fbce00282045bd93f06ff0ff303, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6883,7 +6883,7 @@ GameObject:
   - component: {fileID: -3185206050123307783}
   - component: {fileID: -8527621266017940667}
   m_Layer: 8
-  m_Name: Wood
+  m_Name: WoodLateral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6897,7 +6897,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9016807026313286872}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.21063493, z: 0.04731654}
+  m_LocalPosition: {x: 0, y: 0.21063493, z: 0.04731654}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6932,7 +6932,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5173966397720942367, guid: 9245bbb20a8aa694db1eadd23fc1f943, type: 3}
+  - {fileID: -6477940958727351939, guid: ecb29fbce00282045bd93f06ff0ff303, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

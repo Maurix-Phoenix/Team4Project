@@ -5191,12 +5191,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb58e69f4d5ec240b51a95b2f2e912d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsInMenuScene: 0
+  _GoFromNormalToCursed: 1
+  _MaxTimeBetWeenTransition: 5
+  _MinTimeBetWeenTransition: 10
+  _TransitionTimer: 0
+  _TransitionCD: 0
   _Position: {fileID: 5044277267086782192}
   _NormalSkin: {fileID: 7348126293932491633}
   _CursedSkin: {fileID: 4614118093888864796}
   _NormalMat: {fileID: 0}
   _CursedMat: {fileID: 0}
   _AboveWaterVFX: {fileID: 1400958453503861695}
+  _NormalColor: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
+  _CursedColor: {r: 0, g: 1, b: 0, a: 1}
   _UnderWaterVFX: {fileID: 7647404534028450778}
   _YUpperThreshold: -0.5
   _YLowerThreshold: -2

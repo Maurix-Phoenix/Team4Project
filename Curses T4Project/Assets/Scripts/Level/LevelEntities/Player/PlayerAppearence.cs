@@ -21,6 +21,8 @@ public class PlayerAppearence : MonoBehaviour
 
     [Header("VFX")]
     [SerializeField] private ParticleSystem _AboveWaterVFX;
+    [SerializeField] private Color _NormalColor;
+    [SerializeField] private Color _CursedColor;
     [SerializeField] private ParticleSystem _UnderWaterVFX;
 
     [Header("Treshold")]
@@ -87,17 +89,11 @@ public class PlayerAppearence : MonoBehaviour
     {
         if (_Position.transform.position.y > _YLowerThreshold)
         {
-            if(!_AboveWaterVFX.isPlaying)
-            {
-                _AboveWaterVFX.Play();
-            }
+            _AboveWaterVFX.startColor = _NormalColor;
         }
         else
         {
-            if (_AboveWaterVFX.isPlaying)
-            {
-                _AboveWaterVFX.Stop();
-            }
+            _AboveWaterVFX.startColor = _CursedColor;
         }
 
 
@@ -129,7 +125,6 @@ public class PlayerAppearence : MonoBehaviour
             {
                 if (_GoFromNormalToCursed)
                 {
-                    Debug.Log("Begin Normal");
                     _NormalSkin.SetActive(true);
                     _CursedSkin.SetActive(true);
 
@@ -150,12 +145,10 @@ public class PlayerAppearence : MonoBehaviour
                         _CursedMat.SetFloat("_Transparency", _StartingCursedTransparency);
 
                         _GoFromNormalToCursed = false;
-                        Debug.Log("Stay Cursed");
                     }
                 }
                 else
                 {
-                    Debug.Log("Begin Cursed");
                     _NormalSkin.SetActive(true);
                     _CursedSkin.SetActive(true);
 
@@ -176,7 +169,6 @@ public class PlayerAppearence : MonoBehaviour
                         _CursedSkin.SetActive(false);
 
                         _GoFromNormalToCursed = true;
-                        Debug.Log("Stay Normal");
                     }
                 }
             }
