@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerAppearence : MonoBehaviour
 {
-    [Header("MainMenu")]
+    [Header("Main Menu")]
     [SerializeField] private bool _IsInMenuScene = false;
     [SerializeField] private bool _GoFromNormalToCursed = true;
     [SerializeField] private float _MaxTimeBetWeenTransition = 5;
@@ -11,6 +11,9 @@ public class PlayerAppearence : MonoBehaviour
     [SerializeField] private float _TransitionCD = 0f;
     private float _NormalTransparency;
     private float _CursedTransparency;
+
+    [Header("NPC")]
+    [SerializeField] private bool _IsNPC = false;
 
     [Header("Skin Reference")]
     [SerializeField] private GameObject _Position;
@@ -34,8 +37,21 @@ public class PlayerAppearence : MonoBehaviour
 
     private void Awake()
     {
-        _NormalMat = _NormalSkin.GetComponent<MeshRenderer>().material;
-        _CursedMat = _CursedSkin.GetComponent<MeshRenderer>().material;
+        if (_IsInMenuScene)
+        {
+            _IsNPC = false;
+        }
+
+        if (_IsNPC)
+        {
+            _NormalMat = _NormalSkin.GetComponent<SkinnedMeshRenderer>().material;
+            _CursedMat = _CursedSkin.GetComponent<SkinnedMeshRenderer>().material;
+        }
+        else
+        {
+            _NormalMat = _NormalSkin.GetComponent<MeshRenderer>().material;
+            _CursedMat = _CursedSkin.GetComponent<MeshRenderer>().material;
+        }
 
         _StartingNormalTransparency = _NormalMat.GetFloat("_Transparency");
         _StartingCursedTransparency = _CursedMat.GetFloat("_Transparency");
@@ -44,12 +60,23 @@ public class PlayerAppearence : MonoBehaviour
     {
         if (_IsInMenuScene)
         {
+            _IsNPC = false;
             _NormalTransparency = _StartingNormalTransparency;
             _CursedTransparency = 0;
             _NormalSkin.SetActive(true);
             _CursedSkin.SetActive(false);
             _GoFromNormalToCursed = true;
             _TransitionTimer = Random.Range(_MinTimeBetWeenTransition, _MaxTimeBetWeenTransition);
+        }
+        else
+        {
+            if (_IsNPC)
+            {
+                _NormalTransparency = _StartingNormalTransparency;
+                _CursedTransparency = 0;
+                _NormalSkin.SetActive(true);
+                _CursedSkin.SetActive(false);
+            }
         }
     }
 
@@ -60,7 +87,11 @@ public class PlayerAppearence : MonoBehaviour
         if (!_IsInMenuScene)
         {
             ActivateCorrectSkin();
-            ActivateCorrectPS();
+
+            if (!_IsNPC)
+            {
+                ActivateCorrectPS();
+            }
         }
     }
 

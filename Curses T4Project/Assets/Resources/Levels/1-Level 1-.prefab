@@ -186,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 188193408025352094, guid: 9e0a77f65b4ea904c92d2da76288c2fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.89
+      value: 33.01
       objectReference: {fileID: 0}
     - target: {fileID: 188193408025352094, guid: 9e0a77f65b4ea904c92d2da76288c2fe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -226,10 +226,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3722039926128180599, guid: 9e0a77f65b4ea904c92d2da76288c2fe, type: 3}
       propertyPath: m_Name
-      value: Port
+      value: Boat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4606974342696302000, guid: 9e0a77f65b4ea904c92d2da76288c2fe, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e0a77f65b4ea904c92d2da76288c2fe, type: 3}

@@ -55,7 +55,6 @@ public class CameraShake : MonoBehaviour
             float x = Mathf.Cos(angle) * _MaxRangeShake;
             float y = Mathf.Sin(angle) * _MaxRangeShake;
             Vector3 NextPosition = new Vector3(_StartPosition.x + x, _StartPosition.y + y, _StartPosition.z);
-            Debug.Log("NextPosition");
 
             gameObject.transform.position = NextPosition;
 
