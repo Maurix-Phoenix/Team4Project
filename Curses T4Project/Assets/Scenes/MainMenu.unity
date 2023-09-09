@@ -10274,6 +10274,7 @@ MonoBehaviour:
   _MinTimeBetWeenTransition: 5
   _TransitionTimer: 0
   _TransitionCD: 0
+  _IsNPC: 0
   _Position: {fileID: 0}
   _NormalSkin: {fileID: 1706834258}
   _CursedSkin: {fileID: 571228766}

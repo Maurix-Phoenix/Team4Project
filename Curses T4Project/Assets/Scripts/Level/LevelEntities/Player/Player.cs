@@ -9,7 +9,6 @@ using static T4P;
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerShoot))]
 [RequireComponent(typeof(PlayerMovement))]
-[RequireComponent(typeof(DamageFlash))]
 
 /// <summary>
 /// Player.cs manages the behaviour of the player and the variables and conditions.
@@ -33,6 +32,9 @@ public class Player : MonoBehaviour, IDamageable
     public bool IsInStartAnimation = true;
     public bool LastDistancePicked = false;
 
+    [Header("Pirates")]
+    [SerializeField] GameObject Pirates;
+
     private Rigidbody _Rb;
 
     private void Awake()
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour, IDamageable
         _Rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
         _Rb.interpolation = RigidbodyInterpolation.Interpolate;
         _Rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        Pirates.SetActive(false);
     }
 
     void Start()
@@ -122,6 +125,11 @@ public class Player : MonoBehaviour, IDamageable
             //MAU - call endlevel (gameover)
             GameManager.Instance.LevelManager.CurrentLevel.EndLevel(Level.EndLevelType.GameOver);
         }
+    }
+
+    public void SpawnPirates()
+    {
+        Pirates.SetActive(true);
     }
 
     public void UpdatePlayerUI()

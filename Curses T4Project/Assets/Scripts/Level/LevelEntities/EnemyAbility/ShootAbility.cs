@@ -11,7 +11,6 @@ using UnityEngine;
 public class ShootAbility : MonoBehaviour
 {
     [SerializeField] private GameObject ProjectilePrefab;
-    [SerializeField] private bool _AlwaysShoot = false;
     [SerializeField] private float _ShootRange = 3.0f;
     [SerializeField] private bool _ShowShootRange = true;
     [SerializeField] private float _TimeBetweenShoot = 2.0f;
@@ -20,6 +19,7 @@ public class ShootAbility : MonoBehaviour
     [SerializeField] private float _MaxDistance = 3.0f;
     [SerializeField][Range(0, 90)] private float _TrajectoryAngle = 15f;
 
+    private bool _AlwaysShoot = false;
     private bool _IsPlayerInRange = false;
     private bool _IsShooting = false;
     private bool _CanShoot = false;
@@ -28,6 +28,7 @@ public class ShootAbility : MonoBehaviour
     private void Start()
     {
         _TimeToShoot = _TimeBetweenShoot;
+        _AlwaysShoot = false;
     }
 
     private void Update()
