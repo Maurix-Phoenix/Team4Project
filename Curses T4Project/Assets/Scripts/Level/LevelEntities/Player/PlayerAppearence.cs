@@ -35,8 +35,15 @@ public class PlayerAppearence : MonoBehaviour
     private float _StartingNormalTransparency;
     private float _StartingCursedTransparency;
 
+    private ParticleSystem.MainModule _AWpsm;
+    private ParticleSystem.MainModule _UWpsm;
+
+
     private void Awake()
     {
+        _AWpsm = _AboveWaterVFX.main;
+        _UWpsm = _UnderWaterVFX.main;
+
         if (_IsInMenuScene)
         {
             _IsNPC = false;
@@ -120,12 +127,12 @@ public class PlayerAppearence : MonoBehaviour
     {
         if (_Position.transform.position.y > _YLowerThreshold)
         {
-            _AboveWaterVFX.startColor = _NormalColor;
+            _AWpsm.startColor = _NormalColor;
             
         }
         else
         {
-            _AboveWaterVFX.startColor = _CursedColor;
+            _AWpsm.startColor = _CursedColor;
         }
 
 

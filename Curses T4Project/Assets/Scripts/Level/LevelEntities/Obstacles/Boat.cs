@@ -41,7 +41,7 @@ public class Boat : LevelEntity
     {
         base.Update();
 
-        if (gameObject.transform.position.x < 0)
+        if (gameObject.transform.position.x < 0 && _player != null)
         {
             _Pirates.SetActive(false);
             if (!_IsPirateMovedOnShip)

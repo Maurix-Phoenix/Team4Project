@@ -35,10 +35,14 @@ public class Cannonball : LevelEntityTemporary
     private Rigidbody _Rb;
     private Player _Player; //MAU
     private EndWall _EndWall; //MAU
+
+    private ParticleSystem.MainModule _tpsm;
     public int CannonballDamage { get { return _CannonballDamage; } }
 
     private void Awake()
     {
+        _tpsm = _Trail.main;
+
         //initialize the rigidbody on the cannonball
         _Rb = GetComponent<Rigidbody>();
         _Rb.freezeRotation = true;
@@ -65,7 +69,7 @@ public class Cannonball : LevelEntityTemporary
             if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
             {
                 gameObject.GetComponent<MeshRenderer>().material = _AboveWaterMaterial;
-                _Trail.startColor = Color.gray;
+                _tpsm.startColor = Color.gray;
             }
         }
         else
@@ -75,7 +79,7 @@ public class Cannonball : LevelEntityTemporary
             if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
             {
                 gameObject.GetComponent<MeshRenderer>().material = _UnderWaterMaterial;
-                _Trail.startColor = _CursedColor;
+                _tpsm.startColor = _CursedColor;
             }
 
         }
@@ -192,14 +196,15 @@ public class Cannonball : LevelEntityTemporary
         {
             IDamageable damageable;
             ParticleSystem ExplosionVFX = Instantiate(_CannonBallExplosion, transform.position, Quaternion.identity);
+            ParticleSystem.MainModule _epsm = ExplosionVFX.main;
 
             if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball") && GameManager.Instance.LevelManager.CurrentLevel.ActualLayer < 0)
             {
-                ExplosionVFX.startColor = _CursedColor;
+                _epsm.startColor = _CursedColor;
             }
             else
             {
-                ExplosionVFX.startColor = Color.white;
+                _epsm.startColor = Color.white;
             }
 
 
