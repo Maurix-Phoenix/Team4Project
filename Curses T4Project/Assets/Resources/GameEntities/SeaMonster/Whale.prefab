@@ -108,7 +108,7 @@ MonoBehaviour:
   MoveSpeed: 0
   MovePickUpToPlayer: 0
   IsStopped: 0
-  _Health: 2
+  _Health: 3
   _IsDead: 0
   _IsSharkPack: 0
   _IsOctopus: 0

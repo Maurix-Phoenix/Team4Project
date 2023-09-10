@@ -467,8 +467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _IsOnMenuScene: 0
-  _Amplitude: 0
-  _Frequency: 0
+  _Amplitude: 1.75
+  _Frequency: 1
 --- !u!1 &2859857423421743793
 GameObject:
   m_ObjectHideFlags: 0

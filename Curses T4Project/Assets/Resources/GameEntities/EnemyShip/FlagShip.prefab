@@ -109,7 +109,7 @@ MonoBehaviour:
   CanDropLoot: 1
   LootList:
   - PickupPrefab: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
-    DropQuantityRange: {x: 0, y: 0}
+    DropQuantityRange: {x: 1, y: 2}
   - PickupPrefab: {fileID: 8138790477708015956, guid: 270e4db85530a7641b5332b529ec9dc8, type: 3}
     DropQuantityRange: {x: 1, y: 3}
   - PickupPrefab: {fileID: 6731371445131291682, guid: 2b3d864f2490bb04caed9f597ba1219c, type: 3}
@@ -142,7 +142,7 @@ MonoBehaviour:
   _MineDropLocation: {fileID: 341680987559047596}
   _IsMineCounted: 0
   _MineToDrop: 10
-  _TimeBetweenDrop: 3
+  _TimeBetweenDrop: 1
 --- !u!114 &7860746198929930071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,13 +150,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2204055857794461172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f56b3f5903282b34dae9d2d066d2a7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
-  _AlwaysShoot: 0
   _ShootRange: 6
   _ShowShootRange: 1
   _TimeBetweenShoot: 2

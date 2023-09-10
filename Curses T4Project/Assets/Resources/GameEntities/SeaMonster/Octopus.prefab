@@ -105,8 +105,8 @@ MonoBehaviour:
   CanDropLoot: 0
   LootList: []
   DropRadius: 0
-  MoveSpeed: 0
-  MovePickUpToPlayer: 0
+  MoveSpeed: 3
+  MovePickUpToPlayer: 1
   IsStopped: 0
   _Health: 1
   _IsDead: 0
