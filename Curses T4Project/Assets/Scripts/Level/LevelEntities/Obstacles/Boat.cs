@@ -6,6 +6,7 @@ public class Boat : LevelEntity
 {
     [Header("Boat Variables")]
     [SerializeField] private float _DropAfterTime = 0f;
+    [SerializeField] private bool _ItemDropped = false;
 
     [Header("Pirate Variables")]
     [SerializeField] private GameObject _Pirates;
@@ -19,6 +20,7 @@ public class Boat : LevelEntity
     protected override void Start()
     {
         base.Start();
+        _ItemDropped = false;
         _Pirates.SetActive(true);
     }
 
@@ -28,12 +30,25 @@ public class Boat : LevelEntity
         if (other.gameObject.GetComponent<Player>() != null)
         {
             _player = other.gameObject;
-            if (_Pirates != null)
+            if (!_ItemDropped)
             {
-                gameObject.GetComponent<PirateAnimator>().DoUrray();
-                GameManager.Instance.AudioManager.PlaySFX(_UrraySFX);
+                _ItemDropped = true;
                 Invoke("DropLoot", _DropAfterTime);
+
+                if (_Pirates != null)
+                {
+                    gameObject.GetComponent<PirateAnimator>().DoUrray();
+                    GameManager.Instance.AudioManager.PlaySFX(_UrraySFX);
+                }
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Player>() != null)
+        {
+            _player = null;
         }
     }
 

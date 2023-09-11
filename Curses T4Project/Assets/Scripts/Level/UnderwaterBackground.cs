@@ -6,7 +6,7 @@ using UnityEngine;
 public class UnderwaterBackground : MonoBehaviour
 {
     [SerializeField] private bool _CanMove = false;
-    [SerializeField] private float _ScrollingSpeed = 0.5f;
+    [SerializeField] private float _ScrollingSpeedModifier = 0.5f;
 
     private Vector3 _RightEdge;
     private Vector3 _LeftEdge;
@@ -95,12 +95,12 @@ public class UnderwaterBackground : MonoBehaviour
     {
         if (_CanMove)
         {
-            float currentSpeed = _ScrollingSpeed;
+            float currentSpeed = 0;
             if( _GM != null)
             {
                 if(!_GM.LevelManager.CurrentLevel.IsInBossBattle && !_GM.LevelManager.CurrentLevel.PlayerHasReachBeach)
                 {
-                    currentSpeed = _ScrollingSpeed + (_GM.LevelManager.CurrentLevel.LevelSpeed / 3);
+                    currentSpeed = _ScrollingSpeedModifier * _GM.LevelManager.CurrentLevel.LevelSpeed;
                 }
                 else
                 {
@@ -108,7 +108,7 @@ public class UnderwaterBackground : MonoBehaviour
                 }
             }
 
-            transform.position += Mathf.Abs(currentSpeed) * Vector3.left * Time.deltaTime;
+            transform.position += currentSpeed * Vector3.left * Time.deltaTime;
             if (transform.position.x < _LeftEdge.x)
             {
                 ResetSpritePosition();

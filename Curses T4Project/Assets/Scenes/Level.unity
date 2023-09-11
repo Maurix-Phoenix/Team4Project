@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CanMove: 0
-  _ScrollingSpeed: -1
+  _ScrollingSpeedModifier: 0.12
 --- !u!212 &427157135
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10335,8 +10335,8 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1115259690}
-  - {fileID: 2129854939}
   - {fileID: 427157133}
+  - {fileID: 2129854939}
   m_Father: {fileID: 147709701}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10513,7 +10513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CanMove: 0
-  _ScrollingSpeed: -1.8
+  _ScrollingSpeedModifier: 0.2
 --- !u!1 &1116330589
 GameObject:
   m_ObjectHideFlags: 0
@@ -15681,7 +15681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CanMove: 0
-  _ScrollingSpeed: 1
+  _ScrollingSpeedModifier: 0.5
 --- !u!212 &1204834026
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16316,7 +16316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CanMove: 0
-  _ScrollingSpeed: 0.5
+  _ScrollingSpeedModifier: 0.5
 --- !u!212 &1784469101
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17037,7 +17037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CanMove: 0
-  _ScrollingSpeed: -0.6
+  _ScrollingSpeedModifier: 0.18
 --- !u!212 &2129854941
 SpriteRenderer:
   m_ObjectHideFlags: 0

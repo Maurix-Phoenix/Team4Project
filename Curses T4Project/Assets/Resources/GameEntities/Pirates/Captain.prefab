@@ -85,7 +85,6 @@ MonoBehaviour:
   _TransitionTimer: 0
   _TransitionCD: 0
   _IsNPC: 1
-  _IsOnShip: 0
   _Position: {fileID: 1488599238940683949}
   _NormalSkin: {fileID: 4674344874603626387}
   _CursedSkin: {fileID: 3230640344460173675}
@@ -96,7 +95,7 @@ MonoBehaviour:
   _CursedColor: {r: 0, g: 0, b: 0, a: 0}
   _UnderWaterVFX: {fileID: 0}
   _YUpperThreshold: -0.5
-  _YLowerThreshold: -5
+  _YLowerThreshold: -2
 --- !u!1 &1844623742604620418
 GameObject:
   m_ObjectHideFlags: 0

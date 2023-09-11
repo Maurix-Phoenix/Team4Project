@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 8042878532907240043}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &582410826736805688
 CapsuleCollider:
@@ -109,14 +109,13 @@ MonoBehaviour:
   MoveSpeed: 0
   MovePickUpToPlayer: 0
   IsStopped: 0
-  PT: {fileID: 0}
   PickupType: 1
   _CoinSFX: {fileID: 8300000, guid: 8339e91673906a847997b7d20bcbd44b, type: 3}
   _CannonballSFX: {fileID: 0}
   _FlagSFX: {fileID: 0}
   _Value: 1
-  _AttractionDistance: 3
-  _AttractionSpeed: 5
+  _AttractionDistance: 1
+  _AttractionSpeed: 100
 --- !u!114 &3797366487408601810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ed9331482fa4f514abfb6158063a00d6, type: 2}
     - target: {fileID: 919132149155446097, guid: 06120e9a8fca1d046b28ec8c7f947252, type: 3}
       propertyPath: m_Name
-      value: Coin_Star
+      value: Mesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
