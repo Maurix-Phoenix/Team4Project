@@ -73,10 +73,12 @@ public class Player : MonoBehaviour, IDamageable
     /// <param name="value">the quantity of the resource to add</param>
     public void AddResource(T4Project.PickupsType resourceType, int value)
     {
+        UILabel.LabelIconStyles iconStyle = new UILabel.LabelIconStyles();
         switch (resourceType)
         {
             case T4Project.PickupsType.Cannonball:
                 {
+                    iconStyle = UILabel.LabelIconStyles.Cannonballs;
                     NOfCannonball += value;
                     if (NOfCannonball < 0)
                     {
@@ -86,6 +88,7 @@ public class Player : MonoBehaviour, IDamageable
                 }
             case T4Project.PickupsType.Doubloon:
                 {
+                    iconStyle = UILabel.LabelIconStyles.Doubloons;
                     NOfDoubloons += value;
                     if (NOfDoubloons < 0)
                     {
@@ -95,10 +98,13 @@ public class Player : MonoBehaviour, IDamageable
                 }
             case T4Project.PickupsType.Flag:
                 {
+                    iconStyle = UILabel.LabelIconStyles.Flags;
                     NOfFlags += value;
                     break;
                 }
         }
+
+        GameManager.Instance.UIManager.CreateUILabel().ShowLabel(iconStyle, $"+{value}",new Vector3(0,0.5f,0), transform, 0.5f, 5f, new Vector3(-1,1,0));
         UpdatePlayerUI();
     }
 

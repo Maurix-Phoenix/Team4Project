@@ -10815,6 +10815,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5769479132734555703, guid: 33615e6e83e226d45bd8765de0894e39, type: 3}
   m_PrefabInstance: {fileID: 4127654339872535819}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1692511524 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2031266340508456356, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+  m_PrefabInstance: {fileID: 2172460196585051378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d14a819ff7073f46b364fc7fe4faaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1706834258
 GameObject:
   m_ObjectHideFlags: 0
@@ -15911,6 +15922,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1692511524}
+    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LevelButtonPlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 2340546982395893428, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LevelPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3210080640228922677, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
       propertyPath: m_SizeDelta.x
       value: -16.998772
@@ -15991,6 +16018,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5636601536938671408, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: LabelPrefab
+      value: 
+      objectReference: {fileID: 4403850789718561554, guid: 9ff51f0bd39b24f469b25d8b7236efbe, type: 3}
     - target: {fileID: 5692121988338602940, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -16013,7 +16044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600694181203464271, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9192446277158006023, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
       propertyPath: m_AnchorMax.x

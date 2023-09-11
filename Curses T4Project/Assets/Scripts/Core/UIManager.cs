@@ -194,6 +194,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
     /// <summary>
     /// Create a World Coordinates UI Label
     /// </summary>
@@ -201,40 +202,12 @@ public class UIManager : MonoBehaviour
     /// <param name="position">the world coords (or parent local)</param>
     /// <param name="parent">the parent object if specified the position will be in Local coords</param>
     /// <param name="lifetime">the lifetime in seconds of the label (0: permanent)</param>
-    public UILabel CreateUILabel(string text, Vector3 position, Transform parent = null, float lifetime = 0)
+    public UILabel CreateUILabel()
     {
         GameObject labelO = Instantiate(LabelPrefab);
         UILabel label = labelO.GetComponentInChildren<UILabel>();
-
-        if (label != null)
-        {
-            label.UpdateLabel(text, position, parent, lifetime);
-        }
-        else
-        {
-            Destroy(labelO.gameObject);
-            T4Debug.Log("[UI MANAGER] UILabel is null, destroying the object.", T4Debug.LogType.Warning);
-        }
-
         return label;
     }
-
-    /// <summary>
-    /// Update the specified UILabel
-    /// </summary>
-    /// <param name="label">the Label to Update</param>
-    /// <param name="text">the text</param>
-    /// <param name="position">the position</param>
-    /// <param name="parent">the parent</param>
-    /// <param name="lifetime">the lifetime</param>
-    public void UpdateUILabel(UILabel label, string text, Vector3 position, Transform parent = null, float lifetime = 0)
-    {
-        if (label != null)
-        {
-            label.UpdateLabel(text, position, parent, lifetime);
-        }
-    }
-
 
     IEnumerator FadeAnimation( float time)
     {
