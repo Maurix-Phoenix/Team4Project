@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94397bff29280ec41a462a67ef96f85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: Flag Ship
   Position: {x: 10, y: 0, z: 0}
   Rotation: {x: -0, y: -0, z: -0, w: 1}
   Scale: {x: 1, y: 1, z: 1}
@@ -126,6 +127,7 @@ MonoBehaviour:
   - {fileID: 6344728302411646818}
   - {fileID: 8212115052269536976}
   - {fileID: 6674744912335447245}
+  LabelStyle: 1
 --- !u!114 &7882734928722052921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
-  _AlwaysShoot: 0
   _ShootRange: 6
   _ShowShootRange: 1
   _TimeBetweenShoot: 2

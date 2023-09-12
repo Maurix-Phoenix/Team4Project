@@ -19,6 +19,8 @@ public class LevelUI : MonoBehaviour
     public TMP_Text CannonballsText;
     public TMP_Text LifesText;
 
+    public Slider DoubloonSlider;
+    public Image DoubloonIcon;
 
     public void LoadFlag()
     {
@@ -62,7 +64,17 @@ public class LevelUI : MonoBehaviour
 
     public void UpdateDoubloonsUI()
     {
+        Player player = GameManager.Instance.LevelManager.Player;
+        Level currentLevel = GameManager.Instance.LevelManager.CurrentLevel;
+
         DoubloonsText.text = GameManager.Instance.LevelManager.Player.NOfDoubloons.ToString();
+
+        if(currentLevel.TotalDoubloons > 0)
+        {
+            DoubloonSlider.value = ((float)player.NOfDoubloons / (float)((currentLevel.TotalDoubloons * 70) / 100));
+            DoubloonIcon.color = new Color(DoubloonSlider.value, DoubloonSlider.value, DoubloonSlider.value, 1);
+        }
+
     }
 
     public void UpdateCannonballsUI()

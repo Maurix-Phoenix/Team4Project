@@ -2,16 +2,20 @@
 //by: MAURIZIO FISCHETTI
 
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UILabel : MonoBehaviour
 {
-
+    public Image DefaultLabel;
     public Image HealthIcon;
     public Image CannonballsIcon;
     public Image DoubloonsIcon;
     public Image FlagIcon;
+
+    public TMP_Text DefaultLabelText;
+    public TMP_Text DefaultLabelIconText;
     public TMP_Text LabelText;
 
     private Transform _Parent = null;
@@ -28,6 +32,7 @@ public class UILabel : MonoBehaviour
     public enum LabelIconStyles
     {
         None,
+        Default,
         Health,
         Cannonballs,
         Doubloons,
@@ -35,7 +40,7 @@ public class UILabel : MonoBehaviour
     }
     public LabelIconStyles LabelStyle;
 
-    private void HideAll()
+    public void HideAll()
     {
         HealthIcon.gameObject.SetActive(false);
         CannonballsIcon.gameObject.SetActive(false);
@@ -54,42 +59,63 @@ public class UILabel : MonoBehaviour
     /// <param name="lifetime">The lifetime of the label. 0: not temporary</param>
     /// <param name="animMovespeed">the speed of animation</param>
     /// <param name="animDir">the animation direction</param>
-    public void ShowLabel(LabelIconStyles ls, string Text, Vector3 relPosition, Transform parent = null, float lifetime = 0, float animMovespeed = 0, Vector3 animDir = new Vector3())
+    public void ShowLabel(LabelIconStyles ls, string Text, Vector3 relPosition,Transform parent = null, float lifetime = 0, float animMovespeed = 0, Vector3 animDir = new Vector3())
     {
         HideAll();
 
         switch (ls)
         {
             case LabelIconStyles.None: { break; }
-            case LabelIconStyles.Health: { HealthIcon.gameObject.SetActive(true); break; }
-            case LabelIconStyles.Cannonballs: { CannonballsIcon.gameObject.SetActive(true); break; }
-            case LabelIconStyles.Doubloons: { DoubloonsIcon.gameObject.SetActive(true); break; }
-            case LabelIconStyles.Flags: { FlagIcon.gameObject.SetActive(true); break; }
+            case LabelIconStyles.Default: { DefaultLabel.gameObject.SetActive(true); LabelText.gameObject.SetActive(false); break; }
+            case LabelIconStyles.Health: { HealthIcon.gameObject.SetActive(true); LabelText.gameObject.SetActive(true); break; }
+            case LabelIconStyles.Cannonballs: { CannonballsIcon.gameObject.SetActive(true);LabelText.gameObject.SetActive(true); break; }
+            case LabelIconStyles.Doubloons: { DoubloonsIcon.gameObject.SetActive(true); LabelText.gameObject.SetActive(true); break; }
+            case LabelIconStyles.Flags: { FlagIcon.gameObject.SetActive(true); LabelText.gameObject.SetActive(true); break; }
         }
         LabelText.text = Text;
+        DefaultLabelIconText.text = LabelText.text;
 
-        if(parent != null)
+        transform.position = relPosition;
+
+        if (parent != null)
         {
-            transform.position = parent.transform.position + relPosition;
-            _Parent = parent;
+
+            if(parent.gameObject.TryGetComponent<LevelEntity>(out LevelEntity le))
+            {
+                DefaultLabelText.text = le.EntityName;
+            }
+            else
+            {
+                DefaultLabelIconText.text = "";
+            }
+
             _Offset = relPosition;
-        }
-        else
-        {
-            transform.position = relPosition;
+            _Parent = parent;
+            transform.SetParent(_Parent);
         }
 
         SetLifetime(lifetime);
         SetAnimation(animMovespeed, animDir);
     }
 
+    public void SetText(string text)
+    {
+        LabelText.text = text;
+        DefaultLabelIconText.text = text;
+    }
+
     /// <summary>
     /// Set the position of the label
     /// </summary>
     /// <param name="pos"></param>
-    public void SetPosition(Vector3 pos)
+    public void SetPosition(Vector3 pos, Transform parent = null)
     {
-        transform.position += pos;
+        if (parent != null)
+        {
+            transform.SetParent(parent);
+            _Parent = parent;
+        }
+        transform.position = pos;
     }
 
     /// <summary>
@@ -142,13 +168,6 @@ public class UILabel : MonoBehaviour
         if (_IsAnimated)
         {
             transform.position += _AnimationDirection.normalized * Time.deltaTime * _Speed;
-        }
-        else
-        {
-            if (_Parent != null)
-            {
-                transform.position = _Parent.position + _Offset;
-            }
         }
     }
 

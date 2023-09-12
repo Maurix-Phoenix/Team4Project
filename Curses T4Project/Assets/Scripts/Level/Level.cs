@@ -21,7 +21,7 @@ public class Level : MonoBehaviour
     [Header("Level Resources")]
     private bool _ResourcesCalculated = false;
     private int _TotalCannonballs = 0;
-    private int _TotalDoubloons = 0;
+    [HideInInspector]public int TotalDoubloons = 0;
     [HideInInspector]public int TotalFlags = 0;
 
     [Header("Level Savings")]
@@ -186,9 +186,9 @@ public class Level : MonoBehaviour
                         LevelData.StarsObtained++;
                     }
 
-                    if(!LevelData.StarDoubloons && _TotalDoubloons > 0)
+                    if(!LevelData.StarDoubloons && TotalDoubloons > 0)
                     {
-                        if (player.NOfDoubloons >= (_TotalDoubloons * 70) / 100)
+                        if (player.NOfDoubloons >= (TotalDoubloons * 70) / 100)
                         {
                             if (!LevelData.StarDoubloons)
                             {
@@ -252,12 +252,12 @@ public class Level : MonoBehaviour
         if(!_ResourcesCalculated)
         {
             _TotalCannonballs = 0;
-            _TotalDoubloons = 0;
+            TotalDoubloons = 0;
             TotalFlags = 0;
             CalculateFlags();
             CalculateDoubloons();
             CalculateCannonballs();
-            T4Debug.Log($"[Level] Started [Resources Cannonballs {_TotalCannonballs} - Flags:{TotalFlags} - TotalDoubloons:{_TotalDoubloons}");
+            T4Debug.Log($"[Level] Started [Resources Cannonballs {_TotalCannonballs} - Flags:{TotalFlags} - TotalDoubloons:{TotalDoubloons}");
             _ResourcesCalculated = true;
         }
     }
@@ -303,7 +303,7 @@ public class Level : MonoBehaviour
             {
                 if (pk.PickupType == T4Project.PickupsType.Doubloon)
                 {
-                    _TotalDoubloons++;
+                    TotalDoubloons++;
                 }
             }
 
@@ -315,7 +315,7 @@ public class Level : MonoBehaviour
                     {
                         if(pk.PickupType == T4Project.PickupsType.Doubloon)
                         {
-                            _TotalDoubloons += loot.DropQuantityRange.x;
+                            TotalDoubloons += loot.DropQuantityRange.x;
                         }
                     }
                 }

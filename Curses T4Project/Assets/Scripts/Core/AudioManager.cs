@@ -26,6 +26,9 @@ public class AudioManager : MonoBehaviour
     public Slider SliderMusic;
     public Slider SliderSFX;
 
+    [SerializeField]private float _SliderAudioIntervail = 1;
+    private float _SliderAudioT;
+
     private void Awake()
     {
         Initialize();
@@ -244,16 +247,33 @@ public class AudioManager : MonoBehaviour
 
     public void SetSliderMusicVolume() 
     { 
-       
        AudioSourceMusic.volume = SliderMusic.value;
        GameManager.Instance.DataManager.GameData.MusicVolume = AudioSourceMusic.volume;
         T4Debug.Log($"[Audio Manager] music volume: {AudioSourceMusic.volume}");
     }
     public void SetSliderSFXSVolume()
     {
+        if(_SliderAudioT <= 0)
+        {
+            PlaySFX("GAME_CoinObtained");
+            _SliderAudioT = _SliderAudioIntervail;
+        }
         AudioSourceSFX.volume = SliderSFX.value;
         GameManager.Instance.DataManager.GameData.SFXVolume = AudioSourceSFX.volume;
         T4Debug.Log($"[Audio Manager] sfx volume: {AudioSourceSFX.volume}");
 
+
+    }
+
+    private void Update()
+    {
+        if(_SliderAudioT > 0)
+        {
+            _SliderAudioT -= Time.unscaledDeltaTime;
+            if( _SliderAudioT <= 0 )
+            {
+                _SliderAudioT = 0;
+            }
+        }
     }
 }

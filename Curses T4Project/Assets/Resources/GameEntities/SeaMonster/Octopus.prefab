@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c03cd6cd16d8b4bbed048e41b386ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: Octopus
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
@@ -118,6 +119,7 @@ MonoBehaviour:
   _DeathAnimationVFX: {fileID: 6192812899557806552}
   _ObjectsToHideOnDeath:
   - {fileID: 3449070969272050712}
+  LabelStyle: 1
 --- !u!114 &2947747371766824184
 MonoBehaviour:
   m_ObjectHideFlags: 0

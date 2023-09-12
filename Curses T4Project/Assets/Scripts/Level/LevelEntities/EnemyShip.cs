@@ -14,7 +14,6 @@ public class EnemyShip : LevelEntity, IDamageable
     [Header("Enemy Ship Stats")]
     [SerializeField] private int _Health = 1;
     [SerializeField] private bool _IsDead = false;
-
     public bool IsDead { get { return _IsDead; } }
 
     [Header("SFX & VFX")]
@@ -22,12 +21,35 @@ public class EnemyShip : LevelEntity, IDamageable
     [SerializeField] private ParticleSystem _DeathAnimationVFX;
     [SerializeField] private List<GameObject> _ObjectsToHideOnDeath;
 
+    [Header("Labels")]
+    private UILabel _HealthLabel;
+    public UILabel.LabelIconStyles LabelStyle;
+
+    protected override void Start()
+    {
+        base.Start();
+        _HealthLabel = GameManager.Instance.UIManager.CreateUILabel();
+        _HealthLabel.ShowLabel(LabelStyle, _Health.ToString(), new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z), transform);
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if(_HealthLabel != null)
+        {
+            _HealthLabel.SetPosition(new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z));
+        }
+    }
+
     public void TakeDamage(int dmg, GameObject damager)
     {
         _Health -= dmg;
+        _HealthLabel.SetText(_Health.ToString());
+
 
         if (_Health <= 0)
         {
+            Destroy(_HealthLabel.gameObject);
             DropLoot();
             GetComponent<BoxCollider>().enabled = false;
             StartCoroutine(DeathAnimation());

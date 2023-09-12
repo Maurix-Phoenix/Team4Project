@@ -5185,6 +5185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c03cd6cd16d8b4bbed048e41b386ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: Shark
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
@@ -5206,6 +5207,7 @@ MonoBehaviour:
   _ObjectsToHideOnDeath:
   - {fileID: 5271163774226407942}
   - {fileID: 3707831555099355715}
+  LabelStyle: 1
 --- !u!114 &5372109750793555346
 MonoBehaviour:
   m_ObjectHideFlags: 0

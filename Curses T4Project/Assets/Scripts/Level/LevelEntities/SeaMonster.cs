@@ -24,16 +24,45 @@ public class SeaMonster : LevelEntity, IDamageable
     [SerializeField] private ParticleSystem _DeathAnimationVFX;
     [SerializeField] private List<GameObject> _ObjectsToHideOnDeath;
 
+    [Header("Labels")]
+    private UILabel _HealthLabel;
+    public UILabel.LabelIconStyles LabelStyle;
+
     public bool IsSharkPack { get { return _IsSharkPack; } }
     public bool IsOctopus { get { return _IsOctopus; } }
     public bool IsDead { get { return _IsDead; } }
 
+    protected override void Start()
+    {
+        base.Start();
+
+        //Health Label
+        if(_Health > 0 && !_IsSharkPack)
+        {
+            _HealthLabel = GameManager.Instance.UIManager.CreateUILabel();
+            _HealthLabel.ShowLabel(LabelStyle, _Health.ToString(), new Vector3(transform.position.x,transform.position.y -0.8f,transform.position.z + 0), transform);
+        }
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if(_HealthLabel != null)
+        {
+            _HealthLabel.SetPosition(new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z));
+        }
+
+    }
+
     public void TakeDamage(int dmg, GameObject damager)
     {
         _Health -= dmg;
+        _HealthLabel.SetText($"{_Health}");
 
         if (_Health <= 0)
         {
+            Destroy(_HealthLabel.gameObject);
             DropLoot();
             GetComponent<BoxCollider>().enabled = false;
             StartCoroutine(DeathAnimation());

@@ -8,6 +8,9 @@ using UnityEngine;
 
 public class LevelEntity : MonoBehaviour
 {
+    [Header("Level Entity Info")]
+    public string EntityName = "";
+
     [Header("Level Entity Transform")]
     [SerializeField] public Vector3 Position;
     [SerializeField] public Quaternion Rotation;
@@ -29,7 +32,6 @@ public class LevelEntity : MonoBehaviour
     [SerializeField] public float MoveSpeed;
     [SerializeField] public bool MovePickUpToPlayer = false;
     private Vector3 Direction;
-
 
     public bool IsStopped = false;
 
