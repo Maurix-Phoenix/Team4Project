@@ -109,7 +109,7 @@ public class Player : MonoBehaviour, IDamageable
                     break;
                 }
         }
-        worldCoord.z = Camera.main.farClipPlane/2;
+        worldCoord.z = Camera.main.farClipPlane/4;
         worldCoord = Camera.main.ScreenToWorldPoint(worldCoord);
         Vector3 animDir = value > 0 ? worldCoord : -worldCoord;
 
