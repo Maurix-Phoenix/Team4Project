@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53327575a9665542a921c4809346e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: 
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
@@ -197,7 +198,7 @@ MonoBehaviour:
   IsStopped: 0
   _Health: 1
   _IsDroppedByFlagShip: 1
-  _GoDownSpeed: 1
+  _GoDownSpeed: 1.5
   ExplosionPrefabVFX: {fileID: 1321841788029400320, guid: d476a7f41b2368c48a862b7b83329f59, type: 3}
   _ExplosionSFX: {fileID: 8300000, guid: 784a54076d59c3f4d9d95ce0d46cd27b, type: 3}
   _PlayerOnlyTrigger: 0

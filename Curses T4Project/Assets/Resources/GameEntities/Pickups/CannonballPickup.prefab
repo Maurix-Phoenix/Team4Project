@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9e56201d1e20843b55974a37d273de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: 
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
@@ -237,7 +238,7 @@ MonoBehaviour:
   _CannonballSFX: {fileID: 8300000, guid: b1814d9b8c235144091198daba9cc2d0, type: 3}
   _FlagSFX: {fileID: 0}
   _Value: 1
-  _AttractionDistance: 1
+  _AttractionDistance: 1.5
   _AttractionSpeed: 100
 --- !u!114 &-2221527217320284194
 MonoBehaviour:
