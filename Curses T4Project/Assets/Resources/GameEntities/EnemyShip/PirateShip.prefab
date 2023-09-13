@@ -4205,7 +4205,7 @@ MonoBehaviour:
   CanDropLoot: 1
   LootList:
   - PickupPrefab: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
-    DropQuantityRange: {x: 0, y: 0}
+    DropQuantityRange: {x: 1, y: 1}
   - PickupPrefab: {fileID: 8138790477708015956, guid: 270e4db85530a7641b5332b529ec9dc8, type: 3}
     DropQuantityRange: {x: 1, y: 3}
   DropRadius: 0.5
@@ -4253,7 +4253,7 @@ MonoBehaviour:
   _HasStolen: 0
   MaxCannonballStealable: 1
   MinCannonballStealable: 1
-  MaxDoubloonsStealable: 1
+  MaxDoubloonsStealable: 3
   MinDoubloonsStealable: 1
 --- !u!114 &9220460903943465194
 MonoBehaviour:
@@ -4272,7 +4272,7 @@ MonoBehaviour:
   _DashSpeedMultiplier: 2
   _RangeToAttack: 1.6
   _ShowAggroRange: 1
-  _AggroRange: 2.5
+  _AggroRange: 8
   _AggroAreaHeight: 4.5
   _AggroAlert: {fileID: 3631328282253666483}
   _DashSFX: {fileID: 8300000, guid: ed791ab9ab03bad419147dfa64e81781, type: 3}

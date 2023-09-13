@@ -4112,7 +4112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94397bff29280ec41a462a67ef96f85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntityName: Normal Ship
   Position: {x: 10, y: 0, z: 0}
   Rotation: {x: -0, y: -0, z: -0, w: 1}
   Scale: {x: 1, y: 1, z: 1}
@@ -4120,9 +4119,9 @@ MonoBehaviour:
   CanDropLoot: 1
   LootList:
   - PickupPrefab: {fileID: 6653397608328699623, guid: 4ea6487530a6acd478a3f6f48c3ba662, type: 3}
-    DropQuantityRange: {x: 0, y: 0}
+    DropQuantityRange: {x: 1, y: 1}
   - PickupPrefab: {fileID: 8138790477708015956, guid: 270e4db85530a7641b5332b529ec9dc8, type: 3}
-    DropQuantityRange: {x: 0, y: 2}
+    DropQuantityRange: {x: 1, y: 2}
   DropRadius: 0.5
   MoveSpeed: 1
   MovePickUpToPlayer: 0
@@ -4134,7 +4133,6 @@ MonoBehaviour:
   _ObjectsToHideOnDeath:
   - {fileID: 919132149155446097}
   - {fileID: 4660475344811749530}
-  LabelStyle: 1
 --- !u!114 &-6409954202646009245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4148,12 +4146,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
-  _ShootRange: 6
+  _ShootRange: 15
   _ShowShootRange: 1
-  _TimeBetweenShoot: 2
+  _TimeBetweenShoot: 1
   _CannonballDamage: 1
-  _CannonballSpeed: 8
-  _MaxDistance: 6
+  _CannonballSpeed: 10
+  _MaxDistance: 6.7
   _TrajectoryAngle: 15
 --- !u!114 &-6551179027964353909
 MonoBehaviour:

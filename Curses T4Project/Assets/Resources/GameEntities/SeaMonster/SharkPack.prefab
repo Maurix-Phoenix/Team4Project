@@ -6220,7 +6220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CollisionDamage: 10
   _CanAttack: 1
-  _CanInstantKill: 0
+  _CanInstantKill: 1
 --- !u!114 &225830193542186060
 MonoBehaviour:
   m_ObjectHideFlags: 0
