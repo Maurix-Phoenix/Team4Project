@@ -125,14 +125,46 @@ public class PlayerAppearence : MonoBehaviour
 
     private void ActivateCorrectPS()
     {
-        if (_Position.transform.position.y > _YLowerThreshold)
+        if (!GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
         {
-            _AWpsm.startColor = _NormalColor;
+            if (!GameManager.Instance.LevelManager.CurrentLevel.IsLevelEnded)
+            {
+                if (_Position.transform.position.x <= GameManager.Instance.LevelManager.CurrentLevel.XIntermediatePosition * 0.75)
+                {
+                    if (_Position.transform.position.y > _YLowerThreshold)
+                    {
+                        _AWpsm.startColor = _NormalColor;
             
+                    }
+                    else
+                    {
+                        _AWpsm.startColor = _CursedColor;
+                    }
+                }
+                else
+                {
+                    _AboveWaterVFX.Stop();
+                }
+            }
+            else
+            {
+                if (!_AboveWaterVFX.isPlaying)
+                {
+                    _AboveWaterVFX.Play();
+                }
+            }
         }
         else
         {
-            _AWpsm.startColor = _CursedColor;
+            if (_Position.transform.position.y > _YLowerThreshold)
+            {
+                _AWpsm.startColor = _NormalColor;
+
+            }
+            else
+            {
+                _AWpsm.startColor = _CursedColor;
+            }
         }
 
 
