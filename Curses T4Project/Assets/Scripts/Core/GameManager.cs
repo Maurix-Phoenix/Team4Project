@@ -104,9 +104,12 @@ public class GameManager : MonoBehaviour
     private void StatePlaying()
     {
         UIManager.HideUICanvas("PauseMenuUI");
+
         if(CurrentScene.name == "Level")
         {
-            if(UIManager.ToggleButtonUI.IsToggled)
+            UIManager.ShowAllUILabes();
+
+            if (UIManager.ToggleButtonUI.IsToggled)
             {
                 UIManager.ToggleButtonUI.ToggleElements();
             }
@@ -122,6 +125,7 @@ public class GameManager : MonoBehaviour
     }
     private void StatePause()
     {
+        UIManager.HideAllUILabels();
         UIManager.ShowUICanvasOnly("PauseMenuUI");
         AudioManager.AudioSourceMusic.Pause();
         Time.timeScale = 0;

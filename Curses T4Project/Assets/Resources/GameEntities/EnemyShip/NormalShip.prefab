@@ -4112,6 +4112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94397bff29280ec41a462a67ef96f85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: Ship
   Position: {x: 10, y: 0, z: 0}
   Rotation: {x: -0, y: -0, z: -0, w: 1}
   Scale: {x: 1, y: 1, z: 1}
@@ -4133,6 +4134,7 @@ MonoBehaviour:
   _ObjectsToHideOnDeath:
   - {fileID: 919132149155446097}
   - {fileID: 4660475344811749530}
+  LabelStyle: 1
 --- !u!114 &-6409954202646009245
 MonoBehaviour:
   m_ObjectHideFlags: 0

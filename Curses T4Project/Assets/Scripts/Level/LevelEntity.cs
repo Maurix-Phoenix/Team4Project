@@ -104,7 +104,7 @@ public class LevelEntity : MonoBehaviour
         }
     }
 
-    protected void DropLoot()
+    protected void DropLoot(float multDist = 1f)
     {
         if(CanDropLoot)
         {
@@ -119,7 +119,8 @@ public class LevelEntity : MonoBehaviour
                         spawnPos.y = 0;
                     }
                     
-                    Instantiate(loot.PickupPrefab,spawnPos,Quaternion.identity);
+                    Pickup pk = Instantiate(loot.PickupPrefab,spawnPos,Quaternion.identity).GetComponent<Pickup>();
+                    pk.AttractionDistance *= multDist;
                 }
             }
         }

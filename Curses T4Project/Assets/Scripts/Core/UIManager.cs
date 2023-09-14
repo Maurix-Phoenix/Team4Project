@@ -4,8 +4,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using static T4P;
 /// <summary>
 /// [UI Manager]  manages, show/hide the UI
@@ -20,7 +22,8 @@ public class UIManager : MonoBehaviour
 
     public CanvasGroup CanvasGroup { get; private set; }
     public List<Canvas> UICanvasList;
-    public List<TMP_Text> UITextList = new List<TMP_Text>();
+    public List<UILabel> UILabelList;
+
     public LevelPanel LevelPanelSelection;
     public FlagCollection FlagsCollection;
     public LevelUI LevelUI;
@@ -56,24 +59,26 @@ public class UIManager : MonoBehaviour
                 UICanvasList.Add(c);
             }
         }
-
-        //Initialize the UITexts with the texts child of UIContainer
-        foreach (TMP_Text tmpT in UIContainer.GetComponentsInChildren<TMP_Text>(includeInactive: true))
-        {
-            if (tmpT != null && !UITextList.Contains(tmpT))
-            {
-                UITextList.Add(tmpT);
-            }
-        }
     }
 
     private void OnEnable()
     {
         GameManager.Instance.EventManager.LevelStart += OnLevelStart;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     private void OnDisable()
     {
         GameManager.Instance.EventManager.LevelStart -= OnLevelStart;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name == "Level")
+        {
+            LevelUI.LoadFlag();
+            LevelUI.UpdateLevelUI();
+        }
     }
 
     private void OnLevelStart()
@@ -96,22 +101,6 @@ public class UIManager : MonoBehaviour
             }
         }
         T4Debug.Log($"[UI Manager] cannot find any UI Canvas named {uiCanvasName} in the UICanvas list!");
-        return null;
-    }
-
-
-    //DELETE THIS
-    private TMP_Text GetUIText(string uiTextName)
-    {
-        //Get by the name of the text inside UICanvas list.
-        for (int i = 0; i < UITextList.Count; i++)
-        {
-            if (UITextList[i] != null && UITextList[i].name == uiTextName)
-            {
-                return UITextList[i];
-            }
-        }
-        T4Debug.Log($"[UI Manager] cannot find any UI Text named {uiTextName} in the UIText list!");
         return null;
     }
 
@@ -206,7 +195,24 @@ public class UIManager : MonoBehaviour
     {
         GameObject labelO = Instantiate(LabelPrefab);
         UILabel label = labelO.GetComponentInChildren<UILabel>();
+        UILabelList.Add(label);
         return label;
+    }
+
+    public void HideAllUILabels()
+    {
+        foreach(UILabel obj in UILabelList)
+        {
+            obj.gameObject.SetActive(false);
+        }
+    }
+
+    public void ShowAllUILabes()
+    {
+        foreach (UILabel obj in UILabelList)
+        {
+            obj.gameObject.SetActive(true);
+        }
     }
 
     IEnumerator FadeAnimation( float time)

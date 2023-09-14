@@ -59,7 +59,9 @@ public class LevelUI : MonoBehaviour
 
     public void UpdateLevelLifesUI()
     {
-        LifesText.text = GameManager.Instance.LevelManager.Player.Health.ToString();
+        Player player = GameManager.Instance.LevelManager.Player;
+
+        LifesText.text = player ? player.Health.ToString() : "0";
     }
 
     public void UpdateDoubloonsUI()
@@ -67,19 +69,28 @@ public class LevelUI : MonoBehaviour
         Player player = GameManager.Instance.LevelManager.Player;
         Level currentLevel = GameManager.Instance.LevelManager.CurrentLevel;
 
-        DoubloonsText.text = GameManager.Instance.LevelManager.Player.NOfDoubloons.ToString();
-
-        if(currentLevel.TotalDoubloons > 0)
+        if(player)
         {
-            DoubloonSlider.value = ((float)player.NOfDoubloons / (float)((currentLevel.TotalDoubloons * 70) / 100));
-            DoubloonIcon.color = new Color(DoubloonSlider.value, DoubloonSlider.value, DoubloonSlider.value, 1);
+            DoubloonsText.text = player.NOfDoubloons.ToString();
+            if (currentLevel.TotalDoubloons > 0)
+            {
+                DoubloonSlider.value = ((float)player.NOfDoubloons / (float)((currentLevel.TotalDoubloons * 70) / 100));
+            }
         }
+        else
+        {
+            DoubloonsText.text = "0";
+            DoubloonSlider.value = 0;
+        }
+        DoubloonIcon.color = new Color(DoubloonSlider.value, DoubloonSlider.value, DoubloonSlider.value, 1);
+
 
     }
 
     public void UpdateCannonballsUI()
     {
-        CannonballsText.text = GameManager.Instance.LevelManager.Player.NOfCannonball.ToString();
+        Player player = GameManager.Instance.LevelManager.Player;
+        CannonballsText.text = player ? player.NOfCannonball.ToString() : "0";
     }
 
     public void UpdateLevelUI()

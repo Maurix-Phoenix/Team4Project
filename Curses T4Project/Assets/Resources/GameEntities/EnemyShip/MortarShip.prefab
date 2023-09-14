@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94397bff29280ec41a462a67ef96f85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: Mortar Ship
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: -0, y: -0, z: -0, w: 1}
   Scale: {x: 0.8, y: 0.8, z: 0.8}
@@ -121,6 +122,7 @@ MonoBehaviour:
   _ObjectsToHideOnDeath:
   - {fileID: 7324822378052197222}
   - {fileID: 6616437478419769803}
+  LabelStyle: 1
 --- !u!114 &-1548605415053829792
 MonoBehaviour:
   m_ObjectHideFlags: 0

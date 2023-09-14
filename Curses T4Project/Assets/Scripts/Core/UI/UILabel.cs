@@ -171,6 +171,12 @@ public class UILabel : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        UIManager UIM = GameManager.Instance.UIManager;
+        UIM.UILabelList.Remove(this);
+    }
+
 
 
 }

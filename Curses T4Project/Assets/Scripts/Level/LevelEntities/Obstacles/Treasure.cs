@@ -8,7 +8,6 @@ public class Treasure : LevelEntity, IDamageable
     [Header("Treasure Stats")]
     [SerializeField] private bool _IsOpened;
     [SerializeField] private AudioClip _OpenSFX;
-
     private Animator animator;
 
     private void Awake()
@@ -40,7 +39,7 @@ public class Treasure : LevelEntity, IDamageable
         GameManager.Instance.AudioManager.PlaySFX(_OpenSFX);
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        DropLoot();
+        DropLoot(1.5f);
         yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
     }

@@ -109,11 +109,11 @@ public class Player : MonoBehaviour, IDamageable
                     break;
                 }
         }
-        worldCoord.z = Camera.main.farClipPlane/4;
+        worldCoord.z = Camera.main.farClipPlane;
         worldCoord = Camera.main.ScreenToWorldPoint(worldCoord);
         Vector3 animDir = value > 0 ? worldCoord : -worldCoord;
 
-        GameManager.Instance.UIManager.CreateUILabel().ShowLabel(iconStyle, $"+{value}",new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), null, 1f, 30f, animDir);
+        GameManager.Instance.UIManager.CreateUILabel().ShowLabel(iconStyle, $"+{value}",new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), null, 3f, 100f, animDir);
         UpdatePlayerUI();
     }
 

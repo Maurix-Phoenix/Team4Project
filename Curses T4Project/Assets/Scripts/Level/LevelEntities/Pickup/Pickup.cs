@@ -13,7 +13,7 @@ public class Pickup : LevelEntity
 
     [Header("Variables")]
     [SerializeField] private int _Value = 1;
-    [SerializeField] private float _AttractionDistance = 3;
+    public float AttractionDistance = 3;
     [SerializeField] private float _AttractionSpeed = 10.0f;
 
 
@@ -30,7 +30,7 @@ public class Pickup : LevelEntity
     protected override void Update()
     {
         base.Update();
-        if (!MovePickUpToPlayer && Vector3.Distance(GameManager.Instance.LevelManager.Player.transform.position, transform.position) < _AttractionDistance)
+        if (!MovePickUpToPlayer && Vector3.Distance(GameManager.Instance.LevelManager.Player.transform.position, transform.position) < AttractionDistance)
         {
             MovePickUpToPlayer = true;
             MoveSpeed = _AttractionSpeed;
@@ -70,6 +70,6 @@ public class Pickup : LevelEntity
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, _AttractionDistance);
+        Gizmos.DrawWireSphere(transform.position, AttractionDistance);
     }
 }
