@@ -19,7 +19,7 @@ public class CinematicUI : MonoBehaviour
     [SerializeField] private float _ChangeTextureSpeed = 0.8f;
     [SerializeField] private GameObject _CaptainTexture;
     [SerializeField] private List<Sprite> _CaptainImages;
-    [SerializeField] private float _startDistance = 100;
+    [SerializeField] private float _Distance = 100;
     [SerializeField] private float _ChangePositionSpeed = 0.8f;
     private bool _CaptainInPosition = false;
 
@@ -40,6 +40,11 @@ public class CinematicUI : MonoBehaviour
     private void Start()
     {
         ResetValue();
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void OnEnable()
@@ -67,6 +72,13 @@ public class CinematicUI : MonoBehaviour
         StartCoroutine(ShowCutsceneUI());
     }
 
+    public void DisableAll()
+    {
+        StartCoroutine(HideDialoguePanel());
+        StartCoroutine(HideDialogueText());
+        StartCoroutine(HideCaptain());
+        StartCoroutine(HideCutsceneUI());
+    }
     #region Cutscene
     private void ResetBlackBar()
     {
@@ -101,7 +113,7 @@ public class CinematicUI : MonoBehaviour
         _BottomBar.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
 
         StartCoroutine(ShowCaptain());
-        StartCoroutine(MoveCaptain(_startDistance));
+        StartCoroutine(MoveCaptain(_Distance));
         StartCoroutine(ShowDialoguePanel());
     }
     private IEnumerator HideCutsceneUI()
@@ -136,12 +148,10 @@ public class CinematicUI : MonoBehaviour
     {
         _NextDialogueButton[_DialogueStringIndex].gameObject.SetActive(true);
     }
-
     public void ActivateDeactivePanelButton()
     {
         if (_DialoguePanel.GetComponent<Image>().color.a > 0.5)
         {
-            CancelInvoke("EnableCorrectButton");
             StartCoroutine(HideDialoguePanel());
         }
         else
@@ -149,7 +159,6 @@ public class CinematicUI : MonoBehaviour
             StartCoroutine(ShowDialoguePanel());
         }
     }
-
     private IEnumerator ShowDialoguePanel()
     {
         float localAlpha = 0;
@@ -169,6 +178,7 @@ public class CinematicUI : MonoBehaviour
     }
     private IEnumerator HideDialoguePanel()
     {
+        CancelInvoke("EnableCorrectButton");
         float localAlpha = 1;
         while (localAlpha >= 0)
         {
@@ -183,12 +193,13 @@ public class CinematicUI : MonoBehaviour
     }
     #endregion
 
+
     #region DialogueText
-    public void NextDialogButton()
+    public void NextDialogButton(bool SpawnNextDialogue)
     {
-        StartCoroutine(DialogueSwitch());
+        StartCoroutine(DialogueSwitch(SpawnNextDialogue));
     }
-    private IEnumerator DialogueSwitch()
+    private IEnumerator DialogueSwitch(bool SpawnNextDialogue)
     {
         _NextDialogueButton[_DialogueStringIndex].gameObject.SetActive(false);
 
@@ -206,27 +217,27 @@ public class CinematicUI : MonoBehaviour
         _DialogueStringIndex++;
         _DialogueText.text = _DialogueString[_DialogueStringIndex];
 
-        localAlpha = 0;
-        while (localAlpha <= 1)
+        if (SpawnNextDialogue)
         {
-            if (_CaptainInPosition)
+            localAlpha = 0;
+            while (localAlpha <= 1)
             {
-                localAlpha += ((Time.deltaTime * _TransitionTextSpeed));
+                if (_CaptainInPosition)
+                {
+                    localAlpha += ((Time.deltaTime * _TransitionTextSpeed));
 
-                _DialogueText.color = new Color(1, 1, 1, localAlpha);
+                    _DialogueText.color = new Color(1, 1, 1, localAlpha);
+                }
+                yield return null;
             }
-            yield return null;
+
+            _DialogueText.color = new Color(1, 1, 1, 1);
+            Invoke("EnableCorrectButton", _ButtonTimerSpawn);
         }
-
-        _DialogueText.color = new Color(1, 1, 1, 1);
-
-        Invoke("EnableCorrectButton", _ButtonTimerSpawn);
     }
-
     private IEnumerator ShowDialogueText()
     {
         _DialogueText.text = _DialogueString[_DialogueStringIndex];
-        Debug.Log(_DialogueText.text.ToString());
         float localAlpha = 0;
         while (localAlpha <= 1)
         {
@@ -259,25 +270,25 @@ public class CinematicUI : MonoBehaviour
     }
     #endregion
 
+
     #region Captain
-    /// <summary>
-    /// End the Level with the given outcome
-    /// </summary>
-    /// <param name="_distance"> positive go right, negative go left</param>
-
-    public void ChangeCaptainPosition(float _distance)
+    public void ChangeCaptainPosition(float newDistance)
     {
-        StartCoroutine(MoveCaptain(_distance));
+        _Distance = newDistance;
+        StartCoroutine(MoveCaptain(_Distance));
     }
-
-    private IEnumerator MoveCaptain(float _nextDistance)
+    public void ChangeCaptainTexture(int nextCaptainImageIndex)
+    {
+        StartCoroutine(ChangeTexture(nextCaptainImageIndex));
+    }
+    private IEnumerator MoveCaptain(float newDistance)
     {
         float traveledDistance = 0;
         _CaptainInPosition = false;
 
-        if (_nextDistance > 0)
+        if (newDistance > 0)
         {
-            while (traveledDistance < Mathf.Abs(_nextDistance))
+            while (traveledDistance < Mathf.Abs(newDistance))
             {
                 traveledDistance += Time.deltaTime * _ChangePositionSpeed;
                 _CaptainTexture.GetComponent<RectTransform>().position = new Vector3(_CaptainTexture.GetComponent<RectTransform>().position.x + Time.deltaTime * _ChangePositionSpeed, 540, 0);
@@ -287,7 +298,7 @@ public class CinematicUI : MonoBehaviour
         }
         else
         {
-            while (traveledDistance < Mathf.Abs(_nextDistance))
+            while (traveledDistance < Mathf.Abs(newDistance))
             {
                 traveledDistance += Time.deltaTime * _ChangePositionSpeed;
                 _CaptainTexture.GetComponent<RectTransform>().position = new Vector3(_CaptainTexture.GetComponent<RectTransform>().position.x - Time.deltaTime * _ChangePositionSpeed, 540, 0);
@@ -295,6 +306,7 @@ public class CinematicUI : MonoBehaviour
             }
             _CaptainInPosition = true;
         }
+        StartCoroutine(ShowDialoguePanel());
     }
     private IEnumerator ShowCaptain()
     {
@@ -324,25 +336,25 @@ public class CinematicUI : MonoBehaviour
 
         _CaptainTexture.GetComponent<Image>().color = new Color(1, 1, 1, 0);
     }
-    private IEnumerator ChangeCaptainTexture(int _nextCaptainImageIndex)
+    private IEnumerator ChangeTexture(int nextCaptainImageIndex)
     {
         if (_CaptainTexture.GetComponent<Image>().color.a == 1)
         {
             float localAlpha = 1;
             while (localAlpha >= 0)
             {
-                localAlpha -= ((Time.deltaTime * _TransitionPanelSpeed));
+                localAlpha -= ((Time.deltaTime * _ChangeTextureSpeed));
 
                 _CaptainTexture.GetComponent<Image>().color = new Color(1, 1, 1, localAlpha);
 
                 yield return null;
             }
 
-            _CaptainTexture.GetComponent<Image>().sprite = _CaptainImages[_nextCaptainImageIndex];
+            _CaptainTexture.GetComponent<Image>().sprite = _CaptainImages[nextCaptainImageIndex];
 
             while (localAlpha <= 1)
             {
-                localAlpha += ((Time.deltaTime * _TransitionPanelSpeed));
+                localAlpha += ((Time.deltaTime * _ChangeTextureSpeed));
 
                 _CaptainTexture.GetComponent<Image>().color = new Color(1, 1, 1, localAlpha);
 

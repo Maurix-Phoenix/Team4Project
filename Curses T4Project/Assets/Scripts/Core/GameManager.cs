@@ -202,7 +202,6 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                UIManager.CinematicUI.gameObject.SetActive(false);
                 UIManager.ShowUICanvasOnly("LevelUI");
             }
 

@@ -2177,7 +2177,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.9803922, g: 0.73333335, b: 0.37647063, a: 1}
     m_HighlightedColor: {r: 0.0028034954, g: 0.5943396, b: 0.41144916, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.003921569, g: 0.59607846, b: 0.41176474, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
@@ -2198,9 +2198,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4437267958501690871}
+      - m_Target: {fileID: 8621398164173695180}
         m_TargetAssemblyTypeName: CinematicUI, Assembly-CSharp
-        m_MethodName: NextDialogButton
+        m_MethodName: DisableAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11231,7 +11231,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.9803922, g: 0.73333335, b: 0.37647063, a: 1}
     m_HighlightedColor: {r: 0.0028034954, g: 0.5943396, b: 0.41144916, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.003921569, g: 0.59607846, b: 0.41176474, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
@@ -11252,14 +11252,50 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4437267958501690871}
+      - m_Target: {fileID: 8621398164173695180}
         m_TargetAssemblyTypeName: CinematicUI, Assembly-CSharp
         m_MethodName: NextDialogButton
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8621398164173695180}
+        m_TargetAssemblyTypeName: CinematicUI, Assembly-CSharp
+        m_MethodName: ActivateDeactivePanelButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8621398164173695180}
+        m_TargetAssemblyTypeName: CinematicUI, Assembly-CSharp
+        m_MethodName: ChangeCaptainPosition
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -100
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8621398164173695180}
+        m_TargetAssemblyTypeName: CinematicUI, Assembly-CSharp
+        m_MethodName: ChangeCaptainTexture
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -13145,7 +13181,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.9803922, g: 0.73333335, b: 0.37647063, a: 1}
     m_HighlightedColor: {r: 0.0028034954, g: 0.5943396, b: 0.41144916, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.003921569, g: 0.59607846, b: 0.41176474, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
@@ -13166,41 +13202,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4437267958501690871}
-        m_TargetAssemblyTypeName: CinematicUI, Assembly-CSharp
-        m_MethodName: ChangeCaptainPosition
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: -50
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4437267958501690871}
+      - m_Target: {fileID: 8621398164173695180}
         m_TargetAssemblyTypeName: CinematicUI, Assembly-CSharp
         m_MethodName: NextDialogButton
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4437267958501690871}
-        m_TargetAssemblyTypeName: CinematicUI, Assembly-CSharp
-        m_MethodName: ActivateDeactivePanelButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &6498361812052958590
 GameObject:
@@ -15211,14 +15223,14 @@ GameObject:
   - component: {fileID: 15691893154538366}
   - component: {fileID: 4715586796379575499}
   - component: {fileID: 4345385925848871454}
-  - component: {fileID: 4437267958501690871}
+  - component: {fileID: 8621398164173695180}
   m_Layer: 5
   m_Name: CinematicUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3278376162882787062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15304,7 +15316,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4437267958501690871
+--- !u!114 &8621398164173695180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15321,14 +15333,14 @@ MonoBehaviour:
   _BottomBar: {fileID: 2942655641685132345}
   _TransitionSpeedModifier: 0.8
   _PanelTransparency: 0.8
-  _ChangeTextureSpeed: 0.8
+  _ChangeTextureSpeed: 1.5
   _CaptainTexture: {fileID: 2661337989093131905}
   _CaptainImages:
   - {fileID: 21300000, guid: b985dfc292b8d524f9592f76349c6adc, type: 3}
   - {fileID: 21300000, guid: a92cd50fdac73e04892cc0d57453a402, type: 3}
-  _startDistance: 50
+  _Distance: 100
   _ChangePositionSpeed: 100
-  _ButtonTimerSpawn: 1
+  _ButtonTimerSpawn: 0.5
   _NextDialogueButton:
   - {fileID: 6602111322193357362}
   - {fileID: 537718219463898854}
@@ -15340,7 +15352,7 @@ MonoBehaviour:
   _DialogueText: {fileID: 4885970999917793709}
   _DialogueStringIndex: 0
   _DialogueString:
-  - <color=black>It is Time!
+  - <color=black>It's Time!
   - '<color=black>After 10 years...
 
     <color=black>I can finally
@@ -18240,7 +18252,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.9803922, g: 0.73333335, b: 0.37647063, a: 1}
     m_HighlightedColor: {r: 0.0028034954, g: 0.5943396, b: 0.41144916, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.003921569, g: 0.59607846, b: 0.41176474, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
@@ -18261,17 +18273,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4437267958501690871}
+      - m_Target: {fileID: 8621398164173695180}
         m_TargetAssemblyTypeName: CinematicUI, Assembly-CSharp
         m_MethodName: NextDialogButton
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &8782163910535417397
 GameObject:
@@ -19157,7 +19169,7 @@ MonoBehaviour:
   LevelUI: {fileID: 2465663344459488184}
   StageCompleteUI: {fileID: 6902547835119850237}
   TutorialUI: {fileID: 122679229145787157}
-  CinematicUI: {fileID: 4437267958501690871}
+  CinematicUI: {fileID: 8621398164173695180}
   ToggleButtonUI: {fileID: 5430885100472669928}
   LabelPrefab: {fileID: 4403850789718561554, guid: 9ff51f0bd39b24f469b25d8b7236efbe, type: 3}
 --- !u!1 &9004074325196629449
