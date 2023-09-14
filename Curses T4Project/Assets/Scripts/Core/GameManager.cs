@@ -195,7 +195,17 @@ public class GameManager : MonoBehaviour
         if(scene.name == "Level")
         {
             UIManager.HideAllUICanvas();
-            UIManager.ShowUICanvasOnly("LevelUI");
+
+            if (LevelManager.CurrentLevel.IsTutorial)
+            {
+                UIManager.CinematicUI.gameObject.SetActive(true);
+            }
+            else
+            {
+                UIManager.CinematicUI.gameObject.SetActive(false);
+                UIManager.ShowUICanvasOnly("LevelUI");
+            }
+
             LevelManager.LoadLevel(LevelManager.LevelToLoad);
 
             UIManager.StageCompleteUI.UpdateStageCompleteUI();

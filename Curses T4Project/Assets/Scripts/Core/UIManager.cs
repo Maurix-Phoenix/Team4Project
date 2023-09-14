@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     public LevelUI LevelUI;
     public StageCompleteUI StageCompleteUI;
     public TutorialUI TutorialUI;
+    public CinematicUI CinematicUI;
     public ToggleButtonUI ToggleButtonUI;
     public GameObject LabelPrefab;
 
@@ -33,6 +34,7 @@ public class UIManager : MonoBehaviour
     {
         Initialize();
     }
+
     private bool Initialize()
     {
         UIContainer = transform.Find("UI").gameObject;
@@ -221,9 +223,6 @@ public class UIManager : MonoBehaviour
             CanvasGroup.alpha = Mathf.Lerp(0, 1, elapsedT / time);
             yield return null;
         }
-
         CanvasGroup.alpha = 1;
     }
-
-
 }
