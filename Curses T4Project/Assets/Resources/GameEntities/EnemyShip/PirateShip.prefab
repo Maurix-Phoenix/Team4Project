@@ -4248,7 +4248,7 @@ MonoBehaviour:
   _StealSFX: {fileID: 8300000, guid: 2144122222c28184aa76b8ca2e5a4d4b, type: 3}
   ResourcesStealed: 1
   _HasStolen: 0
-  MaxCannonballStealable: 1
+  MaxCannonballStealable: 2
   MinCannonballStealable: 1
   MaxDoubloonsStealable: 3
   MinDoubloonsStealable: 1
