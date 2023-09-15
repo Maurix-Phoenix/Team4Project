@@ -15106,7 +15106,7 @@ Transform:
   - {fileID: 7085888653331519896}
   - {fileID: 8012173864651049888}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8856630612249391264
 Rigidbody:
@@ -15147,6 +15147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1c887253235ee458b0449411bf3847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: 
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
@@ -15171,8 +15172,10 @@ MonoBehaviour:
   _Health: 3
   _CanShoot: 0
   _EndWallIsPositionated: 0
+  _CannonChosen: 0
   _CannonActiveToShoot: {fileID: 0}
   _CannonballDamage: 2
+  _CannonballScale: 1.5
   _MaxDistance: 10
   _ShootSpeed: 10
   _TrajectoryAngle: 20

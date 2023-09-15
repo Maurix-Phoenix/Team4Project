@@ -34,6 +34,7 @@ public class LevelUI : MonoBehaviour
         }
 
         FlagCover.fillAmount = currentLevel.LevelData.FlagObtained ? 0 : 1;
+        Flag.fillAmount = currentLevel.LevelData.FlagObtained ? 1 : 0;
     }
 
     public void UpdateLevelFlagUI()

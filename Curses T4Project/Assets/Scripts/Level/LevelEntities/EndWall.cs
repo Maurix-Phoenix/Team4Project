@@ -37,6 +37,7 @@ public class EndWall : LevelEntity, IDamageable
 
     [Header("Cannonball Variables")]
     [SerializeField] private int _CannonballDamage = 1;
+    [SerializeField] private float _CannonballScale = 2;
 
     [Header("Shoot Variables")]
     [Tooltip("Base Value 10")][SerializeField] private float _MaxDistance = 10f;
@@ -168,6 +169,7 @@ public class EndWall : LevelEntity, IDamageable
             _CanShoot = false;
             _NOfCannonball--;
             GameObject _LaunchedCannondBall = Instantiate(_CannonballPrefab, _FirePos.position, Quaternion.identity);
+            _LaunchedCannondBall.gameObject.transform.localScale = Vector3.one * _CannonballScale;
             _LaunchedCannondBall.GetComponent<Cannonball>().ShootCannonball(180f - _TrajectoryAngle, _ShootSpeed, _MaxDistance, _CannonballDamage);
         }
     }
