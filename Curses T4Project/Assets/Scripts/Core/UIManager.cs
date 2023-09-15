@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
     public ToggleButtonUI ToggleButtonUI;
     public GameObject LabelPrefab;
 
+    public Coroutine FadeAnimationCR = null; 
     private void Awake()
     {
         Initialize();
@@ -130,9 +131,9 @@ public class UIManager : MonoBehaviour
         GameObject uiC = GetUICanvas(canvasName);
         if (uiC != null)
         {
-            if(isAnimated)
+            if(isAnimated && canvasName != "LevelUI")
             {
-                StartCoroutine(FadeAnimation(_FadeAnimationTime));
+               FadeAnimationCR = StartCoroutine(FadeAnimation(_FadeAnimationTime));
             }
             uiC.SetActive(true);
             

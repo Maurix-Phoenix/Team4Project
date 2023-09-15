@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PirateAnimator:
-  - {fileID: 0}
+  - {fileID: 365656353925418116}
   - {fileID: 2983657467814704203}
   - {fileID: 1666783878372013345}
   - {fileID: 4276903658553708014}
@@ -308,7 +308,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1730704100770685201, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_Name
-      value: Officer (1)
+      value: Officer 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846162235268506546, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
+      propertyPath: m_Name
+      value: SkeletonAnim1
       objectReference: {fileID: 0}
     - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_RootOrder
@@ -358,6 +362,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7375452704122310297, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
+      propertyPath: m_Name
+      value: OfficerAnim1
+      objectReference: {fileID: 0}
     - target: {fileID: 8593642971182349829, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -367,6 +375,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
+--- !u!95 &365656353925418116 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1741659809098707205, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
+  m_PrefabInstance: {fileID: 2105587695294217601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2983657467814704203 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3769680507562396106, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}

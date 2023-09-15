@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class ShootAbility : MonoBehaviour
 {
-    [SerializeField] private GameObject ProjectilePrefab;
+    [SerializeField] private GameObject _ProjectilePrefab;
     [SerializeField] private float _ShootRange = 3.0f;
     [SerializeField] private bool _ShowShootRange = true;
     [SerializeField] private float _TimeBetweenShoot = 2.0f;
@@ -18,6 +18,8 @@ public class ShootAbility : MonoBehaviour
     [SerializeField] private float _CannonballSpeed = 3f;
     [SerializeField] private float _MaxDistance = 3.0f;
     [SerializeField][Range(0, 90)] private float _TrajectoryAngle = 15f;
+
+    public Transform Cannon;
 
     private bool _AlwaysShoot = false;
     private bool _IsPlayerInRange = false;
@@ -75,7 +77,7 @@ public class ShootAbility : MonoBehaviour
     private IEnumerator Shoot()
     {
 
-        GameObject projectile = Instantiate(ProjectilePrefab, gameObject.transform.Find("Cannon").transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(_ProjectilePrefab, Cannon.transform.position, Quaternion.identity);
         projectile.GetComponent<Cannonball>().ShootCannonball(-_TrajectoryAngle, -_CannonballSpeed, _MaxDistance, _CannonballDamage);
 
         _TimeToShoot = _TimeBetweenShoot;

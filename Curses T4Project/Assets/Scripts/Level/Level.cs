@@ -140,7 +140,6 @@ public class Level : MonoBehaviour
     public void StartLevel()
     {
         CalculateLevelResources();
-        GameManager.Instance.UIManager.LevelUI.UpdateLevelUI();
         GameManager.Instance.UIManager.StageCompleteUI.UpdateStageCompleteUI();
         GameManager.Instance.EventManager.RaiseOnLevelStart();
     }

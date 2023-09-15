@@ -5,7 +5,6 @@ using UnityEngine;
 public class Boat : LevelEntity
 {
     [Header("Boat Variables")]
-    [SerializeField] private float _DropAfterTime = 0f;
     [SerializeField] private bool _ItemDropped = false;
 
     [Header("Pirate Variables")]
@@ -33,7 +32,7 @@ public class Boat : LevelEntity
             if (!_ItemDropped)
             {
                 _ItemDropped = true;
-                Invoke("DropLoot", _DropAfterTime);
+                DropLoot();
 
                 if (_Pirates != null)
                 {

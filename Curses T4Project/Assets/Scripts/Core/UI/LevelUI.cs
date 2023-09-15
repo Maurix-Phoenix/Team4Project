@@ -24,22 +24,16 @@ public class LevelUI : MonoBehaviour
 
     public void LoadFlag()
     {
+        Level currentLevel = GameManager.Instance.LevelManager.CurrentLevel;
 
-        Flag.sprite = GameManager.Instance.LevelManager.CurrentLevel.LevelFlagTemplate.FlagSprite;
+        Flag.sprite = currentLevel.LevelFlagTemplate.FlagSprite;
 
         if (Flag.sprite == null)
         {
             Flag.sprite = Resources.Load<Sprite>($"Thumbnails/Unknown");
         }
 
-        if (GameManager.Instance.LevelManager.CurrentLevel.LevelData.FlagObtained)
-        {
-            FlagCover.fillAmount = 0;
-        }
-        else
-        {
-            FlagCover.fillAmount = 1;
-        }
+        FlagCover.fillAmount = currentLevel.LevelData.FlagObtained ? 0 : 1;
     }
 
     public void UpdateLevelFlagUI()
@@ -51,8 +45,10 @@ public class LevelUI : MonoBehaviour
         {
             if (currentLevel.TotalFlags > 0)
             {
-                float amount = 1.0f - ((float)player.NOfFlags / (float)currentLevel.TotalFlags);
+                float proportion = ((float)player.NOfFlags / (float)currentLevel.TotalFlags);
+                float amount = 1.0f - proportion;
                 FlagCover.fillAmount = amount;
+                Flag.fillAmount = proportion;
             }
         }
     }

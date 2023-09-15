@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56b3f5903282b34dae9d2d066d2a7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
+  _ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
   _ShootRange: 6
   _ShowShootRange: 1
   _TimeBetweenShoot: 2
@@ -197,6 +197,7 @@ MonoBehaviour:
   _CannonballSpeed: 8
   _MaxDistance: 6
   _TrajectoryAngle: 15
+  Cannon: {fileID: 5217860673563571454}
 --- !u!114 &4967602640495992162
 MonoBehaviour:
   m_ObjectHideFlags: 0

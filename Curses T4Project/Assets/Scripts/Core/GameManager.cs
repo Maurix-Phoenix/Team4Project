@@ -113,7 +113,13 @@ public class GameManager : MonoBehaviour
             {
                 UIManager.ToggleButtonUI.ToggleElements();
             }
-            UIManager.ShowUICanvasOnly("LevelUI");
+            //if(UIManager.FadeAnimationCR != null)
+            //{
+            //    StopCoroutine(UIManager.FadeAnimationCR);
+            //}
+
+            UIManager.LevelUI.gameObject.SetActive(true);
+            //UIManager.ShowUICanvasOnly("LevelUI");
         }
         AudioManager.AudioSourceMusic.UnPause();
         Time.timeScale = 1;

@@ -150,6 +150,7 @@ public class CinematicUI : MonoBehaviour
 
         GameManager.Instance.LevelManager.CurrentLevel.StartLevel();
 
+        GameManager.Instance.UIManager.ShowUICanvasOnly("LevelUI");
         gameObject.SetActive(false);
     }
     #endregion
