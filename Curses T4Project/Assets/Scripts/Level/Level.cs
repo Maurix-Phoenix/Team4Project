@@ -24,15 +24,14 @@ public class Level : MonoBehaviour
     [HideInInspector]public int TotalDoubloons = 0;
     [HideInInspector]public int TotalFlags = 0;
 
-    [Header("Level Savings")]
-    [HideInInspector]public LevelData LevelData = new LevelData();
+    [Header("Level SaveFile")]
+    public LevelData LevelData;
 
     [Header("Level Entities")]
     [HideInInspector]public List<LevelEntity> LevelObjects;
     [HideInInspector]public List<LevelEntityTemporary> TemporaryObjects;
 
     [Header("Level Conditions")]
-    public bool IsUnlocked = false;
     public float LevelSpeed = 1.0f;
     [HideInInspector]public bool IsInBossBattle = false;
     [HideInInspector] public bool IsLevelEnded = false;
@@ -69,13 +68,16 @@ public class Level : MonoBehaviour
 
     private void Awake()
     {
-        for(int i = 0; i < GameManager.Instance.DataManager.LevelData.Count; i++)
-        {
-            if (GameManager.Instance.DataManager.LevelData[i].LevelID == LevelID)
-            {
-                LevelData = GameManager.Instance.DataManager.GetLevelData(this);
-            }
-        }
+        //for(int i = 0; i < GameManager.Instance.DataManager.LevelData.Count; i++)
+        //{
+        //    if (GameManager.Instance.DataManager.LevelData[i].LevelID == LevelID)
+        //    {
+        //        LevelData = GameManager.Instance.DataManager.GetLevelData(this);
+        //    }
+        //}
+
+        LevelData = GameManager.Instance.DataManager.LevelDatas[LevelID];
+
         //Check the Layer limits for debugging at the start
         if (ActualLayer > 0)
         {
@@ -226,19 +228,16 @@ public class Level : MonoBehaviour
                         GameManager.Instance.AudioManager.PlaySFX("SFX_LevelComplete");
                     }
 
+                    //Unlock next Level
+                    if (LevelID < GameManager.Instance.LevelManager.LevelPrefabsList.Count - 1)
+                    {
+                        GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().LevelData.Unlocked = true;
+                    }
                     //call ui level passed here
-                    GameManager.Instance.DataManager.SaveLevel(LevelData.LevelID);
                     GameManager.Instance.UIManager.StageCompleteUI.UpdateStageCompleteUI();
                     GameManager.Instance.UIManager.ShowUICanvasOnly("StageCompleteUI");
 
-                    //Unlock next Level
-                    if (LevelID < GameManager.Instance.LevelManager.LevelPrefabsList.Count)
-                    {
-                        GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().LevelData.Unlocked = true;
-                        GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().IsUnlocked = true;
-                    }
-
-                    GameManager.Instance.DataManager.SaveLevel(LevelID);
+                    GameManager.Instance.DataManager.SaveLevel(LevelData);
 
                     break;
             }

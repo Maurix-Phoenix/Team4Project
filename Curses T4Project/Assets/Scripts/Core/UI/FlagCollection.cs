@@ -57,7 +57,7 @@ public class FlagCollection : MonoBehaviour
     {
         for(int i = 0; i < LevelFlagList.Count; i++)
         {
-            if (GameManager.Instance.DataManager.LevelData[i].FlagObtained)
+            if (GameManager.Instance.DataManager.LevelDatas[i].FlagObtained)
             {
                 LevelFlagList[i].gameObject.SetActive(true);
             }

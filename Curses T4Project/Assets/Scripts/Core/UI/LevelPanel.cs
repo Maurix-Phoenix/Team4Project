@@ -41,12 +41,14 @@ public class LevelPanel : MonoBehaviour
 
     public void UpdateLevelPanel(Level level)
     {
+        level.LevelData = GameManager.Instance.DataManager.LevelDatas[level.LevelID];
+
         SpriteStarCompleted.gameObject.SetActive(false);
         SpriteStarEconomy.gameObject.SetActive(false);
         SpriteStarEconomy.gameObject.SetActive(false);
         SpriteFlagObtained.gameObject.SetActive(false);
 
-        LevelData ld = GameManager.Instance.DataManager.GetLevelData(level);
+        //LevelData ld = GameManager.Instance.DataManager.GetLevelData(level);
 
         Color obtainedCol = new Color(1, 1, 1, 1);
         Color notObtainedCol = new Color(0, 0, 0, 1);
@@ -54,7 +56,7 @@ public class LevelPanel : MonoBehaviour
         string designText;
         Sprite levelThumbanil;
 
-        if(level.IsUnlocked)
+        if(level.LevelData.Unlocked)
         {
             LevelCompletitionText.gameObject.SetActive(false);
 
@@ -66,10 +68,10 @@ public class LevelPanel : MonoBehaviour
             SpriteStarEconomy.gameObject.SetActive(true);
             SpriteFlagObtained.gameObject.SetActive(true);
 
-            SpriteStarAce.GetComponent<Image>().color = ld.StarAce ? obtainedCol : notObtainedCol;
-            SpriteStarEconomy.GetComponent<Image>().color = ld.StarDoubloons ? obtainedCol : notObtainedCol;
-            SpriteStarCompleted.GetComponent<Image>().color = ld.StarCompleted ? obtainedCol : notObtainedCol;
-            SpriteFlagObtained.GetComponent<Image>().color = ld.FlagObtained ? obtainedCol : notObtainedCol;
+            SpriteStarAce.GetComponent<Image>().color = level.LevelData.StarAce ? obtainedCol : notObtainedCol;
+            SpriteStarEconomy.GetComponent<Image>().color = level.LevelData.StarDoubloons ? obtainedCol : notObtainedCol;
+            SpriteStarCompleted.GetComponent<Image>().color = level.LevelData.StarCompleted ? obtainedCol : notObtainedCol;
+            SpriteFlagObtained.GetComponent<Image>().color = level.LevelData.FlagObtained ? obtainedCol : notObtainedCol;
         }
         else
         {
@@ -93,7 +95,7 @@ public class LevelPanel : MonoBehaviour
 
     public void LevelButtonPlay()
     {
-        if(GameManager.Instance.LevelManager.CurrentLevel.IsUnlocked)
+        if(GameManager.Instance.LevelManager.CurrentLevel.LevelData.Unlocked)
         {
             GameManager.Instance.AudioManager.PlaySFX("UISFX_Click1");
             GameManager.Instance.LoadScene("Level");

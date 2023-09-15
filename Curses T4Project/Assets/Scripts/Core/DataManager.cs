@@ -15,8 +15,8 @@ public class DataManager : MonoBehaviour
     [SerializeField] private bool _IsEnabled = true;
     public bool IsEnabled { get { return _IsEnabled; } }
 
-    [SerializeField]private string _FileFolder = "Data";
-    [SerializeField]private string _FileName = "SaveFile.TDSAVE";
+    [SerializeField] private string _FileFolder = "Data";
+    [SerializeField] private string _FileName = "SaveFile.TDSAVE";
     private string _FullPath = "";
 
     [SerializeField] private string _LevelFileFolder = "Levels";
@@ -24,13 +24,13 @@ public class DataManager : MonoBehaviour
     private string[] _LevelFullPath;
 
 
-    [SerializeField]private bool _CryptData = false;
-    [SerializeField]private string _CryptKey = "T4TheDrowned";
+    [SerializeField] private bool _CryptData = false;
+    [SerializeField] private string _CryptKey = "T4TheDrowned";
 
     public GameData GameData;
 
-    public List<Level> LevelList = new List<Level>();
-    public List<LevelData> LevelData = new List<LevelData>();
+    //public List<Level> LevelList = new List<Level>();
+    public List<LevelData> LevelDatas;
 
 
     private void Awake()
@@ -44,7 +44,7 @@ public class DataManager : MonoBehaviour
         {
             //initialize blank datas
             GameData = new GameData();
-            
+
             //generic patch of the system in use (windows, linux, iOs, Android etc...) + folder + filename
             _FullPath = Path.Combine(Application.persistentDataPath, _FileFolder, _FileName);
 
@@ -68,42 +68,95 @@ public class DataManager : MonoBehaviour
             for (int i = 0; i < Resources.LoadAll<GameObject>("Levels/").Length; i++)
             {
                 Level level = Resources.LoadAll<GameObject>("Levels/")[i].GetComponent<Level>();
-                LevelList.Add(level);
-                LevelData.Add(new LevelData());
+                LevelData levelData = new LevelData();
+                LevelDatas.Add(levelData);
 
-                LevelData[i].LevelID = LevelList[i].LevelID;
-                LevelData[i].LevelName = LevelList[i].LevelName;
-                LevelData[i].LevelDesigner = LevelList[i].LevelDesigner;
+                levelData.LevelID = level.LevelID;
+                levelData.LevelName = level.name;
+                levelData.LevelDesigner = level.LevelDesigner;
 
-                _LevelFileName[i] = $"{LevelList[i].LevelID}.TDLEVEL";
+                level.LevelData = levelData;
+
+                //LevelData[i].LevelID = level.LevelID;
+                //LevelData[i].LevelName = level.LevelName;
+                //LevelData[i].LevelDesigner = level.LevelDesigner;
+
+                _LevelFileName[i] = $"{level.LevelID}.TDLEVEL";
                 _LevelFullPath[i] = Path.Combine(Application.persistentDataPath, _FileFolder, _LevelFileFolder, _LevelFileName[i]);
 
                 if (File.Exists(_LevelFullPath[i]))
                 {
-                    LevelData[i] = LoadLevel(i);
+                    LevelDatas[level.LevelID] = LoadLevel(level.LevelID);
                 }
                 else
                 {
                     Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, _FileFolder, _LevelFileFolder));
-                    SaveLevel(LevelData[i].LevelID);
+                    SaveLevel(levelData);
                 }
-            }         
-        }
-    }
-
-
-    public LevelData GetLevelData(Level level)
-    {
-        foreach (LevelData levelData in LevelData)
-        {
-            if(level.LevelID ==  levelData.LevelID)
-            {
-                return levelData;
             }
         }
-        T4Debug.Log($"[Data Manager] Cannot find LevelData for {level.name}", T4Debug.LogType.Warning);
-        return null;
     }
+
+    public void SaveLevel(LevelData ld)
+    {
+
+        if (_IsEnabled && ld != null)
+        {
+            LevelDatas[ld.LevelID] = ld;
+
+            LevelDatas[ld.LevelID] = ld;
+            string dataString = JsonUtility.ToJson(LevelDatas[ld.LevelID], true);
+            if (_CryptData)
+            {
+                dataString = DeEncrypt(dataString);
+            }
+
+            FileStream fs = new FileStream(_LevelFullPath[LevelDatas[ld.LevelID].LevelID], FileMode.Create, FileAccess.Write);
+            if (fs.CanWrite)
+            {
+                byte[] byteString = Encoding.Default.GetBytes(dataString);
+                fs.Write(byteString);
+            }
+            fs.Flush();
+            fs.Close();
+        }
+    }
+
+    public LevelData LoadLevel(int id)
+    {
+        if (_IsEnabled)
+        {
+
+            if (File.Exists(_LevelFullPath[id]))
+            {
+                string dataString = "";
+                LevelData loadedData;
+
+                FileStream fs = new FileStream(_LevelFullPath[id], FileMode.Open, FileAccess.Read);
+                if (fs.CanRead)
+                {
+                    byte[] byteString = new byte[fs.Length];
+                    int readedBytes = fs.Read(byteString);
+                    dataString = Encoding.Default.GetString(byteString, 0, readedBytes);
+                }
+
+                fs.Close();
+
+                if (_CryptData)
+                {
+                    dataString = DeEncrypt(dataString);
+                }
+
+                loadedData = JsonUtility.FromJson<LevelData>(dataString);
+
+                return loadedData;
+            }
+        }
+        return null;
+
+    }
+
+
 
     /// <summary>
     /// Save the game
@@ -134,60 +187,6 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void SaveLevel(int id)
-    {
-        if (_IsEnabled)
-        {
-            string dataString = JsonUtility.ToJson(LevelData[id], true);
-            if(_CryptData)
-            {
-                dataString = DeEncrypt(dataString);
-            }
-
-            FileStream fs = new FileStream(_LevelFullPath[id], FileMode.Create, FileAccess.Write);
-            if(fs.CanWrite)
-            {
-                byte[] byteString = Encoding.Default.GetBytes(dataString);
-                fs.Write(byteString);
-            }
-            fs.Flush();
-            fs.Close();
-        }
-    }
-
-    public LevelData LoadLevel(int id)
-    {
-        if (_IsEnabled)
-        {
-
-            if (File.Exists(_LevelFullPath[id]))
-            {
-                string dataString = "";
-                LevelData loadedData;
-
-                FileStream fs = new FileStream(_LevelFullPath[id], FileMode.Open, FileAccess.Read);
-                if(fs.CanRead)
-                {
-                    byte[] byteString = new byte[fs.Length];
-                    int readedBytes = fs.Read(byteString);
-                    dataString = Encoding.Default.GetString(byteString, 0, readedBytes);
-                }
-                    
-                fs.Close();
-
-                if(_CryptData)
-                {
-                    dataString = DeEncrypt(dataString);
-                }
-
-                loadedData = JsonUtility.FromJson<LevelData>(dataString);
-
-                return loadedData;
-            }
-        }
-        return null;
-        
-    }
 
     /// <summary>
     /// Load the game
@@ -236,9 +235,9 @@ public class DataManager : MonoBehaviour
         //note: break throught it, it's simple for people that have a little knowledge of CyberSec
         //(weakness #1: all the info like key and crypt method are stored on clientside, weakness #2: symmetric key)
         string result = "";
-        for(int i = 0;  i < fileDatas.Length; i++)
+        for (int i = 0; i < fileDatas.Length; i++)
         {
-            result += (char)(fileDatas[i] ^ _CryptKey[i%_CryptKey.Length]);
+            result += (char)(fileDatas[i] ^ _CryptKey[i % _CryptKey.Length]);
         }
         return result;
     }

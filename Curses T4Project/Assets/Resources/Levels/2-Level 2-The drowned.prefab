@@ -91,6 +91,7 @@ MonoBehaviour:
   LevelID: 2
   LevelThumbnail: {fileID: 0}
   LevelFlagTemplate: {fileID: 11400000, guid: 739571c99e9286748a2d4a4f21c059c5, type: 2}
+  TotalDoubloons: 0
   TotalFlags: 0
   LevelData:
     LevelID: 0
@@ -104,12 +105,13 @@ MonoBehaviour:
     FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
-  IsUnlocked: 1
+  IsUnlocked: 0
   LevelSpeed: 5
   IsInBossBattle: 0
   IsLevelEnded: 0
   IsFinalArrivalBeach: 0
   PlayerHasReachBeach: 0
+  IsTutorial: 0
   StartingLane: 0
   NOfLayersUnderWater: 2
   ActualLayer: 0

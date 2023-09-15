@@ -25,12 +25,12 @@ public class LevelManager : MonoBehaviour
             //Always unlock level 0 "tutorial"
             if (ls.LevelID == 0 )
             {
-                ls.IsUnlocked = true;
+                ls.LevelData.Unlocked = true;
             }
-            else
-            {
-                ls.IsUnlocked = ls.LevelData.Unlocked;
-            }
+            //else
+            //{
+            //    ls.IsUnlocked = ls.LevelData.Unlocked;
+            //}
                    
         }
 

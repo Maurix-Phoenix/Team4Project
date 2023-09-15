@@ -160,6 +160,10 @@ public class GameManager : MonoBehaviour
     private void SaveGame()
     {
         DataManager.Save(DataManager.GameData);
+        for(int i = 0; i < DataManager.LevelDatas.Count; i++)
+        {
+            DataManager.SaveLevel(DataManager.LevelDatas[i]);
+        }
     }
     private void LoadGame()
     {
