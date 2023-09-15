@@ -32,6 +32,7 @@ public class EndWall : LevelEntity, IDamageable
     [Header("Cannons Variables")]
     [SerializeField] private bool _CanShoot = false;
     [SerializeField] private bool _EndWallIsPositionated = false;
+    [SerializeField] private bool _CannonChosen = false;
     [SerializeField] private GameObject _CannonActiveToShoot;
 
     [Header("Cannonball Variables")]
@@ -71,6 +72,13 @@ public class EndWall : LevelEntity, IDamageable
     protected override void Update()
     {
         base.Update();
+        if (!_CannonChosen &&
+            GameManager.Instance.LevelManager.Player.gameObject.transform.position.x >= GameManager.Instance.LevelManager.CurrentLevel.XIntermediatePosition / 2)
+        {
+            _CannonChosen = true;
+            PickCorrectCannonActive();
+        }
+
         if (GameManager.Instance.LevelManager.Player.gameObject.transform.position.x >= GameManager.Instance.LevelManager.CurrentLevel.XIntermediatePosition &&
             GameManager.Instance.LevelManager.Player.NOfCannonball <= 0 &&
             !_CanShoot &&
@@ -107,13 +115,11 @@ public class EndWall : LevelEntity, IDamageable
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !_EndWallIsPositionated)
         {
+            GameManager.Instance.LevelManager.CurrentLevel.StopLevel();
+            GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle = true;
             _EndWallIsPositionated = true;
             _NOfCannonball = other.gameObject.GetComponent<Player>().Health;
             _TriggerToMovePlayer.gameObject.SetActive(false);
-            _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(GameManager.Instance.LevelManager.CurrentLevel.ActualLayer)];
-            _FirePos = _CannonActiveToShoot.transform.Find("FirePos").gameObject.transform;
-            GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle = true;
-            IsStopped = true;
             //_Rb.isKinematic = true;
 
             //active endwall
@@ -126,6 +132,12 @@ public class EndWall : LevelEntity, IDamageable
             TakeDamage(other.gameObject.GetComponent<Cannonball>().CannonballDamage, other.gameObject);
         }
 
+    }
+
+    private void PickCorrectCannonActive()
+    {
+        _CannonActiveToShoot = _CannonPrefab[Mathf.Abs(GameManager.Instance.LevelManager.CurrentLevel.ActualLayer)];
+        _FirePos = _CannonActiveToShoot.transform.Find("FirePos").gameObject.transform;
     }
 
     private void OnValidate()

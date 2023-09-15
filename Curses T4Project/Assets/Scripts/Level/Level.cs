@@ -40,6 +40,7 @@ public class Level : MonoBehaviour
     [HideInInspector] public bool PlayerHasReachBeach = false;
 
     [Header("Layer Variables")]
+    public bool IsTutorial = false;
     public T4Project.LaneType StartingLane;
     [Tooltip("The Layer counting start from 0.")]
     [Range(0, 2)] public int NOfLayersUnderWater = 2;

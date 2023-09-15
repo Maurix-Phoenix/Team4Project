@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 1637561968283940881}
   - component: {fileID: 4845772708918065079}
   m_Layer: 8
-  m_Name: Tutorial
+  m_Name: TutorialTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

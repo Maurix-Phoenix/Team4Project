@@ -64,7 +64,7 @@ Transform:
   - {fileID: 5070439146764060280}
   - {fileID: 8567395436954859875}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6252935474774471956
 MonoBehaviour:
@@ -288,6 +288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkeletonAnim
       objectReference: {fileID: 0}
+    - target: {fileID: 1277436046417214249, guid: c159c241444e9be47858e95a4909b611, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b231e7abe04cb9847888b7f02ecf36a9, type: 2}
     - target: {fileID: 5866666021909216657, guid: c159c241444e9be47858e95a4909b611, type: 3}
       propertyPath: m_Controller
       value: 
