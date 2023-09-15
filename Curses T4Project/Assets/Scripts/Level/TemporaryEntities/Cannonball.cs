@@ -118,13 +118,11 @@ public class Cannonball : LevelEntityTemporary
         if(!GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
         {
             _Rb.useGravity = true;
-            if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball") ||
-                    transform.position.y < _StartLocation.y - 1)
+            if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball") &&
+                transform.position.y < 0)
             {
-                if (Vector3.Distance(transform.position, _StartLocation) > _MaxDistance)
-                {
-                    Destroy(gameObject);
-                }
+                Explosion();
+                Destroy(gameObject);
             }
             else
             {
@@ -132,6 +130,7 @@ public class Cannonball : LevelEntityTemporary
                     transform.position.y < _StartLocation.y - GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer / 2 ||
                     transform.position.y > _StartLocation.y + GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer / 2)
                 {
+                    Explosion();
                     Destroy(gameObject);
                 }
             }
@@ -195,20 +194,8 @@ public class Cannonball : LevelEntityTemporary
         if (collision.gameObject.layer != gameObject.layer)
         {
             IDamageable damageable;
-            ParticleSystem ExplosionVFX = Instantiate(_CannonBallExplosion, transform.position, Quaternion.identity);
-            ParticleSystem.MainModule _epsm = ExplosionVFX.main;
 
-            if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball") && GameManager.Instance.LevelManager.CurrentLevel.ActualLayer < 0)
-            {
-                _epsm.startColor = _CursedColor;
-            }
-            else
-            {
-                _epsm.startColor = Color.white;
-            }
-
-
-            ExplosionSound();
+            Explosion();
 
             if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
             {
@@ -217,6 +204,7 @@ public class Cannonball : LevelEntityTemporary
         }
         Destroy(gameObject);
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -228,7 +216,7 @@ public class Cannonball : LevelEntityTemporary
                 IDamageable damageable;
                 if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
                 {
-                    ExplosionSound();
+                    Explosion();
                     damageable.TakeDamage(_CannonballDamage, gameObject);
                 }
             }
@@ -236,9 +224,21 @@ public class Cannonball : LevelEntityTemporary
         }
     }
 
-    private void ExplosionSound()
+    private void Explosion()
     {
-        if (gameObject.transform.position.y < 0)
+        ParticleSystem ExplosionVFX = Instantiate(_CannonBallExplosion, transform.position, Quaternion.identity);
+        ParticleSystem.MainModule _epsm = ExplosionVFX.main;
+
+        if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball") && GameManager.Instance.LevelManager.CurrentLevel.ActualLayer < 0)
+        {
+            _epsm.startColor = _CursedColor;
+        }
+        else
+        {
+            _epsm.startColor = Color.white;
+        }
+
+        if (gameObject.transform.position.y < -1)
         {
             GameManager.Instance.AudioManager.PlaySFX(_ExplosionDownSFX);
         }

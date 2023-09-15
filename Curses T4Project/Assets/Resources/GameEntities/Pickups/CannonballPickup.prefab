@@ -238,8 +238,8 @@ MonoBehaviour:
   _CannonballSFX: {fileID: 8300000, guid: b1814d9b8c235144091198daba9cc2d0, type: 3}
   _FlagSFX: {fileID: 0}
   _Value: 1
-  _AttractionDistance: 1.5
-  _AttractionSpeed: 100
+  AttractionDistance: 3
+  _AttractionSpeed: 10
 --- !u!114 &-2221527217320284194
 MonoBehaviour:
   m_ObjectHideFlags: 0
