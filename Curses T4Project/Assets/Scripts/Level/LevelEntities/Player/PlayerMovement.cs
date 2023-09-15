@@ -277,7 +277,10 @@ public class PlayerMovement : MonoBehaviour
             GameManager.Instance.LevelManager.Player.IsInStartAnimation = false;
 
             //MAU - Start the level
-            GameManager.Instance.LevelManager.CurrentLevel.StartLevel();
+            if (!GameManager.Instance.LevelManager.CurrentLevel.IsTutorial)
+            {
+                GameManager.Instance.LevelManager.CurrentLevel.StartLevel();
+            }
         }
         //move the ship to the play position
         _Rb.MovePosition(_Rb.position + Vector3.up * speed * Time.fixedDeltaTime + Vector3.right * _AnimationSpeed * Time.fixedDeltaTime);
@@ -535,18 +538,18 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
 
-        while (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle && gameObject.transform.position.y < 0f)
-        {
-            //mathematical functions to obtain a sinusoidal rotation value
-            float sinusoidalSpeed = (-Mathf.Cos(Mathf.PI * ((((2f * _TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance))) + 1f) / 2f;
-            float direction = 0.5f * inputDirection * Mathf.Sign(Mathf.Sin(Mathf.PI * (((_TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance)));
-            float rotationalSpeed = direction * _ImmersionRotationSpeed * sinusoidalSpeed;
+        //while (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle && gameObject.transform.position.y < 0f)
+        //{
+        //    //mathematical functions to obtain a sinusoidal rotation value
+        //    float sinusoidalSpeed = (-Mathf.Cos(Mathf.PI * ((((2f * _TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance))) + 1f) / 2f;
+        //    float direction = 0.5f * inputDirection * Mathf.Sign(Mathf.Sin(Mathf.PI * (((_TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance)));
+        //    float rotationalSpeed = direction * _ImmersionRotationSpeed * sinusoidalSpeed;
 
-            //rotate the ship mesh
-            _Ship.transform.Rotate(Vector3.forward, rotationalSpeed * Time.deltaTime);
+        //    //rotate the ship mesh
+        //    _Ship.transform.Rotate(Vector3.forward, rotationalSpeed * Time.deltaTime);
 
-            yield return null;
-        }
+        //    yield return null;
+        //}
 
         //reset the rotation of the mesh to the default value
         _Ship.transform.eulerAngles = _DefaultShipRotation;

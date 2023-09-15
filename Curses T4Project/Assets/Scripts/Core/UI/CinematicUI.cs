@@ -21,6 +21,7 @@ public class CinematicUI : MonoBehaviour
     [SerializeField] private List<Sprite> _CaptainImages;
     [SerializeField] private float _Distance = 100;
     [SerializeField] private float _ChangePositionSpeed = 0.8f;
+    private float _StartDistance;
     private bool _CaptainInPosition = false;
 
     [Header("Dialogue - Button")]
@@ -36,6 +37,11 @@ public class CinematicUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _DialogueText;
     [SerializeField] private int _DialogueStringIndex;
     [SerializeField][Multiline(3)] private List<string> _DialogueString;
+
+    private void Awake()
+    {
+        _StartDistance = _Distance;
+    }
 
     private void Start()
     {
@@ -55,6 +61,8 @@ public class CinematicUI : MonoBehaviour
     private void ResetValue()
     {
         _DialogueStringIndex = 0;
+        _Distance = _StartDistance;
+        _CaptainTexture.GetComponent<Image>().sprite = _CaptainImages[0];
 
         if (_NextDialogueButton.Count <= 0)
         {
@@ -74,6 +82,7 @@ public class CinematicUI : MonoBehaviour
 
     public void DisableAll()
     {
+        _NextDialogueButton[_DialogueStringIndex].gameObject.SetActive(false);
         StartCoroutine(HideDialoguePanel());
         StartCoroutine(HideDialogueText());
         StartCoroutine(HideCaptain());
@@ -138,6 +147,8 @@ public class CinematicUI : MonoBehaviour
         _TopBar.GetComponent<RectTransform>().localScale = new Vector3(1, 0, 1);
         _BottomBar.GetComponent<RectTransform>().localScale = new Vector3(1, 0, 1);
         _Panel.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+
+        GameManager.Instance.LevelManager.CurrentLevel.StartLevel();
 
         gameObject.SetActive(false);
     }

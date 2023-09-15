@@ -11,6 +11,7 @@ public class DOTAbility : MonoBehaviour
     [Header("Reposition")]
     [SerializeField] private bool _CanMoveFromDistance = false;
     [SerializeField] private float _TargetDistance = 1.0f;
+    [SerializeField] private bool _TargetAcquired = false;
     [SerializeField] private bool _TargetLocked = false;
     [SerializeField] private Transform _TargetPosition;
     [SerializeField] private float _RepositionSpeed = 1f;
@@ -41,11 +42,12 @@ public class DOTAbility : MonoBehaviour
     {
         if (!_CanMoveFromDistance)
         {
-            if (other.gameObject.GetComponent<Player>() != null)
+            if (other.gameObject.GetComponent<Player>() != null && !_TargetAcquired)
             {
+                _TargetAcquired = true;
+                _TargetLocked = true;
                 _TargetPosition = other.gameObject.GetComponent<PlayerShoot>().CannonLocation;
                 gameObject.GetComponent<SeaMonster>().MoveSpeed = 0;
-                _TargetLocked = true;
             }
         }
     }
