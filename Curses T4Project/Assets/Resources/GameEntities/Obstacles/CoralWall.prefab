@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 4890615664180686808}
   - component: {fileID: 2613844865619039429}
   - component: {fileID: 7267091471535865953}
+  - component: {fileID: 8059264957833147705}
+  - component: {fileID: 8668477953292494036}
   m_Layer: 8
   m_Name: CoralWall
   m_TagString: Untagged
@@ -192,7 +194,11 @@ MonoBehaviour:
   MovePickUpToPlayer: 0
   IsStopped: 0
   _CoralMesh: {fileID: 8064432220383864396}
+<<<<<<< HEAD
   _newCoralColor: {r: 1, g: 0.24313726, b: 0.24313726, a: 0}
+=======
+  _newCoralColor: {r: 0.7254902, g: 0.48627454, b: 0.5803922, a: 1}
+>>>>>>> origin/Anthony_Graphics
 --- !u!114 &7267091471535865953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +215,36 @@ MonoBehaviour:
   _DebuffDuration: 1.5
   _HasSlowed: 0
   _SlowEffectSound: {fileID: 8300000, guid: 6757e3b43cb3f46458f416c6c3d44098, type: 3}
+--- !u!114 &8059264957833147705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781982203811929798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _IsOnMenuScene: 0
+  _Amplitude: 0.1
+  _Frequency: 5
+--- !u!114 &8668477953292494036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781982203811929798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f56156f82fd4c4583731d87ac548c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _InvPS: {fileID: 8390417992293699872}
+  _UseBubbleColor: 1
+  _BubbleColor: {r: 1, g: 0.48627454, b: 0.5803922, a: 1}
 --- !u!1 &5029682951959969293
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +466,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
@@ -496,8 +532,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
-      minScalar: 0.2
+      scalar: 0.15
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:

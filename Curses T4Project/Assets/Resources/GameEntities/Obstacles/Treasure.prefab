@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -3851239362596076000}
   - component: {fileID: 3950820933241003971}
   - component: {fileID: 7998929792250434195}
+  - component: {fileID: -2459276593638633388}
   m_Layer: 8
   m_Name: Treasure
   m_TagString: Untagged
@@ -95,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5344337aa01534996bf351f5ce52f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: 
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
@@ -111,6 +113,21 @@ MonoBehaviour:
   IsStopped: 0
   _IsOpened: 0
   _OpenSFX: {fileID: 8300000, guid: 99a6bbd4321879e45bab08081dd2fabc, type: 3}
+--- !u!114 &-2459276593638633388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181480266081387332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e2f5a49f541ba439333f4a9ce44e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _IsOnMenuScene: 0
+  _Amplitude: 0.1
+  _Frequency: 5
 --- !u!1001 &4161723701465842109
 PrefabInstance:
   m_ObjectHideFlags: 0
