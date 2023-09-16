@@ -118,7 +118,7 @@ Transform:
   - {fileID: 9063859924789764450}
   - {fileID: 1387860312455103616}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8856845443989969303
 Rigidbody:
@@ -192,7 +192,7 @@ MonoBehaviour:
   MovePickUpToPlayer: 0
   IsStopped: 0
   _CoralMesh: {fileID: 8064432220383864396}
-  _newCoralColor: {r: 0.7254902, g: 0.48627454, b: 0.5803922, a: 0}
+  _newCoralColor: {r: 1, g: 0.24313726, b: 0.24313726, a: 0}
 --- !u!114 &7267091471535865953
 MonoBehaviour:
   m_ObjectHideFlags: 0
