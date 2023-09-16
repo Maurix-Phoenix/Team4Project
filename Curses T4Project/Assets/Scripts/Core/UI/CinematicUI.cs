@@ -38,7 +38,9 @@ public class CinematicUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _DialogueText;
     [SerializeField] private TextMeshProUGUI _SkipText;
     [SerializeField] private int _DialogueStringIndex;
-    [SerializeField][Multiline(3)] private List<string> _DialogueString;
+    [SerializeField] [Multiline(3)] private List<string> _DialogueString;
+    [SerializeField] private List<AudioClip> _DialogueClip;
+    [SerializeField] private bool _UseClipAudio = true;
     [SerializeField] private AudioClip _NextPanelAudio;
 
     private void Awake()
@@ -266,6 +268,7 @@ public class CinematicUI : MonoBehaviour
         if (SpawnNextDialogue)
         {
             localAlpha = 0;
+            GameManager.Instance.AudioManager.PlaySFX(_DialogueClip[_DialogueStringIndex]);
             while (localAlpha <= 1)
             {
                 if (_CaptainInPosition)
@@ -278,13 +281,21 @@ public class CinematicUI : MonoBehaviour
             }
 
             _DialogueText.color = new Color(1, 1, 1, 1);
-            Invoke("EnableCorrectButton", _ButtonTimerSpawn);
+            if (_UseClipAudio)
+            {
+                Invoke("EnableCorrectButton", _DialogueClip[_DialogueStringIndex].length);
+            }
+            else
+            {
+                Invoke("EnableCorrectButton", _ButtonTimerSpawn);
+            }
         }
     }
     private IEnumerator ShowDialogueText()
     {
         _DialogueText.text = _DialogueString[_DialogueStringIndex];
         float localAlpha = 0;
+        GameManager.Instance.AudioManager.PlaySFX(_DialogueClip[_DialogueStringIndex]);
         while (localAlpha <= 1)
         {
             if (_CaptainInPosition)
@@ -295,10 +306,18 @@ public class CinematicUI : MonoBehaviour
             }
             yield return null;
         }
+        
 
         _DialogueText.color = new Color(1, 1, 1, 1);
 
-        Invoke("EnableCorrectButton", _ButtonTimerSpawn);
+        if (_UseClipAudio)
+        {
+            Invoke("EnableCorrectButton", _DialogueClip[_DialogueStringIndex].length);
+        }
+        else
+        {
+            Invoke("EnableCorrectButton", _ButtonTimerSpawn);
+        }
     }
     private IEnumerator HideDialogueText()
     {

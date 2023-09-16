@@ -5,14 +5,18 @@ using static T4P;
 public class TriggerTutorial : LevelEntity
 {
     [Header("Button To Press")]
-    [SerializeField] private bool PressEsc;
-    [SerializeField] private bool PressMoveUp;
-    [SerializeField] private bool PressMoveDown;
-    [SerializeField] private bool PressSpacebar;
+    [SerializeField] private bool _PressAny;
+    [SerializeField] private bool _PressMoveUp;
+    [SerializeField] private bool _PressMoveDown;
+    [SerializeField] private bool _PressSpacebar;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip _SkipAudio;
+    [SerializeField] private Sprite _CaptainSprite;
 
     [Header("Instruction")]
-    [SerializeField][TextArea(1, 10)] private string TutorialTextToShow;
-    [SerializeField] private bool IsTutorialTriggered;
+    [SerializeField] [TextArea(1, 10)] private string _TutorialTextToShow;
+    [SerializeField] private bool _IsTutorialTriggered;
 
     protected override void Start()
     {
@@ -30,19 +34,19 @@ public class TriggerTutorial : LevelEntity
     private void CheckRequirement()
     {
         int requirement = 0;
-        if (PressEsc)
+        if (_PressAny)
         {
             requirement++;
         }
-        if (PressMoveDown)
+        if (_PressMoveDown)
         {
             requirement++;
         }
-        if (PressMoveDown)
+        if (_PressMoveDown)
         {
             requirement++;
         }
-        if (PressSpacebar)
+        if (_PressSpacebar)
         {
             requirement++;
         }
@@ -55,33 +59,37 @@ public class TriggerTutorial : LevelEntity
 
     private void CheckInput()
     {
-        if (IsTutorialTriggered)
+        if (_IsTutorialTriggered)
         {
-            if (PressMoveUp && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+            if (_PressMoveUp && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
             {
+                GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
                 HideTutorialUI();
-                IsTutorialTriggered = false;
+                _IsTutorialTriggered = false;
                 gameObject.SetActive(false);
             }
 
-            if (PressMoveDown && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+            if (_PressMoveDown && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
             {
+                GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
                 HideTutorialUI();
-                IsTutorialTriggered = false;
+                _IsTutorialTriggered = false;
                 gameObject.SetActive(false);
             }
 
-            if (PressEsc && Input.GetKeyDown(KeyCode.Escape))
+            if (_PressAny && Input.anyKeyDown)
             {
+                GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
                 HideTutorialUI();
-                IsTutorialTriggered = false;
+                _IsTutorialTriggered = false;
                 gameObject.SetActive(false);
             }
 
-            if (PressSpacebar && Input.GetKeyDown(KeyCode.Space))
+            if (_PressSpacebar && Input.GetKeyDown(KeyCode.Space))
             {
+                GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
                 HideTutorialUI();
-                IsTutorialTriggered = false;
+                _IsTutorialTriggered = false;
                 gameObject.SetActive(false);
             }
         }
@@ -91,7 +99,7 @@ public class TriggerTutorial : LevelEntity
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            IsTutorialTriggered = true;
+            _IsTutorialTriggered = true;
             ShowTutorialUI();
         }
     }
@@ -100,12 +108,12 @@ public class TriggerTutorial : LevelEntity
     {
         GameManager.Instance.LevelManager.CurrentLevel.StopLevel();
         FindObjectOfType<PlayerInput>().enabled = false;
-        if (PressSpacebar)
+        if (_PressSpacebar)
         {
             FindObjectOfType<PlayerShoot>().enabled = true;
         }
         GameManager.Instance.UIManager.ShowUICanvas("TutorialUI");
-        GameManager.Instance.UIManager.GetComponentInChildren<TutorialUI>().UpdateTextUI(TutorialTextToShow);
+        GameManager.Instance.UIManager.GetComponentInChildren<TutorialUI>().UpdateTextUI(_TutorialTextToShow, _CaptainSprite);
     }
 
     private void HideTutorialUI()

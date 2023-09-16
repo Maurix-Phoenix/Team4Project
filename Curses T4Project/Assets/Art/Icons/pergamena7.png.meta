@@ -108,18 +108,40 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pergamena7_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2777
+        height: 2777
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 514, y: 761, z: 853, w: 825}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8b95998a0907f48a829f79c3483ed1
+      internalID: 91865598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pergamena7_0: 91865598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

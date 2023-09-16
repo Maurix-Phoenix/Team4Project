@@ -86,18 +86,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9408bb616b0f044db9c7be5ea5f8973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: Level 2
-  LevelDesigner: The drowned
+  LevelName: 2
+  LevelDesigner: Giovanni
   LevelID: 2
   LevelThumbnail: {fileID: 0}
   LevelFlagTemplate: {fileID: 11400000, guid: 739571c99e9286748a2d4a4f21c059c5, type: 2}
   TotalDoubloons: 0
   TotalFlags: 0
   LevelData:
-    LevelID: 0
-    LevelName: Level
-    LevelDesigner: TheDrowned
-    Unlocked: 1
+    LevelID: 2
+    LevelName: 2
+    LevelDesigner: Giovanni
+    Unlocked: 0
     StarsObtained: 0
     StarCompleted: 0
     StarDoubloons: 0
@@ -105,7 +105,6 @@ MonoBehaviour:
     FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
-  IsUnlocked: 0
   LevelSpeed: 5
   IsInBossBattle: 0
   IsLevelEnded: 0

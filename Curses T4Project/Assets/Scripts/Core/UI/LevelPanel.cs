@@ -60,7 +60,7 @@ public class LevelPanel : MonoBehaviour
         {
             LevelCompletitionText.gameObject.SetActive(false);
 
-            designText = $"{level.LevelID}-{level.LevelName}";
+            designText = $"Level {level.LevelName}";
             levelThumbanil = SetLevelThumbnail(level);
 
             SpriteStarCompleted.gameObject.SetActive(true);

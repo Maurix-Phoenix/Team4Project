@@ -62,9 +62,6 @@ Transform:
   m_Children:
   - {fileID: 4177431300186809117}
   - {fileID: 3637767861071811551}
-  - {fileID: 3004850457641863997}
-  - {fileID: 6466831548111639911}
-  - {fileID: 5247910604938561752}
   - {fileID: 875471195713789414}
   - {fileID: 6936832484693605240}
   - {fileID: 179564404725302420}
@@ -73,7 +70,6 @@ Transform:
   - {fileID: 566318804141890504}
   - {fileID: 5011409843301371708}
   - {fileID: 7647936341600596134}
-  - {fileID: 9082035265002323086}
   - {fileID: 3672898438916451526}
   - {fileID: 451908051924572040}
   - {fileID: 7515710263141647562}
@@ -104,14 +100,14 @@ MonoBehaviour:
   TotalFlags: 0
   LevelData:
     LevelID: 0
-    LevelName: Level
-    LevelDesigner: TheDrowned
-    Unlocked: 0
-    StarsObtained: 0
-    StarCompleted: 0
-    StarDoubloons: 0
-    StarAce: 0
-    FlagObtained: 0
+    LevelName: Tutorial
+    LevelDesigner: Giovanni
+    Unlocked: 1
+    StarsObtained: 3
+    StarCompleted: 1
+    StarDoubloons: 1
+    StarAce: 1
+    FlagObtained: 1
   LevelObjects: []
   TemporaryObjects: []
   LevelSpeed: 5
@@ -120,7 +116,7 @@ MonoBehaviour:
   IsFinalArrivalBeach: 0
   PlayerHasReachBeach: 0
   IsTutorial: 1
-  StartingLane: 0
+  StartingLane: 1
   NOfLayersUnderWater: 2
   ActualLayer: 0
   FinalLayer: 0
@@ -519,7 +515,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressAny
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressMoveUp
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
@@ -529,6 +533,10 @@ PrefabInstance:
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressEsc
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressMoveDown
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressMoveUp
@@ -542,6 +550,16 @@ PrefabInstance:
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressMoveDown
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _TutorialTextToShow
+      value: 'Watch out now!
+
+        Avoid the <gradient="BlackToRed-Vertical">Sharks</gradient>!
+
+
+        <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+        any key to continue.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -691,80 +709,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1156577040673246854, guid: 646c3cfd540bfe04db3159c1857fc3cd, type: 3}
   m_PrefabInstance: {fileID: 1717854167373174094}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &3330947315137817814
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6671093256376295538}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 122.3
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536447911968957470, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: LootList.Array.data[1].DropQuantityRange.x
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: decc020df9d35564e8010c80ad243462, type: 3}
---- !u!4 &3004850457641863997 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-  m_PrefabInstance: {fileID: 3330947315137817814}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3622552120513709990
 PrefabInstance:
@@ -967,6 +911,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressAny
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
       value: 0
       objectReference: {fileID: 0}
@@ -994,6 +942,16 @@ PrefabInstance:
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _TutorialTextToShow
+      value: 'Defeating the enemy''s ship
+
+        grants you <gradient="BlackToRed-Vertical">Cannonballs</gradient>.
+
+
+        <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+        any key to continue.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1205,6 +1163,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressAny
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
       value: 0
       objectReference: {fileID: 0}
@@ -1231,6 +1193,17 @@ PrefabInstance:
       propertyPath: NeedToPressSpacebar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _TutorialTextToShow
+      value: 'Enough cannonballs will destroy the <gradient="BlackToRed-Vertical">Wall</gradient>
+
+        so
+        you can reach the Shore!
+
+
+        <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+        any key to continue.'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1243,80 +1216,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
   m_PrefabInstance: {fileID: 5627898498257293808}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &5719267642840395571
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6671093256376295538}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 181.60992
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536447911968957470, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: LootList.Array.data[1].DropQuantityRange.x
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: decc020df9d35564e8010c80ad243462, type: 3}
---- !u!4 &5247910604938561752 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-  m_PrefabInstance: {fileID: 5719267642840395571}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5725744787908553519
 PrefabInstance:
@@ -1379,6 +1278,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressAny
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
       value: 0
       objectReference: {fileID: 0}
@@ -1407,6 +1310,17 @@ PrefabInstance:
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _TutorialTextToShow
+      value: 'Uh, shiny!
+
+        Collect the <gradient="BlackToRed-Vertical">doubloons</gradient>
+        to raise the score level.
+
+
+        <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+        any key to continue.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1560,6 +1474,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressSpacebar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: TutorialTextToShow
       value: 'Prepare to return fire!
 
@@ -1569,6 +1487,13 @@ PrefabInstance:
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _TutorialTextToShow
+      value: 'Prepare to return fire!
+
+        Press the <gradient="BlackToGreen-Vertical">SpaceBar
+        </gradient>to shoot at your enemies!'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1784,6 +1709,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressAny
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
       value: 0
       objectReference: {fileID: 0}
@@ -1815,6 +1744,17 @@ PrefabInstance:
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _TutorialTextToShow
+      value: 'Be careful!
+
+        <gradient="BlackToRed-Vertical">Mines</gradient>
+        are very dangerous to hit or touch!
+
+
+        <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+        any key to continue.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1899,80 +1839,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4495629938066823744, guid: 88d960ffbabd5044eaf95d0f8bf293fa, type: 3}
   m_PrefabInstance: {fileID: 6784457301212848440}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6788178608940036748
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6671093256376295538}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 144.50998
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_Name
-      value: NormalShip
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536447911968957470, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: LootList.Array.data[1].DropQuantityRange.x
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: decc020df9d35564e8010c80ad243462, type: 3}
---- !u!4 &6466831548111639911 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-  m_PrefabInstance: {fileID: 6788178608940036748}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7042047168859120343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2034,6 +1900,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressAny
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
       value: 0
       objectReference: {fileID: 0}
@@ -2064,6 +1934,11 @@ PrefabInstance:
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _TutorialTextToShow
+      value: "Remember!\r\nDifferent Enemies have different <gradient=\"BlackToRed-Vertical\">abilities</gradient>.\n<size=80%><line-indent=40%><gradient=\"BlackToGreen-Vertical\">Press
+        any key to continue.\r"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2139,6 +2014,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressAny
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
       value: 0
       objectReference: {fileID: 0}
@@ -2166,6 +2045,17 @@ PrefabInstance:
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: NeedToPressSpacebar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _TutorialTextToShow
+      value: 'That''s a special Ship!
+
+        Take it down to collect the <gradient="BlackToRed-Vertical">flag
+        pieces</gradient>!
+
+
+        <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+        any key to continue.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2439,11 +2329,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressAny
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveUp
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressMoveUp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressMoveDown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _PressMoveDown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
@@ -2457,6 +2359,13 @@ PrefabInstance:
       propertyPath: IsTutorialTriggered
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _TutorialTextToShow
+      value: 'Hey Pirate!
+
+        Press <gradient="BlackToGreen-Vertical">W </gradient>and
+        <gradient="BlackToGreen-Vertical">S </gradient>to move your Ship.'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2466,80 +2375,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1981667823172398484, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
   m_PrefabInstance: {fileID: 8631733559923887386}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &8755955938893355877
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6671093256376295538}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 203.70996
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_Name
-      value: NormalShip (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: decc020df9d35564e8010c80ad243462, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536447911968957470, guid: 38c5aa35f7983744386a9d3134e346a7, type: 3}
-      propertyPath: LootList.Array.data[1].DropQuantityRange.x
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: decc020df9d35564e8010c80ad243462, type: 3}
---- !u!4 &9082035265002323086 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: decc020df9d35564e8010c80ad243462, type: 3}
-  m_PrefabInstance: {fileID: 8755955938893355877}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8859961501301666772
 PrefabInstance:

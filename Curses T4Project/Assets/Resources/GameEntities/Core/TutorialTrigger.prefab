@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1245721210596698420
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3044197300837951429}
-  m_Layer: 8
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3044197300837951429
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245721210596698420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1981667823172398484}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4384778655189565351
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,10 +30,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3044197300837951429}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5002092105344701196
 Rigidbody:
@@ -126,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbe6b1d2c8e81642bd98e785bad2f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: 
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
   Scale: {x: 0, y: 0, z: 0}
@@ -136,9 +105,16 @@ MonoBehaviour:
   MoveSpeed: 0
   MovePickUpToPlayer: 0
   IsStopped: 0
-  PressEsc: 1
-  PressMoveUp: 0
-  PressMoveDown: 0
-  PressSpacebar: 0
-  TutorialTextToShow: Test
-  IsTutorialTriggered: 0
+  _PressAny: 0
+  _PressMoveUp: 0
+  _PressMoveDown: 0
+  _PressSpacebar: 0
+  _SkipAudio: {fileID: 8300000, guid: a9838c26982bf3d4e8b9a2bf0468cea2, type: 3}
+  _CaptainSprite: {fileID: 21300000, guid: b985dfc292b8d524f9592f76349c6adc, type: 3}
+  _TutorialTextToShow: '[Tutorial Text Here]
+
+    [Tutorial Text Here]
+
+    [Tutorial
+    Text Here]'
+  _IsTutorialTriggered: 0
