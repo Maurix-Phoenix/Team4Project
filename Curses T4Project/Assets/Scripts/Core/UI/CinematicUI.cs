@@ -43,6 +43,7 @@ public class CinematicUI : MonoBehaviour
     private void Awake()
     {
         _StartDistance = _Distance;
+        ResetValue();
     }
 
     private void Start()
@@ -88,26 +89,29 @@ public class CinematicUI : MonoBehaviour
 
     private void ResetValue()
     {
-        _DialogueStringIndex = 0;
-        _Distance = _StartDistance;
-        _SkipText.gameObject.SetActive(false);
-
-        _CaptainTexture.GetComponent<Image>().sprite = _CaptainImages[0];
-
-        if (_NextDialogueButton.Count <= 0)
+        if (GameManager.Instance.LevelManager.CurrentLevel.IsTutorial && GameManager.Instance.CurrentScene.name == "Level")
         {
-            T4Debug.Log($"[UIManager] CinematicUI has empty list of next buttons.");
-        }
-        else
-        {
-            for (int i = 0; i < _NextDialogueButton.Count; i++)
+            _DialogueStringIndex = 0;
+            _Distance = _StartDistance;
+            _SkipText.gameObject.SetActive(false);
+
+            _CaptainTexture.GetComponent<Image>().sprite = _CaptainImages[0];
+
+            if (_NextDialogueButton.Count <= 0)
             {
-                _NextDialogueButton[i].gameObject.SetActive(false);
+                T4Debug.Log($"[UIManager] CinematicUI has empty list of next buttons.");
             }
-        }
+            else
+            {
+                for (int i = 0; i < _NextDialogueButton.Count; i++)
+                {
+                    _NextDialogueButton[i].gameObject.SetActive(false);
+                }
+            }
 
-        ResetBlackBar();
-        StartCoroutine(ShowCutsceneUI());
+            ResetBlackBar();
+            StartCoroutine(ShowCutsceneUI());
+        }
     }
 
     public void DisableAll()

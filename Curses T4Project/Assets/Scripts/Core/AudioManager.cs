@@ -39,8 +39,8 @@ public class AudioManager : MonoBehaviour
         AudioSourceMusic = transform.GetChild(0).GetComponent<AudioSource>();
         AudioSourceSFX = transform.GetChild(1).GetComponent<AudioSource>();
 
-        AudioSourceMusic.volume = GameManager.Instance.DataManager.GameData.MusicVolume;
-        AudioSourceSFX.volume = GameManager.Instance.DataManager.GameData.SFXVolume;
+        SetMusicVolume(GameManager.Instance.DataManager.GameData.MusicVolume);
+        SetSfxVolume(GameManager.Instance.DataManager.GameData.SFXVolume);
 
         if (AudioSourceMusic != null && AudioSourceSFX != null)
         {
@@ -244,12 +244,29 @@ public class AudioManager : MonoBehaviour
     }
 
 
+    #region Volume
 
-    public void SetSliderMusicVolume() 
-    { 
-       AudioSourceMusic.volume = SliderMusic.value;
-       GameManager.Instance.DataManager.GameData.MusicVolume = AudioSourceMusic.volume;
+    public void SetMusicVolume(float value)
+    {
+        SliderMusic.value = value;
+        AudioSourceMusic.volume = value;
+        GameManager.Instance.DataManager.GameData.MusicVolume = value;
         T4Debug.Log($"[Audio Manager] music volume: {AudioSourceMusic.volume}");
+    }
+
+    public void SetSfxVolume(float value)
+    {
+        SliderSFX.value = value;
+        AudioSourceSFX.volume = value;
+        GameManager.Instance.DataManager.GameData.SFXVolume = value;
+        T4Debug.Log($"[Audio Manager] sfx volume: {AudioSourceSFX.volume}");
+
+    }
+
+    #region Volume Settings Sliders
+    public void SetSliderMusicVolume() 
+    {
+        SetMusicVolume(SliderMusic.value);
     }
     public void SetSliderSFXSVolume()
     {
@@ -258,12 +275,10 @@ public class AudioManager : MonoBehaviour
             PlaySFX("GAME_CoinObtained");
             _SliderAudioT = _SliderAudioIntervail;
         }
-        AudioSourceSFX.volume = SliderSFX.value;
-        GameManager.Instance.DataManager.GameData.SFXVolume = AudioSourceSFX.volume;
-        T4Debug.Log($"[Audio Manager] sfx volume: {AudioSourceSFX.volume}");
-
-
+        SetSfxVolume(SliderSFX.value);
     }
+    #endregion
+    #endregion
 
     private void Update()
     {

@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
 
 
     #region Save & Load Game
-    private void SaveGame()
+    public void SaveGame()
     {
         DataManager.Save(DataManager.GameData);
         for(int i = 0; i < DataManager.LevelDatas.Count; i++)
@@ -187,9 +187,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
         T4Debug.Log($"[GameManager] Scene '{scene.name}' loaded.");
+        LevelManager.CurrentLevel = LevelManager.LevelToLoad.GetComponent<Level>();
 
-
-        if(scene.name == "MainMenu")
+        if (scene.name == "MainMenu")
         {
             AudioManager.PlayMusic("MainMenuMusic");
             if (UIManager.CanvasToShow != null)
@@ -202,8 +202,6 @@ public class GameManager : MonoBehaviour
             }
             UIManager.FlagsCollection.UpdateFlagCollection();
 
-
-            LevelManager.CurrentLevel = LevelManager.LevelToLoad.GetComponent<Level>();
             UIManager.LevelPanelSelection.UpdateLevelPanel(LevelManager.CurrentLevel);
         }
         if(scene.name == "Level")
@@ -212,16 +210,17 @@ public class GameManager : MonoBehaviour
 
             if (LevelManager.CurrentLevel.IsTutorial)
             {
-                UIManager.CinematicUI.gameObject.SetActive(true);
+                
+                // UIManager.CinematicUI.gameObject.SetActive(true);
+                UIManager.ShowUICanvasOnly("CinematicUI");
             }
             else
             {
-                UIManager.CinematicUI.gameObject.SetActive(false);
+                //UIManager.CinematicUI.gameObject.SetActive(false);
                 UIManager.ShowUICanvasOnly("LevelUI");
             }
 
             LevelManager.LoadLevel(LevelManager.LevelToLoad);
-
             UIManager.StageCompleteUI.UpdateStageCompleteUI();
             AudioManager.PlayMusic("LevelMusic");
         }

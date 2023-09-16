@@ -679,7 +679,7 @@ Transform:
   - {fileID: 9139715615334853273}
   - {fileID: 2740021426137006359}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3829958758217255405
 MonoBehaviour:
@@ -4186,7 +4186,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &9155295260617427736
@@ -5445,7 +5445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 540}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1024, y: 1023}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &389170683831091343
@@ -6681,7 +6681,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9040316, g: 0.9137255, b: 0.4352941, a: 0.050980393}
+    m_NormalColor: {r: 0.9040316, g: 0.9137255, b: 0.4352941, a: 0}
     m_HighlightedColor: {r: 0.85882354, g: 0.82011896, b: 0.31764707, a: 1}
     m_PressedColor: {r: 0.9591349, g: 0.9716981, b: 0.20533992, a: 1}
     m_SelectedColor: {r: 0.9058824, g: 0.91372555, b: 0.43529415, a: 1}
@@ -7413,7 +7413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 45}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 90}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2886995154544986730
@@ -7999,7 +7999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8264,7 +8264,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12007,7 +12007,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9040316, g: 0.9137255, b: 0.4352941, a: 0.050980393}
+    m_NormalColor: {r: 0.9040316, g: 0.9137255, b: 0.4352941, a: 0}
     m_HighlightedColor: {r: 0.85882354, g: 0.82011896, b: 0.31764707, a: 1}
     m_PressedColor: {r: 0.9591349, g: 0.9716981, b: 0.20533992, a: 1}
     m_SelectedColor: {r: 0.9058824, g: 0.91372555, b: 0.43529415, a: 1}
@@ -16643,12 +16643,6 @@ MonoBehaviour:
   _CryptData: 1
   _CryptKey: T4TheDrowned
   GameData:
-    TotalDeathCount: 0
-    TotalEnemiesKilled: 0
-    TotalCoinsCollected: 0
-    TotalFlagsObtained: 0
-    TotalStarsObtained: 0
-    Muted: 0
     MusicVolume: 1
     SFXVolume: 1
   LevelDatas: []
@@ -19481,7 +19475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -365, y: -80}
+  m_AnchoredPosition: {x: -365, y: 0}
   m_SizeDelta: {x: -730, y: -282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9076864554611183667
@@ -20153,7 +20147,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -231,14 +231,14 @@ public class Level : MonoBehaviour
                     //Unlock next Level
                     if (LevelID < GameManager.Instance.LevelManager.LevelPrefabsList.Count - 1)
                     {
-                        GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>().LevelData.Unlocked = true;
+                        Level nextLev = GameManager.Instance.LevelManager.LevelPrefabsList[LevelID + 1].GetComponent<Level>();
+                        nextLev.LevelData.Unlocked = true;
+                        GameManager.Instance.DataManager.SaveLevel(nextLev.LevelData);
                     }
                     //call ui level passed here
                     GameManager.Instance.UIManager.StageCompleteUI.UpdateStageCompleteUI();
                     GameManager.Instance.UIManager.ShowUICanvasOnly("StageCompleteUI");
-
                     GameManager.Instance.DataManager.SaveLevel(LevelData);
-
                     break;
             }
         }
