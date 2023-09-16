@@ -14,6 +14,7 @@ public class CinematicUI : MonoBehaviour
     [SerializeField] private GameObject _BottomBar;
     [SerializeField] private float _TransitionSpeedModifier = 0.8f;
     [SerializeField] private float _PanelTransparency = 0.8f;
+    private bool _Continue = false;
 
     [Header("Dialogue - Captain")]
     [SerializeField] private float _ChangeTextureSpeed = 0.8f;
@@ -35,6 +36,7 @@ public class CinematicUI : MonoBehaviour
     [Header("Dialogue - Text")]
     [SerializeField] private float _TransitionTextSpeed = 0.8f;
     [SerializeField] private TextMeshProUGUI _DialogueText;
+    [SerializeField] private TextMeshProUGUI _SkipText;
     [SerializeField] private int _DialogueStringIndex;
     [SerializeField][Multiline(3)] private List<string> _DialogueString;
 
@@ -50,7 +52,33 @@ public class CinematicUI : MonoBehaviour
 
     private void Update()
     {
-        
+        if (Input.anyKeyDown && _Continue)
+        {
+            switch (_DialogueStringIndex)
+            {
+                case 0:
+                    _Continue = false;
+                    NextDialogButton(true);
+                    break;
+                case 1:
+                    _Continue = false;
+                    NextDialogButton(false);
+                    ActivateDeactivePanelButton();
+                    ChangeCaptainPosition(-100);
+                    ChangeCaptainTexture(1);
+                    break;
+                case 2:
+                    _Continue = false;
+                    NextDialogButton(true);
+                    break;
+                case 3:
+                    _Continue = false;
+                    DisableAll();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     private void OnEnable()
@@ -62,6 +90,8 @@ public class CinematicUI : MonoBehaviour
     {
         _DialogueStringIndex = 0;
         _Distance = _StartDistance;
+        _SkipText.gameObject.SetActive(false);
+
         _CaptainTexture.GetComponent<Image>().sprite = _CaptainImages[0];
 
         if (_NextDialogueButton.Count <= 0)
@@ -83,6 +113,7 @@ public class CinematicUI : MonoBehaviour
     public void DisableAll()
     {
         _NextDialogueButton[_DialogueStringIndex].gameObject.SetActive(false);
+        _SkipText.gameObject.SetActive(false);
         StartCoroutine(HideDialoguePanel());
         StartCoroutine(HideDialogueText());
         StartCoroutine(HideCaptain());
@@ -154,10 +185,11 @@ public class CinematicUI : MonoBehaviour
         gameObject.SetActive(false);
     }
     #endregion
-
     #region DialoguePanel
     private void EnableCorrectButton()
     {
+        _Continue = true;
+        _SkipText.gameObject.SetActive(true);
         _NextDialogueButton[_DialogueStringIndex].gameObject.SetActive(true);
     }
     public void ActivateDeactivePanelButton()
@@ -204,11 +236,10 @@ public class CinematicUI : MonoBehaviour
         _DialoguePanel.GetComponent<Image>().color = new Color(1, 1, 1, 0);
     }
     #endregion
-
-
     #region DialogueText
     public void NextDialogButton(bool SpawnNextDialogue)
     {
+        _SkipText.gameObject.SetActive(false);
         StartCoroutine(DialogueSwitch(SpawnNextDialogue));
     }
     private IEnumerator DialogueSwitch(bool SpawnNextDialogue)
@@ -281,8 +312,6 @@ public class CinematicUI : MonoBehaviour
         _DialogueText.color = new Color(1, 1, 1, 0);
     }
     #endregion
-
-
     #region Captain
     public void ChangeCaptainPosition(float newDistance)
     {

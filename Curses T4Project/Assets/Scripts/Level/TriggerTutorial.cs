@@ -84,7 +84,6 @@ public class TriggerTutorial : LevelEntity
                 IsTutorialTriggered = false;
                 gameObject.SetActive(false);
             }
-
         }
     }
 

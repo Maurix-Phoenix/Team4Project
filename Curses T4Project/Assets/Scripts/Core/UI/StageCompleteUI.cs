@@ -6,12 +6,10 @@ using UnityEngine.UI;
 
 public class StageCompleteUI : MonoBehaviour
 {
-
     public Image Flag;
     public Image StarComplete;
     public Image StarAce;
     public Image StarEconomy;
-
     public void LoadFlag()
     {
         Flag.sprite = GameManager.Instance.LevelManager.CurrentLevel.LevelFlagTemplate.FlagSprite;
@@ -21,7 +19,6 @@ public class StageCompleteUI : MonoBehaviour
         } 
     }
 
-    // Update is called once per frame
     public void UpdateStageCompleteUI()
     {
         LevelData levelD = GameManager.Instance.LevelManager.CurrentLevel.LevelData;
