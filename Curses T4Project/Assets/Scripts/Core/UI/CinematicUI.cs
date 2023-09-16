@@ -39,6 +39,7 @@ public class CinematicUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _SkipText;
     [SerializeField] private int _DialogueStringIndex;
     [SerializeField][Multiline(3)] private List<string> _DialogueString;
+    [SerializeField] private AudioClip _NextPanelAudio;
 
     private void Awake()
     {
@@ -55,25 +56,23 @@ public class CinematicUI : MonoBehaviour
     {
         if (Input.anyKeyDown && _Continue)
         {
+            _Continue = false;
+            GameManager.Instance.AudioManager.PlaySFX(_NextPanelAudio);
             switch (_DialogueStringIndex)
             {
                 case 0:
-                    _Continue = false;
                     NextDialogButton(true);
                     break;
                 case 1:
-                    _Continue = false;
                     NextDialogButton(false);
                     ActivateDeactivePanelButton();
                     ChangeCaptainPosition(-100);
                     ChangeCaptainTexture(1);
                     break;
                 case 2:
-                    _Continue = false;
                     NextDialogButton(true);
                     break;
                 case 3:
-                    _Continue = false;
                     DisableAll();
                     break;
                 default:
