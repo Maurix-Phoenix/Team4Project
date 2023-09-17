@@ -113,7 +113,7 @@ public class TriggerTutorial : LevelEntity
             FindObjectOfType<PlayerShoot>().enabled = true;
         }
         GameManager.Instance.UIManager.ShowUICanvas("TutorialUI");
-        GameManager.Instance.UIManager.GetComponentInChildren<TutorialUI>().UpdateTextUI(_TutorialTextToShow, _CaptainSprite);
+        GameManager.Instance.UIManager.TutorialUI.UpdateTextUI(_TutorialTextToShow, _CaptainSprite);
     }
 
     private void HideTutorialUI()
