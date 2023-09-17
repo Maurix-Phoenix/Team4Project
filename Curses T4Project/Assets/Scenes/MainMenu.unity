@@ -15930,38 +15930,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8621398164173695180, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: _DialogueClip.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 25008c642ceb08b4599c331b01f902b2, type: 3}
-    - target: {fileID: 8621398164173695180, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: _DialogueClip.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: f9b272d3e3d52d4408886b9eaaacb501, type: 3}
-    - target: {fileID: 8621398164173695180, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: _DialogueClip.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 537d3b3b632fe0148a662bf7244efad5, type: 3}
-    - target: {fileID: 8621398164173695180, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: _DialogueClip.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 97ecf70a3b5273940833d0fc006afa6f, type: 3}
-    - target: {fileID: 8753455419143968628, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: SFXs.Array.data[28].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 25008c642ceb08b4599c331b01f902b2, type: 3}
-    - target: {fileID: 8753455419143968628, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: SFXs.Array.data[29].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: f9b272d3e3d52d4408886b9eaaacb501, type: 3}
-    - target: {fileID: 8753455419143968628, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: SFXs.Array.data[30].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 537d3b3b632fe0148a662bf7244efad5, type: 3}
-    - target: {fileID: 8753455419143968628, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
-      propertyPath: SFXs.Array.data[31].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 97ecf70a3b5273940833d0fc006afa6f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

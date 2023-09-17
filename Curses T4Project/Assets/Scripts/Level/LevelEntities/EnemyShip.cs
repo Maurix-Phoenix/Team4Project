@@ -19,6 +19,7 @@ public class EnemyShip : LevelEntity, IDamageable
     [Header("SFX & VFX")]
     [SerializeField] private AudioClip _Destruction;
     [SerializeField] private ParticleSystem _DeathAnimationVFX;
+    [SerializeField] private ParticleSystem _TrailVFX;
     [SerializeField] private List<GameObject> _ObjectsToHideOnDeath;
 
     [Header("Labels")]
@@ -59,7 +60,8 @@ public class EnemyShip : LevelEntity, IDamageable
     private IEnumerator DeathAnimation()
     {
         _IsDead = true;
-
+        IsStopped = true;
+        _TrailVFX.Stop();
 
         if (_IsDead)
         {

@@ -94,7 +94,7 @@ MonoBehaviour:
   LevelName: Tutorial
   LevelDesigner: Giovanni
   LevelID: 0
-  LevelThumbnail: {fileID: 0}
+  LevelThumbnail: {fileID: 21300000, guid: 718a7a08add42f94aaf2e69b245b1a9b, type: 3}
   LevelFlagTemplate: {fileID: 11400000, guid: 92b2f8edd75c2324980b5254d6678a2a, type: 2}
   TotalDoubloons: 0
   TotalFlags: 0
@@ -102,12 +102,12 @@ MonoBehaviour:
     LevelID: 0
     LevelName: Tutorial
     LevelDesigner: Giovanni
-    Unlocked: 1
-    StarsObtained: 3
-    StarCompleted: 1
-    StarDoubloons: 1
-    StarAce: 1
-    FlagObtained: 1
+    Unlocked: 0
+    StarsObtained: 0
+    StarCompleted: 0
+    StarDoubloons: 0
+    StarAce: 0
+    FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
   LevelSpeed: 5
@@ -220,12 +220,12 @@ Transform:
   - {fileID: 7803154386587738254}
   - {fileID: 1416631877748782522}
   - {fileID: 5419239852351314201}
+  - {fileID: 8807401448572161859}
   - {fileID: 6606321368827039327}
   - {fileID: 5146384805216637454}
   - {fileID: 8963269925543689757}
   - {fileID: 6121978414163707579}
   - {fileID: 6168246758571228260}
-  - {fileID: 8807401448572161859}
   m_Father: {fileID: 6671093256376295538}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -904,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4384778655189565351, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_Name
-      value: Tutorial (3)
+      value: Tutorial (4)
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressEsc
@@ -1156,7 +1156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4384778655189565351, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_Name
-      value: Tutorial (7)
+      value: Tutorial (8)
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressEsc
@@ -1271,7 +1271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4384778655189565351, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_Name
-      value: Tutorial (6)
+      value: Tutorial (7)
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressEsc
@@ -1702,7 +1702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4384778655189565351, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_Name
-      value: Tutorial (4)
+      value: Tutorial (5)
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressEsc
@@ -1893,7 +1893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4384778655189565351, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_Name
-      value: Tutorial (8)
+      value: Tutorial (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressEsc
@@ -2007,7 +2007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4384778655189565351, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: m_Name
-      value: Tutorial (5)
+      value: Tutorial (6)
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: PressEsc
@@ -2346,6 +2346,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
       propertyPath: _PressMoveDown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}
+      propertyPath: _RestartTutorial
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845772708918065079, guid: 34b8e34495f7e4444b2b225be29dd584, type: 3}

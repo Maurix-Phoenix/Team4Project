@@ -4989,6 +4989,7 @@ MonoBehaviour:
   _IsDead: 0
   _Destruction: {fileID: 8300000, guid: 66d2c47285bc128419ac2a4cf518bd11, type: 3}
   _DeathAnimationVFX: {fileID: 1292040625332093180}
+  _TrailVFX: {fileID: 785197955203108158}
   _ObjectsToHideOnDeath:
   - {fileID: 7324822378052197222}
   - {fileID: 6616437478419769803}

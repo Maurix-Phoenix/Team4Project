@@ -120,6 +120,7 @@ MonoBehaviour:
   _DeathAnimationVFX: {fileID: 6192812899557806552}
   _ObjectsToHideOnDeath:
   - {fileID: 3449070969272050712}
+  _TrailVFX: {fileID: 2820915841666221166}
   LabelStyle: 1
 --- !u!114 &2947747371766824184
 MonoBehaviour:
@@ -5421,6 +5422,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945c374243aeddf45b5184e549a6e1ae, type: 3}
+--- !u!198 &2820915841666221166 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9078904824140902225, guid: 945c374243aeddf45b5184e549a6e1ae, type: 3}
+  m_PrefabInstance: {fileID: 6546923064170785599}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6539502007730474989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7790844535678162, guid: 945c374243aeddf45b5184e549a6e1ae, type: 3}

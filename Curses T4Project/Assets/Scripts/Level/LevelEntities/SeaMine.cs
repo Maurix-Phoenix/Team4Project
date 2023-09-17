@@ -11,6 +11,7 @@ public class SeaMine : LevelEntity, IDamageable
     [SerializeField] private int _Health = 1;
     [SerializeField] private bool _IsDroppedByFlagShip = false;
     [SerializeField] private float _GoDownSpeed = 1;
+    [SerializeField] private ParticleSystem _TrailVFX;
 
     [Header("Explosion Effect")]
     public GameObject ExplosionPrefabVFX;
@@ -89,6 +90,9 @@ public class SeaMine : LevelEntity, IDamageable
         if (!_IsExploding)
         {
             _IsExploding = true;
+            IsStopped = true;
+            _TrailVFX.Stop();
+
             yield return new WaitForSeconds(t);
 
             //TODO: need to set the explosion particle system with the range of the explosion.

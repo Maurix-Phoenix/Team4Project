@@ -133,7 +133,7 @@ public class UIManager : MonoBehaviour
         {
             if(isAnimated && canvasName != "LevelUI")
             {
-               FadeAnimationCR = StartCoroutine(FadeAnimation(_FadeAnimationTime));
+               FadeAnimationCR = StartCoroutine(FadeInAnimation(_FadeAnimationTime));
             }
             uiC.SetActive(true);
             
@@ -218,7 +218,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    IEnumerator FadeAnimation( float time)
+    IEnumerator FadeInAnimation( float time)
     {
         CanvasGroup.alpha = 0;
 

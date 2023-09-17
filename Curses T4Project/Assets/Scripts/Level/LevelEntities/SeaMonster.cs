@@ -23,6 +23,7 @@ public class SeaMonster : LevelEntity, IDamageable
     [SerializeField] private AudioClip _HitSFX;
     [SerializeField] private ParticleSystem _DeathAnimationVFX;
     [SerializeField] private List<GameObject> _ObjectsToHideOnDeath;
+    [SerializeField] private ParticleSystem _TrailVFX;
 
     [Header("Labels")]
     private UILabel _HealthLabel;
@@ -73,6 +74,7 @@ public class SeaMonster : LevelEntity, IDamageable
     {
         _IsDead = true;
         IsStopped = true;
+        _TrailVFX.Stop();
 
         if (_IsDead)
         {

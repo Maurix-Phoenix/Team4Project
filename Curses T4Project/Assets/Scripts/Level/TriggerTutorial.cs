@@ -1,22 +1,26 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static T4P;
 
 public class TriggerTutorial : LevelEntity
 {
-    [Header("Button To Press")]
-    [SerializeField] private bool _PressAny;
-    [SerializeField] private bool _PressMoveUp;
-    [SerializeField] private bool _PressMoveDown;
-    [SerializeField] private bool _PressSpacebar;
-
     [Header("SFX")]
     [SerializeField] private AudioClip _SkipAudio;
     [SerializeField] private Sprite _CaptainSprite;
 
-    [Header("Instruction")]
-    [SerializeField] [TextArea(1, 10)] private string _TutorialTextToShow;
+    [Header("Button To Press")]
+    [SerializeField] private bool _PressAny = true;
+    [SerializeField] private bool _PressMoveUp;
+    [SerializeField] private bool _PressMoveDown;
+    [SerializeField] private bool _PressSpacebar;
+
+
+    [Header("Tutorial")]
+    [SerializeField] private bool _IsTutorialText = true;
+    [SerializeField] private bool _RestartTutorial = false;
     [SerializeField] private bool _IsTutorialTriggered;
+    [SerializeField] [TextArea(1,10)] private string _StandardText;
 
     protected override void Start()
     {
@@ -100,26 +104,33 @@ public class TriggerTutorial : LevelEntity
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             _IsTutorialTriggered = true;
+            if (_PressSpacebar)
+            {
+                FindObjectOfType<PlayerShoot>().enabled = true;
+            }
             ShowTutorialUI();
         }
     }
 
     private void ShowTutorialUI()
     {
-        GameManager.Instance.LevelManager.CurrentLevel.StopLevel();
         FindObjectOfType<PlayerInput>().enabled = false;
-        if (_PressSpacebar)
+        GameManager.Instance.LevelManager.CurrentLevel.StopLevel();
+        GameManager.Instance.UIManager.ShowUICanvasOnly("TutorialUI");
+        if (_IsTutorialText)
         {
-            FindObjectOfType<PlayerShoot>().enabled = true;
+            GameManager.Instance.UIManager.TutorialUI.UpdateTutorialTextUI(_CaptainSprite, _RestartTutorial);
         }
-        GameManager.Instance.UIManager.ShowUICanvas("TutorialUI");
-        GameManager.Instance.UIManager.TutorialUI.UpdateTextUI(_TutorialTextToShow, _CaptainSprite);
+        else
+        {
+            GameManager.Instance.UIManager.TutorialUI.UpdateStandardTextUI(_CaptainSprite, _StandardText);
+        }
     }
 
     private void HideTutorialUI()
     {
         GameManager.Instance.LevelManager.CurrentLevel.StartLevel();
         FindObjectOfType<PlayerInput>().enabled = true;
-        GameManager.Instance.UIManager.HideUICanvas("TutorialUI");
+        GameManager.Instance.UIManager.ShowUICanvasOnly("LevelUI");
     }
 }

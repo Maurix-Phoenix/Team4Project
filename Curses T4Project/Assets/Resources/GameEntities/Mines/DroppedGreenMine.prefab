@@ -200,6 +200,7 @@ MonoBehaviour:
   _Health: 1
   _IsDroppedByFlagShip: 1
   _GoDownSpeed: 1.5
+  _TrailVFX: {fileID: 5279405380447603880}
   ExplosionPrefabVFX: {fileID: 1321841788029400320, guid: d476a7f41b2368c48a862b7b83329f59, type: 3}
   _ExplosionSFX: {fileID: 8300000, guid: 784a54076d59c3f4d9d95ce0d46cd27b, type: 3}
   _PlayerOnlyTrigger: 0
@@ -816,5 +817,10 @@ PrefabInstance:
 --- !u!4 &3792353414393792299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7790844535678162, guid: 945c374243aeddf45b5184e549a6e1ae, type: 3}
+  m_PrefabInstance: {fileID: 3799499788045657081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5279405380447603880 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9078904824140902225, guid: 945c374243aeddf45b5184e549a6e1ae, type: 3}
   m_PrefabInstance: {fileID: 3799499788045657081}
   m_PrefabAsset: {fileID: 0}

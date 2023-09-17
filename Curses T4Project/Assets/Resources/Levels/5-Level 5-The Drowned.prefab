@@ -105,7 +105,7 @@ MonoBehaviour:
   LevelName: 5
   LevelDesigner: Giovanni
   LevelID: 5
-  LevelThumbnail: {fileID: 0}
+  LevelThumbnail: {fileID: 21300000, guid: 297a01a478db69441a534545b2d78482, type: 3}
   LevelFlagTemplate: {fileID: 11400000, guid: 266145db99c08ce4aa72c711b5eef9f8, type: 2}
   TotalDoubloons: 0
   TotalFlags: 0

@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1187,7 +1187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3156,7 +3156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3437,7 +3437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5195,7 +5195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select Level
+  m_text: Level Selection
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 56f997ad978154d4fa4890dc5405a470, type: 2}
   m_sharedMaterial: {fileID: -915923524572044783, guid: 56f997ad978154d4fa4890dc5405a470, type: 2}
@@ -5325,7 +5325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6334,7 +6334,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pause
+  m_text: <gradient="BlackToGreen-Vertical">Pause
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 56f997ad978154d4fa4890dc5405a470, type: 2}
   m_sharedMaterial: {fileID: -915923524572044783, guid: 56f997ad978154d4fa4890dc5405a470, type: 2}
@@ -6681,7 +6681,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9040316, g: 0.9137255, b: 0.4352941, a: 0}
+    m_NormalColor: {r: 0.9040316, g: 0.9137255, b: 0.4352941, a: 0.101960786}
     m_HighlightedColor: {r: 0.85882354, g: 0.82011896, b: 0.31764707, a: 1}
     m_PressedColor: {r: 0.9591349, g: 0.9716981, b: 0.20533992, a: 1}
     m_SelectedColor: {r: 0.9058824, g: 0.91372555, b: 0.43529415, a: 1}
@@ -6700,7 +6700,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8589103828100274976}
+  m_TargetGraphic: {fileID: 5790481401004410429}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -7437,7 +7437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7583,7 +7583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9291,7 +9291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10217,7 +10217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: X
+  m_text: Back to Flag Collection
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 56f997ad978154d4fa4890dc5405a470, type: 2}
   m_sharedMaterial: {fileID: -915923524572044783, guid: 56f997ad978154d4fa4890dc5405a470, type: 2}
@@ -10226,8 +10226,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278780159
-  m_fontColor: {r: 1, g: 0, b: 0.03720951, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
@@ -10244,7 +10244,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 59.75
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10631,7 +10631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1, g: 0.1, b: 0.1, a: 0.8}
+  m_Color: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12013,7 +12013,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9040316, g: 0.9137255, b: 0.4352941, a: 0}
+    m_NormalColor: {r: 0.9040316, g: 0.9137255, b: 0.4352941, a: 0.101960786}
     m_HighlightedColor: {r: 0.85882354, g: 0.82011896, b: 0.31764707, a: 1}
     m_PressedColor: {r: 0.9591349, g: 0.9716981, b: 0.20533992, a: 1}
     m_SelectedColor: {r: 0.9058824, g: 0.91372555, b: 0.43529415, a: 1}
@@ -12376,7 +12376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2, g: 0.2, b: 0.2, a: 0.9019608}
+  m_Color: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12531,11 +12531,11 @@ RectTransform:
   m_Father: {fileID: 4817323203083628886}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: 0}
-  m_SizeDelta: {x: 70, y: 70}
-  m_Pivot: {x: 1, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -130, y: 0}
+  m_SizeDelta: {x: 590, y: 90}
+  m_Pivot: {x: 1, y: 0}
 --- !u!222 &7454806532055870143
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12557,7 +12557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12595,10 +12595,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.2835, g: 0.45, b: 0.45, a: 0}
-    m_HighlightedColor: {r: 0.28235295, g: 0.45098042, b: 0.45098042, a: 1}
-    m_PressedColor: {r: 0.36606556, g: 0.58, b: 0.58, a: 1}
-    m_SelectedColor: {r: 0.28235295, g: 0.45098042, b: 0.45098042, a: 1}
+    m_NormalColor: {r: 0.9137255, g: 0.43529412, b: 0.43529412, a: 0}
+    m_HighlightedColor: {r: 0.85882354, g: 0.31764707, b: 0.31764707, a: 1}
+    m_PressedColor: {r: 0.9137255, g: 0.43529412, b: 0.43529412, a: 1}
+    m_SelectedColor: {r: 0.9137255, g: 0.43529412, b: 0.43529412, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -13814,6 +13814,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TutorialText: {fileID: 5295530617934837570}
+  _TutorialTextIndex: 0
+  _TutorialTexts:
+  - 'Hey Pirate!
+
+    Press <gradient="BlackToGreen-Vertical">W </gradient>and <gradient="BlackToGreen-Vertical">S
+    </gradient>to move your Ship.'
+  - 'Watch out now!
+
+    Avoid the <gradient="BlackToRed-Vertical">Sharks</gradient>!
+
+
+    <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+    any key to continue.'
+  - 'Remember!
+
+    Different Enemies have different <gradient="BlackToRed-Vertical">abilities</gradient>.
+
+    <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+    any key to continue.'
+  - 'Prepare to return fire!
+
+    Press the <gradient="BlackToGreen-Vertical">SpaceBar
+    </gradient>to shoot at your enemies!'
+  - 'Defeating the enemy''s ship
+
+    grants you <gradient="BlackToRed-Vertical">Cannonballs</gradient>.
+
+
+    <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+    any key to continue.'
+  - 'Be careful!
+
+    <gradient="BlackToRed-Vertical">Mines</gradient> are very dangerous
+    to hit or touch!
+
+
+    <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+    any key to continue.'
+  - 'That''s a special Ship!
+
+    Take it down to collect the <gradient="BlackToRed-Vertical">flag
+    pieces</gradient>!
+
+
+    <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+    any key to continue.'
+  - 'Uh, shiny!
+
+    Collect the <gradient="BlackToRed-Vertical">doubloons</gradient>
+
+    to
+    raise the score level.
+
+    <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+    any key to continue.'
+  - 'Enough cannonballs will destroy
+
+    the <gradient="BlackToRed-Vertical">Wall</gradient>
+    so you can reach the Shore!
+
+
+    <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+    any key to continue'
   _CaptainImage: {fileID: 1975409675645169871}
 --- !u!1 &6604470594898608287
 GameObject:
@@ -13850,7 +13913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -333, y: 399}
+  m_AnchoredPosition: {x: -333, y: 300}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &4285900053892815276
@@ -16781,7 +16844,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 250, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8210508746002713775
 CanvasRenderer:
@@ -16838,7 +16901,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 67.05
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -17588,12 +17651,12 @@ MonoBehaviour:
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
-  m_colorMode: 1
+  m_colorMode: 2
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 0.47058827, g: 0.47058827, b: 0.47058827, a: 1}
+    bottomRight: {r: 0.47058827, g: 0.47058827, b: 0.47058827, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -17876,7 +17939,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 300, y: -250}
-  m_SizeDelta: {x: 400, y: 100}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8640361765626686294
 CanvasRenderer:
@@ -17899,14 +17962,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e34432230a8d158448131a0e29f3b2b3, type: 3}
+  m_Sprite: {fileID: 1505385743, guid: ea4e31dbe37cf224dbce6e254946790e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17937,10 +18000,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.9040316, g: 0.9137255, b: 0.4352941, a: 0.101960786}
+    m_HighlightedColor: {r: 0.85882354, g: 0.82011896, b: 0.31764707, a: 1}
+    m_PressedColor: {r: 0.9591349, g: 0.9716981, b: 0.20533992, a: 1}
+    m_SelectedColor: {r: 0.9058824, g: 0.91372555, b: 0.43529415, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -18296,7 +18359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -20515,14 +20578,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8753455419143968628}
-    - target: {fileID: 7704369975487339402, guid: c7a1c3496f68f57458edefeed1f007df, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 2031266340508456356}
-    - target: {fileID: 7704369975487339402, guid: c7a1c3496f68f57458edefeed1f007df, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LevelButtonPlay
-      objectReference: {fileID: 0}
     - target: {fileID: 7704369975487339402, guid: c7a1c3496f68f57458edefeed1f007df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: LevelPanel, Assembly-CSharp
