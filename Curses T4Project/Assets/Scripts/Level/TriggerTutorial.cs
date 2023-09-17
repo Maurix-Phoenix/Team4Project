@@ -22,12 +22,17 @@ public class TriggerTutorial : LevelEntity
     [SerializeField] private bool _IsTutorialTriggered;
     [SerializeField] [TextArea(1,10)] private string _StandardText;
 
+    private PlayerInput _PInput;
+    private PlayerShoot _PShoot;
+
     protected override void Start()
     {
         base.Start();
         CheckRequirement();
-        FindObjectOfType<PlayerInput>().enabled = false;
-        FindObjectOfType<PlayerShoot>().enabled = false;
+        _PInput = GameManager.Instance.LevelManager.Player.gameObject.GetComponent<PlayerInput>();
+        _PShoot = GameManager.Instance.LevelManager.Player.gameObject.GetComponent<PlayerShoot>();
+        _PInput.enabled = false;
+        _PShoot.enabled = false;
     }
     protected override void Update()
     {
@@ -104,9 +109,10 @@ public class TriggerTutorial : LevelEntity
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             _IsTutorialTriggered = true;
+
             if (_PressSpacebar)
             {
-                FindObjectOfType<PlayerShoot>().enabled = true;
+                _PShoot.enabled = true;
             }
             ShowTutorialUI();
         }
@@ -114,7 +120,7 @@ public class TriggerTutorial : LevelEntity
 
     private void ShowTutorialUI()
     {
-        FindObjectOfType<PlayerInput>().enabled = false;
+        _PInput.enabled = false;
         GameManager.Instance.LevelManager.CurrentLevel.StopLevel();
         GameManager.Instance.UIManager.ShowUICanvasOnly("TutorialUI");
         if (_IsTutorialText)
@@ -130,7 +136,7 @@ public class TriggerTutorial : LevelEntity
     private void HideTutorialUI()
     {
         GameManager.Instance.LevelManager.CurrentLevel.StartLevel();
-        FindObjectOfType<PlayerInput>().enabled = true;
+        _PInput.enabled = true;
         GameManager.Instance.UIManager.ShowUICanvasOnly("LevelUI");
     }
 }

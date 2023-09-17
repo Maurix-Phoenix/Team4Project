@@ -81,7 +81,7 @@ public class LevelPanel : MonoBehaviour
             SpriteFlagObtained.gameObject.SetActive(false);
 
             LevelCompletitionText.gameObject.SetActive(true);
-            LevelCompletitionText.text = "LOCKED\nComplete the previous levels first!";
+            LevelCompletitionText.text = $"Level {level.LevelName} is locked.\nComplete the previous levels first!";
             designText = "LOCKED";
             levelThumbanil = DefaultThumbnail;
         }
