@@ -114,6 +114,7 @@ MonoBehaviour:
   _PressMoveDown: 0
   _PressSpacebar: 0
   _IsTutorialText: 1
+  _TutorialDisplayedTime: 1.5
   _RestartTutorial: 0
   _IsTutorialTriggered: 0
   _StandardText: 
