@@ -10564,7 +10564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CanMove: 0
-  _ScrollingSpeedModifier: 0.2
+  _ScrollingSpeedModifier: 0.4
 --- !u!1 &1116330589
 GameObject:
   m_ObjectHideFlags: 0

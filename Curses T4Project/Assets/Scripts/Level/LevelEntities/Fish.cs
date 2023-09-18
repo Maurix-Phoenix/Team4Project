@@ -1,6 +1,7 @@
 //Fish.cs
 //by MAURIZIO FISCHETTI
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fish : MonoBehaviour
@@ -13,6 +14,7 @@ public class Fish : MonoBehaviour
     [SerializeField] private float _SpeedVariation = 0.5f;
     [SerializeField] private bool _ConsiderLevelSpeed = true;
     [SerializeField] private float _CurrentSpeed;
+    public float XDir = -1;
 
     private Vector2 _XRange = new Vector2(-26, 36);
     private Vector2 _YRange = new Vector2(-10, -1);
@@ -28,9 +30,62 @@ public class Fish : MonoBehaviour
             _SpeedVariation = FishT.SpeedVariation; 
             _ConsiderLevelSpeed = FishT.ConsiderLevelSpeed;
         }
-        if(_ConsiderLevelSpeed && GameManager.Instance.LevelManager.CurrentLevel != null)
+
+        if (XDir == 1)//to right
         {
-            _Speed += GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed / 4;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else //to left
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        if (_ConsiderLevelSpeed && GameManager.Instance.LevelManager.CurrentLevel != null)
+        {
+
+            if (XDir == 1)
+            {
+                _Speed -= transform.position.z / GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed;
+            }
+            else
+            {
+                _Speed += transform.position.z / GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed;
+            }
+        }
+        _CurrentSpeed = _Speed + Random.Range(-_SpeedVariation, _SpeedVariation);
+    }
+
+    private void OnEnable()
+    {
+        if (FishT != null)
+        {
+            _ChangeDirectionTime = FishT.ChangeDirectionIntervail;
+            _Speed = FishT.Speed;
+            _SpeedVariation = FishT.SpeedVariation;
+            _ConsiderLevelSpeed = FishT.ConsiderLevelSpeed;
+        }
+
+
+        if(XDir == 1)//to right
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else //to left
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        if (_ConsiderLevelSpeed && GameManager.Instance.LevelManager.CurrentLevel != null)
+        {
+            
+            if (XDir == 1)
+            {
+                _Speed -= GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed/2;
+            }
+            else
+            {
+                _Speed += GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed;
+            }
         }
         _CurrentSpeed = _Speed + Random.Range(-_SpeedVariation, _SpeedVariation);
     }
@@ -38,32 +93,16 @@ public class Fish : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.left * Time.deltaTime * _CurrentSpeed;
-
-        //_ChangeDirectionT -= Time.deltaTime;
-        //if(_ChangeDirectionT > 0)
-        //{
-        //    Vector3 direction = _CurrentTargetPos - transform.position;
-        //    transform.Translate(direction.normalized * Time.deltaTime * _CurrentSpeed);
-        //}
-        //else
-        //{
-        //    _CurrentTargetPos =
-        //    new Vector3(Random.Range(_XRange.x, _XRange.y),
-        //    Random.Range(_YRange.x, _YRange.y),
-        //    Random.Range(_ZRange.x, _ZRange.y));
-
-        //    transform.LookAt(_CurrentTargetPos);
-
-        //    _CurrentSpeed = _Speed + Random.Range(-_SpeedVariation, _SpeedVariation);
-        //    _ChangeDirectionT = _ChangeDirectionTime;
-        //}
+        if(GameManager.Instance.LevelManager.CurrentLevel.IsStopped)
+        {
+            _CurrentSpeed = _CurrentSpeed = _Speed + Random.Range(-_SpeedVariation, _SpeedVariation);
+            transform.position += new Vector3(XDir, 0, 0) * Time.deltaTime * Mathf.Abs(_CurrentSpeed);
+        }
+        else
+        {
+            transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * Mathf.Abs(_CurrentSpeed);
+        }
 
 
-
-        //if(transform.position.y < _YRange.x || transform.position.y > _YRange.y || transform.position.z < _ZRange.x || transform.position.z > _ZRange.y )
-        //{
-        //    _ChangeDirectionT = 0;
-        //}
     }
 }

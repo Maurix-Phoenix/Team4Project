@@ -20,13 +20,13 @@ public class AudioManager : MonoBehaviour
     public AudioSource AudioSourceSFX { get; private set; }
 
     [Header("Audio Libraries")]
-    public List<Music> Musics= new List<Music>();
+    public List<Music> Musics = new List<Music>();
     public List<SFX> SFXs = new List<SFX>();
 
     public Slider SliderMusic;
     public Slider SliderSFX;
 
-    [SerializeField]private float _SliderAudioIntervail = 1;
+    [SerializeField] private float _SliderAudioIntervail = 1;
     private float _SliderAudioT;
 
     private void Awake()
@@ -47,7 +47,7 @@ public class AudioManager : MonoBehaviour
             T4Debug.Log("[AudioManager] Initialized.");
             return true;
         }
-        else 
+        else
         {
             T4Debug.Log(gameObject.name + "Failed Initialization, one or more AudioSource is null");
             return false;
@@ -60,6 +60,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="clipName"></param>
     public void PlayMusic(string clipName)
     {
+        AudioSourceMusic.Stop();
         foreach (Music music in Musics)
         {
             if (music != null)
@@ -77,6 +78,7 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayMusic(AudioClip ac)
     {//global music
+        AudioSourceMusic.Stop();
         foreach (Music music in Musics)
         {
             if (music != null)

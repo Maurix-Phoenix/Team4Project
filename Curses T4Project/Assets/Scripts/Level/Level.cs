@@ -37,6 +37,7 @@ public class Level : MonoBehaviour
     [HideInInspector] public bool IsLevelEnded = false;
     public bool IsFinalArrivalBeach = false;
     [HideInInspector] public bool PlayerHasReachBeach = false;
+    public bool IsStopped = true;
 
     [Header("Layer Variables")]
     public bool IsTutorial = false;
@@ -141,6 +142,7 @@ public class Level : MonoBehaviour
 
     public void StartLevel()
     {
+        IsStopped = false;
         CalculateLevelResources();
         GameManager.Instance.UIManager.StageCompleteUI.UpdateStageCompleteUI();
         GameManager.Instance.EventManager.RaiseOnLevelStart();
@@ -151,6 +153,7 @@ public class Level : MonoBehaviour
     /// </summary>
     public void StopLevel()
     {
+        IsStopped = true;
         T4Debug.Log("[Level] Stopped");
         GameManager.Instance.EventManager.RaiseOnLevelStop();
     }

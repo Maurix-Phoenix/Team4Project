@@ -28,20 +28,25 @@ public class WaterPopulation : MonoBehaviour
                 pos.x = Random.Range(_XRange.x, _XRange.y);
                 pos.y = Random.Range(_YRange.x, _YRange.y);
                 pos.z = Random.Range(_ZRange.x, _ZRange.y);
+
                 Fish newFish = Instantiate(fishT.fishPrefab, transform).GetComponent<Fish>();
+                newFish.XDir = Random.value > 0.5f ? 1 : -1;
                 newFish.transform.position = pos;
                 newFish.gameObject.SetActive(false);
                 FishesPool.Add(newFish);
+
             }
         }
 
         for (int i = 0; i < _MaxFishes; i++)
         {
-            SpawnFish(FishesPool[Random.Range(0, FishesPool.Count)], FishesPool[i].transform.position);
+            FishesPool[i].gameObject.SetActive(true);
+            Fishes.Add(FishesPool[i]);
+            FishesPool.Remove(FishesPool[i]);
         }
     }
 
-    private void SpawnFish(Fish fish, Vector3 position)
+    private void SpawnFish(Fish fish)
     {
         if(FishesPool.Count > 0 && Fishes.Count < _MaxFishes)
         {
@@ -49,9 +54,10 @@ public class WaterPopulation : MonoBehaviour
             {
                 FishesPool.Remove(fish);
                 Fishes.Add(fish);
-                fish.transform.position = position;
+                fish.transform.position = RandomStartingPosition(fish);
                 fish.gameObject.SetActive(true);
             }
+
         }
 
     }
@@ -60,14 +66,26 @@ public class WaterPopulation : MonoBehaviour
         FishesPool.Add(fish);
         Fishes.Remove(fish);
         fish.gameObject.SetActive(false);
-        fish.transform.position = RandomStartingPosition();
+        fish.XDir = 0;
+        fish.transform.position = RandomStartingPosition(fish);
     }
 
-    private Vector3 RandomStartingPosition()
+    private Vector3 RandomStartingPosition(Fish fish)
     {
         Vector3 pos = Vector3.zero;
 
-        pos.x = _XRange.y-1;
+        if(Random.value > 0.5)
+        {
+            //fish LtR 
+            fish.XDir = 1;
+            pos.x = _XRange.y - 1;
+        }
+        else
+        {
+            //fish RtL
+            fish.XDir = -1;
+            pos.x = _XRange.y - 1;
+        }
         pos.y = Random.Range(_YRange.x, _YRange.y);
         pos.z = Random.Range(_ZRange.x, _ZRange.y);
 
@@ -81,7 +99,8 @@ public class WaterPopulation : MonoBehaviour
             if (Fishes[i] != null && (Fishes[i].transform.position.x <= _XRange.x || Fishes[i].transform.position.x >= _XRange.y))
             {
                 DespawnFish(Fishes[i]);
-                SpawnFish(FishesPool[Random.Range(0, FishesPool.Count)], RandomStartingPosition());
+
+                SpawnFish(FishesPool[Random.Range(0, FishesPool.Count)]);
             }
         }
     }
