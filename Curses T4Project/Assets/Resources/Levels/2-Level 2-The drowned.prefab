@@ -95,9 +95,9 @@ MonoBehaviour:
   TotalFlags: 0
   LevelData:
     LevelID: 2
-    LevelName: 2
+    LevelName: 2-Level 2-The drowned
     LevelDesigner: Giovanni
-    Unlocked: 0
+    Unlocked: 1
     StarsObtained: 0
     StarCompleted: 0
     StarDoubloons: 0

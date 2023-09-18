@@ -12,7 +12,7 @@ public class SlowAbility : MonoBehaviour
 {
     [Header("Debuff")]
     [SerializeField][Range(0f, 99f)] private float _MovementReductionPercentage;
-    [SerializeField] private float _DebuffDuration;
+    [SerializeField] private float _DebuffDuration = 5f;
     [SerializeField] private bool _HasSlowed;
 
     [Header("SFX")]
