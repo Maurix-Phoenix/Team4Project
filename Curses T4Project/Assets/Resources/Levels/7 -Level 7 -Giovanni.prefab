@@ -108,13 +108,13 @@ MonoBehaviour:
   TotalFlags: 0
   LevelData:
     LevelID: 7
-    LevelName: 7 -Level 7 -Giovanni
-    LevelDesigner: Giovanni
-    Unlocked: 1
-    StarsObtained: 2
-    StarCompleted: 1
+    LevelName: 7 -Level 7
+    LevelDesigner: The drowned
+    Unlocked: 0
+    StarsObtained: 0
+    StarCompleted: 0
     StarDoubloons: 0
-    StarAce: 1
+    StarAce: 0
     FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
@@ -123,6 +123,7 @@ MonoBehaviour:
   IsLevelEnded: 0
   IsFinalArrivalBeach: 1
   PlayerHasReachBeach: 0
+  IsStopped: 1
   IsTutorial: 0
   StartingLane: 0
   NOfLayersUnderWater: 2
@@ -131,7 +132,7 @@ MonoBehaviour:
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -5
   XIntermediatePosition: 5
-  XEndingPosition: 16
+  XEndingPosition: 20
   YLanePosition: 0
   StartingHealth: 5
   StartingCannonBalls: 10

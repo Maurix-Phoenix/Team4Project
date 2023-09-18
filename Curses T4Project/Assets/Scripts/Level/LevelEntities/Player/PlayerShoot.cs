@@ -101,7 +101,7 @@ public class PlayerShoot : MonoBehaviour
         {
             if (!GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
             {
-                _cannonballToShootAtBoss = FindObjectOfType<EndWall>().Health;
+                _cannonballToShootAtBoss = FindObjectOfType<EndWall>(true).Health;
             }
         }
 

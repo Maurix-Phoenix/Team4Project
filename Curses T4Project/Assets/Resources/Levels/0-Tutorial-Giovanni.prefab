@@ -94,18 +94,19 @@ MonoBehaviour:
     LevelName: 0-Tutorial-Giovanni
     LevelDesigner: Giovanni
     Unlocked: 1
-    StarsObtained: 3
-    StarCompleted: 1
-    StarDoubloons: 1
-    StarAce: 1
-    FlagObtained: 1
+    StarsObtained: 0
+    StarCompleted: 0
+    StarDoubloons: 0
+    StarAce: 0
+    FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
   LevelSpeed: 5
   IsInBossBattle: 0
-  IsLevelEnded: 0
+  IsLevelEnded: 1
   IsFinalArrivalBeach: 0
   PlayerHasReachBeach: 0
+  IsStopped: 1
   IsTutorial: 1
   StartingLane: 1
   NOfLayersUnderWater: 2
@@ -114,7 +115,7 @@ MonoBehaviour:
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -5
   XIntermediatePosition: 5
-  XEndingPosition: 30
+  XEndingPosition: 20
   YLanePosition: 0
   StartingHealth: 99
   StartingCannonBalls: 99

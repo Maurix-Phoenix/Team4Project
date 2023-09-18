@@ -12,8 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4d89d2a03ef134f9decde640b5f15b, type: 3}
   m_Name: Flag_4
   m_EditorClassIdentifier: 
-  Obtained: 0
   FlagID: 4
-  FlagName: Level 4 Flag
-  FlagDescription: Level 4 flag description...
+  FlagName: Henry Every
+  FlagDescription: "Born: England\r\nFlagship: Fancy\n\n\r\n\u201CHenry Every, crowned
+    the 'King of Pirates' by contemporaries, savored a rare fate among his brethren,
+    the privilege of escaping with his plunder, untouched by the law or the swords
+    of adversaries. He etched his name in the annals of piracy as the mastermind
+    behind what is hailed as the most profitable act of piracy in history. Uniting
+    with fellow pirates, Every found himself at the helm of a small pirate fleet.
+    Under his command, they descended upon a twenty-five-ship convoy of vessels,
+    laden with precious metals and jewels. In a whirlwind of plunder, they seized
+    a fortune. Though Every's piratical career spanned a mere two years, his exploits
+    ignited the imaginations of the masses, inspiring others to follow his path,
+    while also birthing literary legends. Every eluded justice, disappearing into
+    obscurity. Rumor has it he changed his name and retired, basking in the spoils
+    of his tropical island paradise.\"\r\n"
   FlagSprite: {fileID: 21300000, guid: 8564fa1a50a64224588dd4ee19a403c4, type: 3}

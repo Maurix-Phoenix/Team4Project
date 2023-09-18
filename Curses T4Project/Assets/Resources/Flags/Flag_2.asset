@@ -12,8 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4d89d2a03ef134f9decde640b5f15b, type: 3}
   m_Name: Flag_2
   m_EditorClassIdentifier: 
-  Obtained: 0
   FlagID: 2
-  FlagName: Level 2 Flag
-  FlagDescription: Level 2 flag description...
+  FlagName: Calico Jack
+  FlagDescription: 'John Rackham, better known as Calico Jack
+
+    Born: England
+
+    Flagship:
+    Kingston
+
+
+    
+
+    Calico Jack, so named for his flamboyant red and yellow
+    coat, captained the Kingston and etched his name into pirate lore. His daring
+    escapes from captivity and infamous partnership with the fearless pirate Anne
+    Bonny are the stuff of legend. Together, they plundered countless vessels, amassing
+    great wealth on the high seas and eventually becoming lovers.
+
+    Despite his
+    cunning, Calico Jack''s luck eventually ran dry, leading to his capture and a
+    grim sentence of hanging. As the noose tightened around his neck, Anne Bonny,
+    hiding in the crowd, delivered a stern judgment: ''Had you fought as a man, you
+    would not now hang like a dog.'' Calico Jack''s tale serves as a stark reminder
+    of the treacherous path walked by those who sail under the black flag."
+
+'
   FlagSprite: {fileID: 21300000, guid: 5fee6c7aa8c4c2941ad27a9d64c8e31e, type: 3}

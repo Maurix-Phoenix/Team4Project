@@ -40,7 +40,7 @@ public class LevelPanel : MonoBehaviour
     }
 
     public void UpdateLevelPanel(Level level)
-    {
+    { 
         level.LevelData = GameManager.Instance.DataManager.LevelDatas[level.LevelID];
 
         SpriteStarCompleted.gameObject.SetActive(false);

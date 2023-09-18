@@ -8,6 +8,7 @@ using static T4P;
 public class LevelManager : MonoBehaviour
 {
     public List<GameObject> LevelPrefabsList = new List<GameObject>();
+    public List<Level> Levels = new List<Level>();
 
     public GameObject LevelToLoad = null;
     public Level CurrentLevel = null;
@@ -18,21 +19,26 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        PopulateLevelPrefabList();
+    }
+
+    public void PopulateLevelPrefabList()
+    {
+
         foreach (GameObject level in Resources.LoadAll("Levels/"))
         {
-            LevelPrefabsList.Add(level);
             Level ls = level.GetComponent<Level>();
+
             //Always unlock level 0 "tutorial"
-            if (ls.LevelID == 0 )
+            if (ls.LevelID == 0)
             {
                 ls.LevelData.Unlocked = true;
             }
-            //else
-            //{
-            //    ls.IsUnlocked = ls.LevelData.Unlocked;
-            //}
-                   
+
+            LevelPrefabsList.Add(level);
+
         }
+
 
         PlayerPrefab = Resources.Load<GameObject>("GameEntities/Player");
 
@@ -45,7 +51,6 @@ public class LevelManager : MonoBehaviour
             LevelToLoad = LevelPrefabsList[0];
             CurrentLevel = LevelToLoad.GetComponent<Level>();
         }
-
     }
 
     /// <summary>
@@ -81,7 +86,7 @@ public class LevelManager : MonoBehaviour
             }
         }
         T4Debug.Log($"[Level Manager] Could not find a Level with name: {levelName}");
-        
+
     }
     /// <summary>
     /// Load the level with the given ID
@@ -89,9 +94,9 @@ public class LevelManager : MonoBehaviour
     /// <param name="id">the ID of the level</param>
     public void LoadLevel(int id)
     {
-        foreach(GameObject level in LevelPrefabsList)
+        foreach (GameObject level in LevelPrefabsList)
         {
-            if(level.GetComponent<Level>().LevelID == id)
+            if (level.GetComponent<Level>().LevelID == id)
             {
                 LevelToLoad = level;
                 InstantiateLevel(level);
@@ -100,12 +105,12 @@ public class LevelManager : MonoBehaviour
         }
         T4Debug.Log($"[Level Manager] Could not find a Level with ID: {id}");
     }
-    public void LevelSelectionPrevious() 
+    public void LevelSelectionPrevious()
     {
-        if(GameManager.Instance.CurrentScene.name == "MainMenu")
+        if (GameManager.Instance.CurrentScene.name == "MainMenu")
         {
-            int index = LevelPrefabsList.IndexOf(CurrentLevel.gameObject) -1;
-            if(index < 0)
+            int index = LevelPrefabsList.IndexOf(CurrentLevel.gameObject) - 1;
+            if (index < 0)
             {
                 index = LevelPrefabsList.Count - 1;
             }
@@ -117,11 +122,11 @@ public class LevelManager : MonoBehaviour
 
         }
     }
-    public void LevelSelectionNext() 
+    public void LevelSelectionNext()
     {
         if (GameManager.Instance.CurrentScene.name == "MainMenu")
         {
-            int index = LevelPrefabsList.IndexOf(CurrentLevel.gameObject) +1;
+            int index = LevelPrefabsList.IndexOf(CurrentLevel.gameObject) + 1;
             if (index > LevelPrefabsList.Count - 1)
             {
                 index = 0;

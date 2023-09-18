@@ -80,7 +80,7 @@ public class Player : MonoBehaviour, IDamageable
     public void AddResource(T4Project.PickupsType resourceType, int value)
     {
         LevelUI levelUI = GameManager.Instance.UIManager.LevelUI;
-        Vector3 worldCoord = Vector3.zero;
+        Vector3 uiCoord = Vector3.zero;
 
         UILabel.LabelIconStyles iconStyle = new UILabel.LabelIconStyles();
         switch (resourceType)
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour, IDamageable
             case T4Project.PickupsType.Cannonball:
                 {
                     iconStyle = UILabel.LabelIconStyles.Cannonballs;
-                    worldCoord = levelUI.CannonballsText.rectTransform.position;
+                    uiCoord = levelUI.CannonballsText.rectTransform.position;
                     NOfCannonball += value;
                     if (NOfCannonball < 0)
                     {
@@ -103,7 +103,7 @@ public class Player : MonoBehaviour, IDamageable
             case T4Project.PickupsType.Doubloon:
                 {
                     iconStyle = UILabel.LabelIconStyles.Doubloons;
-                    worldCoord = levelUI.DoubloonsText.rectTransform.position;
+                    uiCoord = levelUI.DoubloonsText.rectTransform.position;
                     NOfDoubloons += value;
                     if (NOfDoubloons < 0)
                     {
@@ -119,16 +119,15 @@ public class Player : MonoBehaviour, IDamageable
             case T4Project.PickupsType.Flag:
                 {
                     iconStyle = UILabel.LabelIconStyles.Flags;
-                    worldCoord = levelUI.FlagCover.rectTransform.position;
+                    uiCoord = levelUI.FlagCover.rectTransform.position;
                     NOfFlags += value;
                     break;
                 }
         }
-        worldCoord.z = Camera.main.farClipPlane;
-        worldCoord = Camera.main.ScreenToWorldPoint(worldCoord);
-        Vector3 animDir = value > 0 ? worldCoord : -worldCoord;
 
-        GameManager.Instance.UIManager.CreateUILabel().ShowLabel(iconStyle, $"+{value}",new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), null, 3f, 100f, animDir);
+        Vector3 animDir = value > 0 ? uiCoord : -uiCoord;
+
+        GameManager.Instance.UIManager.CreateUILabel().ShowLabel(iconStyle, $"{value}",new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), null, 3f, 10f, animDir);
         UpdatePlayerUI();
     }
 

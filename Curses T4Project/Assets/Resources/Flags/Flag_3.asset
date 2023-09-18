@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4d89d2a03ef134f9decde640b5f15b, type: 3}
   m_Name: Flag_3
   m_EditorClassIdentifier: 
-  Obtained: 0
   FlagID: 3
-  FlagName: Level 3 Flag
-  FlagDescription: Level 3 flag description...
+  FlagName: Emanuel Wynne
+  FlagDescription: "Born: France\r\nFlagship: Unknown\n\n\r\n\"Emanuel Wynne, the
+    enigmatic French pirate, carved a fearsome legacy in the Caribbean, haunting
+    vessels and leaving an indelible mark upon pirate history. While much of his
+    life remains shrouded in mystery, one tale endures, a tale that has etched his
+    name in infamy. Wynne stands as the very first to hoist the Jolly Roger, that
+    dread symbol of piracy. It is believed that he was the mastermind behind its
+    ominous design, an unmistakable emblem featuring crossbones, accompanied by an
+    hourglass, symbolizing the ever-dwindling time of his prey. In the annals of
+    piracy, Emanuel Wynne remains an elusive and formidable figure, a phantom of
+    the high seas whose legend lives on.\"\n\r"
   FlagSprite: {fileID: 21300000, guid: c4c45541ffc79484888da2f5245f8be2, type: 3}

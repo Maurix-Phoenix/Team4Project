@@ -113,11 +113,11 @@ MonoBehaviour:
     LevelID: 4
     LevelName: 4 -Level 4-The Drowned
     LevelDesigner: Giovanni
-    Unlocked: 1
-    StarsObtained: 2
-    StarCompleted: 1
+    Unlocked: 0
+    StarsObtained: 0
+    StarCompleted: 0
     StarDoubloons: 0
-    StarAce: 1
+    StarAce: 0
     FlagObtained: 0
   LevelObjects: []
   TemporaryObjects: []
@@ -126,6 +126,7 @@ MonoBehaviour:
   IsLevelEnded: 0
   IsFinalArrivalBeach: 0
   PlayerHasReachBeach: 0
+  IsStopped: 1
   IsTutorial: 0
   StartingLane: 0
   NOfLayersUnderWater: 2
@@ -134,7 +135,7 @@ MonoBehaviour:
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -5
   XIntermediatePosition: 5
-  XEndingPosition: 16
+  XEndingPosition: 20
   YLanePosition: 0
   StartingHealth: 5
   StartingCannonBalls: 10

@@ -27,8 +27,9 @@ public class UILabel : MonoBehaviour
     private bool _IsAnimated = false;
     private Vector3 _AnimationDirection = Vector3.zero;
     private float _Speed = 0;
-   
 
+    private RectTransform RT;
+   
     public enum LabelIconStyles
     {
         None,
@@ -62,7 +63,7 @@ public class UILabel : MonoBehaviour
     public void ShowLabel(LabelIconStyles ls, string Text, Vector3 relPosition,Transform parent = null, float lifetime = 0, float animMovespeed = 0, Vector3 animDir = new Vector3())
     {
         HideAll();
-
+        RT = GetComponent<RectTransform>();
         switch (ls)
         {
             case LabelIconStyles.None: { break; }
@@ -167,7 +168,18 @@ public class UILabel : MonoBehaviour
 
         if (_IsAnimated)
         {
-            transform.position += _AnimationDirection.normalized * Time.deltaTime * _Speed;
+
+            Vector3 uiPos = Camera.main.WorldToScreenPoint(transform.position);
+
+            if(Vector2.Distance(uiPos, _AnimationDirection) > 5)
+            {
+                Vector3 direction = _AnimationDirection - uiPos;
+                RT.position += direction.normalized * _Speed * Time.deltaTime;
+            }
+            else
+            {
+                RT.position = _AnimationDirection;
+            }
         }
     }
 

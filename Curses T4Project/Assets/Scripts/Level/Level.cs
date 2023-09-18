@@ -33,10 +33,10 @@ public class Level : MonoBehaviour
 
     [Header("Level Conditions")]
     public float LevelSpeed = 1.0f;
-    [HideInInspector]public bool IsInBossBattle = false;
-    [HideInInspector] public bool IsLevelEnded = false;
+    public bool IsInBossBattle = false;
+    public bool IsLevelEnded = false;
     public bool IsFinalArrivalBeach = false;
-    [HideInInspector] public bool PlayerHasReachBeach = false;
+    public bool PlayerHasReachBeach = false;
     public bool IsStopped = true;
 
     [Header("Layer Variables")]
@@ -242,6 +242,7 @@ public class Level : MonoBehaviour
                     GameManager.Instance.UIManager.StageCompleteUI.UpdateStageCompleteUI();
                     GameManager.Instance.UIManager.ShowUICanvasOnly("StageCompleteUI");
                     GameManager.Instance.DataManager.SaveLevel(LevelData);
+
                     break;
             }
         }

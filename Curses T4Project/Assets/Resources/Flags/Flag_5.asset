@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4d89d2a03ef134f9decde640b5f15b, type: 3}
   m_Name: Flag_5
   m_EditorClassIdentifier: 
-  Obtained: 0
   FlagID: 5
-  FlagName: Level 5 Flag
-  FlagDescription: Level 5 flag description...
+  FlagName: Bartholomew Roberts
+  FlagDescription: "Born: Wales\r\nFlagship: Royal Fortune\n\n\n\"Bartholomew Roberts,
+    the legendary Black Bart, claims his rightful place in history as the most prolific
+    pirate of all time. With an astounding tally of over 470 captured ships, he commanded
+    a formidable fleet of four vessels and a horde of pirates. His leadership prowess,
+    charisma, and audacity set him apart. For three relentless years, he roamed the
+    high seas, seizing any ship that caught his eye. In response to a mutiny that
+    saw a portion of his crew abscond with a sizable share of his riches, Roberts
+    penned the renowned 'Robert\u2019s Pirate Code.' He's often depicted in his signature
+    attire: a crimson waistcoat, scarlet breeches, and a flamboyant scarlet flamingo
+    plume, a living legend among pirates.\"\r\n"
   FlagSprite: {fileID: 21300000, guid: 27745fb287c95184aa5c4e5cef191fdb, type: 3}

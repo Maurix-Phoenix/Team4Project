@@ -14,6 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlagID: 0
   FlagName: Tutorial Flag
-  FlagDescription: This flag is acquired in the Tutorial, no one knows where it comes
-    from...
-  FlagSprite: {fileID: 21300000, guid: 98a720aeae462984992c913b8d512f3f, type: 3}
+  FlagDescription: 'In the vast realm of sea-bound legends, where pirates and colossal
+    sea monsters weave their tales, and untold treasures lie concealed in the depths,
+    one enigma stands shrouded in mystery: this flag.
+
+    A relic of unknown origin,
+    untouched by human hands, it beckons with a riddle that tugs at the very essence
+    of discovery. Who fashioned this cryptic emblem, and from what realm does it
+    hail?To unravel the secrets of this enigmatic standard, there remains but a solitary
+    path: set sail, brave the unknown, and chart a course toward the answer that
+    has eluded all who have gazed upon it.'
+  FlagSprite: {fileID: 21300000, guid: 6c7de69855d710445a64933236da9a52, type: 3}

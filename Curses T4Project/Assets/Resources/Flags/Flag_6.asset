@@ -13,6 +13,24 @@ MonoBehaviour:
   m_Name: Flag_6
   m_EditorClassIdentifier: 
   FlagID: 6
-  FlagName: Level 6 Flag
-  FlagDescription: Level 6 flag description...
+  FlagName: 'Thomas Tew '
+  FlagDescription: 'Born: England
+
+    Flagship: Amity
+
+
+
+    "Thomas Tew, the renowned
+    ''Rhode Island Pirate,'' embarked on two fateful voyages, meeting a gruesome
+    end on the second. He blazed a trail that would become infamous: the Pirate Round.
+    This treacherous odyssey stretched from the western Atlantic to the distant shores
+    of Africa, circumnavigating the formidable Cape of Good Hope, and culminating
+    in the rich territories of Yemen and the Indian coastline. Tew and his band of
+    pirates descended upon the Red Sea, leaving a trail of plunder in their wake,
+    amassing untold riches in precious metals and jewels. Yet, amidst the chaos of
+    battle, his life met a fiery end, torn asunder by a cannon''s ruthless blast.
+    Thomas Tew''s legacy remains etched in the annals of pirate lore, a bold and
+    daring figure of the high seas."
+
+'
   FlagSprite: {fileID: 21300000, guid: 106c4cf2876d9ff4baf68df0c61348bf, type: 3}

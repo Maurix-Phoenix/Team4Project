@@ -113,9 +113,9 @@ MonoBehaviour:
   TotalFlags: 0
   LevelData:
     LevelID: 5
-    LevelName: 6 -Level 6-Giovanni
-    LevelDesigner: The drowned
-    Unlocked: 1
+    LevelName: 5-Level 5-The Drowned
+    LevelDesigner: Giovanni
+    Unlocked: 0
     StarsObtained: 0
     StarCompleted: 0
     StarDoubloons: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   IsLevelEnded: 0
   IsFinalArrivalBeach: 0
   PlayerHasReachBeach: 0
+  IsStopped: 1
   IsTutorial: 0
   StartingLane: 0
   NOfLayersUnderWater: 2
@@ -136,7 +137,7 @@ MonoBehaviour:
   UnitSpaceBetweenLayer: 3
   XStartingPosition: -5
   XIntermediatePosition: 5
-  XEndingPosition: 30
+  XEndingPosition: 20
   YLanePosition: 0
   StartingHealth: 5
   StartingCannonBalls: 10
