@@ -13836,12 +13836,13 @@ MonoBehaviour:
     any key to continue.'
   - 'Prepare to return fire!
 
-    Press the <gradient="BlackToGreen-Vertical">SpaceBar
-    </gradient>to shoot at your enemies!'
-  - 'Defeating the enemy''s ship
+    Defeating the enemy''s ship grants you <gradient="BlackToRed-Vertical">Cannonballs</gradient>.
 
-    grants you <gradient="BlackToRed-Vertical">Cannonballs</gradient>.
+    Press
+    the <gradient="BlackToGreen-Vertical">SpaceBar </gradient>to shoot at your enemies!'
+  - 'Obstacles incoming!
 
+    Avoid them!
 
     <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
     any key to continue.'
@@ -13874,6 +13875,14 @@ MonoBehaviour:
 
     the <gradient="BlackToRed-Vertical">Wall</gradient>
     so you can reach the Shore!
+
+
+    <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
+    any key to continue'
+  - 'Rescue those <gradient="BlackToRed-Vertical">Pirates</gradient> or
+
+    retrieve
+    that <gradient="BlackToRed-Vertical">Big Treasure</gradient>?
 
 
     <size=80%><line-indent=40%><gradient="BlackToGreen-Vertical">Press
