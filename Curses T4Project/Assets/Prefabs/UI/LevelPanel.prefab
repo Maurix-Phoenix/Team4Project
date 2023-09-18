@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5642193500984714733}
   - component: {fileID: 5102045731239403127}
   m_Layer: 5
-  m_Name: Sprite_StarAce
+  m_Name: Sprite_StarWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 4222932309890255155}
   - component: {fileID: 9135129442233493958}
   m_Layer: 5
-  m_Name: Sprite_StarEconomy
+  m_Name: Sprite_StarLife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -856,11 +856,11 @@ MonoBehaviour:
   LevelThumbnail: {fileID: 8615760385345560134}
   LevelDesignInfoText: {fileID: 2575100973612564615}
   LevelCompletitionText: {fileID: 8603522971435438283}
-  DefaultThumbnail: {fileID: 21300000, guid: ccf3aa9950e0d0040b84a22ed43c19d0, type: 3}
+  DefaultThumbnail: {fileID: 21300000, guid: 31ca0eeb24baf5e42a0ca4d9e095dfd3, type: 3}
   LevelThumbailsList: []
-  SpriteStarCompleted: {fileID: 3062947425032921968}
-  SpriteStarAce: {fileID: 5102045731239403127}
-  SpriteStarEconomy: {fileID: 9135129442233493958}
+  SpriteStarCompleted: {fileID: 5102045731239403127}
+  SpriteStarAce: {fileID: 9135129442233493958}
+  SpriteStarEconomy: {fileID: 3062947425032921968}
   SpriteFlagObtained: {fileID: 8664160440162336939}
 --- !u!1 &8518734129586744776
 GameObject:
@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 4227792769019454575}
   - component: {fileID: 3062947425032921968}
   m_Layer: 5
-  m_Name: Sprite_StarCompleted
+  m_Name: Sprite_StarCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

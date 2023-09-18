@@ -18,6 +18,7 @@ public class TriggerTutorial : LevelEntity
 
     [Header("Tutorial")]
     [SerializeField] private bool _IsTutorialText = true;
+    [SerializeField] private float _TutorialDisplayedTime = 2.5f;
     [SerializeField] private bool _RestartTutorial = false;
     [SerializeField] private bool _IsTutorialTriggered;
     [SerializeField] [TextArea(1,10)] private string _StandardText;
@@ -70,36 +71,43 @@ public class TriggerTutorial : LevelEntity
     {
         if (_IsTutorialTriggered)
         {
-            if (_PressMoveUp && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+            if (_TutorialDisplayedTime > 0)
             {
-                GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
-                HideTutorialUI();
-                _IsTutorialTriggered = false;
-                gameObject.SetActive(false);
+                _TutorialDisplayedTime -= Time.deltaTime;
             }
-
-            if (_PressMoveDown && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+            else
             {
-                GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
-                HideTutorialUI();
-                _IsTutorialTriggered = false;
-                gameObject.SetActive(false);
-            }
+                if (_PressMoveUp && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+                {
+                    GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
+                    HideTutorialUI();
+                    _IsTutorialTriggered = false;
+                    gameObject.SetActive(false);
+                }
 
-            if (_PressAny && Input.anyKeyDown)
-            {
-                GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
-                HideTutorialUI();
-                _IsTutorialTriggered = false;
-                gameObject.SetActive(false);
-            }
+                if (_PressMoveDown && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+                {
+                    GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
+                    HideTutorialUI();
+                    _IsTutorialTriggered = false;
+                    gameObject.SetActive(false);
+                }
 
-            if (_PressSpacebar && Input.GetKeyDown(KeyCode.Space))
-            {
-                GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
-                HideTutorialUI();
-                _IsTutorialTriggered = false;
-                gameObject.SetActive(false);
+                if (_PressAny && Input.anyKeyDown)
+                {
+                    GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
+                    HideTutorialUI();
+                    _IsTutorialTriggered = false;
+                    gameObject.SetActive(false);
+                }
+
+                if (_PressSpacebar && Input.GetKeyDown(KeyCode.Space))
+                {
+                    GameManager.Instance.AudioManager.PlaySFX(_SkipAudio);
+                    HideTutorialUI();
+                    _IsTutorialTriggered = false;
+                    gameObject.SetActive(false);
+                }
             }
         }
     }

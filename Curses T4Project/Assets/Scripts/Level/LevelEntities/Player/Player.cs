@@ -22,6 +22,9 @@ public class Player : MonoBehaviour, IDamageable
     public int NOfDoubloons = 0;
     public int NOfFlags = 0;
 
+    private int MaxNOfCannonball;
+    private int MaxDoubloons;
+
     [Header("Shoot Condition")]
     public bool IsShooting = false;
     public bool CanShoot = false;
@@ -59,6 +62,9 @@ public class Player : MonoBehaviour, IDamageable
     {
         Health = GameManager.Instance.LevelManager.CurrentLevel.StartingHealth;
         NOfCannonball = GameManager.Instance.LevelManager.CurrentLevel.StartingCannonBalls;
+
+        MaxNOfCannonball = 99;
+        MaxDoubloons = 99;
     }
 
     private void OnPauseGameInput()
@@ -88,6 +94,10 @@ public class Player : MonoBehaviour, IDamageable
                     {
                         NOfCannonball = 0;
                     }
+                    if (NOfCannonball > MaxNOfCannonball)
+                    {
+                        NOfCannonball = MaxNOfCannonball;
+                    }
                     break;
                 }
             case T4Project.PickupsType.Doubloon:
@@ -99,6 +109,11 @@ public class Player : MonoBehaviour, IDamageable
                     {
                         NOfDoubloons = 0;
                     }
+                    if (NOfDoubloons > MaxDoubloons)
+                    {
+                        NOfDoubloons = MaxDoubloons;
+                    }
+
                     break;
                 }
             case T4Project.PickupsType.Flag:
