@@ -11,10 +11,10 @@ using static T4P;
 public class Level : MonoBehaviour
 {
     [Header("LevelEditor Infos")]
-    [SerializeField] public string LevelName;
-    [SerializeField] public string LevelDesigner;
-    [SerializeField] public int LevelID;
-    [SerializeField] public Sprite LevelThumbnail = null;
+    public string LevelName;
+    public string LevelDesigner;
+    public int LevelID;
+    public Sprite LevelThumbnail = null;
     public FlagTemplate LevelFlagTemplate = null;
 
     //Level resources

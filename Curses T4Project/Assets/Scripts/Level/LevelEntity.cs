@@ -11,26 +11,21 @@ public class LevelEntity : MonoBehaviour
     [Header("Level Entity Info")]
     public string EntityName = "";
 
-    [Header("Level Entity Transform")]
-    [SerializeField] public Vector3 Position;
-    [SerializeField] public Quaternion Rotation;
-    [SerializeField] public Vector3 Scale;
-
-    [SerializeField] public Rigidbody RB;
+    public Rigidbody RB;
 
     [Header("Looting")]
-    [SerializeField] public bool CanDropLoot = false;
+    public bool CanDropLoot = false;
     [Serializable] public class Loot
     {
         public GameObject PickupPrefab;
         public Vector2Int DropQuantityRange = Vector2Int.one;
     }
-    [SerializeField] public List<Loot> LootList;
-    [SerializeField] public float DropRadius = 0.5f;
+    public List<Loot> LootList;
+    public float DropRadius = 0.5f;
 
     [Header("Movement")]
-    [SerializeField] public float MoveSpeed;
-    [SerializeField] public bool MovePickUpToPlayer = false;
+    public float MoveSpeed;
+    public bool MovePickUpToPlayer = false;
     private Vector3 Direction;
 
     public bool IsStopped = false;
@@ -65,9 +60,6 @@ public class LevelEntity : MonoBehaviour
 
     protected virtual void Start()
     {
-        Position = transform.localPosition;
-        Rotation = transform.localRotation;
-        Scale = transform.localScale;
 
         MoveSpeed = GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed;
         GameManager.Instance.LevelManager.CurrentLevel.LevelObjects.Add(this);
