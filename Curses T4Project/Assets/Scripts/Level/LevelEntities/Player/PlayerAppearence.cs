@@ -41,11 +41,11 @@ public class PlayerAppearence : MonoBehaviour
 
     private void Awake()
     {
-        _AWpsm = _AboveWaterVFX.main;
-        _UWpsm = _UnderWaterVFX.main;
 
-        if (_IsInMenuScene)
+
+        if (GameManager.Instance.CurrentScene.name == "MainMenu")
         {
+            _IsInMenuScene = true;
             _IsNPC = false;
         }
 
@@ -58,10 +58,15 @@ public class PlayerAppearence : MonoBehaviour
         {
             _NormalMat = _NormalSkin.GetComponent<MeshRenderer>().material;
             _CursedMat = _CursedSkin.GetComponent<MeshRenderer>().material;
+            if(!_IsInMenuScene)
+            {
+                _AWpsm = _AboveWaterVFX.main;
+                _UWpsm = _UnderWaterVFX.main;
+            }
         }
-
         _StartingNormalTransparency = _NormalMat.GetFloat("_Transparency");
         _StartingCursedTransparency = _CursedMat.GetFloat("_Transparency");
+
     }
     private void Start()
     {

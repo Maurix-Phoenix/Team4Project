@@ -10278,8 +10278,8 @@ MonoBehaviour:
   _Position: {fileID: 0}
   _NormalSkin: {fileID: 1706834258}
   _CursedSkin: {fileID: 571228766}
-  _NormalMat: {fileID: 0}
-  _CursedMat: {fileID: 0}
+  _NormalMat: {fileID: 2100000, guid: f39ddc03187b5ea4789bb3df73916c16, type: 2}
+  _CursedMat: {fileID: 2100000, guid: 77cc3a331778b1844a86360f5e09a09a, type: 2}
   _AboveWaterVFX: {fileID: 0}
   _NormalColor: {r: 0, g: 0, b: 0, a: 0}
   _CursedColor: {r: 0, g: 0, b: 0, a: 0}
@@ -15929,6 +15929,10 @@ PrefabInstance:
     - target: {fileID: 312523160956830031, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023672288160103331, guid: 32e78fc5fd95f6c42b3d2432b72353d8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

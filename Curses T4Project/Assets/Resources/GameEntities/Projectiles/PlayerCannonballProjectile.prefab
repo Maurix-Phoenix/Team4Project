@@ -157,6 +157,7 @@ MonoBehaviour:
   _CursedColor: {r: 0, g: 0.6313726, b: 0, a: 1}
   _AboveWaterMaterial: {fileID: 2100000, guid: 61d6ec360ab5c9945a399ba05803ae66, type: 2}
   _UnderWaterMaterial: {fileID: 2100000, guid: 6fc25cb5dcd9af949a694f43b89c9a42, type: 2}
+  _Rb: {fileID: 7078596503136655241}
 --- !u!1 &6428895851356462071
 GameObject:
   m_ObjectHideFlags: 0

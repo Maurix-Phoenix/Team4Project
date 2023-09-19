@@ -32,7 +32,7 @@ public class Cannonball : LevelEntityTemporary
 
     private Vector3 _TargetLocation;
 
-    private Rigidbody _Rb;
+    public Rigidbody _Rb;
     private Player _Player; //MAU
     private EndWall _EndWall; //MAU
 
@@ -41,10 +41,14 @@ public class Cannonball : LevelEntityTemporary
 
     private void Awake()
     {
-        _tpsm = _Trail.main;
+        if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
+        {
+            _tpsm = _Trail.main;
+        }
+
 
         //initialize the rigidbody on the cannonball
-        _Rb = GetComponent<Rigidbody>();
+        //_Rb = GetComponent<Rigidbody>();
         _Rb.freezeRotation = true;
         _Rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
         _Rb.interpolation = RigidbodyInterpolation.Interpolate;
@@ -163,8 +167,6 @@ public class Cannonball : LevelEntityTemporary
     /// <param name="CannonballSpeed">the speed of the shooting</param>
     /// <param name="MaxDistance">max distance before the cannonball explode</param>
     /// <param name="CannonballDamage">max damage that the cannonbal can do</param>
-    /// <returns></returns>
-
     public void ShootCannonball(float TrajectoryAngle, float CannonballSpeed, float MaxDistance, int CannonballDamage)
     {
         if (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)

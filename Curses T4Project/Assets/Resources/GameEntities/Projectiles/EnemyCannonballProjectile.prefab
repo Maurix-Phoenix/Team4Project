@@ -4981,3 +4981,8 @@ MonoBehaviour:
   _ExplosionUpSFX: {fileID: 8300000, guid: 3b2024de1b7e1d349aaeae54a70125d8, type: 3}
   _ExplosionDownSFX: {fileID: 8300000, guid: 45a27bf0b41cb944f8381cc8752c95a4, type: 3}
   _CannonBallExplosion: {fileID: 3709207422531985494, guid: d476a7f41b2368c48a862b7b83329f59, type: 3}
+  _Trail: {fileID: 0}
+  _CursedColor: {r: 0, g: 0, b: 0, a: 0}
+  _AboveWaterMaterial: {fileID: 0}
+  _UnderWaterMaterial: {fileID: 0}
+  _Rb: {fileID: 7078596503136655241}

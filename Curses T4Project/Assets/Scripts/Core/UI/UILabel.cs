@@ -171,7 +171,7 @@ public class UILabel : MonoBehaviour
 
             Vector3 uiPos = Camera.main.WorldToScreenPoint(transform.position);
 
-            if(Vector2.Distance(uiPos, _AnimationDirection) > 5)
+            if(Vector2.Distance(uiPos, _AnimationDirection) > 10)
             {
                 Vector3 direction = _AnimationDirection - uiPos;
                 RT.position += direction.normalized * _Speed * Time.deltaTime;

@@ -5188,8 +5188,8 @@ MonoBehaviour:
   _Position: {fileID: 5044277267086782192}
   _NormalSkin: {fileID: 7348126293932491633}
   _CursedSkin: {fileID: 4614118093888864796}
-  _NormalMat: {fileID: 0}
-  _CursedMat: {fileID: 0}
+  _NormalMat: {fileID: 2100000, guid: f39ddc03187b5ea4789bb3df73916c16, type: 2}
+  _CursedMat: {fileID: 2100000, guid: 6fc25cb5dcd9af949a694f43b89c9a42, type: 2}
   _AboveWaterVFX: {fileID: 1400958453503861695}
   _NormalColor: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
   _CursedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -15259,6 +15259,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Officer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3176845546011992285, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
+      propertyPath: _CursedMat
+      value: 
+      objectReference: {fileID: 2100000, guid: cff70213da594584a93fb36b5833a3fc, type: 2}
+    - target: {fileID: 3176845546011992285, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
+      propertyPath: _NormalMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a8228f153aa3ed4d86b8185d985e5b8, type: 2}
     - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -15359,6 +15367,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Captain
       objectReference: {fileID: 0}
+    - target: {fileID: 6252935474774471956, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
+      propertyPath: _CursedMat
+      value: 
+      objectReference: {fileID: 2100000, guid: b231e7abe04cb9847888b7f02ecf36a9, type: 2}
+    - target: {fileID: 6252935474774471956, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
+      propertyPath: _NormalMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a8228f153aa3ed4d86b8185d985e5b8, type: 2}
+    - target: {fileID: 6252935474774471956, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
+      propertyPath: _AboveWaterVFX
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8972919102643868796, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -15435,6 +15455,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Officer
       objectReference: {fileID: 0}
+    - target: {fileID: 3176845546011992285, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
+      propertyPath: _CursedMat
+      value: 
+      objectReference: {fileID: 2100000, guid: cff70213da594584a93fb36b5833a3fc, type: 2}
+    - target: {fileID: 3176845546011992285, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
+      propertyPath: _NormalMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a8228f153aa3ed4d86b8185d985e5b8, type: 2}
     - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_RootOrder
       value: -1
