@@ -24,6 +24,7 @@ public class Cannonball : LevelEntityTemporary
 
     private int _CannonballDamage = 1;
     private float _CannonballSpeed = 1f;
+    [SerializeField] private float _YPositionExplosion = 0;
     private float _MaxDistance = 0f;
     private float _TrajectoryX = 0f;
     private float _TrajectoryY = 0f;
@@ -122,11 +123,13 @@ public class Cannonball : LevelEntityTemporary
         if(!GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
         {
             _Rb.useGravity = true;
-            if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball") &&
-                transform.position.y < 0)
+            if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball"))
             {
-                Explosion();
-                Destroy(gameObject);
+                if (transform.position.y < _YPositionExplosion)
+                {
+                    Explosion();
+                    Destroy(gameObject);
+                }
             }
             else
             {

@@ -12,6 +12,7 @@ public class ShootAbility : MonoBehaviour
 {
     [SerializeField] private GameObject _ProjectilePrefab;
     [SerializeField] private float _ShootRange = 3.0f;
+    [SerializeField] private bool _StartShootEnteringInTheScreen = false;
     [SerializeField] private bool _ShowShootRange = true;
     [SerializeField] private float _TimeBetweenShoot = 2.0f;
     [SerializeField] private int _CannonballDamage = 1;
@@ -21,7 +22,6 @@ public class ShootAbility : MonoBehaviour
 
     public Transform Cannon;
 
-    private bool _AlwaysShoot = false;
     private bool _IsPlayerInRange = false;
     private bool _IsShooting = false;
     private bool _CanShoot = false;
@@ -30,7 +30,6 @@ public class ShootAbility : MonoBehaviour
     private void Start()
     {
         _TimeToShoot = _TimeBetweenShoot;
-        _AlwaysShoot = false;
     }
 
     private void Update()
@@ -40,7 +39,6 @@ public class ShootAbility : MonoBehaviour
             _IsPlayerInRange = false;
             if (Physics.Raycast(new Ray(transform.position, Vector3.left), out RaycastHit hit, _ShootRange, LayerMask.GetMask("Player")))
             {
-
                 _IsPlayerInRange = true;
             }
 
@@ -54,7 +52,7 @@ public class ShootAbility : MonoBehaviour
             }
             else
             {
-                if (!_AlwaysShoot)
+                if (!_StartShootEnteringInTheScreen)
                 {
                     if (_IsPlayerInRange && !_IsShooting)
                     {
@@ -64,7 +62,7 @@ public class ShootAbility : MonoBehaviour
                 }
                 else
                 {
-                    if (!_IsShooting)
+                    if (!_IsShooting && gameObject.transform.position.x < GameManager.Instance.LevelManager.CurrentLevel.XEndingPosition)
                     {
                         _IsShooting = true;
                         StartCoroutine(Shoot());
