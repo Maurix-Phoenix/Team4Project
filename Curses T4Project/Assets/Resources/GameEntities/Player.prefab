@@ -15259,28 +15259,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Officer (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3176845546011992285, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: _CursedMat
-      value: 
-      objectReference: {fileID: 2100000, guid: cff70213da594584a93fb36b5833a3fc, type: 2}
-    - target: {fileID: 3176845546011992285, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: _NormalMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 1a8228f153aa3ed4d86b8185d985e5b8, type: 2}
     - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: m_LocalScale.z
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
@@ -15323,14 +15303,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6315731678366374034, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8593642971182349829, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15359,25 +15331,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4379468947591395484}
     m_Modifications:
-    - target: {fileID: 1024736544766860148, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1488599238940683949, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
       propertyPath: m_Name
       value: Captain
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252935474774471956, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
-      propertyPath: _CursedMat
-      value: 
-      objectReference: {fileID: 2100000, guid: b231e7abe04cb9847888b7f02ecf36a9, type: 2}
-    - target: {fileID: 6252935474774471956, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
-      propertyPath: _NormalMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 1a8228f153aa3ed4d86b8185d985e5b8, type: 2}
-    - target: {fileID: 6252935474774471956, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
-      propertyPath: _AboveWaterVFX
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8972919102643868796, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
       propertyPath: m_RootOrder
@@ -15455,14 +15411,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Officer
       objectReference: {fileID: 0}
-    - target: {fileID: 3176845546011992285, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: _CursedMat
-      value: 
-      objectReference: {fileID: 2100000, guid: cff70213da594584a93fb36b5833a3fc, type: 2}
-    - target: {fileID: 3176845546011992285, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: _NormalMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 1a8228f153aa3ed4d86b8185d985e5b8, type: 2}
     - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -15506,14 +15454,6 @@ PrefabInstance:
     - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6315731678366374034, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8593642971182349829, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

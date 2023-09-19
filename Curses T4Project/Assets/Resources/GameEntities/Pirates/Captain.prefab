@@ -88,8 +88,8 @@ MonoBehaviour:
   _Position: {fileID: 1488599238940683949}
   _NormalSkin: {fileID: 4674344874603626387}
   _CursedSkin: {fileID: 3230640344460173675}
-  _NormalMat: {fileID: 0}
-  _CursedMat: {fileID: 0}
+  _NormalMat: {fileID: 2100000, guid: 1a8228f153aa3ed4d86b8185d985e5b8, type: 2}
+  _CursedMat: {fileID: 2100000, guid: b231e7abe04cb9847888b7f02ecf36a9, type: 2}
   _AboveWaterVFX: {fileID: 0}
   _NormalColor: {r: 0, g: 0, b: 0, a: 0}
   _CursedColor: {r: 0, g: 0, b: 0, a: 0}

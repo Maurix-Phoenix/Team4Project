@@ -26,13 +26,13 @@ Transform:
   m_GameObject: {fileID: 1730704100770685201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8444103552129148648}
   - {fileID: 8836603311422287227}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3176845546011992285
 MonoBehaviour:
@@ -56,8 +56,8 @@ MonoBehaviour:
   _Position: {fileID: 1730704100770685201}
   _NormalSkin: {fileID: 1480787135991279254}
   _CursedSkin: {fileID: 5164892241447968257}
-  _NormalMat: {fileID: 0}
-  _CursedMat: {fileID: 0}
+  _NormalMat: {fileID: 2100000, guid: 1a8228f153aa3ed4d86b8185d985e5b8, type: 2}
+  _CursedMat: {fileID: 2100000, guid: cff70213da594584a93fb36b5833a3fc, type: 2}
   _AboveWaterVFX: {fileID: 0}
   _NormalColor: {r: 0, g: 0, b: 0, a: 0}
   _CursedColor: {r: 0, g: 0, b: 0, a: 0}

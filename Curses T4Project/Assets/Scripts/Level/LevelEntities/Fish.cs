@@ -95,11 +95,19 @@ public class Fish : MonoBehaviour
     {
         if(GameManager.Instance.LevelManager.CurrentLevel.IsStopped)
         {
-            _CurrentSpeed = _CurrentSpeed = _Speed + Random.Range(-_SpeedVariation, _SpeedVariation);
+            if (GameManager.Instance.LevelManager.Player.transform.position.x == 0)
+            {
+                _CurrentSpeed = 0;
+            }
+            else
+            {
+                _CurrentSpeed = _Speed + Random.Range(-_SpeedVariation, _SpeedVariation);
+            }
             transform.position += new Vector3(XDir, 0, 0) * Time.deltaTime * Mathf.Abs(_CurrentSpeed);
         }
         else
         {
+            _CurrentSpeed = _Speed + Random.Range(-_SpeedVariation, _SpeedVariation);
             transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * Mathf.Abs(_CurrentSpeed);
         }
 

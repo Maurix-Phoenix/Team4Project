@@ -100,15 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityName: Octopus
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0, w: 0}
-  Scale: {x: 0, y: 0, z: 0}
   RB: {fileID: 0}
   CanDropLoot: 0
   LootList: []
   DropRadius: 0
   MoveSpeed: 3
-  MovePickUpToPlayer: 1
+  MovePickUpToPlayer: 0
   IsStopped: 0
   _Health: 1
   _IsDead: 0
@@ -134,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3acbf2391f87034d88c1c33724c92c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CanMoveFromDistance: 0
+  _CanMoveFromDistance: 1
   _TargetDistance: 5
   _TargetAcquired: 0
   _TargetLocked: 0

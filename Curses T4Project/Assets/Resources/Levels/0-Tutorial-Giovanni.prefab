@@ -103,7 +103,7 @@ MonoBehaviour:
   TemporaryObjects: []
   LevelSpeed: 5
   IsInBossBattle: 0
-  IsLevelEnded: 1
+  IsLevelEnded: 0
   IsFinalArrivalBeach: 0
   PlayerHasReachBeach: 0
   IsStopped: 1
@@ -1184,7 +1184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 965369855112226774, guid: 6919b2d86173056458301bb0d6ef9bb7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 965369855112226774, guid: 6919b2d86173056458301bb0d6ef9bb7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2055,7 +2055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 965369855112226774, guid: 6919b2d86173056458301bb0d6ef9bb7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 965369855112226774, guid: 6919b2d86173056458301bb0d6ef9bb7, type: 3}
       propertyPath: m_LocalPosition.z
