@@ -18615,9 +18615,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityName: Ship
-  Position: {x: 10, y: 0, z: 0}
-  Rotation: {x: -0, y: -0, z: -0, w: 1}
-  Scale: {x: 1, y: 1, z: 1}
   RB: {fileID: 0}
   CanDropLoot: 1
   LootList:
@@ -18656,7 +18653,7 @@ MonoBehaviour:
   _TimeBetweenShoot: 1
   _CannonballDamage: 1
   _CannonballSpeed: 10
-  _MaxDistance: 6.7
+  _MaxDistance: 7
   _TrajectoryAngle: 15
   Cannon: {fileID: 7641753874284411182}
 --- !u!114 &-6551179027964353909
