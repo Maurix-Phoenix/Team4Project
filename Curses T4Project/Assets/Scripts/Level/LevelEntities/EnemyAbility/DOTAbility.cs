@@ -67,9 +67,15 @@ public class DOTAbility : MonoBehaviour
 
     private void Update()
     {
-        CheckPosition();
         StartAttack();
     }
+
+    private void FixedUpdate()
+    {
+        CheckPosition();
+    }
+
+
 
     private void OnDrawGizmos()
     {
@@ -107,7 +113,8 @@ public class DOTAbility : MonoBehaviour
         {
             if (gameObject.transform.position != _TargetPosition.position)
             {
-                gameObject.transform.position = Vector3.MoveTowards(transform.position, _TargetPosition.position, Time.deltaTime * _RepositionSpeed);
+                //gameObject.transform.position = Vector3.MoveTowards(transform.position, _TargetPosition.position, Time.deltaTime * _RepositionSpeed);
+                gameObject.transform.position = Vector3.MoveTowards(transform.position, _TargetPosition.position, Time.fixedDeltaTime * _RepositionSpeed);
             }
             else
             {
