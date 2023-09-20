@@ -30,7 +30,7 @@ public class TriggerTutorial : LevelEntity
     {
         base.Start();
         CheckRequirement();
-        if (_IsTutorialTriggered)
+        if (_IsTutorialText)
         {
             _PInput = GameManager.Instance.LevelManager.Player.gameObject.GetComponent<PlayerInput>();
             _PShoot = GameManager.Instance.LevelManager.Player.gameObject.GetComponent<PlayerShoot>();
@@ -127,7 +127,10 @@ public class TriggerTutorial : LevelEntity
 
             if (_PressSpacebar)
             {
-                _PShoot.enabled = true;
+                if (_PShoot != null)
+                {
+                    _PShoot.enabled = true;
+                }
             }
             ShowTutorialUI();
         }
@@ -135,7 +138,10 @@ public class TriggerTutorial : LevelEntity
 
     private void ShowTutorialUI()
     {
-        _PInput.enabled = false;
+        if (_PInput != null)
+        {
+            _PInput.enabled = false;
+        }
         GameManager.Instance.LevelManager.CurrentLevel.StopLevel();
         GameManager.Instance.UIManager.ShowUICanvasOnly("TutorialUI");
         if (_IsTutorialText)
@@ -151,7 +157,10 @@ public class TriggerTutorial : LevelEntity
     private void HideTutorialUI()
     {
         GameManager.Instance.LevelManager.CurrentLevel.StartLevel();
-        _PInput.enabled = true;
+        if (_PInput != null)
+        {
+            _PInput.enabled = true;
+        }
         GameManager.Instance.UIManager.ShowUICanvasOnly("LevelUI");
     }
 }
