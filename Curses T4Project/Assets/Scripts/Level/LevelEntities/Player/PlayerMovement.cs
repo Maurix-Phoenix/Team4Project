@@ -512,7 +512,14 @@ public class PlayerMovement : MonoBehaviour
                         //increase animation speed
                         _AnimationSpeed += Time.fixedDeltaTime;
                     }
-                    _Rb.MovePosition(_Rb.position + Vector3.up * speed * Time.fixedDeltaTime + Vector3.right * _AnimationSpeed * Time.fixedDeltaTime);
+                    if (GameManager.Instance.UIManager.TutorialUI.gameObject.activeSelf)
+                    {
+                        _Rb.MovePosition(_Rb.position + Vector3.up * speed * Time.fixedDeltaTime);
+                    }
+                    else
+                    {
+                        _Rb.MovePosition(_Rb.position + Vector3.up * speed * Time.fixedDeltaTime + Vector3.right * _AnimationSpeed * Time.fixedDeltaTime);
+                    }
                 }
                 else
                 {

@@ -30,14 +30,21 @@ public class TriggerTutorial : LevelEntity
     {
         base.Start();
         CheckRequirement();
-        _PInput = GameManager.Instance.LevelManager.Player.gameObject.GetComponent<PlayerInput>();
-        _PShoot = GameManager.Instance.LevelManager.Player.gameObject.GetComponent<PlayerShoot>();
-        _PInput.enabled = false;
-        _PShoot.enabled = false;
+        if (_IsTutorialTriggered)
+        {
+            _PInput = GameManager.Instance.LevelManager.Player.gameObject.GetComponent<PlayerInput>();
+            _PShoot = GameManager.Instance.LevelManager.Player.gameObject.GetComponent<PlayerShoot>();
+            _PInput.enabled = false;
+            _PShoot.enabled = false;
+        }
     }
     protected override void Update()
     {
         base.Update();
+        if (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
+        {
+            IsStopped = true;
+        }
         CheckInput();
     }
 
