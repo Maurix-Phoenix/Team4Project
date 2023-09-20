@@ -14912,7 +14912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7801900137355310587
 Transform:
   m_ObjectHideFlags: 0
@@ -15259,6 +15259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Officer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1730704100770685201, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -15335,6 +15339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Captain
       objectReference: {fileID: 0}
+    - target: {fileID: 1488599238940683949, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8972919102643868796, guid: db113047d4aadb946b94a3ce1a25cb27, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -15410,6 +15418,10 @@ PrefabInstance:
     - target: {fileID: 1730704100770685201, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_Name
       value: Officer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730704100770685201, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4840029362318189261, guid: 58ceb394606ffed40aefa0e6918b6edc, type: 3}
       propertyPath: m_RootOrder

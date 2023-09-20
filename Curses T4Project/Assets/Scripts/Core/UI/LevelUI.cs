@@ -20,7 +20,50 @@ public class LevelUI : MonoBehaviour
     public TMP_Text LifesText;
 
     public Slider DoubloonSlider;
+    public Slider ProgressionSlider;
     public Image DoubloonIcon;
+
+    private EndWall endWall;
+    private float EndwallStartPos;
+
+    private FinalArrivalBeach finalArrivalBeach;
+    private float FinalArrivalBeachStartPos;
+
+    private void SetProgressionSlider()
+    {
+        if (GameManager.Instance.CurrentScene.name == "Level")
+        {
+            if (!GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
+            {
+                if (endWall == null)
+                {
+                    endWall = FindObjectOfType<EndWall>();
+                    EndwallStartPos = endWall.gameObject.transform.position.x;
+                }
+            }
+            else
+            {
+                if (finalArrivalBeach == null)
+                {
+                    finalArrivalBeach = FindObjectOfType<FinalArrivalBeach>();
+                    FinalArrivalBeachStartPos = finalArrivalBeach.gameObject.transform.position.x;
+                }
+            }
+        }
+        else
+        {
+            endWall = null;
+            EndwallStartPos = 0;
+
+            finalArrivalBeach = null;
+            FinalArrivalBeachStartPos = 0;
+        }
+    }
+
+    private void Update()
+    {
+        UpdateProgressionUI();
+    }
 
     public void LoadFlag()
     {
@@ -80,8 +123,6 @@ public class LevelUI : MonoBehaviour
             DoubloonSlider.value = 0;
         }
         DoubloonIcon.color = new Color(DoubloonSlider.value, DoubloonSlider.value, DoubloonSlider.value, 1);
-
-
     }
 
     public void UpdateCannonballsUI()
@@ -90,11 +131,31 @@ public class LevelUI : MonoBehaviour
         CannonballsText.text = player ? player.NOfCannonball.ToString() : "0";
     }
 
+    public void UpdateProgressionUI()
+    {
+        if (!GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
+        {
+            if (endWall != null)
+            {
+                ProgressionSlider.value = 1f - ((endWall.gameObject.transform.position.x - 12f) / (EndwallStartPos - 12f));
+            }
+        }
+        else
+        {
+            if (finalArrivalBeach != null)
+            {
+                ProgressionSlider.value = 1f - ((finalArrivalBeach.gameObject.transform.position.x - 12f) / (FinalArrivalBeachStartPos - 12f));
+            }
+        }
+    }
+
+
     public void UpdateLevelUI()
     {
         UpdateLevelFlagUI();
         UpdateLevelLifesUI();
         UpdateCannonballsUI();
         UpdateDoubloonsUI();
+        SetProgressionSlider();
     }
 }

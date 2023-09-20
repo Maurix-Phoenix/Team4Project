@@ -15,6 +15,7 @@ public class DOTAbility : MonoBehaviour
     [SerializeField] private bool _TargetLocked = false;
     [SerializeField] private Transform _TargetPosition;
     [SerializeField] private float _RepositionSpeed = 1f;
+    [SerializeField] private float _YPositionLeavePlayer = -1f;
 
     [Header("Attack parameters")]
     [SerializeField] private bool _InPositionToAttack = false;
@@ -88,7 +89,7 @@ public class DOTAbility : MonoBehaviour
 
     private void CheckPosition()
     {
-        if (gameObject.transform.position.y >= - 1.5)
+        if (gameObject.transform.position.y >= _YPositionLeavePlayer)
         {
             _TargetLocked = false;
             _InPositionToAttack = false;
@@ -103,9 +104,17 @@ public class DOTAbility : MonoBehaviour
         {
             if (_CanMoveFromDistance && Vector3.Distance(transform.position, GameManager.Instance.LevelManager.Player.transform.position) < _TargetDistance)
             {
-                _TargetPosition = GameManager.Instance.LevelManager.Player.GetComponent<PlayerShoot>().CannonLocation;
-                gameObject.GetComponent<SeaMonster>().MoveSpeed = 0;
-                _TargetLocked = true;
+                if (GameManager.Instance.LevelManager.Player.gameObject.transform.position.y < _YPositionLeavePlayer)
+                {
+                    _TargetPosition = GameManager.Instance.LevelManager.Player.GetComponent<PlayerShoot>().CannonLocation;
+                    gameObject.GetComponent<SeaMonster>().MoveSpeed = 0;
+                    _TargetLocked = true;
+                }
+                else
+                {
+                    gameObject.GetComponent<SeaMonster>().MoveSpeed = GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed;
+                    _TargetLocked = false;
+                }
             }
         }
 

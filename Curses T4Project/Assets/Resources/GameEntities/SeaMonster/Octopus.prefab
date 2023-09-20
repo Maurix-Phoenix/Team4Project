@@ -37,7 +37,7 @@ Transform:
   - {fileID: 1498675934627087502}
   - {fileID: 8559059962103393901}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3369895175814635355
 Rigidbody:
@@ -137,6 +137,7 @@ MonoBehaviour:
   _TargetLocked: 0
   _TargetPosition: {fileID: 0}
   _RepositionSpeed: 10
+  _YPositionLeavePlayer: -1
   _InPositionToAttack: 0
   _DoDamage: 0
   _BaseAttackCD: 0
@@ -264,7 +265,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
