@@ -18628,7 +18628,7 @@ MonoBehaviour:
   IsStopped: 0
   _Health: 1
   _IsDead: 0
-  _Destruction: {fileID: 8300000, guid: 66d2c47285bc128419ac2a4cf518bd11, type: 3}
+  _SoundOnTouch: {fileID: 8300000, guid: cae9cf98c1af8f34f9e37b1477dfd490, type: 3}
   _DeathAnimationVFX: {fileID: 986456285105077541}
   _TrailVFX: {fileID: 7226867525860186253}
   _ObjectsToHideOnDeath:
@@ -18649,6 +18649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
   _ShootRange: 15
+  _StartShootEnteringInTheScreen: 0
   _ShowShootRange: 1
   _TimeBetweenShoot: 1
   _CannonballDamage: 1

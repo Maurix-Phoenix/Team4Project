@@ -4976,13 +4976,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifeTime: 5
-  _AboveWaterSFX: {fileID: 8300000, guid: 98436a2392f3f3b4ba09d61f1867f5cb, type: 3}
-  _UnderWaterSFX: {fileID: 8300000, guid: e70f5315cb68f34488920aa0e00df112, type: 3}
-  _ExplosionUpSFX: {fileID: 8300000, guid: 3b2024de1b7e1d349aaeae54a70125d8, type: 3}
-  _ExplosionDownSFX: {fileID: 8300000, guid: 45a27bf0b41cb944f8381cc8752c95a4, type: 3}
-  _CannonBallExplosion: {fileID: 3709207422531985494, guid: d476a7f41b2368c48a862b7b83329f59, type: 3}
+  _ShootAboveWaterSFX: {fileID: 8300000, guid: 4ae3982749d10ca48ba386afdc67ecb7, type: 3}
+  _ShootUnderWaterSFX: {fileID: 8300000, guid: e70f5315cb68f34488920aa0e00df112, type: 3}
+  _ExplosionUpMissedSFX: {fileID: 8300000, guid: 3b2024de1b7e1d349aaeae54a70125d8, type: 3}
+  _ExplosionUpHittedSFX: {fileID: 8300000, guid: 784a54076d59c3f4d9d95ce0d46cd27b, type: 3}
+  _ExplosionDownMissedSFX: {fileID: 8300000, guid: 58c53ffdf00eb6c4fb5135326be39e10, type: 3}
+  _ExplosionDownHittedSFX: {fileID: 8300000, guid: 45a27bf0b41cb944f8381cc8752c95a4, type: 3}
+  _ExplosionUpMissedVFX: {fileID: 4951050221407339264, guid: bcfbfed065f71054d9abf567d954290a, type: 3}
+  _ExplosionUpHittedVFX: {fileID: 3709207422531985494, guid: 75c4fd4d084a42f418dbb192d164b825, type: 3}
+  _ExplosionDownMissedVFX: {fileID: 5433400153919349850, guid: ffd93387dc0167d4a96f2fe91435e655, type: 3}
+  _ExplosionDownHittedVFX: {fileID: 3709207422531985494, guid: 75c4fd4d084a42f418dbb192d164b825, type: 3}
   _Trail: {fileID: 0}
   _CursedColor: {r: 0, g: 0, b: 0, a: 0}
   _AboveWaterMaterial: {fileID: 0}
   _UnderWaterMaterial: {fileID: 0}
+  _YPositionExplosion: 0
   _Rb: {fileID: 7078596503136655241}

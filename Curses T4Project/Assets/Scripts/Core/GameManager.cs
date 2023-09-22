@@ -103,41 +103,47 @@ public class GameManager : MonoBehaviour
     }
     private void StatePlaying()
     {
-        UIManager.HideUICanvas("PauseMenuUI");
-
-        if(CurrentScene.name == "Level")
+        if (!UIManager.StageCompleteUI.gameObject.activeSelf && !UIManager.GameOverUI.activeSelf)
         {
-            UIManager.ShowAllUILabes();
+            UIManager.HideUICanvas("PauseMenuUI");
 
-            if (UIManager.ToggleButtonUI.IsToggled)
+            if (CurrentScene.name == "Level")
             {
-                UIManager.ToggleButtonUI.ToggleElements();
+                UIManager.ShowAllUILabes();
+
+                if (UIManager.ToggleButtonUI.IsToggled)
+                {
+                    UIManager.ToggleButtonUI.ToggleElements();
+                }
+                //if(UIManager.FadeAnimationCR != null)
+                //{
+                //    StopCoroutine(UIManager.FadeAnimationCR);
+                //}
+
+                UIManager.LevelUI.gameObject.SetActive(true);
+                //UIManager.ShowUICanvasOnly("LevelUI");
             }
-            //if(UIManager.FadeAnimationCR != null)
-            //{
-            //    StopCoroutine(UIManager.FadeAnimationCR);
-            //}
+            AudioManager.AudioSourceMusic.UnPause();
+            Time.timeScale = 1;
+            //operations to do after game state switch to playing
 
-            UIManager.LevelUI.gameObject.SetActive(true);
-            //UIManager.ShowUICanvasOnly("LevelUI");
+
+            //raise unpause events
+            EventManager.RaiseOnGameUnpause();
         }
-        AudioManager.AudioSourceMusic.UnPause();
-        Time.timeScale = 1;
-        //operations to do after game state switch to playing
-
-
-        //raise unpause events
-        EventManager.RaiseOnGameUnpause();
     }
     private void StatePause()
     {
-        UIManager.HideAllUILabels();
-        UIManager.ShowUICanvasOnly("PauseMenuUI");
-        AudioManager.AudioSourceMusic.Pause();
-        Time.timeScale = 0;
+        if (!UIManager.StageCompleteUI.gameObject.activeSelf && !UIManager.GameOverUI.activeSelf)
+        {
+            UIManager.HideAllUILabels();
+            UIManager.ShowUICanvasOnly("PauseMenuUI");
+            AudioManager.AudioSourceMusic.Pause();
+            Time.timeScale = 0;
 
-        //raise pause events
-        EventManager.RaiseOnGamePause();
+            //raise pause events
+            EventManager.RaiseOnGamePause();
+        }
     }
     private void StateQuitting()
     {

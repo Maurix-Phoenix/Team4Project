@@ -268,7 +268,10 @@ public class CinematicUI : MonoBehaviour
         if (SpawnNextDialogue)
         {
             localAlpha = 0;
-            GameManager.Instance.AudioManager.PlaySFX(_DialogueClip[_DialogueStringIndex]);
+            if (_UseClipAudio)
+            {
+                GameManager.Instance.AudioManager.PlaySFX(_DialogueClip[_DialogueStringIndex]);
+            }
             while (localAlpha <= 1)
             {
                 if (_CaptainInPosition)
@@ -295,7 +298,10 @@ public class CinematicUI : MonoBehaviour
     {
         _DialogueText.text = _DialogueString[_DialogueStringIndex];
         float localAlpha = 0;
-        GameManager.Instance.AudioManager.PlaySFX(_DialogueClip[_DialogueStringIndex]);
+        if (_UseClipAudio)
+        {
+            GameManager.Instance.AudioManager.PlaySFX(_DialogueClip[_DialogueStringIndex]);
+        }
         while (localAlpha <= 1)
         {
             if (_CaptainInPosition)

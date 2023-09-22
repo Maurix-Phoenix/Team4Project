@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     public FlagCollection FlagsCollection;
     public LevelUI LevelUI;
     public StageCompleteUI StageCompleteUI;
+    public GameObject GameOverUI;
     public TutorialUI TutorialUI;
     public CinematicUI CinematicUI;
     public ToggleButtonUI ToggleButtonUI;

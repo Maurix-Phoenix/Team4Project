@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Variables")]
     [SerializeField] private bool _BackToSurfaceInBossBattle = false;
+    [SerializeField] private bool _CanFloat = false;
+    [SerializeField] private bool _SinusoidalMovement = false;
+    [SerializeField] private bool _SinusoidalRotation = false;
     [SerializeField] private float _ChangingLayerSpeed = 2f;
     [SerializeField] private float _ImmersionRotationSpeed = 30f;
     [SerializeField] private Vector3 _DefaultShipRotation = new Vector3(0f, 0f, 90f);
@@ -73,12 +76,16 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (!GameManager.Instance.LevelManager.Player.IsChangingLayer && !GameManager.Instance.LevelManager.Player.IsInStartAnimation && _MovementRecharge < _MovementCD)
+        if (!GameManager.Instance.LevelManager.Player.IsChangingLayer && !GameManager.Instance.LevelManager.Player.IsInStartAnimation)
         {
-            _MovementRecharge += Time.deltaTime;
             if (_MovementRecharge >= _MovementCD)
             {
+                _MovementRecharge = 0f;
                 GameManager.Instance.LevelManager.Player.CanMove = true;
+            }
+            else
+            {
+                _MovementRecharge += Time.deltaTime;
             }
         }
 
@@ -162,7 +169,8 @@ public class PlayerMovement : MonoBehaviour
                 _FloatingTime = 0f;
 
                 //set the next layer position
-                _NextPosition = _ActualPosition + new Vector3(0f, _Direction.y * GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer, 0f);
+                _ActualPosition = gameObject.transform.position;
+                _NextPosition = new Vector3(0f, - _Direction.y * GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer * (GameManager.Instance.LevelManager.CurrentLevel.ActualLayer - 1), 0f);
 
                 //set a travel distance based on the idle animation positition and the next position
                 PickDistance(_NextPosition.y);
@@ -187,7 +195,8 @@ public class PlayerMovement : MonoBehaviour
                 _FloatingTime = 0f;
 
                 //set the next layer position
-                _NextPosition = _ActualPosition + new Vector3(0f, _Direction.y * GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer, 0f);
+                _ActualPosition = gameObject.transform.position;
+                _NextPosition = new Vector3(0f, _Direction.y * GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer * (GameManager.Instance.LevelManager.CurrentLevel.ActualLayer + 1), 0f);
 
                 //set a travel distance based on the idle animation positition and the next position
                 PickDistance(_NextPosition.y);
@@ -197,56 +206,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
     private void PickDistance(float NextYPosition)
     {
-        //Ship is above the next position
-        if (_ActualPosition.y > NextYPosition)
-        {
-            if (!GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
-            {
-                //Ship is above the actual position
-                if (gameObject.transform.position.y > _ActualPosition.y)
-                {
-                    _TravelDistance = GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer + (gameObject.transform.position.y - _ActualPosition.y);
-                }
-
-                //Ship is under the actual position
-                else
-                {
-                    _TravelDistance = GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer - (_ActualPosition.y - gameObject.transform.position.y);
-                }
-            }
-            else
-            {
-                //Travel distance from actual position and final position
-                _TravelDistance = Mathf.Abs(gameObject.transform.position.y) - Mathf.Abs(NextYPosition);
-            }
-        }
-
-        //Ship is under the next position
-        else
-        {
-            if (!GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle)
-            {
-                //Ship is above the actual position
-                if (gameObject.transform.position.y > _ActualPosition.y)
-                {
-                    _TravelDistance = GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer - (gameObject.transform.position.y - _ActualPosition.y);
-                }
-
-                //Ship is under the actual position
-                else
-                {
-                    _TravelDistance = GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer + (_ActualPosition.y - gameObject.transform.position.y);
-                }
-            }
-            else
-            {
-                //Travel distance from actual position and final position
-                _TravelDistance = Mathf.Abs(gameObject.transform.position.y) - Mathf.Abs(NextYPosition);
-            }
-        }
+        _TravelDistance = Vector3.Distance(new Vector3(0, _ActualPosition.y, 0),
+                                           new Vector3(0, NextYPosition, 0));
     }
+
     private void StartMovement()
     {
         //based on the actual Layer set the stagger effect of the ship on above the water or under of it
@@ -262,10 +228,14 @@ public class PlayerMovement : MonoBehaviour
             _ActualAmplitude = _UnderWaterAmplitude;
         }
 
-        //mathematical functions to obtain a sinusoidal speed value
-        float floatingSpeed = _ActualAmplitude * (Mathf.Cos(Mathf.PI * ((_FloatingTime * _FloatSpeed))) + 1f);
-        float direction = -Mathf.Sign(Mathf.Cos(Mathf.PI * (((_FloatingTime * _FloatSpeed) / 2f) + 1f)));
-        float speed = _FloatSpeed * floatingSpeed * direction;
+        float speed = 0;
+        if (_CanFloat)
+        {
+            //mathematical functions to obtain a sinusoidal speed value
+            float floatingSpeed = _ActualAmplitude * (Mathf.Cos(Mathf.PI * ((_FloatingTime * _FloatSpeed))) + 1f);
+            float direction = -Mathf.Sign(Mathf.Cos(Mathf.PI * (((_FloatingTime * _FloatSpeed) / 2f) + 1f)));
+            speed = _FloatSpeed * floatingSpeed * direction;
+        }
 
         if (gameObject.transform.position.x >= 0)
         {
@@ -282,12 +252,15 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.Instance.LevelManager.CurrentLevel.StartLevel();
             }
         }
-        //move the ship to the play position
-        _Rb.MovePosition(_Rb.position + Vector3.up * speed * Time.fixedDeltaTime + Vector3.right * _AnimationSpeed * Time.fixedDeltaTime);
+        else
+        {
+            //move the ship to the play position
+            _Rb.MovePosition(_Rb.position + Vector3.up * speed * Time.fixedDeltaTime + Vector3.right * _AnimationSpeed * Time.fixedDeltaTime);
+        }
     }
     private void PlayingMovement()
     {
-        //Check if the ship is changing layer or is in idel animation
+        //Check if the ship is changing layer or is in idle animation
         //if the ship is in idle animation
         if (!GameManager.Instance.LevelManager.Player.IsChangingLayer)
         {
@@ -304,13 +277,16 @@ public class PlayerMovement : MonoBehaviour
                 _ActualAmplitude = _UnderWaterAmplitude;
             }
 
-            //mathematical functions to obtain a sinusoidal speed value
-            float floatingSpeed = _ActualAmplitude * (Mathf.Cos(Mathf.PI * ((_FloatingTime * _FloatSpeed))) + 1f);
-            float direction = -Mathf.Sign(Mathf.Cos(Mathf.PI * (((_FloatingTime * _FloatSpeed) / 2f) + 1f)));
-            float speed = _FloatSpeed * floatingSpeed * direction;
+            if (_CanFloat)
+            {
+                //mathematical functions to obtain a sinusoidal speed value
+                float floatingSpeed = _ActualAmplitude * (Mathf.Cos(Mathf.PI * ((_FloatingTime * _FloatSpeed))) + 1f);
+                float direction = -Mathf.Sign(Mathf.Cos(Mathf.PI * (((_FloatingTime * _FloatSpeed) / 2f) + 1f)));
+                float speed = _FloatSpeed * floatingSpeed * direction;
 
-            //stagger effect above water or under of it
-            _Rb.MovePosition(_Rb.position + Vector3.up * speed * Time.fixedDeltaTime);
+                //stagger effect above water or under of it
+                _Rb.MovePosition(_Rb.position + Vector3.up * speed * Time.fixedDeltaTime);
+            }
         }
 
         //if the ship is changing layer
@@ -319,16 +295,24 @@ public class PlayerMovement : MonoBehaviour
             _ActualPosition = gameObject.transform.position;
             _TimeForChangingLayer += Time.deltaTime;
 
+            float speed = 0;
             //mathematical functions to obtain a sinusoidal speed value
-            float sinusoidalSpeed = ((Mathf.Sin(Mathf.PI * (((_TimeForChangingLayer * _ChangingLayerSpeed) / _TravelDistance) - 0.5f)) + 1f)) / 2f;
-            float speed = _ChangingLayerSpeed * sinusoidalSpeed;
+            if (_SinusoidalMovement)
+            {
+                float sinusoidalSpeed = ((Mathf.Sin(Mathf.PI * (((_TimeForChangingLayer * _ChangingLayerSpeed) / _TravelDistance) - 0.5f)) + 1f)) / 2f;
+                speed = _ChangingLayerSpeed * sinusoidalSpeed;
+            }
+            else
+            {
+                speed = _ChangingLayerSpeed;
+            }
 
             //based on the input the ship will go up or down
             //down
             if (_Direction.y < 0)
             {
                 //Check some position for setting the ship
-                if (_ActualPosition.y < _NextPosition.y)
+                if (_ActualPosition.y <= _NextPosition.y)
                 {
                     //Interrupt the changing layer animatin
                     GameManager.Instance.LevelManager.Player.IsChangingLayer = false;
@@ -351,10 +335,10 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //up
-            else if (_Direction.y > 0)
+            else if (_Direction.y >= 0)
             {
                 //Check some position for setting the ship
-                if (_ActualPosition.y > _NextPosition.y)
+                if (_ActualPosition.y >= _NextPosition.y)
                 {
                     //Interrupt the changing layer animatin
                     GameManager.Instance.LevelManager.Player.IsChangingLayer = false;
@@ -393,6 +377,7 @@ public class PlayerMovement : MonoBehaviour
         GameManager.Instance.LevelManager.Player.CanMove = false;
         _Rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
+
         if (!GameManager.Instance.LevelManager.Player.LastDistancePicked && _BackToSurfaceInBossBattle)
         {
             GameManager.Instance.LevelManager.Player.LastDistancePicked = true;
@@ -400,12 +385,16 @@ public class PlayerMovement : MonoBehaviour
             PickDistance(GameManager.Instance.LevelManager.CurrentLevel.FinalLayer * GameManager.Instance.LevelManager.CurrentLevel.UnitSpaceBetweenLayer);
             StartCoroutine(RotateAnimation(1f));
         }
+        else
+        {
+            _TimeForChangingLayer += Time.deltaTime;
+            Debug.Log(_TimeForChangingLayer);
+        }
 
         //Move the ship to the Final layer
         if (GameManager.Instance.LevelManager.CurrentLevel.ActualLayer != GameManager.Instance.LevelManager.CurrentLevel.FinalLayer && _BackToSurfaceInBossBattle)
         {
             _ActualPosition = gameObject.transform.position;
-            _TimeForChangingLayer += Time.deltaTime;
 
             //mathematical functions to obtain a sinusoidal speed value
             float sinusoidalSpeed = ((Mathf.Sin(Mathf.PI * (((_TimeForChangingLayer * _ChangingLayerSpeed) / _TravelDistance) - 0.5f)) + 1f)) / 2f;
@@ -532,31 +521,38 @@ public class PlayerMovement : MonoBehaviour
     }
     private IEnumerator RotateAnimation(float inputDirection)
     {
-        while (GameManager.Instance.LevelManager.Player.IsChangingLayer)
+        float sinusoidalSpeed = 0;
+        float rotationalSpeed = 0;
+        _TimeForChangingLayer = 0;
+        while ((GameManager.Instance.LevelManager.Player.IsChangingLayer || GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle) && gameObject.transform.position.x <= 0)
         {
             //mathematical functions to obtain a sinusoidal rotation value
-            float sinusoidalSpeed = (-Mathf.Cos(Mathf.PI * ((((2f * _TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance))) + 1f) / 2f;
-            float direction = inputDirection * Mathf.Sign(Mathf.Sin(Mathf.PI * (((_TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance)));
-            float rotationalSpeed = direction * _ImmersionRotationSpeed * sinusoidalSpeed;
+            if (_SinusoidalRotation)
+            {
+                sinusoidalSpeed = (-Mathf.Cos(Mathf.PI * ((((2f * _TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance))) + 1f) / 2f;
+                float direction = inputDirection * Mathf.Sign(Mathf.Sin(Mathf.PI * (((_TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance)));
+                rotationalSpeed = direction * _ImmersionRotationSpeed * sinusoidalSpeed;
+            }
+            else
+            {
+                sinusoidalSpeed = Mathf.Sin(Mathf.PI * ((((2 * _TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance))) / 2f;
+
+                if (_Direction.y > 0)
+                {
+                    rotationalSpeed = Mathf.Sign(sinusoidalSpeed) * _ImmersionRotationSpeed;
+                }
+                else if (_Direction.y < 0)
+                {
+                    rotationalSpeed = -Mathf.Sign(sinusoidalSpeed) * _ImmersionRotationSpeed;
+                }
+            }
 
             //rotate the ship mesh
             _Ship.transform.Rotate(Vector3.forward, rotationalSpeed * _ChangingLayerSpeedMultiplier * Time.deltaTime);
+            Debug.Log(_Ship.transform.eulerAngles);
 
             yield return null;
         }
-
-        //while (GameManager.Instance.LevelManager.CurrentLevel.IsInBossBattle && gameObject.transform.position.y < 0f)
-        //{
-        //    //mathematical functions to obtain a sinusoidal rotation value
-        //    float sinusoidalSpeed = (-Mathf.Cos(Mathf.PI * ((((2f * _TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance))) + 1f) / 2f;
-        //    float direction = 0.5f * inputDirection * Mathf.Sign(Mathf.Sin(Mathf.PI * (((_TimeForChangingLayer) * _ChangingLayerSpeed) / _TravelDistance)));
-        //    float rotationalSpeed = direction * _ImmersionRotationSpeed * sinusoidalSpeed;
-
-        //    //rotate the ship mesh
-        //    _Ship.transform.Rotate(Vector3.forward, rotationalSpeed * Time.deltaTime);
-
-        //    yield return null;
-        //}
 
         //reset the rotation of the mesh to the default value
         _Ship.transform.eulerAngles = _DefaultShipRotation;

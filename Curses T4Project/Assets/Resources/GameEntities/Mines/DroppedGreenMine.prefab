@@ -187,9 +187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityName: 
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0, w: 0}
-  Scale: {x: 0, y: 0, z: 0}
   RB: {fileID: 0}
   CanDropLoot: 0
   LootList: []
@@ -199,10 +196,11 @@ MonoBehaviour:
   IsStopped: 0
   _Health: 1
   _IsDroppedByFlagShip: 1
-  _GoDownSpeed: 1.5
+  _GoDownSpeed: 0.3
   _TrailVFX: {fileID: 5279405380447603880}
   ExplosionPrefabVFX: {fileID: 1321841788029400320, guid: d476a7f41b2368c48a862b7b83329f59, type: 3}
-  _ExplosionSFX: {fileID: 8300000, guid: 784a54076d59c3f4d9d95ce0d46cd27b, type: 3}
+  _ExplosionUpSFX: {fileID: 8300000, guid: 3b2024de1b7e1d349aaeae54a70125d8, type: 3}
+  _ExplosionDownSFX: {fileID: 8300000, guid: 45a27bf0b41cb944f8381cc8752c95a4, type: 3}
   _PlayerOnlyTrigger: 0
   _ExplosionDamage: 1
   _ExplosionRange: 1

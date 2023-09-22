@@ -184,7 +184,7 @@ public class EndWall : LevelEntity, IDamageable
         }
         else
         {
-            _HealthUI.text = "0";
+            _EndWallUI.SetActive(false);
         }
 
         if (_Health <= 0)

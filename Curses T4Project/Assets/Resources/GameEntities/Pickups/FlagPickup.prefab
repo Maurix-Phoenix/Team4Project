@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4398631913229883752}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.3, z: 0.03}
+  m_LocalScale: {x: 1.5, y: 0.9, z: 0.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6791945195098664401}
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 6731371445131291682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3708360992562084906}
@@ -180,9 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityName: 
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0, w: 0}
-  Scale: {x: 0, y: 0, z: 0}
   RB: {fileID: 0}
   CanDropLoot: 0
   LootList: []

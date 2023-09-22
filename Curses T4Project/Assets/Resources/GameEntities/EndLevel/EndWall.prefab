@@ -14896,7 +14896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4299555498955795169
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15148,9 +15148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityName: 
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0, w: 0}
-  Scale: {x: 0, y: 0, z: 0}
   RB: {fileID: 0}
   CanDropLoot: 0
   LootList: []

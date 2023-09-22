@@ -1162,9 +1162,9 @@ RectTransform:
   m_Father: {fileID: 7131468156246077130}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -210}
   m_SizeDelta: {x: 350, y: 90}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3012732845241311635
@@ -2487,6 +2487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonPrevious: {fileID: 2334076431342144263}
   ButtonNext: {fileID: 4907044594426205318}
+  LevelCompleteText: {fileID: 3021536638778683275}
   Flag: {fileID: 3919095922112102315}
   StarComplete: {fileID: 2279211501473557647}
   StarAce: {fileID: 714003374846225055}
@@ -6982,9 +6983,9 @@ RectTransform:
   m_Father: {fileID: 7131468156246077130}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &792656632557109851
@@ -9119,10 +9120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1418420997366897086}
-  m_Horizontal: 1
-  m_Vertical: 1
+  m_Horizontal: 0
+  m_Vertical: 0
   m_MovementType: 1
-  m_Elasticity: 0.1
+  m_Elasticity: 0.05
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 1
@@ -14887,7 +14888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -150, y: -100}
+  m_AnchoredPosition: {x: -150, y: -50}
   m_SizeDelta: {x: 1024, y: 1023}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2200635827247748245
@@ -15209,7 +15210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7738526530798343993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16119,7 +16120,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f9b272d3e3d52d4408886b9eaaacb501, type: 3}
   - {fileID: 8300000, guid: 537d3b3b632fe0148a662bf7244efad5, type: 3}
   - {fileID: 8300000, guid: 97ecf70a3b5273940833d0fc006afa6f, type: 3}
-  _UseClipAudio: 1
+  _UseClipAudio: 0
   _NextPanelAudio: {fileID: 8300000, guid: 07f91e9b4e94d2145b0b3ce967dd5318, type: 3}
 --- !u!1 &7568769679640820142
 GameObject:
@@ -16551,7 +16552,7 @@ MonoBehaviour:
   - Name: GAME_MoveUnderwater
     clip: {fileID: 8300000, guid: fd7e17f71e4244942a7e91b3d6733a09, type: 3}
   - Name: GAME_CannonShoot
-    clip: {fileID: 8300000, guid: 98436a2392f3f3b4ba09d61f1867f5cb, type: 3}
+    clip: {fileID: 8300000, guid: 4ae3982749d10ca48ba386afdc67ecb7, type: 3}
   - Name: GAME_CannonShootUnderWater
     clip: {fileID: 8300000, guid: e70f5315cb68f34488920aa0e00df112, type: 3}
   - Name: GAME_CannonballObtained
@@ -16594,6 +16595,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 537d3b3b632fe0148a662bf7244efad5, type: 3}
   - Name: GAME_Dialogue4
     clip: {fileID: 8300000, guid: 97ecf70a3b5273940833d0fc006afa6f, type: 3}
+  - Name: GAME_Dialogue4
+    clip: {fileID: 8300000, guid: 97ecf70a3b5273940833d0fc006afa6f, type: 3}
+  - Name: GAME_UnderWaterMiss
+    clip: {fileID: 8300000, guid: 58c53ffdf00eb6c4fb5135326be39e10, type: 3}
   SliderMusic: {fileID: 3006024695762584065}
   SliderSFX: {fileID: 7639956864601329888}
   _SliderAudioIntervail: 0.5
@@ -19995,9 +20000,9 @@ RectTransform:
   m_Father: {fileID: 7131468156246077130}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 400, y: 90}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7982851159620860964
@@ -20021,7 +20026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.14609292, g: 0.5177622, b: 0.6320754, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -20059,7 +20064,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 0.9799926, b: 0.60754716, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -20160,6 +20165,7 @@ MonoBehaviour:
   FlagsCollection: {fileID: 2294634682129792092}
   LevelUI: {fileID: 2465663344459488184}
   StageCompleteUI: {fileID: 6902547835119850237}
+  GameOverUI: {fileID: 5430274100762918714}
   TutorialUI: {fileID: 122679229145787157}
   CinematicUI: {fileID: 8621398164173695180}
   ToggleButtonUI: {fileID: 5430885100472669928}

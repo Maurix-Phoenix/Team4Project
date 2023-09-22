@@ -17,7 +17,7 @@ public class EnemyShip : LevelEntity, IDamageable
     public bool IsDead { get { return _IsDead; } }
 
     [Header("SFX & VFX")]
-    [SerializeField] private AudioClip _Destruction;
+    [SerializeField] private AudioClip _SoundOnTouch;
     [SerializeField] private ParticleSystem _DeathAnimationVFX;
     [SerializeField] private ParticleSystem _TrailVFX;
     [SerializeField] private List<GameObject> _ObjectsToHideOnDeath;
@@ -57,7 +57,18 @@ public class EnemyShip : LevelEntity, IDamageable
         }
     }
 
-    private IEnumerator DeathAnimation()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            if (gameObject.GetComponent<StealAbility>() == null)
+            {
+                GameManager.Instance.AudioManager.PlaySFX(_SoundOnTouch);
+            }
+        }
+    }
+
+        private IEnumerator DeathAnimation()
     {
         _IsDead = true;
         IsStopped = true;

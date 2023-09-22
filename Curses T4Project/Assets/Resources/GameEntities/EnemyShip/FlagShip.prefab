@@ -4974,9 +4974,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityName: Flag Ship
-  Position: {x: 10, y: 0, z: 0}
-  Rotation: {x: -0, y: -0, z: -0, w: 1}
-  Scale: {x: 1, y: 1, z: 1}
   RB: {fileID: 0}
   CanDropLoot: 1
   LootList:
@@ -4992,7 +4989,7 @@ MonoBehaviour:
   IsStopped: 0
   _Health: 2
   _IsDead: 0
-  _Destruction: {fileID: 8300000, guid: 66d2c47285bc128419ac2a4cf518bd11, type: 3}
+  _SoundOnTouch: {fileID: 8300000, guid: cae9cf98c1af8f34f9e37b1477dfd490, type: 3}
   _DeathAnimationVFX: {fileID: 4165930400874494555}
   _TrailVFX: {fileID: 3017783600608642509}
   _ObjectsToHideOnDeath:
@@ -5031,6 +5028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ProjectilePrefab: {fileID: 4457566165532286096, guid: 3ca071f283118a24a9a47a25e3f1f07d, type: 3}
   _ShootRange: 6
+  _StartShootEnteringInTheScreen: 0
   _ShowShootRange: 1
   _TimeBetweenShoot: 2
   _CannonballDamage: 1

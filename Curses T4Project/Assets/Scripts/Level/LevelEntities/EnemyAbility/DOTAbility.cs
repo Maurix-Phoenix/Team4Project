@@ -89,7 +89,7 @@ public class DOTAbility : MonoBehaviour
 
     private void CheckPosition()
     {
-        if (gameObject.transform.position.y >= _YPositionLeavePlayer)
+        if (gameObject.transform.position.y >= _YPositionLeavePlayer || gameObject.transform.position.x < 0)
         {
             _TargetLocked = false;
             _InPositionToAttack = false;

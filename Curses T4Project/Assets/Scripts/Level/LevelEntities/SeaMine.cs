@@ -10,12 +10,13 @@ public class SeaMine : LevelEntity, IDamageable
     [Header("Sea Mine")]
     [SerializeField] private int _Health = 1;
     [SerializeField] private bool _IsDroppedByFlagShip = false;
-    [SerializeField] private float _GoDownSpeed = 1;
+    [SerializeField] private float _GoDownSpeed = 0.3f;
     [SerializeField] private ParticleSystem _TrailVFX;
 
     [Header("Explosion Effect")]
     public GameObject ExplosionPrefabVFX;
-    [SerializeField] private AudioClip _ExplosionSFX;
+    [SerializeField] private AudioClip _ExplosionUpSFX;
+    [SerializeField] private AudioClip _ExplosionDownSFX;
     [SerializeField] private bool _PlayerOnlyTrigger = false;
     [SerializeField] private int _ExplosionDamage = 1;
     [SerializeField] private float _ExplosionRange = 2.0f;
@@ -60,7 +61,7 @@ public class SeaMine : LevelEntity, IDamageable
         if (_IsDroppedByFlagShip)
         {
             //RB.velocity += Vector3.down * Time.fixedDeltaTime * _GoDownSpeed;
-            RB.MovePosition(RB.position + Vector3.down * _GoDownSpeed * Time.fixedDeltaTime);
+            RB.MovePosition(RB.position + Vector3.down * _GoDownSpeed * GameManager.Instance.LevelManager.CurrentLevel.LevelSpeed * Time.fixedDeltaTime);
         }
     }
 
@@ -121,7 +122,16 @@ public class SeaMine : LevelEntity, IDamageable
                 }
             }
 
-            GameManager.Instance.AudioManager.PlaySFX(_ExplosionSFX);
+            if (gameObject.transform.position.y > - 0.5f)
+            {
+                GameManager.Instance.AudioManager.PlaySFX(_ExplosionUpSFX);
+            }
+            else
+            {
+                GameManager.Instance.AudioManager.PlaySFX(_ExplosionDownSFX);
+            }
+
+
             DropLoot();
             gameObject.SetActive(false);
 

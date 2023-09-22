@@ -5148,10 +5148,13 @@ MonoBehaviour:
   _InputMovementReference: {fileID: 5423363297166148666, guid: 46418ff666dc9834ba4ad76d6e313323, type: 3}
   _Ship: {fileID: 5044277267086782192}
   _BackToSurfaceInBossBattle: 0
+  _CanFloat: 1
+  _SinusoidalMovement: 1
+  _SinusoidalRotation: 1
   _ChangingLayerSpeed: 13
   _ImmersionRotationSpeed: 80
   _DefaultShipRotation: {x: 0, y: 0, z: 90}
-  _MovementCD: 0.1
+  _MovementCD: 0
   _Submerge: {fileID: 8300000, guid: 5f0e6289c8ee3fa45af8ea4078981e45, type: 3}
   _MoveUnderWater: {fileID: 8300000, guid: fd7e17f71e4244942a7e91b3d6733a09, type: 3}
   _IsSlowed: 0

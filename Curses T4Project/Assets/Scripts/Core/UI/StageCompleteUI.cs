@@ -1,13 +1,16 @@
 //StageCompleteUI.cs
 //by MAURIZIO FISCHETTI
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class StageCompleteUI : MonoBehaviour
 {
     public GameObject ButtonPrevious;
     public GameObject ButtonNext;
+    public TextMeshProUGUI LevelCompleteText;
 
     public Image Flag;
     public Image StarComplete;
@@ -29,6 +32,8 @@ public class StageCompleteUI : MonoBehaviour
         StarComplete.gameObject.SetActive(levelD.StarCompleted);
         StarAce.gameObject.SetActive(levelD.StarAce);
         StarEconomy.gameObject.SetActive(levelD.StarDoubloons);
+        LevelCompleteText.gameObject.SetActive(true);
+        LevelCompleteText.text = $"Level <gradient=\"BlackToRed-Vertical\">{GameManager.Instance.LevelManager.CurrentLevel.LevelName}</gradient> Completed!";
 
         ButtonPrevious.SetActive(false);
         ButtonNext.SetActive(false);

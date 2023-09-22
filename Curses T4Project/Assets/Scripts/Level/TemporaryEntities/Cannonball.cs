@@ -12,19 +12,29 @@ using UnityEngine;
 public class Cannonball : LevelEntityTemporary
 {
     [Header("SFX e VFX")]
-    [SerializeField] private AudioClip _AboveWaterSFX;
-    [SerializeField] private AudioClip _UnderWaterSFX;
-    [SerializeField] private AudioClip _ExplosionUpSFX;
-    [SerializeField] private AudioClip _ExplosionDownSFX;
-    [SerializeField] private ParticleSystem _CannonBallExplosion;
+    [SerializeField] private AudioClip _ShootAboveWaterSFX;
+    [SerializeField] private AudioClip _ShootUnderWaterSFX;
+    [SerializeField] private AudioClip _ExplosionUpMissedSFX;
+    [SerializeField] private AudioClip _ExplosionUpHittedSFX;
+    [SerializeField] private AudioClip _ExplosionDownMissedSFX;
+    [SerializeField] private AudioClip _ExplosionDownHittedSFX;
+    [SerializeField] private ParticleSystem _ExplosionUpMissedVFX;
+    [SerializeField] private ParticleSystem _ExplosionUpHittedVFX;
+    [SerializeField] private ParticleSystem _ExplosionDownMissedVFX;
+    [SerializeField] private ParticleSystem _ExplosionDownHittedVFX;
     [SerializeField] private ParticleSystem _Trail;
     [SerializeField] private Color _CursedColor;
     [SerializeField] private Material _AboveWaterMaterial;
     [SerializeField] private Material _UnderWaterMaterial;
 
+    [Header("Projectile Stats")]
     private int _CannonballDamage = 1;
     private float _CannonballSpeed = 1f;
     [SerializeField] private float _YPositionExplosion = 0;
+    private bool _HasHitted = false;
+    private bool _HasHittedMine = false;
+    [SerializeField] private bool _IsMortarProjectile = false;
+    private bool _WaterTouched = false;
     private float _MaxDistance = 0f;
     private float _TrajectoryX = 0f;
     private float _TrajectoryY = 0f;
@@ -68,36 +78,22 @@ public class Cannonball : LevelEntityTemporary
     protected override void Start()
     {
         base.Start();
-        if (GameManager.Instance.LevelManager.CurrentLevel.ActualLayer >= 0)
+        if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
         {
-            GameManager.Instance.AudioManager.PlaySFX(_AboveWaterSFX);
-            if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
+            if (GameManager.Instance.LevelManager.CurrentLevel.ActualLayer >= 0)
             {
+                GameManager.Instance.AudioManager.PlaySFX(_ShootAboveWaterSFX);
                 gameObject.GetComponent<MeshRenderer>().material = _AboveWaterMaterial;
                 _tpsm.startColor = Color.gray;
             }
-        }
-        else
-        {
-            GameManager.Instance.AudioManager.PlaySFX(_UnderWaterSFX);
-
-            if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
+            else
             {
+                GameManager.Instance.AudioManager.PlaySFX(_ShootUnderWaterSFX);
                 gameObject.GetComponent<MeshRenderer>().material = _UnderWaterMaterial;
                 _tpsm.startColor = _CursedColor;
             }
 
-        }
-
-        if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball"))
-        {
-            _TargetLocation = (_Player.transform.position - _StartLocation).normalized;
-            T4P.T4Debug.Log("EnemyCannonball " + _TargetLocation);
-
-        }
-        else if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball"))
-        {
-            if(!GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
+            if (!GameManager.Instance.LevelManager.CurrentLevel.IsFinalArrivalBeach)
             {
                 _TargetLocation = (_EndWall.transform.position - _StartLocation).normalized;
             }
@@ -113,6 +109,12 @@ public class Cannonball : LevelEntityTemporary
 
             T4P.T4Debug.Log("PlayerCannonball " + _TargetLocation);
         }
+        else if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball"))
+        {
+            GameManager.Instance.AudioManager.PlaySFX(_ShootAboveWaterSFX);
+            _TargetLocation = (_Player.transform.position - _StartLocation).normalized;
+            T4P.T4Debug.Log("EnemyCannonball " + _TargetLocation);
+        }
     }
 
     protected override void Update()
@@ -125,7 +127,13 @@ public class Cannonball : LevelEntityTemporary
             _Rb.useGravity = true;
             if (gameObject.layer == LayerMask.NameToLayer("EnemyCannonball"))
             {
-                if (transform.position.y < _YPositionExplosion)
+                if (_IsMortarProjectile && !_WaterTouched && gameObject.transform.position.y < 0)
+                {
+                    _WaterTouched = true;
+                    Explosion();
+                }
+
+                if (transform.position.y < _YPositionExplosion + 0.1f)
                 {
                     Explosion();
                     Destroy(gameObject);
@@ -146,6 +154,7 @@ public class Cannonball : LevelEntityTemporary
         {
             _Rb.useGravity = false;
         }
+
     }
 
     private void FixedUpdate()
@@ -199,7 +208,7 @@ public class Cannonball : LevelEntityTemporary
         if (collision.gameObject.layer != gameObject.layer)
         {
             IDamageable damageable;
-
+            _HasHitted = true;
             Explosion();
 
             if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
@@ -219,6 +228,8 @@ public class Cannonball : LevelEntityTemporary
             if (collision.gameObject.layer != gameObject.layer)
             {
                 IDamageable damageable;
+                _HasHitted = true;
+                _HasHittedMine = true;
                 if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
                 {
                     Explosion();
@@ -231,25 +242,75 @@ public class Cannonball : LevelEntityTemporary
 
     private void Explosion()
     {
-        ParticleSystem ExplosionVFX = Instantiate(_CannonBallExplosion, transform.position, Quaternion.identity);
-        ParticleSystem.MainModule _epsm = ExplosionVFX.main;
+        ExplosionSFX();
+        ExplosionVFX();
+    }
 
-        if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball") && GameManager.Instance.LevelManager.CurrentLevel.ActualLayer < 0)
+    private void ExplosionSFX()
+    {
+        if (gameObject.transform.position.y < -1) //UnderWater Sound
         {
-            _epsm.startColor = _CursedColor;
+            if (_HasHitted)
+            {
+                if (!_HasHittedMine)
+                {
+                    GameManager.Instance.AudioManager.PlaySFX(_ExplosionDownHittedSFX);
+                }
+            }
+            else
+            {
+                GameManager.Instance.AudioManager.PlaySFX(_ExplosionDownMissedSFX);
+            }
         }
-        else
+        else //AboveWater Sound
         {
-            _epsm.startColor = Color.white;
+            if (_HasHitted)
+            {
+                if (!_HasHittedMine)
+                {
+                    GameManager.Instance.AudioManager.PlaySFX(_ExplosionUpHittedSFX);
+                }
+            }
+            else
+            {
+                GameManager.Instance.AudioManager.PlaySFX(_ExplosionUpMissedSFX);
+            }
         }
+    }
 
-        if (gameObject.transform.position.y < -1)
+    private void ExplosionVFX()
+    {
+        if (gameObject.transform.position.y < -1) //UnderWater VFX
         {
-            GameManager.Instance.AudioManager.PlaySFX(_ExplosionDownSFX);
+            if (_HasHitted)
+            {
+                ParticleSystem Explosion_VFX = Instantiate(_ExplosionDownHittedVFX, transform.position, Quaternion.identity);
+                if (gameObject.layer == LayerMask.NameToLayer("PlayerCannonball") && gameObject.transform.position.y < -1)
+                {
+                    ParticleSystem.MainModule _epsm = Explosion_VFX.main;
+                    _epsm.startColor = _CursedColor;
+                }
+                Debug.Log("UnderHIT");
+            }
+            else
+            {
+                ParticleSystem Explosion_VFX = Instantiate(_ExplosionDownMissedVFX, transform.position, Quaternion.identity);
+                Debug.Log("UnderMISS");
+
+            }
         }
-        else
+        else // AboveWater VFX
         {
-            GameManager.Instance.AudioManager.PlaySFX(_ExplosionUpSFX);
+            if (_HasHitted)
+            {
+                ParticleSystem Explosion_VFX = Instantiate(_ExplosionUpHittedVFX, transform.position, Quaternion.identity);
+                Debug.Log("AboveHIT");
+            }
+            else
+            {
+                ParticleSystem Explosion_VFX = Instantiate(_ExplosionUpMissedVFX, transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
+                Debug.Log("AboveMISS");
+            }
         }
     }
 }

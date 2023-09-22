@@ -5204,8 +5204,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 1, z: 6}
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Size: {x: 1.9, y: 0.88, z: 6}
+  m_Center: {x: -0.29, y: 0.1, z: 0}
 --- !u!114 &1986071874996080864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5219,9 +5219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityName: Shark
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0, w: 0}
-  Scale: {x: 0, y: 0, z: 0}
   RB: {fileID: 0}
   CanDropLoot: 0
   LootList: []
