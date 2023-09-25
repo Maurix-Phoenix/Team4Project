@@ -122,7 +122,7 @@ public class SeaMine : LevelEntity, IDamageable
                 }
             }
 
-            if (gameObject.transform.position.y > - 0.5f)
+            if (gameObject.transform.position.y > - 1f)
             {
                 GameManager.Instance.AudioManager.PlaySFX(_ExplosionUpSFX);
             }

@@ -448,7 +448,7 @@ MonoBehaviour:
   _GoDownSpeed: 1
   _TrailVFX: {fileID: 4505902013927477177}
   ExplosionPrefabVFX: {fileID: 1321841788029400320, guid: d476a7f41b2368c48a862b7b83329f59, type: 3}
-  _ExplosionUpSFX: {fileID: 8300000, guid: 3b2024de1b7e1d349aaeae54a70125d8, type: 3}
+  _ExplosionUpSFX: {fileID: 8300000, guid: f147c5c5fc96a054ea888b5994456f7c, type: 3}
   _ExplosionDownSFX: {fileID: 8300000, guid: 45a27bf0b41cb944f8381cc8752c95a4, type: 3}
   _PlayerOnlyTrigger: 0
   _ExplosionDamage: 1

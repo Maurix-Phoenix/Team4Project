@@ -32,7 +32,6 @@ public class Cannonball : LevelEntityTemporary
     private float _CannonballSpeed = 1f;
     [SerializeField] private float _YPositionExplosion = 0;
     private bool _HasHitted = false;
-    private bool _HasHittedMine = false;
     [SerializeField] private bool _IsMortarProjectile = false;
     private bool _WaterTouched = false;
     private float _MaxDistance = 0f;
@@ -210,7 +209,6 @@ public class Cannonball : LevelEntityTemporary
             IDamageable damageable;
             _HasHitted = true;
             Explosion();
-
             if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
             {
                 damageable.TakeDamage(_CannonballDamage, gameObject);
@@ -229,10 +227,9 @@ public class Cannonball : LevelEntityTemporary
             {
                 IDamageable damageable;
                 _HasHitted = true;
-                _HasHittedMine = true;
                 if (collision.gameObject.TryGetComponent<IDamageable>(out damageable))
                 {
-                    Explosion();
+                    ExplosionVFX();
                     damageable.TakeDamage(_CannonballDamage, gameObject);
                 }
             }
@@ -252,10 +249,7 @@ public class Cannonball : LevelEntityTemporary
         {
             if (_HasHitted)
             {
-                if (!_HasHittedMine)
-                {
-                    GameManager.Instance.AudioManager.PlaySFX(_ExplosionDownHittedSFX);
-                }
+                GameManager.Instance.AudioManager.PlaySFX(_ExplosionDownHittedSFX);
             }
             else
             {
@@ -266,10 +260,7 @@ public class Cannonball : LevelEntityTemporary
         {
             if (_HasHitted)
             {
-                if (!_HasHittedMine)
-                {
-                    GameManager.Instance.AudioManager.PlaySFX(_ExplosionUpHittedSFX);
-                }
+                GameManager.Instance.AudioManager.PlaySFX(_ExplosionUpHittedSFX);
             }
             else
             {
@@ -290,13 +281,10 @@ public class Cannonball : LevelEntityTemporary
                     ParticleSystem.MainModule _epsm = Explosion_VFX.main;
                     _epsm.startColor = _CursedColor;
                 }
-                Debug.Log("UnderHIT");
             }
             else
             {
                 ParticleSystem Explosion_VFX = Instantiate(_ExplosionDownMissedVFX, transform.position, Quaternion.identity);
-                Debug.Log("UnderMISS");
-
             }
         }
         else // AboveWater VFX
@@ -304,12 +292,10 @@ public class Cannonball : LevelEntityTemporary
             if (_HasHitted)
             {
                 ParticleSystem Explosion_VFX = Instantiate(_ExplosionUpHittedVFX, transform.position, Quaternion.identity);
-                Debug.Log("AboveHIT");
             }
             else
             {
                 ParticleSystem Explosion_VFX = Instantiate(_ExplosionUpMissedVFX, transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
-                Debug.Log("AboveMISS");
             }
         }
     }
