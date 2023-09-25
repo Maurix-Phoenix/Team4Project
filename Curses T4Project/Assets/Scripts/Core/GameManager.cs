@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
     {
         CurrentScene = scene;
         Time.timeScale = 1;
-
+        SetState(States.Playing);
         T4Debug.Log($"[GameManager] Scene '{scene.name}' loaded.");
         LevelManager.CurrentLevel = LevelManager.LevelToLoad.GetComponent<Level>();
 
