@@ -33,7 +33,7 @@ public class StageCompleteUI : MonoBehaviour
         StarAce.gameObject.SetActive(levelD.StarAce);
         StarEconomy.gameObject.SetActive(levelD.StarDoubloons);
         LevelCompleteText.gameObject.SetActive(true);
-        LevelCompleteText.text = $"Level <gradient=\"BlackToRed-Vertical\">{GameManager.Instance.LevelManager.CurrentLevel.LevelName}</gradient> Completed!";
+        LevelCompleteText.text = $"Level <gradient=\"BlackToRed-Vertical\">{GameManager.Instance.LevelManager.CurrentLevel.LevelData.LevelID}</gradient> Completed!";
 
         ButtonPrevious.SetActive(false);
         ButtonNext.SetActive(false);
