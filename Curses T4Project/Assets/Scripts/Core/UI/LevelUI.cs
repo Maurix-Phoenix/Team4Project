@@ -18,6 +18,7 @@ public class LevelUI : MonoBehaviour
     public TMP_Text DoubloonsText;
     public TMP_Text CannonballsText;
     public TMP_Text LifesText;
+    public TMP_Text CurrentLevelText;
 
     public Slider DoubloonSlider;
     public Slider ProgressionSlider;
@@ -97,6 +98,20 @@ public class LevelUI : MonoBehaviour
         }
     }
 
+    public void UpdateCurrentLevelText()
+    {
+        string text = "";
+        if(GameManager.Instance.LevelManager.CurrentLevel.LevelData.LevelID == 0)
+        {
+            text = $"Tutorial";
+        }
+        else
+        {
+            text = $"Level {GameManager.Instance.LevelManager.CurrentLevel.LevelID}";
+        }
+        CurrentLevelText.text = text;
+    }
+
     public void UpdateLevelLifesUI()
     {
         Player player = GameManager.Instance.LevelManager.Player;
@@ -152,6 +167,7 @@ public class LevelUI : MonoBehaviour
 
     public void UpdateLevelUI()
     {
+        UpdateCurrentLevelText();
         UpdateLevelFlagUI();
         UpdateLevelLifesUI();
         UpdateCannonballsUI();
