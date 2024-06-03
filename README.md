@@ -3,6 +3,14 @@
 [![Made with Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=flat&logo=unity)](https://www.unity.com)
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Maurix-Phoenix/Team4Project)
 
+<dl>
+ <dd>
+  
+  _The Drowned Team_ made this game as the final project of the Game Designer and Game Programmer Level 2 course offer by Digital Bros Game Academy (based in Milan).
+  
+ </dd>
+</dl>
+
 - **Genre:** Hypercasual - 3D Horizontal Scrolling<br />
 - **Team Size:** 6<br />
 - **Duration:** June 2023 - September 2023<br />
