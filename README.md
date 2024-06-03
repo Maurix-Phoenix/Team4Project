@@ -17,8 +17,9 @@
 <dl>
  <dd>
   
-  **ATTENTION**
-  This game have a save system. When unistall remember to delete the folder located in ....
+  **ATTENTION!** <br />
+  This game have a save system to keep track of the level progress.<br />
+  When unistall remember to delete the folder located in ....
   
  </dd>
 </dl>
