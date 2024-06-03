@@ -85,7 +85,7 @@
   <td>
    
    **Cannonballs**<br/>
-   Used to shoot and kill the enemy ship, sea monsters or mines.
+   Used to shoot and kill the enemy ship, sea monsters or destroy mines.
    
   </td>
   <td>
