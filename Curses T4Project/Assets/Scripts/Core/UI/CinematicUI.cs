@@ -360,7 +360,7 @@ public class CinematicUI : MonoBehaviour
             while (traveledDistance < Mathf.Abs(newDistance))
             {
                 traveledDistance += Time.deltaTime * _ChangePositionSpeed;
-                _CaptainTexture.GetComponent<RectTransform>().position = new Vector3(_CaptainTexture.GetComponent<RectTransform>().position.x + Time.deltaTime * _ChangePositionSpeed, 540, 0);
+                _CaptainTexture.GetComponent<RectTransform>().position = new Vector3(_CaptainTexture.GetComponent<RectTransform>().position.x + Time.deltaTime * _ChangePositionSpeed, _CaptainTexture.GetComponent<RectTransform>().position.y, 0);
                 yield return null;
             }
             _CaptainInPosition = true;
@@ -370,7 +370,7 @@ public class CinematicUI : MonoBehaviour
             while (traveledDistance < Mathf.Abs(newDistance))
             {
                 traveledDistance += Time.deltaTime * _ChangePositionSpeed;
-                _CaptainTexture.GetComponent<RectTransform>().position = new Vector3(_CaptainTexture.GetComponent<RectTransform>().position.x - Time.deltaTime * _ChangePositionSpeed, 540, 0);
+                _CaptainTexture.GetComponent<RectTransform>().position = new Vector3(_CaptainTexture.GetComponent<RectTransform>().position.x - Time.deltaTime * _ChangePositionSpeed, _CaptainTexture.GetComponent<RectTransform>().position.y, 0);
                 yield return null;
             }
             _CaptainInPosition = true;
