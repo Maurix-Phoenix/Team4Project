@@ -73,40 +73,51 @@
 
  During the gameplay the player need to collect 3 type of pick-ups for various reason.
 
- <table>
- <tbody>
- <tr align="center">
+<dl>
+<dd>
+ 
+<table>
+<tbody>
+ <tr align="left">
   <td>
    <img alt="PickUpBall" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_PickUp_CannonBall.gif">
   </td>
   <td>
-   <img alt="PickUpCoin" width="175" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_PickUp_Coin.gif">
-  </td>
-  <td>
-   <img alt="PickUpFlag" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_PickUp_Flag.gif">
-  </td>
-  <td>
-   <img alt="PickUpTreasure" width="225" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_PickUp_Treasure.gif">
-  </td>
- </tr>
-  <tr align="center">
-  <td>
-   
+      
    **Cannonballs**<br/>
    Used to shoot and kill the enemy ship, sea monsters or destroy mines.
    
+ </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+   <img alt="PickUpCoin" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_PickUp_Coin.gif">
+  </td>
   </td>
   <td>
    
-   **Coins**<br/>
+   **Doubloons**<br/>
    Collect them to obtain one of the skulls in the ranking system.
-
+   
   </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+    <img alt="PickUpFlag" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_PickUp_Flag.gif">
+     </td>
   <td>
    
    **Piece of Flag**<br/>
    Collected them to unlock the level flag.
    
+  </td>
+ </tr>
+
+<tr align="left">
+  <td>
+   <img alt="PickUpTreasure" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_PickUp_Treasure.gif">
   </td>
   <td>
    
@@ -116,14 +127,98 @@
   </td>
  </tr>
   
- </tbody>  
- </table>
- </dd>
-</dl>
+</tbody>  
+</table>
 
 # <h3>The Collectables</h3>
 
+
+
 # <h3>The Enemies Ships</h3>
+
+<dl>
+<dd>
+ 
+<table>
+<tbody>
+ <tr align="left">
+  <td>
+   <img alt="Normal" width="200" src="https://github.com/Maurix-Phoenix/Team4Project/blob/main/Gif/Curses_Ship_Normal.gif?raw=true">
+  </td>
+  <td>
+   
+   **Normal ship**<br/>
+   Hostile ship found on the sea surface.<br />
+   The player can defeat them by shooting.<br />
+   Can drop cannonballs.<br />
+   *Special Ability*: shooting forward, the cannonball can't go under the sea surface.<br />
+   
+ </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+   <img alt="FlagShip" width="200" src="https://github.com/Maurix-Phoenix/Team4Project/blob/main/Gif/Curses_Ship_Flag.gif?raw=true">
+  </td>
+  <td>
+   
+   **Flag ship**<br/>
+   Hostile ship found on the sea surface.<br />
+   The player can defeat them by shooting.<br />
+   Can drop cannonballs and a piece of Flag.<br />
+   *Special Ability*: drop sea mines.<br />
+   
+  </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+   <img alt="MortarShip" width="200" src="https://github.com/Maurix-Phoenix/Team4Project/blob/main/Gif/Curses_Ship_Mortar.gif?raw=true">
+  </td>
+  <td>
+   
+   **Mortar ship**<br/>
+   Hostile ship found on the sea surface.<br />
+   The player can defeat them by shooting.<br />
+   Can drop cannonballs.<br />
+   *Special Ability*: shooting upward, the cannonball can go under the sea surface.<br />
+   
+  </td>
+ </tr>
+
+<tr align="left">
+  <td>
+   <img alt="PirateShip" width="200" src="https://github.com/Maurix-Phoenix/Team4Project/blob/main/Gif/Curses_Ship_Pirate.gif?raw=true">
+  </td>
+  <td>
+   
+   **Pirate ship**<br/>
+   Hostile ship found on the sea surface.<br />
+   The player can defeat them by shooting.<br />
+   Can drop cannonballs.<br />
+   *Special Ability*: dash near player to steal resources like doubloons and cannonballs.<br />
+   
+  </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+   <img alt="BoatShip" width="200" src="https://github.com/Maurix-Phoenix/Team4Project/blob/main/Gif/Curses_Ship_Boat.gif?raw=true">
+  </td>
+  <td>
+   
+   **Boat**<br/>
+   Friendly ship found on the sea surface.<br />
+   Will drop cannonballs on touch and allow Pirates to go on Player ship to increase the crew.<br />
+   
+  </td>
+ </tr>
+   
+</tbody>  
+</table>
+
+</dd>
+</dl>
 
 # <h3>The Mines</h3>
 
