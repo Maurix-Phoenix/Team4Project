@@ -19,7 +19,7 @@
 # <h3>Requirements</h3>
  
 - If you want to play on PC run Curses!.exe file inside FT Build folder.<br>
-- If you want to play on Web Browser click here to play on itch.io.<br>
+- If you want to play on Web Browser click [here](https://anthony-with-th.itch.io/curses) to play on itch.io.<br>
 - If you want to edit or see the Unity project use **Unity 2022.3.4f1** (or greater)<br>
 
 <dl>
