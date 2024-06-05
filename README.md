@@ -32,7 +32,9 @@
  </dd>
 </dl>
 
-# <h3>The game</h3>
+___
+
+<h1>The game</h1>
 
 <dl>
  <dd>
@@ -61,7 +63,7 @@
   |**Vertical Movement**|**Shooting Ability**|
   |:---:|:---:|
   |<img alt="Player_Movement" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Player_Movement.gif">|<img alt="Player_Shoot1" width="300" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Player_Shoot1.gif"> <br /> <img align="center" alt="Player_Shoot2" width="300" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Player_Shoot2.gif">| 
-  |Press `W` or `↑` to move the ship to a UPPER lane. <br />Press `S` or `↓` to to move the ship to a LOWER lane.|Press `Spacebar` to SHOOT a cannonball from the ship.|
+  |Press `W` or `↑` to move the ship to a UPPER lane.<br />Press `S` or `↓` to to move the ship to a LOWER lane.<br />Player can move in 3 lane.|Press `Spacebar` to SHOOT a cannonball from the ship.|
  
  </dd>
 </dl>
@@ -71,10 +73,7 @@
 <dl>
  <dd>
 
- During the gameplay the player need to collect 3 type of pick-ups for various reason.
-
-<dl>
-<dd>
+ During the gameplay the player can collect pick-ups.
  
 <table>
 <tbody>
@@ -130,14 +129,60 @@
 </tbody>  
 </table>
 
+</dd>
+</dl>
+
 # <h3>The Collectables</h3>
 
+<dl>
+ <dd>
 
+ With the completition of a level the gameplay the player can obtain collectables.
+ 
+<table>
+<tbody>
+ <tr align="left">
+  <td>
+   <img alt="Skull" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_UI_LevelSelect.gif">
+  </td>
+  <td>
+      
+   **Skull**<br/>
+   In every level the player can obtain up to 3 skulls.<br />
+   Each Skull can be obtained with the completition of a specif task.<br />
+   Tasks and Skull obtained are showed on the Level Selection Menù.<br />
+   
+ </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+   <img alt="Complete" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_UI_Complete.png">
+  </td>
+  </td>
+  <td>
+  
+   **Flag**<br/>
+   In every level the player can obtain one Flag.<br />
+   Each Flag can be obtained by looting some piece of Flag from the level.<br />
+   Flags obtained are showed on the Flag Collection Menù.<br />
+   
+  </td>
+ </tr>
+  
+</tbody>  
+</table>
+
+</dd>
+</dl>
 
 # <h3>The Enemies Ships</h3>
 
 <dl>
 <dd>
+
+ During the gameplay the player can encounter some ship on the sea surface.<br />
+ Lifepoint is showed in the ship label UI if it is an hostile ship.<br />
  
 <table>
 <tbody>
@@ -220,14 +265,193 @@
 </dd>
 </dl>
 
-# <h3>The Mines</h3>
+# <h3>Mines and Coral</h3>
+
+
+<dl>
+ <dd>
+
+ During the gameplay the player can encounter mines and coral obstacles.
+ 
+<table>
+<tbody>
+ <tr align="left">
+  <td>
+   <img alt="RedMine" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Mine_Red.gif">
+  </td>
+  <td>
+      
+   **Red Mine**<br/>
+   Stationary.<br/>
+   Explosion on contact.<br/>
+   Can be destroyed by a cannonball.<br/>
+   
+ </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+     <img alt="YellowMine" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Mine_Yellow.gif">
+  </td>
+  <td>
+      
+  **Yellow Mine**<br/>
+   Stationary but will move on contact.<br/>
+   Delayed explosion after contact.<br/>
+   Can be destroyed by a cannonball.<br/>
+   
+  </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+    <img alt="BlueMine" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Mine_Blue.gif">
+  </td>
+  <td>
+      
+  **Blue Mine**<br/>
+   It float on multiple lane.<br/>
+   Explosion on contact.<br/>
+   Can be destroyed by a cannonball.<br/>
+   
+  </td>
+ </tr>
+
+<tr align="left">
+  <td>
+   <img alt="GreenMine" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Mine_Green.gif">
+  </td>
+  <td>
+      
+  **Green Mine**<br/>
+   It moves towards the seabed.<br/>
+   Dropped by the Flag Ship.<br />
+   Explosion on contact.<br/>
+   Can be destroyed by a cannonball.<br/>
+   
+  </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+   <img alt="Coral" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Animal_Coral.gif">
+  </td>
+  <td>
+      
+  **Coral**<br/>
+   Stationary.<br/>
+   Cannot be destroyed.<br/>
+   Slow the Player on contact.<br/>
+   Can appear in multiple color.<br/>
+   
+  </td>
+ </tr>
+  
+</tbody>  
+</table>
+
+</dd>
+</dl>
+
+
 
 # <h3>The Sea Monsters</h3>
 
-# <h3>Uselful Develpers Project Links</h3>
-* Drive: https://drive.google.com/drive/u/1/folders/1kxXlKOG0jZMuPN-GwBkns51fMyINjcKB
-* Trello: https://trello.com/b/WeCQrOT1/team-the-drowned-shared-project
+<dl>
+ <dd>
+
+ During the gameplay the player can encounter some deadly sea monster under the sea surface.<br />
+ Lifepoint is showed in the sea monsters label UI.<br />
+ 
+<table>
+<tbody>
+ <tr align="left">
+  <td>
+   <img alt="Shark" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Animal_Shark.gif">
+  </td>
+  <td>
+      
+   **Shark**<br/>
+   Damage on contact.<br/>
+   *Special Ability*: dash forwar when the player is in front of it.<br/>
+   
+   
+ </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+     <img alt="Whale" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Animal_Whale.gif">
+  </td>
+  <td>
+      
+   **Whale*<br/>
+   Damage on contact.<br/>
+   *Special Ability*: higher damage than other Sea Monster.<br/>
+   
+  </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+    <img alt="KillerWhale" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Animal_KillerWhale.gif">
+  </td>
+  <td>
+      
+   **Killer Whale**<br/>
+   Damage on contact.<br/>
+   *Special Ability*: on contact do damage and push player in a different lane.<br/>
+   
+  </td>
+ </tr>
+
+<tr align="left">
+  <td>
+   <img alt="Octopus" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Animal_Octopus.gif">
+  </td>
+  <td>
+      
+   **Octopus**<br/>
+   Damage over time after contact.<br/>
+   *Special Ability*: when near to player will follow and stick to him. After sticking it will do damage over time. The octopus will unstick if the player shoots at it or goes out of the water while sticking.<br/>
+   
+ </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+   <img alt="GiantSquid" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Animal_Squid.gif">
+  </td>
+  <td>
+      
+  **Giant Squid**<br/>
+   Damage on contact.<br/>
+   *Special Ability*: steal pickups from player upon contact.<br/>
+   
+  </td>
+ </tr>
+
+ <tr align="left">
+  <td>
+   <img alt="SharkPack" width="200" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_Animal_SharkPack.gif">
+  </td>
+  <td>
+      
+  **SharkPack**<br/>
+   Damage on contact.<br/>
+   *Special Ability*: istant player kill.<br/>
+   
+  </td>
+ </tr>
   
+</tbody>  
+</table>
+
+</dd>
+</dl>
+
+___
+
 # <h3>Credits</h3>
 
   <p align="left">
