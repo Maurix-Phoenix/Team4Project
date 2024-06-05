@@ -459,13 +459,13 @@ ___
   </p>
   
 * Designers:
-  * Alessandro Giacomini - GitHub: https://github.com/Chaiko113
-  * Stefano Tumminello - GitHub: https://github.com/StefanoTumminello
-  * Giovanni Lecce - GitHub: https://github.com/GiovaLc
-  * Matteo Martinis - https://github.com/emtwice
+  * Alessandro Giacomini - [GitHub](https://github.com/Chaiko113)
+  * Stefano Tumminello - [GitHub](https://github.com/StefanoTumminello)
+  * Giovanni Lecce - [GitHub](https://github.com/GiovaLc)
+  * Matteo Martinis - [GitHub](https://github.com/emtwice)
 * Programmers:
-  * Maurizio Fischetti - Github: https://github.com/Maurix-Phoenix
-  * Anthony Fedeli - GitHub: https://github.com/Anthony_With_Th
+  * Maurizio Fischetti - [GitHub](https://github.com/Maurix-Phoenix)
+  * Anthony Fedeli - [GitHub](https://github.com/Anthony_With_Th)
 * Eventual Third Parties credits:
   * For the Art Assets used in the game see the GameCredits.
   
