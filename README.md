@@ -454,10 +454,6 @@ ___
 
 # <h3>Credits</h3>
 
-  <p align="left">
-    <img alt="UI_Credits" width="500" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_UI_Credits.gif">
-  </p>
-  
 * Designers:
   * Alessandro Giacomini - GitHub: https://github.com/Chaiko113
   * Stefano Tumminello - GitHub: https://github.com/StefanoTumminello
