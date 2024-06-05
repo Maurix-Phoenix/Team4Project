@@ -27,7 +27,7 @@
   
   **ATTENTION!** <br />
   This game have a save system to keep track of the level progress.<br />
-  When unistall remember to delete the folder located in ....
+  When unistall remember to delete the folder located in `//Appdata\LocalLow\The Drowned`.
   
  </dd>
 </dl>
@@ -47,6 +47,7 @@ ___
   
   Curses! is a 3D horizontal scrolling hyper casual game in which the player is in charge of a ship in a piratical world.<br />
   He has to travel the seas facing battles against other ships, kill sea monsters and destroy defensive walls in order to reach the ending beach.<br/>
+  Will the player survive or will suffer against the End Wall boss before the final beach?<br />
   The game is structured in different levels, and the game has a ranking system that evaluates the completion of every level.<br/>
   In every level the player can obtain 3 skulls and can unlock a Flag.<br />
 
@@ -449,11 +450,14 @@ ___
 
 </dd>
 </dl>
-
 ___
 
 # <h3>Credits</h3>
 
+  <p align="left">
+    <img alt="UI_Credits" width="500" src="https://raw.githubusercontent.com/Maurix-Phoenix/Team4Project/main/Gif/Curses_UI_Credits.gif">
+  </p>
+  
 * Designers:
   * Alessandro Giacomini - GitHub: https://github.com/Chaiko113
   * Stefano Tumminello - GitHub: https://github.com/StefanoTumminello
